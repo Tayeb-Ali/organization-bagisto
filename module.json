@@ -1,0 +1,13 @@
+{
+    "name": "Organization",
+    "alias": "organization",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "DOCore\\Organization\\Providers\\OrganizationServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

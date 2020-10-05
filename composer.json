@@ -1,0 +1,23 @@
+{
+    "name": "dosystem/organization",
+    "description": "",
+    "authors": [
+        {
+            "name": "Digital Order",
+            "email": "web@digitalorder.net"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "DOCore\\Organization\\": ""
+        }
+    }
+}
