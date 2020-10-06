@@ -5,8 +5,11 @@ namespace DOCore\Organization\Http\Controllers\Admin;
 use DOCore\Organization\Http\Controllers\Admin\Controller;
 use DOCore\Organization\Models\Client;
 use DOCore\Organization\Models\Company;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 use Webkul\User\Models\Admin;
 
 class ClientController extends Controller
@@ -26,7 +29,7 @@ class ClientController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function index(Request $request)
     {
@@ -86,7 +89,7 @@ class ClientController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function create(Request $request)
     {
@@ -102,19 +105,19 @@ class ClientController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      *
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return RedirectResponse|Redirector
      */
     public function store(Request $request)
     {
         $this->validate($request, [
-			'name' => 'required',
-			'company_id' => 'required',
-			'group_id' => 'required'
-		]);
+            'name' => 'required',
+            'company_id' => 'required',
+            'group_id' => 'required'
+        ]);
         $requestData = $request->all();
-        
+
         Client::create($requestData);
 
         session()->flash('success', trans('organization::app.client.add-success', ['name' => 'Client']));
@@ -125,9 +128,9 @@ class ClientController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      *
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function show($id)
     {
@@ -139,9 +142,9 @@ class ClientController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      *
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function edit($id)
     {
@@ -154,20 +157,20 @@ class ClientController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param  int  $id
+     * @param Request $request
+     * @param int $id
      *
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return RedirectResponse|Redirector
      */
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-			'name' => 'required',
-			'company_id' => 'required',
-			'group_id' => 'required'
-		]);
+            'name' => 'required',
+            'company_id' => 'required',
+            'group_id' => 'required'
+        ]);
         $requestData = $request->all();
-        
+
         $client = Client::findOrFail($id);
         $client->update($requestData);
 
@@ -179,22 +182,19 @@ class ClientController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      *
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return RedirectResponse|Redirector
      */
     public function delete($id)
     {
         $client = Client::findOrFail($id);
 
-        if ($client->delete())
-        {
+        if ($client->delete()) {
             session()->flash('success', trans('organization::app.client.delete-success', ['name' => 'Client']));
 
             return redirect()->route($this->_config['redirect']);
-        }
-        else
-        {
+        } else {
             session()->flash('warning', trans('organization::app.client.delete-failure'));
 
             return redirect()->route($this->_config['redirect']);
