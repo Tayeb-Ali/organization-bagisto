@@ -96,7 +96,7 @@ class ClientController extends Controller
         $company = Company::all('company_id', 'description');
 
 
-        return view($this->_config['view'], compact(['client', 'company ']));
+        return view($this->_config['view'], compact(['client', 'company']));
     }
 
     /**
