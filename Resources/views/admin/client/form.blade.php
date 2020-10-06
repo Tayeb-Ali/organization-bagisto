@@ -5,8 +5,10 @@
         <label for="company_id" class="required">{{ __('organization::app.client.fields.company_id') }}</label>
 
 {{--        <input class="control" name="company_id" type="number" id="company_id" value="{{ isset($client->company_id) ? $client->company_id : ''}}" required>--}}
-        <select id="company_id" name="company_id" class="form-control" data-role="select-dropdown">
-          @foreach($company as $item)
+        <select id="company_id" name="company_id" class="form-control" data-role="control">
+          {!! Form::select('category_id', $cats, $select, ['class' => 'form-control']) !!}
+
+        @foreach($company as $item)
             <option value="{{$item->company_id}}">{{$item->description}}</option>
           @endforeach
         </select>
