@@ -24,7 +24,7 @@ return [
    ],
    [
       'key' => 'organization.company-branch',
-      'name' => 'organization::app.company-branch.index',
+      'name' => 'organization::app.companybranch.index',
       'route' => 'admin.company-branch.index',
       'sort' => '3',
       'icon-class' => ''
@@ -52,7 +52,7 @@ return [
    ],
    [
       'key' => 'organization.supplier-group',
-      'name' => 'organization::app.supplier-group.index',
+      'name' => 'organization::app.suppliergroup.index',
       'route' => 'admin.supplier-group.index',
       'sort' => '7',
       'icon-class' => '',
