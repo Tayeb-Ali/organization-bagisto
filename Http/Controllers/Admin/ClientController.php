@@ -4,6 +4,7 @@ namespace DOCore\Organization\Http\Controllers\Admin;
 
 use DOCore\Organization\Http\Controllers\Admin\Controller;
 use DOCore\Organization\Models\Client;
+use DOCore\Organization\Models\Company;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Webkul\User\Models\Admin;
@@ -92,8 +93,10 @@ class ClientController extends Controller
         $client = new Client;
 
         $client->fill($request->old());
+        $company = Company::all('id', 'name');
 
-        return view($this->_config['view'], compact('client'));
+
+        return view($this->_config['view'], compact(['client', 'company ']));
     }
 
     /**
@@ -143,8 +146,9 @@ class ClientController extends Controller
     public function edit($id)
     {
         $client = Client::findOrFail($id);
+        $company = Company::all('id', 'name');
 
-        return view($this->_config['view'], compact('client'));
+        return view($this->_config['view'], compact(['client', 'company']));
     }
 
     /**

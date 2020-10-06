@@ -32,6 +32,7 @@ return [
             'begin_bal_debit' => '',
             'curr_bal_credit' => '',
             'curr_bal_debit' => '',
+            'last_trns_type' => '',
             'amend_by' => '',
             'amend_date' => '',
             'acc_mgr' => '',
