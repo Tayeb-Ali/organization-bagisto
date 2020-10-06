@@ -7,7 +7,7 @@
 {{--        <input class="control" name="company_id" type="number" id="company_id" value="{{ isset($client->company_id) ? $client->company_id : ''}}" required>--}}
         <select id="company_id" name="company_id" class="form-control" data-role="select-dropdown">
           @foreach($company as $item)
-            <option value="{{$item->company_id}}">{{$item->name}}</option>
+            <option value="{{$item->company_id}}">{{$item->description}}</option>
           @endforeach
         </select>
           {!! $errors->first('company_id', '<span class="control-error">:message</span>') !!}

@@ -93,7 +93,7 @@ class ClientController extends Controller
         $client = new Client;
 
         $client->fill($request->old());
-        $company = Company::all('company_id', 'name');
+        $company = Company::all('company_id', 'description');
 
 
         return view($this->_config['view'], compact(['client', 'company ']));
@@ -146,7 +146,7 @@ class ClientController extends Controller
     public function edit($id)
     {
         $client = Client::findOrFail($id);
-        $company = Company::all('company_id', 'name');
+        $company = Company::all('company_id', 'description');
 
         return view($this->_config['view'], compact(['client', 'company']));
     }
