@@ -244,6 +244,7 @@ return [
         'create' => '',
         'general' => '',
         'title' => 'Supplier group',
+        'index' => 'Supplier group',
         'add-title' => '',
         'create-btn-title' => 'Create',
         'edit-title' => '',

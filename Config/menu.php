@@ -38,7 +38,7 @@ return [
    ],
    [
       'key' => 'organization.client-group',
-      'name' => 'organization::app.client-group.index',
+      'name' => 'organization::app.clientgroup.index',
       'route' => 'admin.client-group.index',
       'sort' => '5',
       'icon-class' => ''
