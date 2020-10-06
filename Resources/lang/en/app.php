@@ -3,40 +3,44 @@
 return [
     'organization' => [
         'title' => 'Organization Package',
-            client=> [
+            'client'=> [
             'add-title'=> '',
             'create-btn-title'=>'',
             'edit-title'=>'',
             'edit-btn-title'=>'',
-            'fields'=>[
+            'index'=>'',
+            'delete'=>'',
+            'show'=>'',
+            'title'=>'',
+            'fields'=> [
             'company_id'=>'',
             'group_id'=>'',
             'cust_type'=>'',
-             'name'=>'',
+            'name'=>'',
             'contact_person'=>'',
-              'phone'=>'',
-              'fax'=>'',
-               'pobox'=>'',
+            'phone'=>'',
+            'fax'=>'',
+            'pobox'=>'',
             'email'=>'',
-             'country'=>'',
+            'country'=>'',
             'city'=>'',
             'address'=>'',
             'have_branch'=>'',
             'status'=>'',
             'begin_bal_credit'=>'',
-             'begin_bal_debit'=>'',
+            'begin_bal_debit'=>'',
             'curr_bal_credit'=>'',
-             'curr_bal_debit'=>'',
+            'curr_bal_debit'=>'',
             'amend_by'=>'',
-             'amend_date'=>'',
+            'amend_date'=>'',
             'acc_mgr'=>'',
             'account_code'=>'',
             'last_trns_date'=>'',
             'last_trns_value'=>'',
             'begin_bal_credit_fc'=>'',
-             'begin_bal_debit_fc'=>'',
+            'begin_bal_debit_fc'=>'',
             'curr_bal_credit_fc'=>'',
-             'curr_bal_debit_fc'=>'',
+            'curr_bal_debit_fc'=>'',
             'currency_code'=>'',
             'allowance_days'=>'',
             'mship_to_address'=>'',
@@ -48,12 +52,28 @@ return [
             'analysis_code'=>'',
             'sprice_list'=>'',
             'vat_flag'=>'',
-            ]
-            ''=>'',
-            ''=>'',
-            ''=>'',
-            ''=>'',
-        ]
+            ],
+        ],
+        'clientgroup'=>[
+        'add-title'=>'',
+        'create-btn-title'=>'',
+        'fields'=>''[
+        'company_id'=>'',
+        'group_desc'=>'',
+        'account_code'=>'',
+        'status'=>'',
+        'amend_by'=>'',
+        'amend_date'=>'',
+        ],
+        'show'=>'',
+        'title'=>'',
+    ],
+'company'=>[
+    ''=>'',
+    ''=>'',
+    ''=>'',
+    ''=>'',
+]
     ],
 
     'admin' => [
@@ -73,4 +93,15 @@ return [
             'mainwidget' => 'Main Organization Widget'
         ]
     ],
+
+    'ui'=>[
+        'datagrid'=>[
+            'search'=>''
+            'items-per-page'=>'',
+            ''=>'',
+        ],
+        ''=>'',
+        ''=>'',
+        ''=>'',
+    ]
 ];
