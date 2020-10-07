@@ -59,6 +59,7 @@ return [
         'delete-success' => 'Client delete successfully',
         'add-success' => 'Client add successfully',
     ],
+
     'clientgroup' => [
         'add-title' => 'Add client group',
         'create-btn-title' => 'Create',
@@ -82,9 +83,11 @@ return [
         'delete-success' => 'Client group delete successfully',
         'add-success' => 'Client group add successfully',
     ],
+
     'company' => [
         'create' => 'Create Company',
         'title' => 'Company',
+        'index' => 'Company',
         'add-title' => 'Add Company',
         'create-btn-title' => 'Create',
         'edit-title' => 'edit Company',
@@ -157,6 +160,7 @@ return [
         'delete-success' => 'Company delete successfully',
         'add-success' => 'Company add successfully',
     ],
+
     'companybranch' => [
         'create' => 'Create Company branch',
         'general' => '',
@@ -198,6 +202,7 @@ return [
         'delete-success' => 'Company branch delete successfully',
         'add-success' => 'Company branch add successfully',
     ],
+
     'supplier' => [
         'create' => '',
         'general' => '',
@@ -255,6 +260,7 @@ return [
         'delete-success' => 'Supplier delete successfully',
         'add-success' => 'Supplier add successfully',
     ],
+    
     'suppliergroup' => [
         'create' => 'Create supplier group',
         'general' => 'general',
