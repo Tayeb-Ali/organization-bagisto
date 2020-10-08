@@ -16,6 +16,13 @@ class OrganizationDatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        // $this->call("OthersTableSeeder");
+        $this->call([
+            \CompanyTableSeeder::class,
+            \CompanyBranchTableSeeder::class,
+            \ClientGroupTableSeeder::class,
+            \ClientTableSeeder::class,
+            \SupplierGroupTableSeeder::class,
+            \SupplierTableSeeder::class
+        ]);
     }
 }
