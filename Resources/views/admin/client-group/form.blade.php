@@ -1,20 +1,13 @@
 <accordian :title="'{{ __('organization::app.clientgroup.general') }}'" :active="true">
     <div slot="body">
 
-{{--      <div class="control-group {{ $errors->has('company_id') ? 'has-error' : ''}}">--}}
-{{--        <label for="company_id" class="required">{{ __('organization::app.clientgroup.fields.company_id') }}</label>--}}
-
-{{--        <input class="control" name="company_id" type="number" id="company_id" value="{{ isset($clientgroup->company_id) ? $clientgroup->company_id : ''}}" required>--}}
-
-{{--          {!! $errors->first('company_id', '<span class="control-error">:message</span>') !!}--}}
-{{--      </div>--}}
 
       <div class="control-group {{ $errors->has('company_id') ? 'has-error' : ''}}">
         <label for="company_id" class="required">{{ __('organization::app.clientgroup.fields.company_id') }}</label>
 
         <select id="company_id" name="company_id" class="form-control" data-role="control">
           @foreach($company as $item)
-            <option class="control" value="{{ $item->id}}">{{$item->description}}</option>
+            <option value="{{ $item->company_id }}" {{$clientgroup->company_id == $item->company_id ? 'selected' : '' }}>{{ $item->description }}</option>
           @endforeach
         </select>
         {!! $errors->first('company_id', '<span class="control-error">:message</span>') !!}
