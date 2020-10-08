@@ -3,6 +3,7 @@
 namespace DOCore\Organization\Http\Controllers\Admin;
 
 use DOCore\Organization\Http\Controllers\Admin\Controller;
+use DOCore\Organization\Models\Company;
 use DOCore\Organization\Models\SupplierGroup;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -57,8 +58,9 @@ class SupplierGroupController extends Controller
         $suppliergroup = new SupplierGroup;
 
         $suppliergroup->fill($request->old());
+        $company = Company::all('company_id', 'description');
 
-        return view($this->_config['view'], compact('suppliergroup'));
+        return view($this->_config['view'], compact(['suppliergroup', 'company']));
     }
 
     /**
@@ -107,8 +109,9 @@ class SupplierGroupController extends Controller
     public function edit($id)
     {
         $suppliergroup = SupplierGroup::findOrFail($id);
+        $company = Company::all('company_id', 'description');
 
-        return view($this->_config['view'], compact('suppliergroup'));
+        return view($this->_config['view'], compact(['suppliergroup', 'company']));
     }
 
     /**

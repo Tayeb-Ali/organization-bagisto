@@ -4,6 +4,7 @@ namespace DOCore\Organization\Http\Controllers\Admin;
 
 use DOCore\Organization\Http\Controllers\Admin\Controller;
 use DOCore\Organization\Models\ClientGroup;
+use DOCore\Organization\Models\Company;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Webkul\User\Models\Admin;
@@ -57,8 +58,9 @@ class ClientGroupController extends Controller
         $clientgroup = new ClientGroup;
 
         $clientgroup->fill($request->old());
+        $company = Company::all('company_id', 'description');
 
-        return view($this->_config['view'], compact('clientgroup'));
+        return view($this->_config['view'], compact(['clientgroup', 'company']));
     }
 
     /**
@@ -107,8 +109,10 @@ class ClientGroupController extends Controller
     public function edit($id)
     {
         $clientgroup = ClientGroup::findOrFail($id);
+        $company = Company::all('company_id', 'description');
 
-        return view($this->_config['view'], compact('clientgroup'));
+
+        return view($this->_config['view'], compact('clientgroup', 'company'));
     }
 
     /**

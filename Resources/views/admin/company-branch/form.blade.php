@@ -1,14 +1,27 @@
 <accordian :title="'{{ __('organization::app.companybranch.general') }}'" :active="true">
     <div slot="body">
 
-        <div class="control-group {{ $errors->has('company_id') ? 'has-error' : ''}}">
+{{--        <div class="control-group {{ $errors->has('company_id') ? 'has-error' : ''}}">--}}
+{{--            <label for="company_id" class="">{{ __('organization::app.companybranch.fields.company_id') }}</label>--}}
+
+{{--            <input class="control" name="company_id" type="number" id="company_id"--}}
+{{--                   value="{{ isset($companybranch->company_id) ? $companybranch->company_id : ''}}">--}}
+
+{{--            {!! $errors->first('company_id', '<span class="control-error">:message</span>') !!}--}}
+{{--        </div>--}}
+         <div class="control-group {{ $errors->has('company_id') ? 'has-error' : ''}}">
             <label for="company_id" class="">{{ __('organization::app.companybranch.fields.company_id') }}</label>
 
-            <input class="control" name="company_id" type="number" id="company_id"
-                   value="{{ isset($companybranch->company_id) ? $companybranch->company_id : ''}}">
+             <select id="company_id" name="company_id" class="form-control" data-role="control">
+                 @foreach($company as $item)
+                     <option class="control" value="{{ $item->id}}">{{$item->description}}</option>
+                 @endforeach
+             </select>
 
             {!! $errors->first('company_id', '<span class="control-error">:message</span>') !!}
         </div>
+
+
         <div class="control-group {{ $errors->has('short_desc') ? 'has-error' : ''}}">
             <label for="short_desc"
                    class="required">{{ __('organization::app.companybranch.fields.short_desc') }}</label>

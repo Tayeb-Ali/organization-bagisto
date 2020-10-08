@@ -1,14 +1,28 @@
 <accordian :title="'{{ __('organization::app.supplier.general') }}'" :active="true">
     <div slot="body">
 
+        {{--        <div class="control-group {{ $errors->has('company_id') ? 'has-error' : ''}}">--}}
+        {{--            <label for="company_id" class="required">{{ __('organization::app.supplier.fields.company_id') }}</label>--}}
+
+        {{--            <input class="control" name="company_id" type="number" id="company_id"--}}
+        {{--                   value="{{ isset($supplier->company_id) ? $supplier->company_id : ''}}" required>--}}
+
+        {{--            {!! $errors->first('company_id', '<span class="control-error">:message</span>') !!}--}}
+        {{--        </div>--}}
+
         <div class="control-group {{ $errors->has('company_id') ? 'has-error' : ''}}">
             <label for="company_id" class="required">{{ __('organization::app.supplier.fields.company_id') }}</label>
 
-            <input class="control" name="company_id" type="number" id="company_id"
-                   value="{{ isset($supplier->company_id) ? $supplier->company_id : ''}}" required>
+            <select id="company_id" name="company_id" class="form-control" data-role="control">
+                @foreach($company as $item)
+                    <option class="control" value="{{ $item->id}}">{{$item->description}}</option>
+                @endforeach
+            </select>
 
             {!! $errors->first('company_id', '<span class="control-error">:message</span>') !!}
         </div>
+
+
         <div class="control-group {{ $errors->has('group_id') ? 'has-error' : ''}}">
             <label for="group_id" class="required">{{ __('organization::app.supplier.fields.group_id') }}</label>
 

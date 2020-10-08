@@ -3,6 +3,7 @@
 namespace DOCore\Organization\Http\Controllers\Admin;
 
 use DOCore\Organization\Http\Controllers\Admin\Controller;
+use DOCore\Organization\Models\Company;
 use DOCore\Organization\Models\Supplier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -92,8 +93,9 @@ class SupplierController extends Controller
         $supplier = new Supplier;
 
         $supplier->fill($request->old());
+        $company = Company::all('company_id', 'description');
 
-        return view($this->_config['view'], compact('supplier'));
+        return view($this->_config['view'], compact('supplier', 'company'));
     }
 
     /**
@@ -143,8 +145,9 @@ class SupplierController extends Controller
     public function edit($id)
     {
         $supplier = Supplier::findOrFail($id);
+        $company = Company::all('company_id', 'description');
 
-        return view($this->_config['view'], compact('supplier'));
+        return view($this->_config['view'], compact(['supplier', 'company']));
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace DOCore\Organization\Http\Controllers\Admin;
 
 use DOCore\Organization\Http\Controllers\Admin\Controller;
+use DOCore\Organization\Models\Company;
 use DOCore\Organization\Models\CompanyBranch;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -75,8 +76,9 @@ class CompanyBranchController extends Controller
         $companybranch = new CompanyBranch;
 
         $companybranch->fill($request->old());
+        $company = Company::all('company_id', 'description');
 
-        return view($this->_config['view'], compact('companybranch'));
+        return view($this->_config['view'], compact(['companybranch', 'company']));
     }
 
     /**
@@ -124,8 +126,9 @@ class CompanyBranchController extends Controller
     public function edit($id)
     {
         $companybranch = CompanyBranch::findOrFail($id);
+        $company = Company::all('company_id', 'description');
 
-        return view($this->_config['view'], compact('companybranch'));
+        return view($this->_config['view'], compact(['companybranch', 'company']));
     }
 
     /**
