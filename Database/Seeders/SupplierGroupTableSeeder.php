@@ -1,5 +1,7 @@
 <?php
 
+namespace DOCore\Organization\Database\Seeders;
+
 use DOCore\Organization\Models\SupplierGroup;
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;

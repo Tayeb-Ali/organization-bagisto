@@ -17,12 +17,12 @@ class OrganizationDatabaseSeeder extends Seeder
         Model::unguard();
 
         $this->call([
-            \CompanyTableSeeder::class,
-            \CompanyBranchTableSeeder::class,
-            \ClientGroupTableSeeder::class,
-            \ClientTableSeeder::class,
-            \SupplierGroupTableSeeder::class,
-            \SupplierTableSeeder::class
+            CompanyTableSeeder::class,
+            CompanyBranchTableSeeder::class,
+            ClientGroupTableSeeder::class,
+            ClientTableSeeder::class,
+            SupplierGroupTableSeeder::class,
+            SupplierTableSeeder::class
         ]);
     }
 }
