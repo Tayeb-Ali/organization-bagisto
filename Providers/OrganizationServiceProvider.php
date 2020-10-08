@@ -22,6 +22,9 @@ class OrganizationServiceProvider extends ServiceProvider
         app('arrilot.widget-namespaces')->registerNamespace('organization', '\DOCore\Organization\Widgets');
 
         Widget::group('dashboard')->position(0)->addWidget('organization::MainWidget');
+        $this->loadFactoriesFrom(DIR.'/../Database/Factory');
+
+
     }
 
     public function register()
