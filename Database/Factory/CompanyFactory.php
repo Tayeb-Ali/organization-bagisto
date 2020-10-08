@@ -2,6 +2,7 @@
 
 /** @var Factory $factory */
 
+use DOCore\Organization\Models\Company;
 use DOPackages\AHAmwal\Models\Payment;
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
@@ -9,11 +10,11 @@ use Illuminate\Support\Str;
 use Webkul\User\Models\Admin;
 use Carbon\Carbon;
 
-$factory->define(Payment::class, function (Faker $faker) {
+$factory->define(Company::class, function (Faker $faker) {
 
     return [
-        'description' => $faker->name,
-        'currency' => 'USD',
+        'description' => $faker->company,
+        'currency' => $faker->currencyCode,
         'status' => $faker->numberBetween(1, 3),
         'gl_ac_levels' => $faker->numberBetween(1, 3),
         'gl_ac_level_1_len' => $faker->numberBetween(1, 6),
