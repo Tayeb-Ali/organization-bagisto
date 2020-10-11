@@ -22,7 +22,9 @@ class OrganizationDatabaseSeeder extends Seeder
             ClientGroupTableSeeder::class,
             ClientTableSeeder::class,
             SupplierGroupTableSeeder::class,
-            SupplierTableSeeder::class
+            SupplierTableSeeder::class,
+            EmployGroupTableSeeder::class,
+            EmployTableSeeder::class
         ]);
     }
 }
