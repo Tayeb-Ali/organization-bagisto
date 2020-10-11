@@ -67,7 +67,7 @@
                 @foreach($client as $item)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $item->company_id }}</td><td>{{ $item->group_id }}</td><td>{{ $item->cust_type }}</td>
+                        <td>{{ $item->company->description }}</td><td>{{ $item->group_id }}</td><td>{{ $item->cust_type }}</td>
                         <td class="actions" style="white-space: nowrap; width: 100px;">
                           <div class="action">
                             <a href="{{ route('admin.client.show', $item->client_id) }}" title="View Client">

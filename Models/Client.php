@@ -13,6 +13,8 @@ class Client extends Model
      */
     protected $table = 'clients';
 
+     protected $with = ['company'];
+
     /**
     * The database primary key value.
     *
@@ -31,6 +33,12 @@ class Client extends Model
     {
         return $this->belongsTo('ClientGroup', 'group_id', 'group_id');
     }
+
+      public function company()
+      {
+          return $this->belongsTo('Company', 'company_id', 'company_id');
+      }
+
 
 
     
