@@ -44,20 +44,6 @@ return [
         'icon-class' => ''
     ],
     [
-        'key' => 'organization.employ',
-        'name' => 'organization::app.employ.index',
-        'route' => 'admin.employ.index',
-        'sort' => '4',
-        'icon-class' => ''
-    ],
-    [
-        'key' => 'organization.employ-group',
-        'name' => 'organization::app.employ-group.index',
-        'route' => 'admin.client-group.index',
-        'sort' => '5',
-        'icon-class' => ''
-    ],
-    [
         'key' => 'organization.supplier',
         'name' => 'organization::app.supplier.index',
         'route' => 'admin.supplier.index',
@@ -70,5 +56,19 @@ return [
         'route' => 'admin.supplier-group.index',
         'sort' => '7',
         'icon-class' => '',
+    ],
+    [
+        'key' => 'organization.employ',
+        'name' => 'organization::app.employ.index',
+        'route' => 'admin.employ.index',
+        'sort' => '8',
+        'icon-class' => ''
+    ],
+    [
+        'key' => 'organization.employ-group',
+        'name' => 'organization::app.employ-group.index',
+        'route' => 'admin.client-group.index',
+        'sort' => '9',
+        'icon-class' => ''
     ],
 ];

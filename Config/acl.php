@@ -187,25 +187,25 @@ return [
     [
         'key' => 'organization.employ-group',
         'name' => 'organization::app.acl.employ-group.index',
-        'route' => 'admin.employ_group.index',
+        'route' => 'admin.employ-group.index',
         'sort' => '5'
     ],
     [
         'key' => 'organization.employ-group.create',
         'name' => 'organization::app.acl.employ-group.create',
-        'route' => 'admin.employ_group.create',
+        'route' => 'admin.employ-group.create',
         'sort' => '1'
     ],
     [
         'key' => 'organization.employ-group.edit',
         'name' => 'organization::app.acl.employ-group.edit',
-        'route' => 'admin.employ_group.edit',
+        'route' => 'admin.employ-group.edit',
         'sort' => '2'
     ],
     [
         'key' => 'organization.employ-group.delete',
         'name' => 'organization::app.acl.employ-group.delete',
-        'route' => 'admin.employ_group.delete',
+        'route' => 'admin.employ-group.delete',
         'sort' => '3'
     ],
 ];
