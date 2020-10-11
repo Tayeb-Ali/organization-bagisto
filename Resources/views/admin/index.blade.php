@@ -5,9 +5,6 @@
 @stop
 
 @section('content')
-    <h1>Hello</h1>
-
-    <p>
-        This view is loaded from module: {!! config('organization.name') !!}
-    </p>
+   Welcome back!
+    مرحب بعودتك!
 @stop
