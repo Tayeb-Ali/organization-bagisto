@@ -80,7 +80,7 @@
                         @foreach($companybranch as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $item->company_id }}</td>
+                                <td>{{ $item->company->description }}</td>
                                 <td>{{ $item->short_desc }}</td>
                                 <td>{{ $item->description }}</td>
                                 <td class="actions" style="white-space: nowrap; width: 100px;">
