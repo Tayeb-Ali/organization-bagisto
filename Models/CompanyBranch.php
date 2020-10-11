@@ -12,12 +12,13 @@ class CompanyBranch extends Model
      * @var string
      */
     protected $table = 'company_branches';
+    protected $with = ['company'];
 
     /**
-    * The database primary key value.
-    *
-    * @var string
-    */
+     * The database primary key value.
+     *
+     * @var string
+     */
     protected $primaryKey = 'branch_id';
 
     /**
@@ -29,9 +30,8 @@ class CompanyBranch extends Model
 
     public function company()
     {
-        return $this->belongsTo('Company', 'company_id', 'company_id');
+        return $this->belongsTo(Company::class, 'company_id', 'company_id');
     }
 
 
-    
 }

@@ -12,12 +12,13 @@ class ClientGroup extends Model
      * @var string
      */
     protected $table = 'client_groups';
+    protected $with = ['clients'];
 
     /**
-    * The database primary key value.
-    *
-    * @var string
-    */
+     * The database primary key value.
+     *
+     * @var string
+     */
     protected $primaryKey = 'group_id';
 
     /**
@@ -27,11 +28,10 @@ class ClientGroup extends Model
      */
     protected $fillable = ['company_id', 'group_desc', 'account_code', 'status', 'amend_by', 'amend_date'];
 
-    public function Clients()
+    public function clients()
     {
-        return $this->hasMany('Client', 'group_id', 'group_id');
+        return $this->hasMany(Client::class, 'group_id', 'group_id');
     }
 
 
-    
 }

@@ -19,6 +19,8 @@ class SupplierGroup extends Model
     * @var string
     */
     protected $primaryKey = 'group_id';
+    protected $with = ['suppliers'];
+
 
     /**
      * Attributes that should be mass-assignable.
@@ -27,9 +29,9 @@ class SupplierGroup extends Model
      */
     protected $fillable = ['company_id', 'group_desc', 'account_code', 'status', 'amend_by', 'amend_date'];
 
-    public function Suppliers()
+    public function suppliers()
     {
-        return $this->hasMany('Supplier', 'group_id', 'group_id');
+        return $this->hasMany(Supplier::class, 'group_id', 'group_id');
     }
 
 
