@@ -33,5 +33,11 @@ class ClientGroup extends Model
         return $this->hasMany(Client::class, 'group_id', 'group_id');
     }
 
+    public function company()
+    {
+        return $this->hasOne(Company::class, 'company_id', 'company_id');
+    }
+
+
 
 }

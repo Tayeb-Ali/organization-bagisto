@@ -14,7 +14,7 @@ class EmployGroup extends Model
     protected $table = 'employ_groups';
 
 
-    protected $with = ['employ'];
+    protected $with = ['employ', 'company'];
 
     /**
      * The database primary key value.
@@ -34,6 +34,12 @@ class EmployGroup extends Model
     {
         return $this->hasMany(Employ::class, 'group_id', 'group_id');
     }
+
+    public function company()
+    {
+        return $this->hasOne(Company::class, 'company_id', 'company_id');
+    }
+
 
 
 }
