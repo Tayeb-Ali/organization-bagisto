@@ -57,8 +57,8 @@ class CreateEmploysTable extends Migration
             $table->string('sprice_list', 1)->nullable();
             $table->double('vat_flag')->nullable();
 
-            $table->foreign('company_id')->references('id')->on('companies');
-            $table->foreign('group_id')->references('id')->on('employ_groups');
+            // $table->foreign('company_id')->references('company_id')->on('companies');
+            // $table->foreign('group_id')->references('group_id')->on('employ_groups');
 
             $table->timestamps();
             });
