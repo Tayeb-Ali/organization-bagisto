@@ -28,7 +28,7 @@ class EmployGroup extends Model
      *
      * @var array
      */
-    protected $fillable = ['group_id', 'group_desc', 'account_code', 'status', 'amend_by', 'amend_date'];
+    protected $fillable = ['company_id', 'group_id', 'group_desc', 'account_code', 'status', 'amend_by', 'amend_date'];
 
     public function employ()
     {
