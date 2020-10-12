@@ -319,6 +319,7 @@ return [
             'curr_bal_credit' => 'curr_bal_credit',
             'curr_bal_debit' => 'curr_bal_debit',
             'last_trns_type' => 'last_trns_type',
+            'credit_limit' => 'Credit limit',
             'amend_by' => 'Amend by',
             'amend_date' => 'Amend date',
             'acc_mgr' => 'acc_mgr',
