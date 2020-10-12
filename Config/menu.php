@@ -67,7 +67,7 @@ return [
     [
         'key' => 'organization.employ-group',
         'name' => 'organization::app.employ-group.index',
-        'route' => 'admin.client-group.index',
+        'route' => 'admin.employ-group.index',
         'sort' => '9',
         'icon-class' => ''
     ],

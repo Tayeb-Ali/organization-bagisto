@@ -6,6 +6,7 @@
 
 @section('content')
     <div class="content">
+        tt
 
         <form method="POST" action="{{ route('admin.employ.create') }}">
 
