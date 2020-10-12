@@ -14,7 +14,7 @@ class EmployGroup extends Model
     protected $table = 'employ_groups';
 
 
-    protected $with = ['employ'];
+//    protected $with = ['employ', 'company'];
 
     /**
      * The database primary key value.
@@ -30,10 +30,10 @@ class EmployGroup extends Model
      */
     protected $fillable = ['company_id', 'group_id', 'group_desc', 'account_code', 'status', 'amend_by', 'amend_date'];
 
-    public function employ()
-    {
-        return $this->hasMany(Employ::class, 'group_id', 'group_id');
-    }
+//    public function employ()
+//    {
+//        return $this->hasMany(Employ::class, 'group_id', 'group_id');
+//    }
 
 //    public function company()
 //    {
