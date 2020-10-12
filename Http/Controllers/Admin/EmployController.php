@@ -4,6 +4,7 @@ namespace DOCore\Organization\Http\Controllers\Admin;
 
 use DOCore\Organization\Models\Employ;
 use DOCore\Organization\Models\Company;
+use DOCore\Organization\Models\EmployGroup;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
@@ -88,6 +89,7 @@ class EmployController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @param Request $request
      * @return View
      */
     public function create(Request $request)
@@ -96,9 +98,10 @@ class EmployController extends Controller
 
         $employ->fill($request->old());
         $company = Company::all('company_id', 'description');
+        $group = EmployGroup::all('group_id', 'group_desc');
 
 
-        return view($this->_config['view'], compact(['employ', 'company']));
+        return view($this->_config['view'], compact(['employ', 'company', 'group']));
     }
 
     /**
