@@ -12,7 +12,7 @@ class Supplier extends Model
      * @var string
      */
     protected $table = 'suppliers';
-    protected $with = ['company', 'group'];
+//    protected $with = ['company', 'group'];
 
     /**
      * The database primary key value.

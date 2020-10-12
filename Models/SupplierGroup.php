@@ -19,7 +19,7 @@ class SupplierGroup extends Model
     * @var string
     */
     protected $primaryKey = 'group_id';
-    protected $with = ['suppliers'];
+//    protected $with = ['suppliers'];
 
 
     /**
