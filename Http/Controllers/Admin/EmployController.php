@@ -152,8 +152,9 @@ class EmployController extends Controller
     {
         $employ = Employ::findOrFail($id);
         $company = Company::all('company_id', 'description');
+        $group = EmployGroup::all('group_id', 'group_desc');
 
-        return view($this->_config['view'], compact(['employ', 'company']));
+        return view($this->_config['view'], compact(['employ', 'company', 'group']));
     }
 
     /**
