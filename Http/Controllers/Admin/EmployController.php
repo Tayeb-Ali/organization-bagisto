@@ -118,7 +118,7 @@ class EmployController extends Controller
             'company_id' => 'required',
             'group_id' => 'required'
         ]);
-        return $requestData = $request->all();
+        $requestData = $request->all();
 
         Employ::create($requestData);
 
