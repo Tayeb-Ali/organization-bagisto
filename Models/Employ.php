@@ -13,7 +13,7 @@ class Employ extends Model
      */
     protected $table = 'employs';
 
-     protected $with = ['group', 'company'];
+     protected $with = ['group'];
 
     /**
     * The database primary key value.
@@ -34,10 +34,10 @@ class Employ extends Model
         return $this->belongsTo(EmployGroup::class, 'group_id', 'group_id');
     }
 
-      public function company()
-      {
-          return $this->belongsTo(Company::class, 'company_id', 'company_id');
-      }
+//      public function company()
+//      {
+//          return $this->belongsTo(Company::class, 'company_id', 'company_id');
+//      }
 
 
 
