@@ -1,6 +1,25 @@
 <accordian :title="'{{ __('organization::app.employ.general') }}'" :active="true">
     <div slot="body">
 
+       
+
+        <div class="control-group {{ $errors->has('cust_type') ? 'has-error' : ''}}">
+            <label for="cust_type" class="">{{ __('organization::app.employ.fields.cust_type') }}</label>
+
+            <input class="control" name="cust_type" type="text" id="cust_type"
+                   value="{{ isset($employ->cust_type) ? $employ->cust_type : ''}}">
+
+            {!! $errors->first('cust_type', '<span class="control-error">:message</span>') !!}
+        </div>
+        <div class="control-group {{ $errors->has('name') ? 'has-error' : ''}}">
+            <label for="name" class="required">{{ __('organization::app.employ.fields.name') }}</label>
+
+            <input class="control" name="name" type="text" id="name"
+                   value="{{ isset($employ->name) ? $employ->name : ''}}" required>
+
+            {!! $errors->first('name', '<span class="control-error">:message</span>') !!}
+        </div>
+
         <div class="control-group {{ $errors->has('company_id') ? 'has-error' : ''}}">
             <label for="company_id" class="required">{{ __('organization::app.employ.fields.company_id') }}</label>
 
@@ -24,23 +43,7 @@
             </select>
             {!! $errors->first('group_id', '<span class="control-error">:message</span>') !!}
         </div>
-
-        <div class="control-group {{ $errors->has('cust_type') ? 'has-error' : ''}}">
-            <label for="cust_type" class="">{{ __('organization::app.employ.fields.cust_type') }}</label>
-
-            <input class="control" name="cust_type" type="text" id="cust_type"
-                   value="{{ isset($employ->cust_type) ? $employ->cust_type : ''}}">
-
-            {!! $errors->first('cust_type', '<span class="control-error">:message</span>') !!}
-        </div>
-        <div class="control-group {{ $errors->has('name') ? 'has-error' : ''}}">
-            <label for="name" class="required">{{ __('organization::app.employ.fields.name') }}</label>
-
-            <input class="control" name="name" type="text" id="name"
-                   value="{{ isset($employ->name) ? $employ->name : ''}}" required>
-
-            {!! $errors->first('name', '<span class="control-error">:message</span>') !!}
-        </div>
+        
         <div class="control-group {{ $errors->has('contact_person') ? 'has-error' : ''}}">
             <label for="contact_person" class="">{{ __('organization::app.employ.fields.contact_person') }}</label>
 
@@ -49,6 +52,7 @@
 
             {!! $errors->first('contact_person', '<span class="control-error">:message</span>') !!}
         </div>
+
         <div class="control-group {{ $errors->has('phone') ? 'has-error' : ''}}">
             <label for="phone" class="">{{ __('organization::app.employ.fields.phone') }}</label>
 
