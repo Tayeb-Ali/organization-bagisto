@@ -80,7 +80,11 @@
                         @foreach($clientgroup as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $item->company_id }}</td>
+                                @if($item->company)
+                                    <td>{{ $item->company->description }}</td>
+                                @else
+                                    <td>{{ $item->company_id }}</td>
+                                @endif
                                 <td>{{ $item->group_desc }}</td>
                                 <td>{{ $item->account_code }}</td>
                                 <td class="actions" style="white-space: nowrap; width: 100px;">
