@@ -38,23 +38,8 @@
                 <option value="0">
                     {{ __('organization::app.company.sub-company.no') }}</option>
             </select>
-            {!! $errors->first('company_id', '<span class="control-error">:message</span>') !!}
-        </div>
-
-
-        <div class="control-group {{ $errors->has('has_sub_company') ? 'has-error' : ''}}">
-            <label for="has_sub_company">{{ __('organization::app.company.fields.has_sub_company') }}</label>
-
-            {{--            <label class="switch">--}}
-            <input type="checkbox" id="has_sub_company" name="has_sub_company"
-                   value="{{ isset($company->has_sub_company) ? $company->has_sub_company : 1}}">
-            {{--                        {{ old('has_sub_company') ? 'checked' : '' }}>--}}
-            {{--                <span class="slider round"></span>--}}
-            {{--            </label>--}}
             {!! $errors->first('has_sub_company', '<span class="control-error">:message</span>') !!}
-
         </div>
-
 
         <div class="control-group {{ $errors->has('gl_ac_levels') ? 'has-error' : ''}}">
             <label for="gl_ac_levels" class="required">{{ __('organization::app.company.fields.gl_ac_levels') }}</label>
