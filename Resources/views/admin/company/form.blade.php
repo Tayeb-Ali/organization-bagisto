@@ -33,7 +33,7 @@
 
 {{--            <label class="switch">--}}
                 <input type="checkbox" id="has_sub_company" name="has_sub_company"
-                       value="{{ isset($company->has_sub_company) ? $company->has_sub_company : ''}}">
+                       value="{{ isset($company->has_sub_company) ? $company->has_sub_company : 1}}">
 {{--                        {{ old('has_sub_company') ? 'checked' : '' }}>--}}
 {{--                <span class="slider round"></span>--}}
 {{--            </label>--}}
