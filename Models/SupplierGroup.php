@@ -36,7 +36,7 @@ class SupplierGroup extends Model
 
     public function company()
     {
-        return $this->hasOne(Supplier::class, 'company_id', 'company_id');
+        return $this->hasOne(Supplier::class, 'company_id', 'company_id')->select(['company_id', 'description']);
     }
 
 
