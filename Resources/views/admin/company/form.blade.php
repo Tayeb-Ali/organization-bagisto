@@ -35,7 +35,7 @@
                 <input type="checkbox" id="has_sub_company" name="has_sub_company"
                        value="{{ isset($company->has_sub_company) ? $company->has_sub_company : ''}}">
 {{--                        {{ old('has_sub_company') ? 'checked' : '' }}>--}}
-                <span class="slider round"></span>
+{{--                <span class="slider round"></span>--}}
 {{--            </label>--}}
             {!! $errors->first('has_sub_company', '<span class="control-error">:message</span>') !!}
 
