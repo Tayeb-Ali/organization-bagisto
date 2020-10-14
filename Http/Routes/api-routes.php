@@ -14,11 +14,11 @@
 
 Route::group(['prefix' => 'api'], function ($router) {
 
-    Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Api',
-        'middleware' => ['locale', 'theme', 'currency']], function ($router) {
-        Route::get('organization', 'OrganizationController@index')->defaults('_config', []);
-        Route::get('organization/{id}', 'OrganizationController@get')->defaults('_config', []);
-    });
+//    Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Api',
+//        'middleware' => ['locale', 'theme', 'currency']], function ($router) {
+//        Route::get('organization', 'OrganizationController@index')->defaults('_config', []);
+//        Route::get('organization/{id}', 'OrganizationController@get')->defaults('_config', []);
+//    });
 
     Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Api'], function () {
 
