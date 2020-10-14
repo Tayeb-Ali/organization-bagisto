@@ -117,7 +117,7 @@ class SubCompanyController extends Controller
     {
         $company = Company::findOrFail($id);
         $companys = Company::where('has_sub_company', 0)
-            ->where('ststus', 1)
+            ->where('status', 1)
             ->get(['company_id', 'description']);
 
         return view($this->_config['view'], compact(['company', 'companys']));
