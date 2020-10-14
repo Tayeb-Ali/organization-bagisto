@@ -101,6 +101,7 @@ return [
             'description' => 'Description',
             'currency' => 'currency',
             'status' => 'status',
+            'has_sub_company' => 'Accept adding sub-companies?',
             'gl_ac_levels' => 'gl_ac_levels',
             'gl_ac_level_1_len' => 'gl_ac_level_1_len',
             'gl_ac_level_2_len' => 'gl_ac_level_2_len',
