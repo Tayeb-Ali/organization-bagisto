@@ -14,7 +14,7 @@ class EmployGroup extends Model
     protected $table = 'employ_groups';
 
 
-//    protected $with = ['employ', 'company'];
+    protected $with = ['company'];
 
     /**
      * The database primary key value.
