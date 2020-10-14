@@ -1,6 +1,24 @@
 <accordian :title="'{{ __('organization::app.client.general') }}'" :active="true">
     <div slot="body">
 
+
+        <div class="control-group {{ $errors->has('cust_type') ? 'has-error' : ''}}">
+            <label for="cust_type" class="">{{ __('organization::app.client.fields.cust_type') }}</label>
+
+            <input class="control" name="cust_type" type="text" id="cust_type"
+                   value="{{ isset($client->cust_type) ? $client->cust_type : ''}}">
+
+            {!! $errors->first('cust_type', '<span class="control-error">:message</span>') !!}
+        </div>
+        <div class="control-group {{ $errors->has('name') ? 'has-error' : ''}}">
+            <label for="name" class="required">{{ __('organization::app.client.fields.name') }}</label>
+
+            <input class="control" name="name" type="text" id="name"
+                   value="{{ isset($client->name) ? $client->name : ''}}" required>
+
+            {!! $errors->first('name', '<span class="control-error">:message</span>') !!}
+        </div>
+
         <div class="control-group {{ $errors->has('company_id') ? 'has-error' : ''}}">
             <label for="company_id" class="required">{{ __('organization::app.client.fields.company_id') }}</label>
 
@@ -21,23 +39,8 @@
                    value="{{ isset($client->group_id) ? $client->group_id : ''}}" required>
 
             {!! $errors->first('group_id', '<span class="control-error">:message</span>') !!}
-        </div>
-        <div class="control-group {{ $errors->has('cust_type') ? 'has-error' : ''}}">
-            <label for="cust_type" class="">{{ __('organization::app.client.fields.cust_type') }}</label>
+        </div>'
 
-            <input class="control" name="cust_type" type="text" id="cust_type"
-                   value="{{ isset($client->cust_type) ? $client->cust_type : ''}}">
-
-            {!! $errors->first('cust_type', '<span class="control-error">:message</span>') !!}
-        </div>
-        <div class="control-group {{ $errors->has('name') ? 'has-error' : ''}}">
-            <label for="name" class="required">{{ __('organization::app.client.fields.name') }}</label>
-
-            <input class="control" name="name" type="text" id="name"
-                   value="{{ isset($client->name) ? $client->name : ''}}" required>
-
-            {!! $errors->first('name', '<span class="control-error">:message</span>') !!}
-        </div>
         <div class="control-group {{ $errors->has('contact_person') ? 'has-error' : ''}}">
             <label for="contact_person" class="">{{ __('organization::app.client.fields.contact_person') }}</label>
 
