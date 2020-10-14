@@ -20,7 +20,9 @@ Route::group(['prefix' => 'api'], function ($router) {
         Route::get('organization/{id}', 'OrganizationController@get')->defaults('_config', []);
     });
 
+    Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Api'], function () {
 
-    Route::get('company', 'CompanyApiController@index');
-    Route::get('company/{id}', 'CompanyApiController@show');
+        Route::get('company', 'CompanyApiController@index');
+        Route::get('company/{id}', 'CompanyApiController@show');
+    });
 });
