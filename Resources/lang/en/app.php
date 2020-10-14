@@ -165,6 +165,10 @@ return [
         'update-success' => 'Company update successfully',
         'delete-success' => 'Company delete successfully',
         'add-success' => 'Company add successfully',
+        'sub-company' => [
+            'yes' => 'Accept',
+            'no' => 'No'
+        ]
     ],
 
     'companybranch' => [
