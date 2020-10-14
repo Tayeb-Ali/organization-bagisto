@@ -14,12 +14,12 @@ class SupplierGroup extends Model
     protected $table = 'supplier_groups';
 
     /**
-    * The database primary key value.
-    *
-    * @var string
-    */
+     * The database primary key value.
+     *
+     * @var string
+     */
     protected $primaryKey = 'group_id';
-//    protected $with = ['suppliers'];
+    protected $with = ['company'];
 
 
     /**
@@ -34,6 +34,10 @@ class SupplierGroup extends Model
         return $this->hasMany(Supplier::class, 'group_id', 'group_id');
     }
 
+    public function company()
+    {
+        return $this->hasOne(Supplier::class, 'company_id', 'company_id');
+    }
 
-    
+
 }
