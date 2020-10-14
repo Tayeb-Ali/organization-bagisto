@@ -80,9 +80,9 @@ class ClientController extends Controller
                 ->orWhere('vat_flag', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-          return dd($client = Client::latest()->paginate($perPage));
+            $client = Client::latest()->paginate($perPage);
         }
-
+        return dd($client);
 //        return view($this->_config['view'], compact('client'));
     }
 
