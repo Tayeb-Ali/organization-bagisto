@@ -82,8 +82,8 @@ class ClientController extends Controller
         } else {
             $client = Client::latest()->paginate($perPage);
         }
-        return $client;
-//        return view($this->_config['view'], compact('client'));
+
+        return view($this->_config['view'], compact('client'));
     }
 
     /**
