@@ -12,7 +12,8 @@ class ClientGroup extends Model
      * @var string
      */
     protected $table = 'client_groups';
-    protected $with = ['clients'];
+
+    protected $with = ['company'];
 
     /**
      * The database primary key value.
