@@ -13,7 +13,7 @@ class CreateCompaniesTable extends Migration
      */
     public function up()
     {
-        Schema::create('companies', function (Blueprint $table){
+        Schema::create('companies', function (Blueprint $table) {
             $table->increments('company_id');
             $table->string('description', 100)->nullable();
             $table->string('currency', 10)->nullable();
@@ -77,8 +77,10 @@ class CreateCompaniesTable extends Migration
             $table->string('sub_cust_code_type', 1)->nullable();
             $table->string('sub_store_code_type', 1)->nullable();
             $table->string('short_desc', 25)->nullable();
+            $table->boolean('has_sub_company')->default(0);
+            $table->integer('company_parent_id')->unsigned()->nullable();
             $table->timestamps();
-            });
+        });
     }
 
     /**
