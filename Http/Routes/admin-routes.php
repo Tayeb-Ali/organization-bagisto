@@ -27,6 +27,16 @@ Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'midd
         Route::post('/edit/{id}', 'CompanyController@update')->defaults('_config', ['redirect' => 'admin.company.index'])->name('admin.company.update');
         Route::delete('/delete/{id}', 'CompanyController@delete')->defaults('_config', ['redirect' => 'admin.company.index'])->name('admin.company.delete');
     });
+
+    Route::prefix('admin/organization/company')->group(function () {
+        Route::get('/sub/', 'SubCompanyController@index')->defaults('_config',
+            ['view' => 'organization::admin.sub-company.index'])->name('admin.sub_company.index');
+        Route::get('/sub/edit/{id}', 'SubCompanyController@edit')->defaults('_config',
+            ['view' => 'organization::admin.sub-company.add'])->name('admin.sub_company.edit');
+        Route::post('/sub/edit/{id}', 'SubCompanyController@edit')->defaults('_config',
+            ['view' => 'organization::admin.sub-company.index'])->name('admin.sub_company.update');
+
+    });
 });
 
 
