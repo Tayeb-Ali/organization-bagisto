@@ -90,6 +90,7 @@ return [
         'create' => 'Create Company',
         'title' => 'Company',
         'index' => 'Company',
+        'general' => 'Company Form',
         'add-title' => 'Add Company',
         'create-btn-title' => 'Create',
         'edit-title' => 'edit Company',
