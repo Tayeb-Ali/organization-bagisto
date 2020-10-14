@@ -353,7 +353,7 @@ return [
         'add-title' => 'Add employ group',
         'create-btn-title' => 'Create',
         'edit-title' => 'edit employ',
-        'edit-btn-title' => 'Add',
+        'edit-btn-title' => 'save',
         'index' => 'Employ group',
         'delete' => 'delete',
         'show' => 'show',

@@ -4,6 +4,7 @@ namespace DOCore\Organization\Http\Controllers\Admin;
 
 use DOCore\Organization\Http\Controllers\Admin\Controller;
 use DOCore\Organization\Models\Client;
+use DOCore\Organization\Models\ClientGroup;
 use DOCore\Organization\Models\Company;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -97,9 +98,10 @@ class ClientController extends Controller
 
         $client->fill($request->old());
         $company = Company::all('company_id', 'description');
+        $group = ClientGroup::all('company_id', 'group_desc');
 
 
-        return view($this->_config['view'], compact(['client', 'company']));
+        return view($this->_config['view'], compact(['client', 'company', 'group']));
     }
 
     /**
@@ -150,8 +152,9 @@ class ClientController extends Controller
     {
         $client = Client::findOrFail($id);
         $company = Company::all('company_id', 'description');
+        $group = ClientGroup::all('company_id', 'group_desc');
 
-        return view($this->_config['view'], compact(['client', 'company']));
+        return view($this->_config['view'], compact(['client', 'company', 'group']));
     }
 
     /**
