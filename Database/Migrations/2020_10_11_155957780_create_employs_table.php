@@ -13,7 +13,7 @@ class CreateEmploysTable extends Migration
      */
     public function up()
     {
-        Schema::create('employs', function (Blueprint $table){
+        Schema::create('employs', function (Blueprint $table) {
             $table->increments('employ_id');
             $table->integer('company_id')->unsigned();
             $table->integer('group_id')->unsigned();
@@ -57,11 +57,11 @@ class CreateEmploysTable extends Migration
             $table->string('sprice_list', 1)->nullable();
             $table->double('vat_flag')->nullable();
 
-            // $table->foreign('company_id')->references('company_id')->on('companies');
-            // $table->foreign('group_id')->references('group_id')->on('employ_groups');
+            $table->foreign('company_id')->references('company_id')->on('companies');
+            $table->foreign('group_id')->references('group_id')->on('employ_groups');
 
             $table->timestamps();
-            });
+        });
     }
 
     /**

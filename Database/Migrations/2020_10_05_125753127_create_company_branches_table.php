@@ -13,7 +13,7 @@ class CreateCompanyBranchesTable extends Migration
      */
     public function up()
     {
-        Schema::create('company_branches', function (Blueprint $table){
+        Schema::create('company_branches', function (Blueprint $table) {
             $table->increments('branch_id');
             $table->integer('company_id')->unsigned();
             $table->string('short_desc', 25)->nullable();
@@ -39,8 +39,9 @@ class CreateCompanyBranchesTable extends Migration
             $table->string('bill_to_fax', 50)->nullable();
             $table->string('bill_to_city', 50)->nullable();
             $table->string('bill_to_country', 50)->nullable();
+            $table->foreign('company_id')->references('company_id')->on('companies');
             $table->timestamps();
-            });
+        });
     }
 
     /**

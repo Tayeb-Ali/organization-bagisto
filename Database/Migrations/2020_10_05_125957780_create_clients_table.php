@@ -13,7 +13,7 @@ class CreateClientsTable extends Migration
      */
     public function up()
     {
-        Schema::create('clients', function (Blueprint $table){
+        Schema::create('clients', function (Blueprint $table) {
             $table->increments('client_id');
             $table->integer('company_id')->unsigned();
             $table->integer('group_id')->unsigned();
@@ -56,8 +56,11 @@ class CreateClientsTable extends Migration
             $table->string('analysis_code', 20)->nullable();
             $table->string('sprice_list', 1)->nullable();
             $table->double('vat_flag')->nullable();
+            $table->foreign('company_id')->references('company_id')->on('companies');
+            $table->foreign('group_id')->references('group_id')->on('client_groups');
+
             $table->timestamps();
-            });
+        });
     }
 
     /**

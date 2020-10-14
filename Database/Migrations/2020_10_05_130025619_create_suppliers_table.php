@@ -13,7 +13,7 @@ class CreateSuppliersTable extends Migration
      */
     public function up()
     {
-        Schema::create('suppliers', function (Blueprint $table){
+        Schema::create('suppliers', function (Blueprint $table) {
             $table->increments('client_id');
             $table->integer('company_id')->unsigned();
             $table->integer('group_id')->unsigned();
@@ -56,8 +56,10 @@ class CreateSuppliersTable extends Migration
             $table->string('mship_to_city', 50)->nullable();
             $table->string('mship_to_pobox', 20)->nullable();
             $table->string('billing_contact_person', 20)->nullable();
+            $table->foreign('company_id')->references('company_id')->on('companies');
+            $table->foreign('group_id')->references('group_id')->on('supplier_groups');
             $table->timestamps();
-            });
+        });
     }
 
     /**
