@@ -29,7 +29,7 @@
         </div>
 
         <div class="control-group {{ $errors->has('has_sub_company') ? 'has-error' : ''}}">
-            <label for="has_sub_company">{{ __('admin::app.company.fields.has_sub_company') }}</label>
+            <label for="has_sub_company">{{ __('organization::app.company.fields.has_sub_company') }}</label>
 
             <label class="switch">
                 <input type="checkbox" id="has_sub_company" name="has_sub_company"
