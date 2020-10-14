@@ -39,7 +39,7 @@ class CreateCompanyBranchesTable extends Migration
             $table->string('bill_to_fax', 50)->nullable();
             $table->string('bill_to_city', 50)->nullable();
             $table->string('bill_to_country', 50)->nullable();
-            $table->foreign('company_id')->references('company_id')->on('companies');
+            $table->foreign('company_id')->references('company_id')->on('companies')->onDelete('cascade');
             $table->timestamps();
         });
     }

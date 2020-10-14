@@ -56,8 +56,8 @@ class CreateClientsTable extends Migration
             $table->string('analysis_code', 20)->nullable();
             $table->string('sprice_list', 1)->nullable();
             $table->double('vat_flag')->nullable();
-            $table->foreign('company_id')->references('company_id')->on('companies');
-            $table->foreign('group_id')->references('group_id')->on('client_groups');
+            $table->foreign('company_id')->references('company_id')->on('companies')->onDelete('cascade');
+            $table->foreign('group_id')->references('group_id')->on('client_groups')->onDelete('cascade');
 
             $table->timestamps();
         });

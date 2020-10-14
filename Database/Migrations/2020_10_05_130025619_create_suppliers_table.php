@@ -56,8 +56,8 @@ class CreateSuppliersTable extends Migration
             $table->string('mship_to_city', 50)->nullable();
             $table->string('mship_to_pobox', 20)->nullable();
             $table->string('billing_contact_person', 20)->nullable();
-            $table->foreign('company_id')->references('company_id')->on('companies');
-            $table->foreign('group_id')->references('group_id')->on('supplier_groups');
+            $table->foreign('company_id')->references('company_id')->on('companies')->onDelete('cascade');
+            $table->foreign('group_id')->references('group_id')->on('supplier_groups')->onDelete('cascade');
             $table->timestamps();
         });
     }
