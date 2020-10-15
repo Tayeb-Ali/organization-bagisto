@@ -7,7 +7,6 @@
                    class="required">{{ __('organization::app.company.sub-company.company_parent_id') }}</label>
 
             <select id="company_parent_id" name="company_parent_id" class="form-control" data-role="control">
-                <option value="0">{{ __('organization::app.company.sub-company.delete-sub-company') }}</option>
                 @foreach($companys as $item)
                     <option value="{{ $item->company_id }}" {{$company->company_parent_id == $item->company_id ? 'selected' : '' }}>{{ $item->description }}</option>
                 @endforeach
