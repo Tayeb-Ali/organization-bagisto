@@ -170,7 +170,9 @@ return [
             'company_parent_id' => 'Select Sub Company',
             'delete-sub-company' => 'Select Sub Company',
             'yes' => 'Accept',
-            'no' => 'No'
+            'no' => 'No',
+            'edit-btn-title' => 'Save',
+            'edit-title' => 'Sub Company',
         ]
     ],
 

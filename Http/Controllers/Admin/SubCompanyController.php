@@ -100,7 +100,8 @@ class SubCompanyController extends Controller
                 ->orWhere('short_desc', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $company = Company::latest()->paginate($perPage);
+            $company = Company::where('has_sub_company', 1)
+                ->latest()->paginate($perPage);
         }
 
         return view($this->_config['view'], compact('company'));
@@ -135,7 +136,7 @@ class SubCompanyController extends Controller
     {
         $input = $request->all();
         $input['status'] = 2;
-
+//return $input;
         $company = Company::findOrFail($id);
         $company->update($input);
 

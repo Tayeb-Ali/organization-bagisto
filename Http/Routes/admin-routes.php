@@ -33,8 +33,10 @@ Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'midd
             ['view' => 'organization::admin.sub-company.index'])->name('admin.sub_company.index');
         Route::get('/sub/edit/{id}', 'SubCompanyController@edit')->defaults('_config',
             ['view' => 'organization::admin.sub-company.add'])->name('admin.sub_company.edit');
-        Route::post('/sub/edit/{id}', 'SubCompanyController@edit')->defaults('_config',
-            ['view' => 'organization::admin.sub-company.index'])->name('admin.sub_company.update');
+        Route::post('sub/edit/{id}', 'SubCompanyController@update')->defaults('_config', ['redirect' => 'admin.sub_company.index'])->name('admin.company.update');
+
+//        Route::post('/sub/edit/{id}', 'SubCompanyController@update')->defaults('_config',
+//            ['view' => 'organization::admin.sub-company.index'])->name('admin.sub_company.update');
 
     });
 });
