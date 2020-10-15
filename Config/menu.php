@@ -71,4 +71,11 @@ return [
         'sort' => '9',
         'icon-class' => ''
     ],
+    [
+        'key' => 'organization.sub-company',
+        'name' => 'organization::app.sub-company.index',
+        'route' => 'admin.sub_company.index',
+        'sort' => '10',
+        'icon-class' => ''
+    ],
 ];
