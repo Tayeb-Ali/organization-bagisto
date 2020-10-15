@@ -3,4 +3,5 @@
 /.idea
 /.vscode
 /.vagrant
-/Providers/OrganizationServiceProvider.php
+#/Providers/OrganizationServiceProvider.php
+/Providers/*
