@@ -114,7 +114,7 @@ class CompanyController extends Controller
      */
     public function create(Request $request)
     {
-        $subCompany = Company::where('has_sub_company', 0)->get(['company_id', 'description']);
+        $subCompany = Company::where('has_sub_company', 1)->get(['company_id', 'description']);
         $company = new Company;
 
         $company->fill($request->old());
@@ -158,8 +158,15 @@ class CompanyController extends Controller
     public function show($id)
     {
         $company = Company::findOrFail($id);
+        if ($company->has_sub_company) {
+            $subCompany = Company::where('company_parent_id', $id)->get();
+            return view($this->_config['view'], compact('company', 'subCompany'));
+        }else{
+            $subCompany = '';
+            return view($this->_config['view'], compact('company', 'subCompany'));
+        }
 
-        return view($this->_config['view'], compact('company'));
+
     }
 
     /**
@@ -171,7 +178,7 @@ class CompanyController extends Controller
      */
     public function edit($id)
     {
-        $subCompany = Company::where('has_sub_company', 0)->get(['company_id', 'description']);
+        $subCompany = Company::where('has_sub_company', 1)->get(['company_id', 'description']);
         $company = Company::findOrFail($id);
 
         return view($this->_config['view'], compact('company', 'subCompany'));
@@ -218,7 +225,13 @@ class CompanyController extends Controller
         if ($company->parent_id) {
             session()->flash('success', trans('لا يمكن حذف شركة فرعية', ['name' => 'Company']));
             return redirect()->route($this->_config['redirect']);
-        } else {
+        }
+
+        if  ($company->has_sub_company) {
+            session()->flash('success', trans('لا يمكن حذف الشركة لوجود افرع', ['name' => 'Company']));
+            return redirect()->route($this->_config['redirect']);
+        }
+        else {
             session()->flash('warning', trans('organization::app.company.delete-failure'));
             return redirect()->route($this->_config['redirect']);
         }

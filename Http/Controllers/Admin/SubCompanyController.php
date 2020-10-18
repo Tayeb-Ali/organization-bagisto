@@ -146,4 +146,27 @@ class SubCompanyController extends Controller
     }
 
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param int $id
+     *
+     * @return RedirectResponse|Redirector
+     */
+    public function delete($id)
+    {
+        $company = Company::findOrFail($id);
+        $company->company_parent_id = null;
+        $company = $company->save();
+
+        if ($company) {
+            session()->flash('success', trans('organization::app.company.delete-success', ['name' => 'Company']));
+
+            return redirect()->route($this->_config['redirect']);
+        } else {
+            session()->flash('warning', trans('organization::app.company.delete-failure'));
+
+            return redirect()->route($this->_config['redirect']);
+        }
+    }
 }

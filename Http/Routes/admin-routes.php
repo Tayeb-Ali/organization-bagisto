@@ -34,6 +34,7 @@ Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'midd
         Route::get('/sub/edit/{id}', 'SubCompanyController@edit')->defaults('_config',
             ['view' => 'organization::admin.sub-company.add'])->name('admin.sub_company.edit');
         Route::post('sub/edit/{id}', 'SubCompanyController@update')->defaults('_config', ['redirect' => 'admin.sub_company.index'])->name('admin.sub_company.update');
+        Route::delete('sub/delete/{id}', 'SubCompanyController@delete')->defaults('_config', ['redirect' => 'admin.sub_company.index'])->name('admin.sub_company.delete');
     });
 });
 
