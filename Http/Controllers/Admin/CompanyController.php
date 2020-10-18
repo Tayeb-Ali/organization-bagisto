@@ -140,6 +140,12 @@ class CompanyController extends Controller
             'gl_ac_level_2_len' => 'required_if:gl_ac_levels,2'
         ]);
         $requestData = $request->all();
+        if ($request->has_sub_company) {
+            if ($request->company_parent_id) {
+                session()->flash('warning', trans(' خطا, لا يمكن اختيار شركة رئسيسة', ['name' => 'Company']));
+                return redirect()->back();
+            }
+        }
 
         Company::create($requestData);
 
@@ -161,7 +167,7 @@ class CompanyController extends Controller
         if ($company->has_sub_company) {
             $subCompany = Company::where('company_parent_id', $id)->get();
             return view($this->_config['view'], compact('company', 'subCompany'));
-        }else{
+        } else {
             $subCompany = '';
             return view($this->_config['view'], compact('company', 'subCompany'));
         }
@@ -204,6 +210,13 @@ class CompanyController extends Controller
         ]);
         $requestData = $request->all();
 
+        if ($request->has_sub_company) {
+            if ($request->company_parent_id) {
+                session()->flash('warning', trans(' خطا, لا يمكن اختيار شركة رئسيسة', ['name' => 'Company']));
+                return redirect()->back();
+            }
+        }
+
         $company = Company::findOrFail($id);
         $company->update($requestData);
 
@@ -219,7 +232,8 @@ class CompanyController extends Controller
      *
      * @return RedirectResponse|Redirector
      */
-    public function delete($id)
+    public
+    function delete($id)
     {
         $company = Company::findOrFail($id);
         if ($company->parent_id) {
@@ -227,11 +241,10 @@ class CompanyController extends Controller
             return redirect()->route($this->_config['redirect']);
         }
 
-        if  ($company->has_sub_company) {
+        if ($company->has_sub_company) {
             session()->flash('success', trans('لا يمكن حذف الشركة لوجود افرع', ['name' => 'Company']));
             return redirect()->route($this->_config['redirect']);
-        }
-        else {
+        } else {
             session()->flash('warning', trans('organization::app.company.delete-failure'));
             return redirect()->route($this->_config['redirect']);
         }
