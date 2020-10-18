@@ -4,8 +4,11 @@ namespace DOCore\Organization\Http\Controllers\Admin;
 
 use DOCore\Organization\Http\Controllers\Admin\Controller;
 use DOCore\Organization\Models\Company;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 use Webkul\User\Models\Admin;
 
 class CompanyController extends Controller
@@ -25,7 +28,8 @@ class CompanyController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\View\View
+     * @param Request $request
+     * @return View
      */
     public function index(Request $request)
     {
@@ -106,35 +110,37 @@ class CompanyController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function create(Request $request)
     {
+        $subCompany = Company::where('has_sub_company', 0)->get(['company_id', 'description']);
         $company = new Company;
 
         $company->fill($request->old());
 
-        return view($this->_config['view'], compact('company'));
+        return view($this->_config['view'], compact('company', 'subCompany'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      *
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return RedirectResponse|Redirector
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
     {
         $this->validate($request, [
-			'description' => 'required',
-			'gl_ac_levels' => 'required|numeric|min:1|max:9',
-			'gl_ac_level_0_len' => 'required|numeric',
-			'gl_ac_level_1_len' => 'required|numeric',
-			'gl_ac_level_2_len' => 'required_if:gl_ac_levels,2'
-		]);
+            'description' => 'required',
+            'gl_ac_levels' => 'required|numeric|min:1|max:9',
+            'gl_ac_level_0_len' => 'required|numeric',
+            'gl_ac_level_1_len' => 'required|numeric',
+            'gl_ac_level_2_len' => 'required_if:gl_ac_levels,2'
+        ]);
         $requestData = $request->all();
-        
+
         Company::create($requestData);
 
         session()->flash('success', trans('organization::app.company.add-success', ['name' => 'Company']));
@@ -145,9 +151,9 @@ class CompanyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      *
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function show($id)
     {
@@ -159,36 +165,38 @@ class CompanyController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      *
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function edit($id)
     {
+        $subCompany = Company::where('has_sub_company', 0)->get(['company_id', 'description']);
         $company = Company::findOrFail($id);
 
-        return view($this->_config['view'], compact('company'));
+        return view($this->_config['view'], compact('company', 'subCompany'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param  int  $id
+     * @param Request $request
+     * @param int $id
      *
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return RedirectResponse|Redirector
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-			'description' => 'required',
-			'gl_ac_levels' => 'required|numeric|min:1|max:9',
-			'gl_ac_level_0_len' => 'required|numeric',
-			'gl_ac_level_1_len' => 'required|numeric',
-			'gl_ac_level_2_len' => 'required_if:gl_ac_levels,2'
-		]);
+            'description' => 'required',
+            'gl_ac_levels' => 'required|numeric|min:1|max:9',
+            'gl_ac_level_0_len' => 'required|numeric',
+            'gl_ac_level_1_len' => 'required|numeric',
+            'gl_ac_level_2_len' => 'required_if:gl_ac_levels,2'
+        ]);
         $requestData = $request->all();
-        
+
         $company = Company::findOrFail($id);
         $company->update($requestData);
 
@@ -200,25 +208,29 @@ class CompanyController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      *
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return RedirectResponse|Redirector
      */
     public function delete($id)
     {
         $company = Company::findOrFail($id);
-
-        if ($company->delete())
-        {
-            session()->flash('success', trans('organization::app.company.delete-success', ['name' => 'Company']));
-
+        if ($company->parent_id) {
+            session()->flash('success', trans('لا يمكن حذف شركة فرعية', ['name' => 'Company']));
             return redirect()->route($this->_config['redirect']);
-        }
-        else
-        {
+        } else {
             session()->flash('warning', trans('organization::app.company.delete-failure'));
-
             return redirect()->route($this->_config['redirect']);
         }
+
+//        if ($company->delete()) {
+//            session()->flash('success', trans('organization::app.company.delete-success', ['name' => 'Company']));
+//
+//            return redirect()->route($this->_config['redirect']);
+//        } else {
+//            session()->flash('warning', trans('organization::app.company.delete-failure'));
+//
+//            return redirect()->route($this->_config['redirect']);
+//        }
     }
 }

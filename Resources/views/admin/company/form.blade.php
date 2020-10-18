@@ -30,16 +30,35 @@
 
 
         <div class="control-group {{ $errors->has('has_sub_company') ? 'has-error' : ''}}">
-            <label for="company_id" class="required">{{ __('organization::app.company.fields.has_sub_company') }}</label>
+            <label for="company_id"
+                   class="required">{{ __('organization::app.company.fields.has_sub_company') }}</label>
 
             <select id="has_sub_company" name="has_sub_company" class="form-control" data-role="control">
-                <option value="1">
-                    {{ __('organization::app.company.sub-company.yes') }}</option>
-                <option value="0">
+                <option value="0" {{$company->has_sub_company == 0? 'selected' : '' }}>
                     {{ __('organization::app.company.sub-company.no') }}</option>
+
+                <option value="1" {{$company->has_sub_company == 1 ? 'selected' : '' }}>
+                    {{ __('organization::app.company.sub-company.yes') }}</option>
             </select>
             {!! $errors->first('has_sub_company', '<span class="control-error">:message</span>') !!}
         </div>
+
+        <div class="control-group {{ $errors->has('company_id') ? 'has-error' : ''}}">
+            <label for="company_id"
+                   class="required">{{ __('organization::app.company.sub-company.company_parent_id') }}</label>
+
+            <select id="company_parent_id" name="company_parent_id" class="form-control" data-role="control">
+                @foreach($subCompany as $item)
+                    <option
+                        value="{{ $item->company_id }}" {{$company->company_parent_id == $item->company_id ? 'selected' : '' }}>{{ $item->description }}</option>
+                @endforeach
+                <option value="{{null}}" {{$company->company_parent_id == null ? 'selected' : '' }}>
+                    Non
+                </option>
+            </select>
+            {!! $errors->first('company_parent_id', '<span class="control-error">:message</span>') !!}
+        </div>
+
 
         <div class="control-group {{ $errors->has('gl_ac_levels') ? 'has-error' : ''}}">
             <label for="gl_ac_levels" class="required">{{ __('organization::app.company.fields.gl_ac_levels') }}</label>

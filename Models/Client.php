@@ -13,7 +13,7 @@ class Client extends Model
      */
     protected $table = 'clients';
 
-     protected $with = ['company', 'group'];
+    protected $with = ['company', 'group'];
 
     /**
      * The database primary key value.
