@@ -30,7 +30,7 @@
 
 
         <div class="control-group {{ $errors->has('has_sub_company') ? 'has-error' : ''}}">
-            <label for="company_id" class="required">{{ __('organization::app.employ.fields.has_sub_company') }}</label>
+            <label for="company_id" class="required">{{ __('organization::app.company.fields.has_sub_company') }}</label>
 
             <select id="has_sub_company" name="has_sub_company" class="form-control" data-role="control">
                 <option value="1">

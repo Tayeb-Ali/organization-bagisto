@@ -166,6 +166,7 @@ return [
         'delete-success' => 'Company delete successfully',
         'add-success' => 'Company add successfully',
         'sub-company' => [
+            'index' => 'Sub Company',
             'sub-company' => 'Select Sub Company',
             'company_parent_id' => 'Select Sub Company',
             'delete-sub-company' => 'Select Sub Company',

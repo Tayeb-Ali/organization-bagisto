@@ -23,6 +23,13 @@ return [
         'icon-class' => ''
     ],
     [
+        'key' => 'organization.company',
+        'name' => 'organization::app.company.index',
+        'route' => 'admin.company.index',
+        'sort' => '2',
+        'icon-class' => ''
+    ],
+    [
         'key' => 'organization.company-branch',
         'name' => 'organization::app.companybranch.index',
         'route' => 'admin.company-branch.index',
@@ -73,7 +80,7 @@ return [
     ],
     [
         'key' => 'organization.sub-company',
-        'name' => 'organization::app.sub-company.index',
+        'name' => 'organization::app.company.sub-company.index',
         'route' => 'admin.sub_company.index',
         'sort' => '10',
         'icon-class' => ''
