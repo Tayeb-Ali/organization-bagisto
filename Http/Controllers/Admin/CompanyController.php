@@ -2,15 +2,13 @@
 
 namespace DOCore\Organization\Http\Controllers\Admin;
 
-use DOCore\Organization\Http\Controllers\Admin\Controller;
+use DOCore\Organization\Http\Requests\CompanyRequest;
 use DOCore\Organization\Models\Company;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
-use Webkul\User\Models\Admin;
 
 class CompanyController extends Controller
 {
@@ -200,15 +198,15 @@ class CompanyController extends Controller
      * @return RedirectResponse|Redirector
      * @throws ValidationException
      */
-    public function update(Request $request, $id)
+    public function update(CompanyRequest $request, $id)
     {
-        $this->validate($request, [
-            'description' => 'required',
-            'gl_ac_levels' => 'required|numeric|min:1|max:9',
-            'gl_ac_level_0_len' => 'required|numeric',
-            'gl_ac_level_1_len' => 'required|numeric',
-            'gl_ac_level_2_len' => 'required_if:gl_ac_levels,2'
-        ]);
+//        $this->validate($request, [
+//            'description' => 'required',
+//            'gl_ac_levels' => 'required|numeric|min:1|max:9',
+//            'gl_ac_level_0_len' => 'required|numeric',
+//            'gl_ac_level_1_len' => 'required|numeric',
+//            'gl_ac_level_2_len' => 'required_if:gl_ac_levels,2'
+//        ]);
         $requestData = $request->all();
 
         if ($request->has_sub_company) {

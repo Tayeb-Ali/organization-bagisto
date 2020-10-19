@@ -27,6 +27,19 @@ class Company extends Model
     ];
 
     /**
+     * Validation rules
+     *
+     * @var array
+     */
+    public static $rules = [
+        'description' => 'required',
+        'gl_ac_levels' => 'required|numeric|min:1|max:9',
+        'gl_ac_level_0_len' => 'required|numeric',
+        'gl_ac_level_1_len' => 'required|numeric',
+        'gl_ac_level_2_len' => 'required_if:gl_ac_levels,2'
+    ];
+
+    /**
      * Attributes that should be mass-assignable.
      *
      * @var array
