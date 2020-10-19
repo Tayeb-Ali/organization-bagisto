@@ -143,7 +143,7 @@ class CompanyController extends Controller
         $requestData = $request->all();
         if ($request->has_sub_company) {
             if ($request->company_parent_id) {
-                session()->flash('warning', trans(' خطا, لا يمكن اختيار شركة رئسيسة', ['name' => 'Company']));
+                session()->flash('warning', trans('organization::app.company.delete-error1', ['name' => 'Company']));
                 return redirect()->back();
             }
         }
@@ -213,7 +213,7 @@ class CompanyController extends Controller
 
         if ($request->has_sub_company) {
             if ($request->company_parent_id) {
-                session()->flash('warning', trans(' خطا, لا يمكن اختيار شركة رئسيسة', ['name' => 'Company']));
+                session()->flash('warning', trans('organization::app.company.delete-error1', ['name' => 'Company']));
                 return redirect()->back();
             }
         }
@@ -238,12 +238,12 @@ class CompanyController extends Controller
         $company = Company::findOrFail($id);
 //         return $company;
         if ($company->company_parent_id) {
-            session()->flash('success', trans('لا يمكن حذف شركة فرعية', ['name' => 'Company']));
+            session()->flash('success', trans('organization::app.company.delete-error2', ['name' => 'Company']));
             return redirect()->route($this->_config['redirect']);
         }
 
         if (!isset($company->has_sub_company)) {
-            session()->flash('success', trans('لا يمكن حذف الشركة لوجود افرع', ['name' => 'Company']));
+            session()->flash('success', trans('organization::app.company.delete-error3', ['name' => 'Company']));
             return redirect()->route($this->_config['redirect']);
         }
         $companys = Company::where('company_parent_id', $id)->first();

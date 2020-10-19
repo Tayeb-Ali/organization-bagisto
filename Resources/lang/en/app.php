@@ -90,6 +90,7 @@ return [
         'create' => 'Create Company',
         'title' => 'Company',
         'index' => 'Company',
+        'show' => 'Company',
         'general' => 'Company Form',
         'add-title' => 'Add Company',
         'create-btn-title' => 'Create',
@@ -165,6 +166,10 @@ return [
         'update-success' => 'Company update successfully',
         'delete-success' => 'Company delete successfully',
         'add-success' => 'Company add successfully',
+        'delete-error1' => 'Error, it is not possible to choose a main company',
+        'delete-error2' => 'A sub-company cannot be deleted',
+        'delete-error3' => 'The company cannot be deleted because there are branches',
+        'delete-failure' => 'Failure',
         'sub-company' => [
             'index' => 'Main Company',
             'sub-company' => 'Select Main Company',
@@ -216,6 +221,7 @@ return [
         ],
         'update-success' => 'Company branch update successfully',
         'delete-success' => 'Company branch delete successfully',
+        'delete-failure' => 'Failure',
         'add-success' => 'Company branch add successfully',
     ],
 
