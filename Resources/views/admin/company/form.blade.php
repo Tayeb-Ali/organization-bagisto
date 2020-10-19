@@ -5,7 +5,7 @@
             <label for="description" class="required">{{ __('organization::app.company.fields.description') }}</label>
 
             <input class="control" name="description" type="text" id="description"
-                   value="{{ isset($company->description) ? $company->description : ''}}" >
+                   value="{{ isset($company->description) ? $company->description : ''}}" required>
 
             {!! $errors->first('description', '<span class="control-error">:message</span>') !!}
         </div>
