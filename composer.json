@@ -19,5 +19,8 @@
         "psr-4": {
             "DOCore\\Organization\\": ""
         }
+    },
+    "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.8"
     }
 }

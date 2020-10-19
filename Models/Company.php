@@ -20,6 +20,12 @@ class Company extends Model
     */
     protected $primaryKey = 'company_id';
 
+    protected $casts = [
+        'description' => 'string',
+        'has_sub_company' => 'boolean',
+        'company_parent_id' => 'number'
+    ];
+
     /**
      * Attributes that should be mass-assignable.
      *

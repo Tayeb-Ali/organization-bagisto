@@ -8,6 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 use Webkul\User\Models\Admin;
 
@@ -128,7 +129,7 @@ class CompanyController extends Controller
      * @param Request $request
      *
      * @return RedirectResponse|Redirector
-     * @throws \Illuminate\Validation\ValidationException
+     * @throws ValidationException
      */
     public function store(Request $request)
     {
@@ -197,7 +198,7 @@ class CompanyController extends Controller
      * @param int $id
      *
      * @return RedirectResponse|Redirector
-     * @throws \Illuminate\Validation\ValidationException
+     * @throws ValidationException
      */
     public function update(Request $request, $id)
     {
@@ -232,31 +233,27 @@ class CompanyController extends Controller
      *
      * @return RedirectResponse|Redirector
      */
-    public
-    function delete($id)
+    public function delete($id)
     {
         $company = Company::findOrFail($id);
-        if ($company->parent_id) {
+//         return $company;
+        if ($company->company_parent_id) {
             session()->flash('success', trans('لا يمكن حذف شركة فرعية', ['name' => 'Company']));
             return redirect()->route($this->_config['redirect']);
         }
 
-        if ($company->has_sub_company) {
+        if (!isset($company->has_sub_company)) {
             session()->flash('success', trans('لا يمكن حذف الشركة لوجود افرع', ['name' => 'Company']));
+            return redirect()->route($this->_config['redirect']);
+        }
+        $companys = Company::where('company_parent_id', $id)->first();
+        if (!$companys) {
+            $company->delete();
+            session()->flash('success', trans('organization::app.company.delete-success', ['name' => 'Company']));
             return redirect()->route($this->_config['redirect']);
         } else {
             session()->flash('warning', trans('organization::app.company.delete-failure'));
             return redirect()->route($this->_config['redirect']);
         }
-
-//        if ($company->delete()) {
-//            session()->flash('success', trans('organization::app.company.delete-success', ['name' => 'Company']));
-//
-//            return redirect()->route($this->_config['redirect']);
-//        } else {
-//            session()->flash('warning', trans('organization::app.company.delete-failure'));
-//
-//            return redirect()->route($this->_config['redirect']);
-//        }
     }
 }
