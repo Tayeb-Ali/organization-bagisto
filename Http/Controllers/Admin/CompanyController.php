@@ -50,6 +50,7 @@ class CompanyController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @param Request $request
      * @return View
      */
     public function create(Request $request)
@@ -65,20 +66,12 @@ class CompanyController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param CompanyRequest $request
      *
      * @return RedirectResponse|Redirector
-     * @throws ValidationException
      */
-    public function store(Request $request)
+    public function store(CompanyRequest $request)
     {
-        $this->validate($request, [
-            'description' => 'required',
-            'gl_ac_levels' => 'required|numeric|min:1|max:9',
-            'gl_ac_level_0_len' => 'required|numeric',
-            'gl_ac_level_1_len' => 'required|numeric',
-            'gl_ac_level_2_len' => 'required_if:gl_ac_levels,2'
-        ]);
         $requestData = $request->all();
         if ($request->has_sub_company) {
             if ($request->company_parent_id) {
@@ -103,7 +96,7 @@ class CompanyController extends Controller
      */
     public function show($id)
     {
-        $company = Company::findOrFail($id);
+         $company = Company::findOrFail($id);
         if ($company->has_sub_company) {
             $subCompany = Company::where('company_parent_id', $id)->get();
             return view($this->_config['view'], compact('company', 'subCompany'));

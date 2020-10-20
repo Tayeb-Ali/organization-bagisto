@@ -110,6 +110,7 @@
                 </table>
             @else
                 <p>Main company</p>
+                <p>{{$company->main->description}}</p>
             @endif
         </div>
     </div>

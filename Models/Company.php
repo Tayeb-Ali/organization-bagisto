@@ -12,6 +12,7 @@ class Company extends Model
      * @var string
      */
     protected $table = 'companies';
+    protected $with =['main'];
 
     /**
     * The database primary key value.
@@ -51,6 +52,10 @@ class Company extends Model
         return $this->hasMany(CompanyBranch::class, 'company_id', 'company_id');
     }
 
+    public function main()
+    {
+       return $this->hasOne(Company::class, 'company_parent_id', 'company_id');
+    }
 
     
 }

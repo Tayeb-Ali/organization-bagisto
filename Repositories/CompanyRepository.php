@@ -96,6 +96,5 @@ class CompanyRepository extends Repository
 
     public function create(array $data)
     {
-
     }
 }
