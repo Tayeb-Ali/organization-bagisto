@@ -79,7 +79,9 @@
                         @foreach($client as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
+                                @if($item->company)
                                 <td>{{ $item->company->description }}</td>
+                                @endif
                                 @if($item->group)
                                     <td>{{ $item->group->group_desc }}</td>
                                 @else

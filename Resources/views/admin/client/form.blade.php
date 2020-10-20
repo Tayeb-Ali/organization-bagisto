@@ -32,7 +32,7 @@
         </div>
 
         <div class="control-group {{ $errors->has('group_id') ? 'has-error' : ''}}">
-            <label for="company_id" class="required">{{ __('organization::app.client.fields.group_id') }}</label>
+            <label for="group_id" class="required">{{ __('organization::app.client.fields.group_id') }}</label>
 
             <select id="group_id" name="group_id" class="form-control" data-role="control">
 

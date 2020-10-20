@@ -98,7 +98,7 @@ class ClientController extends Controller
 
         $client->fill($request->old());
         $company = Company::all('company_id', 'description');
-        $group = ClientGroup::all('company_id', 'group_desc');
+        $group = ClientGroup::all('group_id', 'group_desc');
 
 
         return view($this->_config['view'], compact(['client', 'company', 'group']));
@@ -110,6 +110,7 @@ class ClientController extends Controller
      * @param Request $request
      *
      * @return RedirectResponse|Redirector
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
     {
