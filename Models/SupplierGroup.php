@@ -27,7 +27,7 @@ class SupplierGroup extends Model
      *
      * @var array
      */
-    protected $fillable = ['company_id', 'group_desc', 'account_code', 'status', 'amend_by', 'amend_date'];
+    protected $fillable = ['group_id' ,'company_id', 'group_desc', 'account_code', 'status', 'amend_by', 'amend_date'];
 
     public function suppliers()
     {

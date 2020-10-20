@@ -15,13 +15,18 @@
 
 
         <div class="control-group {{ $errors->has('group_id') ? 'has-error' : ''}}">
-            <label for="group_id" class="required">{{ __('organization::app.supplier.fields.group_id') }}</label>
+            <label for="company_id" class="required">{{ __('organization::app.supplier.fields.company_id') }}</label>
 
-            <input class="control" name="group_id" type="number" id="group_id"
-                   value="{{ isset($supplier->group_id) ? $supplier->group_id : ''}}" required>
+            <select id="group_id" name="group_id" class="form-control" data-role="control">
+                @foreach($group as $item)
+                    <option value="{{ $item->group_id }}" {{$supplier->group_id == $item->group_id ? 'selected' : '' }}>{{ $item->group_desc }}</option>
+                @endforeach
+            </select>
 
-            {!! $errors->first('group_id', '<span class="control-error">:message</span>') !!}
+            {!! $errors->first('company_id', '<span class="control-error">:message</span>') !!}
         </div>
+
+
         <div class="control-group {{ $errors->has('supp_type') ? 'has-error' : ''}}">
             <label for="supp_type" class="">{{ __('organization::app.supplier.fields.supp_type') }}</label>
 

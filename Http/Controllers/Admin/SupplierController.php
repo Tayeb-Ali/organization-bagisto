@@ -5,8 +5,12 @@ namespace DOCore\Organization\Http\Controllers\Admin;
 use DOCore\Organization\Http\Controllers\Admin\Controller;
 use DOCore\Organization\Models\Company;
 use DOCore\Organization\Models\Supplier;
+use DOCore\Organization\Models\SupplierGroup;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 use Webkul\User\Models\Admin;
 
 class SupplierController extends Controller
@@ -26,7 +30,7 @@ class SupplierController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function index(Request $request)
     {
@@ -86,7 +90,7 @@ class SupplierController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function create(Request $request)
     {
@@ -94,16 +98,18 @@ class SupplierController extends Controller
 
         $supplier->fill($request->old());
         $company = Company::all('company_id', 'description');
+        $group = SupplierGroup::all('group_id', 'group_desc');
 
-        return view($this->_config['view'], compact('supplier', 'company'));
+        return view($this->_config['view'], compact('supplier', 'company', 'group'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      *
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return RedirectResponse|Redirector
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
     {
@@ -126,7 +132,7 @@ class SupplierController extends Controller
      *
      * @param  int  $id
      *
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function show($id)
     {
@@ -140,23 +146,24 @@ class SupplierController extends Controller
      *
      * @param  int  $id
      *
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function edit($id)
     {
         $supplier = Supplier::findOrFail($id);
         $company = Company::all('company_id', 'description');
+        $group = SupplierGroup::all('group_id', 'group_desc');
 
-        return view($this->_config['view'], compact(['supplier', 'company']));
+        return view($this->_config['view'], compact(['supplier', 'company', 'group']));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @param  int  $id
      *
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return RedirectResponse|Redirector
      */
     public function update(Request $request, $id)
     {
@@ -180,7 +187,7 @@ class SupplierController extends Controller
      *
      * @param  int  $id
      *
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return RedirectResponse|Redirector
      */
     public function delete($id)
     {
