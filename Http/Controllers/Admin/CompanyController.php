@@ -96,7 +96,7 @@ class CompanyController extends Controller
      */
     public function show($id)
     {
-         $company = Company::findOrFail($id);
+        $company = Company::with('main')->findOrFail($id);
         if ($company->has_sub_company) {
             $subCompany = Company::where('company_parent_id', $id)->get();
             return view($this->_config['view'], compact('company', 'subCompany'));
@@ -104,7 +104,6 @@ class CompanyController extends Controller
             $subCompany = '';
             return view($this->_config['view'], compact('company', 'subCompany'));
         }
-
 
     }
 

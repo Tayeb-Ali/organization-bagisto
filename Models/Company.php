@@ -12,7 +12,6 @@ class Company extends Model
      * @var string
      */
     protected $table = 'companies';
-    protected $with =['main'];
 
     /**
     * The database primary key value.
