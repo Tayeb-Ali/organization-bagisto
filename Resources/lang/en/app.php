@@ -169,6 +169,7 @@ return [
         'delete-error1' => 'Error, it is not possible to choose a main company',
         'delete-error2' => 'A sub-company cannot be deleted',
         'delete-error3' => 'The company cannot be deleted because there are branches',
+        'delete-error4' => 'لا يمكن تعديل وضع الشركة لوجود افرع',
         'delete-failure' => 'Failure',
         'sub-company' => [
             'index' => 'Main Company',

@@ -133,12 +133,10 @@ class CompanyController extends Controller
     public function update(CompanyRequest $request, $id)
     {
         $requestData = $request->all();
-
-        if ($request->has_sub_company) {
-            if ($request->company_parent_id) {
-                session()->flash('warning', trans('organization::app.company.delete-error1', ['name' => 'Company']));
-                return redirect()->back();
-            }
+        $companyChek = Company::where('company_parent_id', $id)->first();
+        if ($companyChek) {
+            session()->flash('warning', trans('organization::app.company.delete-error4', ['name' => 'Company']));
+            return redirect()->back();
         }
 
         $company = Company::findOrFail($id);
