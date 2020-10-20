@@ -110,7 +110,11 @@
                 </table>
             @else
                 <p>Main company</p>
+            @if($company->main)
                 <p>{{$company->main->description}}</p>
+                @else
+                <p>non!</p>
+            @endif
             @endif
         </div>
     </div>
