@@ -136,12 +136,15 @@ class CompanyController extends Controller
     public function update(CompanyRequest $request, $id)
     {
         $requestData = $request->all();
-        $companyChek = Company::where('company_parent_id', $id)->first();
-        if ($companyChek) {
-            session()->flash('warning', trans('organization::app.company.delete-error4', ['name' => 'Company']));
-            return redirect()->back();
-        }
-        elseif ($request->has_sub_company && $companyChek || $request->company_parent_id){
+        $companyHaveSub = Company::where('company_parent_id', $id)->get()->count();
+        $companyHasMain = Company::where('company_id', $id)->get('company_parent_id')->count();
+//        return ['sub'=> $companyHaveSub, 'main'=> $companyHasMain, 'data'=>$requestData];
+//        if ($companyChek) {
+////            session()->flash('warning', trans('organization::app.company.delete-error4', ['name' => 'Company']));
+////            return redirect()->back();
+////        }
+//        if ($request->has_sub_company && $companyHaveSub && $request->company_parent_id && $companyHasMain){
+        if ($request->has_sub_company &&  $request->company_parent_id ){
             session()->flash('warning', trans('organization::app.company.delete-error1', ['name' => 'Company']));
             return redirect()->back();
         }
