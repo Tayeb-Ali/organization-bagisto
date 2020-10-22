@@ -82,7 +82,9 @@
                                 @if($item->company)
                                 <td>{{ $item->company->description }}</td>
                                 @endif
-                                <td>{{ $item->group->group_desc }}</td>
+                                @if($item->group)
+                                    <td>{{ $item->group->group_desc }}</td>
+                                @endif
                                 <td>{{ $item->supp_type }}</td>
                                 <td class="actions" style="white-space: nowrap; width: 100px;">
                                     <div class="action">

@@ -13,7 +13,7 @@ class Employ extends Model
      */
     protected $table = 'employs';
 
-    protected $with = ['company'];
+    protected $with = ['company', 'group'];
 
     /**
      * The database primary key value.
