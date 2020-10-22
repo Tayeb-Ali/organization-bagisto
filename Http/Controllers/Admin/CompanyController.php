@@ -141,7 +141,7 @@ class CompanyController extends Controller
             session()->flash('warning', trans('organization::app.company.delete-error4', ['name' => 'Company']));
             return redirect()->back();
         }
-        elseif ($request->has_sub_company){
+        elseif ($request->has_sub_company && $companyChek || $request->company_parent_id){
             session()->flash('warning', trans('organization::app.company.delete-error1', ['name' => 'Company']));
             return redirect()->back();
         }
