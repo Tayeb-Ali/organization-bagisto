@@ -2,11 +2,16 @@
 
 namespace DOCore\Organization\Providers;
 
+use DOCore\Organization\Http\View\Composers\CompanyComposer;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Widget;
 
 class OrganizationServiceProvider extends ServiceProvider
 {
+    /**
+     *
+     */
     public function boot()
     {
         $this->loadRoutesFrom(__DIR__ . '/../Http/Routes/admin-routes.php');
@@ -22,9 +27,9 @@ class OrganizationServiceProvider extends ServiceProvider
 //        app('arrilot.widget-namespaces')->registerNamespace('organization', '\DOCore\Organization\Widgets');
 
 //        Widget::group('dashboard')->position(0)->addWidget('organization::MainWidget');
-        $this->loadFactoriesFrom(__DIR__.'/../Database/Factory');
+        $this->loadFactoriesFrom(__DIR__ . '/../Database/Factory');
 
-
+        View::composer(['organization::admin.helper.company-dropdown'], CompanyComposer::class);
     }
 
     public function register()

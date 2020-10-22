@@ -7,7 +7,7 @@
 @section('content')
     <div class="content">
 
-        <form method="POST" action="{{ route('admin.employ.edit', $employ>employ_id) }}">
+        <form method="POST" action="{{ route('admin.employ.edit', $employ->employ_id) }}">
 
             <div class="page-header">
                 <div class="page-title">

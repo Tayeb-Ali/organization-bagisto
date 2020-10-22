@@ -98,11 +98,11 @@ class EmployController extends Controller
         $employ = new Employ;
 
         $employ->fill($request->old());
-        $company = Company::all('company_id', 'description');
+//        $company = Company::all('company_id', 'description');
         $group = EmployGroup::all('group_id', 'group_desc');
 
 
-        return view($this->_config['view'], compact(['employ', 'company', 'group']));
+        return view($this->_config['view'], compact(['employ', 'group']));
     }
 
     /**
@@ -147,10 +147,10 @@ class EmployController extends Controller
     public function edit($id)
     {
         $employ = Employ::findOrFail($id);
-        $company = Company::all('company_id', 'description');
+//        $company = Company::all('company_id', 'description');
         $group = EmployGroup::all('group_id', 'group_desc');
 
-        return view($this->_config['view'], compact(['employ', 'company', 'group']));
+        return view($this->_config['view'], compact(['employ', 'group']));
     }
 
     /**
