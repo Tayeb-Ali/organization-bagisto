@@ -170,6 +170,7 @@ return [
         'delete-error2' => 'A sub-company cannot be deleted',
         'delete-error3' => 'The company cannot be deleted because there are branches',
         'delete-error4' => 'لا يمكن تعديل وضع الشركة لوجود افرع',
+        'delete-error5' => 'لا يمكن حذف الشركة لوجود ارتطباتاط',
         'delete-failure' => 'Failure',
         'sub-company' => [
             'index' => 'Main Company',
@@ -415,5 +416,9 @@ return [
             'search' => 'Search',
             'items-per-page' => 'Items per page'
         ]
+    ],
+
+    'delete-error' => [
+        'message1'=> 'لا يمكن حذف لوجود ارتباطات اخرى'
     ]
 ];

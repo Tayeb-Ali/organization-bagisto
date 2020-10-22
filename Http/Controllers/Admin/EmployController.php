@@ -2,6 +2,7 @@
 
 namespace DOCore\Organization\Http\Controllers\Admin;
 
+use DOCore\Organization\Http\Requests\EmployRequest;
 use DOCore\Organization\Models\Employ;
 use DOCore\Organization\Models\Company;
 use DOCore\Organization\Models\EmployGroup;
@@ -107,17 +108,12 @@ class EmployController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param EmployRequest $request
      *
      * @return RedirectResponse|Redirector
      */
-    public function store(Request $request)
+    public function store(EmployRequest $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'company_id' => 'required',
-            'group_id' => 'required'
-        ]);
         $requestData = $request->all();
 
         Employ::create($requestData);
@@ -160,18 +156,13 @@ class EmployController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param EmployRequest $request
      * @param int $id
      *
      * @return RedirectResponse|Redirector
      */
-    public function update(Request $request, $id)
+    public function update(EmployRequest $request, $id)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'company_id' => 'required',
-            'group_id' => 'required'
-        ]);
         $requestData = $request->all();
 
         $employ = Employ::findOrFail($id);

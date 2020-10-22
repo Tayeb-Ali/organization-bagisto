@@ -2,6 +2,9 @@
 
 namespace DOCore\Organization\Http\Controllers\Admin;
 
+use DOCore\Organization\Models\Client;
+use DOCore\Organization\Models\Employ;
+use DOCore\Organization\Models\Supplier;
 use  DOCore\Organization\Repositories\CompanyRepository;
 use DOCore\Organization\Http\Requests\CompanyRequest;
 use DOCore\Organization\Models\Company;
@@ -156,8 +159,10 @@ class CompanyController extends Controller
      */
     public function delete($id)
     {
+        $employ = Employ::where('company_id', $id)->get()->count();
+        $supplier = Supplier::where('company_id', $id)->get()->count();
+        $client = Client::where('company_id', $id)->get()->count();
         $company = Company::findOrFail($id);
-//         return $company;
         if ($company->company_parent_id) {
             session()->flash('success', trans('organization::app.company.delete-error2', ['name' => 'Company']));
             return redirect()->route($this->_config['redirect']);
@@ -165,7 +170,10 @@ class CompanyController extends Controller
 
         if (!isset($company->has_sub_company)) {
             session()->flash('success', trans('organization::app.company.delete-error3', ['name' => 'Company']));
-            return redirect()->route($this->_config['redirect']);
+            return redirect()->back();
+        } elseif ($supplier || $employ || $client) {
+            session()->flash('success', trans('organization::app.company.delete-error5', ['name' => 'Company']));
+            return redirect() - back();
         }
         $companys = Company::where('company_parent_id', $id)->first();
         if (!$companys) {

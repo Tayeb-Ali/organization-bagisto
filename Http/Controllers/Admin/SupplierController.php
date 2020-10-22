@@ -3,6 +3,7 @@
 namespace DOCore\Organization\Http\Controllers\Admin;
 
 use DOCore\Organization\Http\Controllers\Admin\Controller;
+use DOCore\Organization\Http\Requests\SupplierRequest;
 use DOCore\Organization\Models\Company;
 use DOCore\Organization\Models\Supplier;
 use DOCore\Organization\Models\SupplierGroup;
@@ -106,20 +107,14 @@ class SupplierController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param SupplierRequest $request
      *
      * @return RedirectResponse|Redirector
-     * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request)
+    public function store(SupplierRequest $request)
     {
-        $this->validate($request, [
-			'name' => 'required',
-			'company_id' => 'required',
-			'group_id' => 'required'
-		]);
         $requestData = $request->all();
-        
+
         Supplier::create($requestData);
 
         session()->flash('success', trans('organization::app.supplier.add-success', ['name' => 'Supplier']));
@@ -130,7 +125,7 @@ class SupplierController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      *
      * @return View
      */
@@ -144,7 +139,7 @@ class SupplierController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      *
      * @return View
      */
@@ -160,20 +155,15 @@ class SupplierController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param  int  $id
+     * @param SupplierRequest $request
+     * @param int $id
      *
      * @return RedirectResponse|Redirector
      */
-    public function update(Request $request, $id)
+    public function update(SupplierRequest $request, $id)
     {
-        $this->validate($request, [
-			'name' => 'required',
-			'company_id' => 'required',
-			'group_id' => 'required'
-		]);
         $requestData = $request->all();
-        
+
         $supplier = Supplier::findOrFail($id);
         $supplier->update($requestData);
 
@@ -185,7 +175,7 @@ class SupplierController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      *
      * @return RedirectResponse|Redirector
      */
@@ -193,14 +183,11 @@ class SupplierController extends Controller
     {
         $supplier = Supplier::findOrFail($id);
 
-        if ($supplier->delete())
-        {
+        if ($supplier->delete()) {
             session()->flash('success', trans('organization::app.supplier.delete-success', ['name' => 'Supplier']));
 
             return redirect()->route($this->_config['redirect']);
-        }
-        else
-        {
+        } else {
             session()->flash('warning', trans('organization::app.supplier.delete-failure'));
 
             return redirect()->route($this->_config['redirect']);

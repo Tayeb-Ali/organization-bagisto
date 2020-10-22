@@ -21,7 +21,9 @@ class CreateEmployGroupsTable extends Migration
             $table->string('status', 10)->nullable();
             $table->string('amend_by', 10)->nullable();
             $table->dateTime('amend_date')->nullable();
-             $table->foreign('company_id')->references('company_id')->on('companies')->onDelete('cascade');
+             $table->foreign('company_id')->references('company_id')
+                 ->on('companies')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

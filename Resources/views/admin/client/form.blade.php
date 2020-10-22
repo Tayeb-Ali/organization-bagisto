@@ -37,7 +37,7 @@
             <select id="group_id" name="group_id" class="form-control" data-role="control">
 
                 @foreach($group as $item)
-                    <option value="{{ $item->group_id }}" {{$client->group_id == $item->group_id ? 'selected' : '' }}>{{ $item->group_desc }}</option>
+                    <option value="{{ $item->group_id }}" {{$client->group_id == $item->group_id ? 'selected' : '' }}>{{ $item->group_desc}}</option>
                 @endforeach
             </select>
             {!! $errors->first('group_id', '<span class="control-error">:message</span>') !!}

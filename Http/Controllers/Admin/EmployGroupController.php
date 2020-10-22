@@ -2,6 +2,7 @@
 
 namespace DOCore\Organization\Http\Controllers\Admin;
 
+use DOCore\Organization\Models\Employ;
 use DOCore\Organization\Models\EmployGroup;
 use DOCore\Organization\Models\Company;
 use Illuminate\Http\RedirectResponse;
@@ -153,7 +154,10 @@ class EmployGroupController extends Controller
     {
         $employGroup = EmployGroup::findOrFail($id);
 
-        if ($employGroup->delete()) {
+        if (Employ::where('group_id', $id)->get()->count()) {
+            session()->flash('warning', trans('organization::app.delete-error.message1'));
+            return redirect()->back();
+        } elseif ($employGroup->delete()) {
             session()->flash('success', trans('organization::app.employ-group.delete-success', ['name' => 'EmployGroup']));
 
             return redirect()->route($this->_config['redirect']);

@@ -3,6 +3,7 @@
 namespace DOCore\Organization\Http\Controllers\Admin;
 
 use DOCore\Organization\Http\Controllers\Admin\Controller;
+use DOCore\Organization\Http\Requests\ClientRequest;
 use DOCore\Organization\Models\Client;
 use DOCore\Organization\Models\ClientGroup;
 use DOCore\Organization\Models\Company;
@@ -107,18 +108,12 @@ class ClientController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param ClientRequest $request
      *
      * @return RedirectResponse|Redirector
-     * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request)
+    public function store(ClientRequest $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'company_id' => 'required',
-            'group_id' => 'required'
-        ]);
         $requestData = $request->all();
 
         Client::create($requestData);
@@ -153,7 +148,7 @@ class ClientController extends Controller
     {
         $client = Client::findOrFail($id);
         $company = Company::all('company_id', 'description');
-        $group = ClientGroup::all('company_id', 'group_desc');
+        $group = ClientGroup::all('group_id', 'group_desc');
 
         return view($this->_config['view'], compact(['client', 'company', 'group']));
     }
@@ -161,18 +156,13 @@ class ClientController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param ClientRequest $request
      * @param int $id
      *
      * @return RedirectResponse|Redirector
      */
-    public function update(Request $request, $id)
+    public function update(ClientRequest $request, $id)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'company_id' => 'required',
-            'group_id' => 'required'
-        ]);
         $requestData = $request->all();
 
         $client = Client::findOrFail($id);
