@@ -16,7 +16,7 @@ return [
         'title' => 'client',
         'fields' => [
             'company_id' => 'Company',
-            'group_id' => 'Clint group',
+            'group_id' => 'Client group',
             'cust_type' => 'Customer Type',
             'name' => 'Name',
             'contact_person' => 'Contact person',
