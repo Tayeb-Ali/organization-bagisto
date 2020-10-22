@@ -69,7 +69,7 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>{{ trans('organization::app.employ-group.fields.company_id') }}</th>
+{{--                            <th>{{ trans('organization::app.employ-group.fields.company_id') }}</th>--}}
                             <th>{{ trans('organization::app.employ-group.fields.group_desc') }}</th>
                             <th>{{ trans('organization::app.employ-group.fields.account_code') }}</th>
                             <th>Actions</th>
@@ -79,10 +79,11 @@
                         <tbody>
                         @foreach($employGroup as $item)
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                @if($item->company)
-                                    <td>{{ $item->company->description}}</td>
-                                @endif
+{{--                                <td>{{ $loop->iteration }}</td>--}}
+{{--                                @if($item->company)--}}
+{{--                                    <td>{{ $item->company->description}}</td>--}}
+{{--                                @endif--}}
+                                <td>{{ $item->group_id }}</td>
                                 <td>{{ $item->group_desc }}</td>
                                 <td>{{ $item->account_code }}</td>
                                 <td class="actions" style="white-space: nowrap; width: 100px;">
