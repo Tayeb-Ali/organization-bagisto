@@ -16,7 +16,7 @@ return [
         'title' => 'client',
         'fields' => [
             'company_id' => 'Company',
-            'group_id' => 'Group',
+            'group_id' => 'Clint group',
             'cust_type' => 'Customer Type',
             'name' => 'Name',
             'contact_person' => 'Contact person',
@@ -241,7 +241,7 @@ return [
         'delete' => 'Delete',
         'fields' => [
             'company_id' => 'Company',
-            'group_id' => 'Group',
+            'group_id' => 'Supplier Group',
             'supp_type' => 'supplier Type',
             'name' => 'Name',
             'contact_person' => 'Contact person',
@@ -324,7 +324,7 @@ return [
         'general' => 'Employ',
         'fields' => [
             'company_id' => 'Company Name',
-            'group_id' => 'Group',
+            'group_id' => 'Employ Group',
             'cust_type' => 'Customer Type',
             'name' => 'Name',
             'contact_person' => 'Contact person',
