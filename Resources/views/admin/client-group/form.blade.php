@@ -3,6 +3,25 @@
 
 
         <div class="row">
+            <div class="control-group col-6{{ $errors->has('group_desc') ? 'has-error' : ''}}">
+                <label for="group_desc"
+                       class="required">{{ __('organization::app.clientgroup.fields.group_desc') }}</label>
+
+                <input class="control" name="group_desc" type="text" id="group_desc"
+                       value="{{ isset($clientgroup->group_desc) ? $clientgroup->group_desc : ''}}" required>
+
+                {!! $errors->first('group_desc', '<span class="control-error">:message</span>') !!}
+            </div>
+            <div class="control-group col-6 {{ $errors->has('account_code') ? 'has-error' : ''}}">
+                <label for="account_code" class="">{{ __('organization::app.clientgroup.fields.account_code') }}</label>
+
+                <input class="control" name="account_code" type="text" id="account_code"
+                       value="{{ isset($clientgroup->account_code) ? $clientgroup->account_code : ''}}">
+
+                {!! $errors->first('account_code', '<span class="control-error">:message</span>') !!}
+            </div>
+        </div>
+        <div class="row">
             <div class="control-group col-6 {{ $errors->has('company_id') ? 'has-error' : ''}}">
                 <label for="company_id"
                        class="required">{{ __('organization::app.clientgroup.fields.company_id') }}</label>
@@ -14,25 +33,7 @@
                 </select>
                 {!! $errors->first('company_id', '<span class="control-error">:message</span>') !!}
             </div>
-            <div class="control-group col-6{{ $errors->has('group_desc') ? 'has-error' : ''}}">
-                <label for="group_desc"
-                       class="required">{{ __('organization::app.clientgroup.fields.group_desc') }}</label>
 
-                <input class="control" name="group_desc" type="text" id="group_desc"
-                       value="{{ isset($clientgroup->group_desc) ? $clientgroup->group_desc : ''}}" required>
-
-                {!! $errors->first('group_desc', '<span class="control-error">:message</span>') !!}
-            </div>
-        </div>
-        <div class="row">
-            <div class="control-group col-6 {{ $errors->has('account_code') ? 'has-error' : ''}}">
-                <label for="account_code" class="">{{ __('organization::app.clientgroup.fields.account_code') }}</label>
-
-                <input class="control" name="account_code" type="text" id="account_code"
-                       value="{{ isset($clientgroup->account_code) ? $clientgroup->account_code : ''}}">
-
-                {!! $errors->first('account_code', '<span class="control-error">:message</span>') !!}
-            </div>
             <div class="control-group col-6{{ $errors->has('status') ? 'has-error' : ''}}">
                 <label for="status" class="">{{ __('organization::app.clientgroup.fields.status') }}</label>
 

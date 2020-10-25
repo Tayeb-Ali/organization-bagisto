@@ -1,6 +1,25 @@
 <accordian :title="'{{ __('organization::app.supplier.general') }}'" :active="true">
     <div slot="body">
 
+
+        <div class="row">
+            <div class="control-group col-6 {{ $errors->has('name') ? 'has-error' : ''}}">
+                <label for="name" class="required">{{ __('organization::app.supplier.fields.name') }}</label>
+
+                <input class="control" name="name" type="text" id="name"
+                       value="{{ isset($supplier->name) ? $supplier->name : ''}}" required>
+
+                {!! $errors->first('name', '<span class="control-error">:message</span>') !!}
+            </div>
+            <div class="control-group col-6 {{ $errors->has('supp_type') ? 'has-error' : ''}}">
+                <label for="supp_type" class="">{{ __('organization::app.supplier.fields.supp_type') }}</label>
+
+                <input class="control" name="supp_type" type="text" id="supp_type"
+                       value="{{ isset($supplier->supp_type) ? $supplier->supp_type : ''}}">
+
+                {!! $errors->first('supp_type', '<span class="control-error">:message</span>') !!}
+            </div>
+        </div>
         <div class="row">
             <div class="control-group col-6 {{ $errors->has('company_id') ? 'has-error' : ''}}">
                 <label for="company_id"
@@ -24,25 +43,6 @@
                 </select>
 
                 {!! $errors->first('company_id', '<span class="control-error">:message</span>') !!}
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="control-group col-6 {{ $errors->has('supp_type') ? 'has-error' : ''}}">
-                <label for="supp_type" class="">{{ __('organization::app.supplier.fields.supp_type') }}</label>
-
-                <input class="control" name="supp_type" type="text" id="supp_type"
-                       value="{{ isset($supplier->supp_type) ? $supplier->supp_type : ''}}">
-
-                {!! $errors->first('supp_type', '<span class="control-error">:message</span>') !!}
-            </div>
-            <div class="control-group col-6 {{ $errors->has('name') ? 'has-error' : ''}}">
-                <label for="name" class="required">{{ __('organization::app.supplier.fields.name') }}</label>
-
-                <input class="control" name="name" type="text" id="name"
-                       value="{{ isset($supplier->name) ? $supplier->name : ''}}" required>
-
-                {!! $errors->first('name', '<span class="control-error">:message</span>') !!}
             </div>
         </div>
         <div class="row">

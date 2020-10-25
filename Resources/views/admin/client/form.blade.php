@@ -2,15 +2,6 @@
     <div slot="body">
 
         <div class="row">
-            <div class="control-group col col-6  {{ $errors->has('cust_type') ? 'has-error' : ''}}">
-                <label for="cust_type" class="">{{ __('organization::app.client.fields.cust_type') }}</label>
-
-                <input class="control" name="cust_type" type="text" id="cust_type"
-                       value="{{ isset($client->cust_type) ? $client->cust_type : ''}}">
-
-                {!! $errors->first('cust_type', '<span class="control-error">:message</span>') !!}
-            </div>
-
             <div class="control-group {{ $errors->has('name') ? 'has-error' : ''}}">
                 <label for="name" class="required">{{ __('organization::app.client.fields.name') }}</label>
 
@@ -18,6 +9,14 @@
                        value="{{ isset($client->name) ? $client->name : ''}}" required>
 
                 {!! $errors->first('name', '<span class="control-error">:message</span>') !!}
+            </div>
+            <div class="control-group col col-6  {{ $errors->has('cust_type') ? 'has-error' : ''}}">
+                <label for="cust_type" class="">{{ __('organization::app.client.fields.cust_type') }}</label>
+
+                <input class="control" name="cust_type" type="text" id="cust_type"
+                       value="{{ isset($client->cust_type) ? $client->cust_type : ''}}">
+
+                {!! $errors->first('cust_type', '<span class="control-error">:message</span>') !!}
             </div>
         </div>
 
