@@ -68,9 +68,11 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>{{ trans('organization::app.client.fields.company_id') }}</th>
+                            <th>{{ trans('organization::app.client.fields.name') }}</th>
                             <th>{{ trans('organization::app.client.fields.group_id') }}</th>
                             <th>{{ trans('organization::app.client.fields.cust_type') }}</th>
+                            <th>{{ trans('organization::app.client.fields.company_id') }}</th>
+
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -79,15 +81,16 @@
                         @foreach($client as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                @if($item->company)
-                                <td>{{ $item->company->description }}</td>
-                                @endif
+                                <td>{{ $item->name }}</td>
                                 @if($item->group)
                                     <td>{{ $item->group->group_desc }}</td>
                                 @else
                                     <td>{{ $item->group_id }}</td>
                                 @endif
                                 <td>{{ $item->cust_type }}</td>
+                                @if($item->company)
+                                    <td>{{ $item->company->description }}</td>
+                                @endif
                                 <td class="actions" style="white-space: nowrap; width: 100px;">
                                     <div class="action">
                                         <a href="{{ route('admin.client.show', $item->client_id) }}"

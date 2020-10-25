@@ -68,9 +68,10 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>{{ trans('organization::app.supplier.fields.company_id') }}</th>
-                            <th>{{ trans('organization::app.supplier.fields.group_id') }}</th>
+                            <th>{{ trans('organization::app.supplier.fields.name') }}</th>
                             <th>{{ trans('organization::app.supplier.fields.supp_type') }}</th>
+                            <th>{{ trans('organization::app.supplier.fields.group_id') }}</th>
+                            <th>{{ trans('organization::app.supplier.fields.company_id') }}</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -79,13 +80,15 @@
                         @foreach($supplier as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                @if($item->company)
-                                <td>{{ $item->company->description }}</td>
-                                @endif
+                                <td>{{ $item->name }}</td>
+                                <td>{{ $item->supp_type }}</td>
                                 @if($item->group)
                                     <td>{{ $item->group->group_desc }}</td>
                                 @endif
-                                <td>{{ $item->supp_type }}</td>
+                                @if($item->company)
+                                    <td>{{ $item->company->description }}</td>
+                                @endif
+
                                 <td class="actions" style="white-space: nowrap; width: 100px;">
                                     <div class="action">
                                         <a href="{{ route('admin.supplier.show', $item->client_id) }}"

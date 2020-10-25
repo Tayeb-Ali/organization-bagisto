@@ -1,73 +1,80 @@
 <accordian :title="'{{ __('organization::app.company.general') }}'" :active="true">
     <div slot="body">
 
-        <div class="control-group {{ $errors->has('description') ? 'has-error' : ''}}">
-            <label for="description" class="required">{{ __('organization::app.company.fields.description') }}</label>
+        <div class="row col- col-lg-12">
+            <div class="control-group col col-6 {{ $errors->has('description') ? 'has-error' : ''}}">
+                <label for="description"
+                       class="required">{{ __('organization::app.company.fields.description') }}</label>
 
-            <input class="control" name="description" type="text" id="description"
-                   value="{{ isset($company->description) ? $company->description : ''}}" required>
+                <input class="control" name="description" type="text" id="description"
+                       value="{{ isset($company->description) ? $company->description : ''}}" required>
 
-            {!! $errors->first('description', '<span class="control-error">:message</span>') !!}
+                {!! $errors->first('description', '<span class="control-error">:message</span>') !!}
+            </div>
+
+            <div class="control-group {{ $errors->has('currency') ? 'has-error' : ''}}">
+                <label for="currency" class="">{{ __('organization::app.company.fields.currency') }}</label>
+
+                <input class="control" name="currency" type="text" id="currency"
+                       value="{{ isset($company->currency) ? $company->currency : ''}}">
+
+                {!! $errors->first('currency', '<span class="control-error">:message</span>') !!}
+            </div>
+
         </div>
 
-        <div class="control-group {{ $errors->has('currency') ? 'has-error' : ''}}">
-            <label for="currency" class="">{{ __('organization::app.company.fields.currency') }}</label>
+        <div class="row">
 
-            <input class="control" name="currency" type="text" id="currency"
-                   value="{{ isset($company->currency) ? $company->currency : ''}}">
+            <div class="control-group col col-6  {{ $errors->has('status') ? 'has-error' : ''}}">
+                <label for="status" class="">{{ __('organization::app.company.fields.status') }}</label>
 
-            {!! $errors->first('currency', '<span class="control-error">:message</span>') !!}
+                <input class="control" name="status" type="text" id="status"
+                       value="{{ isset($company->status) ? $company->status : ''}}">
+
+                {!! $errors->first('status', '<span class="control-error">:message</span>') !!}
+            </div>
+            <div class="control-group col col-6 {{ $errors->has('gl_ac_levels') ? 'has-error' : ''}}">
+                <label for="gl_ac_levels"
+                       class="required">{{ __('organization::app.company.fields.gl_ac_levels') }}</label>
+
+                <input class="control" name="gl_ac_levels" type="number" id="gl_ac_levels"
+                       value="{{ isset($company->gl_ac_levels) ? $company->gl_ac_levels : ''}}" required>
+
+                {!! $errors->first('gl_ac_levels', '<span class="control-error">:message</span>') !!}
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="control-group col col-6{{ $errors->has('company_id') ? 'has-error' : ''}}">
+                <label for="company_id"
+                       class="required">{{ __('organization::app.company.sub-company.company_parent_id') }}</label>
+
+                <select id="company_parent_id" name="company_parent_id" class="form-control" data-role="control">
+                    @foreach($subCompany as $item)
+                        <option
+                                value="{{ $item->company_id }}" {{$company->company_parent_id == $item->company_id ? 'selected' : '' }}>{{ $item->description }}</option>
+                    @endforeach
+                    <option value="{{null}}" {{$company->company_parent_id == null ? 'selected' : '' }}>
+                        Non
+                    </option>
+                </select>
+                {!! $errors->first('company_parent_id', '<span class="control-error">:message</span>') !!}
+            </div>
+            <div class="form-control col col-6{{ $errors->has('has_sub_company') ? 'has-error' : ''}}">
+                <label for="company_id"
+                       class="required">{{ __('organization::app.company.fields.has_sub_company') }}</label>
+
+                <select id="has_sub_company" name="has_sub_company" class="form-control" data-role="control">
+                    <option value="0" {{$company->has_sub_company == 0? 'selected' : '' }}>
+                        {{ __('organization::app.company.sub-company.no') }}</option>
+
+                    <option value="1" {{$company->has_sub_company == 1 ? 'selected' : '' }}>
+                        {{ __('organization::app.company.sub-company.yes') }}</option>
+                </select>
+                {!! $errors->first('has_sub_company', '<span class="control-error">:message</span>') !!}
+            </div>
         </div>
 
-        <div class="control-group {{ $errors->has('status') ? 'has-error' : ''}}">
-            <label for="status" class="">{{ __('organization::app.company.fields.status') }}</label>
-
-            <input class="control" name="status" type="text" id="status"
-                   value="{{ isset($company->status) ? $company->status : ''}}">
-
-            {!! $errors->first('status', '<span class="control-error">:message</span>') !!}
-        </div>
-
-
-        <div class="control-group {{ $errors->has('has_sub_company') ? 'has-error' : ''}}">
-            <label for="company_id"
-                   class="required">{{ __('organization::app.company.fields.has_sub_company') }}</label>
-
-            <select id="has_sub_company" name="has_sub_company" class="form-control" data-role="control">
-                <option value="0" {{$company->has_sub_company == 0? 'selected' : '' }}>
-                    {{ __('organization::app.company.sub-company.no') }}</option>
-
-                <option value="1" {{$company->has_sub_company == 1 ? 'selected' : '' }}>
-                    {{ __('organization::app.company.sub-company.yes') }}</option>
-            </select>
-            {!! $errors->first('has_sub_company', '<span class="control-error">:message</span>') !!}
-        </div>
-
-        <div class="control-group {{ $errors->has('company_id') ? 'has-error' : ''}}">
-            <label for="company_id"
-                   class="required">{{ __('organization::app.company.sub-company.company_parent_id') }}</label>
-
-            <select id="company_parent_id" name="company_parent_id" class="form-control" data-role="control">
-                @foreach($subCompany as $item)
-                    <option
-                        value="{{ $item->company_id }}" {{$company->company_parent_id == $item->company_id ? 'selected' : '' }}>{{ $item->description }}</option>
-                @endforeach
-                <option value="{{null}}" {{$company->company_parent_id == null ? 'selected' : '' }}>
-                    Non
-                </option>
-            </select>
-            {!! $errors->first('company_parent_id', '<span class="control-error">:message</span>') !!}
-        </div>
-
-
-        <div class="control-group {{ $errors->has('gl_ac_levels') ? 'has-error' : ''}}">
-            <label for="gl_ac_levels" class="required">{{ __('organization::app.company.fields.gl_ac_levels') }}</label>
-
-            <input class="control" name="gl_ac_levels" type="number" id="gl_ac_levels"
-                   value="{{ isset($company->gl_ac_levels) ? $company->gl_ac_levels : ''}}" required>
-
-            {!! $errors->first('gl_ac_levels', '<span class="control-error">:message</span>') !!}
-        </div>
         <div class="control-group {{ $errors->has('gl_ac_level_1_len') ? 'has-error' : ''}}">
             <label for="gl_ac_level_1_len"
                    class="required">{{ __('organization::app.company.fields.gl_ac_level_1_len') }}</label>
