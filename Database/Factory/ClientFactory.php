@@ -4,11 +4,8 @@
 
 use DOCore\Organization\Models\Client;
 use DOCore\Organization\Models\Company;
-use DOPackages\AHAmwal\Models\Payment;
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
-use Illuminate\Support\Str;
-use Webkul\User\Models\Admin;
 use Carbon\Carbon;
 
 $factory->define(Client::class, function (Faker $faker) {

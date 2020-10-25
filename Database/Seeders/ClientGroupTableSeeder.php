@@ -5,7 +5,6 @@ namespace DOCore\Organization\Database\Seeders;
 
 use DOCore\Organization\Models\ClientGroup;
 use Illuminate\Database\Seeder;
-use Carbon\Carbon;
 
 class ClientGroupTableSeeder extends Seeder
 {
