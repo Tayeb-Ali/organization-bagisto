@@ -68,9 +68,9 @@
                         <thead>
                         <tr>
                             <th>#</th>
-{{--                            <th>{{ trans('organization::app.employ.fields.company_id') }}</th>--}}
-                            <th>{{ trans('organization::app.employ.fields.group_id') }}</th>
+                            <th>{{ trans('organization::app.employ.fields.name') }}</th>
                             <th>{{ trans('organization::app.employ.fields.cust_type') }}</th>
+                            <th>{{ trans('organization::app.employ.fields.group_id') }}</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -79,11 +79,11 @@
                         @foreach($employ as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
+                                <td>{{ $item->name }}</td>
+                                <td>{{ $item->cust_type }}</td>
                                 @if($item->group)
                                     <td>{{ $item->group->group_desc }}</td>
                                 @endif
-{{--                                <td>{{ $item->group_id }}</td>--}}
-                                <td>{{ $item->cust_type }}</td>
                                 <td class="actions" style="white-space: nowrap; width: 100px;">
                                     <div class="action">
                                         <a href="{{ route('admin.employ.show', $item->employ_id) }}"
