@@ -64,7 +64,7 @@ return [
     'bank' => [
         'add-title' => 'Add bank',
         'create-btn-title' => 'Create',
-        'edit-title' => 'edit client',
+        'edit-title' => 'Edit Bank',
         'edit-btn-title' => 'save edit',
         'index' => 'Bank',
         'general' => 'General',
@@ -101,9 +101,9 @@ return [
             'currency' => 'currency',
             'analysis_code' => 'Analysis code',
         ],
-        'update-success' => 'Client update successfully',
-        'delete-success' => 'Client delete successfully',
-        'add-success' => 'Client add successfully',
+        'update-success' => 'Bank update successfully',
+        'delete-success' => 'Bank delete successfully',
+        'add-success' => 'Bank add successfully',
     ],
 
     'clientgroup' => [
