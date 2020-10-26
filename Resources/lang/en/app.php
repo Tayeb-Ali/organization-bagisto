@@ -145,6 +145,7 @@ return [
             'sub_cust_code_len' => 'sub_cust_code_len',
             'fields.curr_fin_year' => 'fields.curr_fin_year',
             'sub_store_code_len' => 'sub_store_code_len',
+            'curr_fin_year' => 'curr_fin_year',
             'company_type' => 'company_type',
             'local_partner_percent' => 'local_partner_percent',
             'zakah_tax_formula' => 'zakah tax formula',
@@ -420,6 +421,6 @@ return [
     ],
 
     'delete-error' => [
-        'message1'=> 'لا يمكن حذف لوجود ارتباطات اخرى'
+        'message1' => 'لا يمكن حذف لوجود ارتباطات اخرى'
     ]
 ];
