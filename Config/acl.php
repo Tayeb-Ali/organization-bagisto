@@ -208,4 +208,31 @@ return [
         'route' => 'admin.employ-group.delete',
         'sort' => '3'
     ],
+
+    //bank
+
+    [
+        'key' => 'organization.bank',
+        'name' => 'organization::app.acl.bank.index',
+        'route' => 'admin.bank.index',
+        'sort' => '6'
+    ],
+    [
+        'key' => 'organization.bank.create',
+        'name' => 'organization::app.acl.bank.create',
+        'route' => 'admin.bank.create',
+        'sort' => '1'
+    ],
+    [
+        'key' => 'organization.bank.edit',
+        'name' => 'organization::app.acl.bank.edit',
+        'route' => 'admin.bank.edit',
+        'sort' => '2'
+    ],
+    [
+        'key' => 'organization.bank.delete',
+        'name' => 'organization::app.acl.bank.delete',
+        'route' => 'admin.bank.delete',
+        'sort' => '3'
+    ],
 ];

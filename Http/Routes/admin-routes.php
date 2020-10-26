@@ -128,3 +128,26 @@ Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'midd
         Route::delete('/delete/{id}', 'EmployGroupController@delete')->defaults('_config', ['redirect' => 'admin.employ-group.index'])->name('admin.employ-group.delete');
     });
 });
+
+
+//Bank
+
+Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'middleware' => ['web', 'admin']], function () {
+    Route::prefix('admin/organization/bank')->group(function () {
+        Route::get('/', 'BankController@index')
+            ->defaults('_config', ['view' => 'organization::admin.bank.index'])->name('admin.bank.index');
+        Route::get('/show/{id}', 'BankController@show')
+            ->defaults('_config', ['view' => 'organization::admin.bank.show'])->name('admin.bank.show');
+        Route::get('/create', 'BankController@create')
+            ->defaults('_config', ['view' => 'organization::admin.bank.create'])->name('admin.bank.create');
+        Route::post('/create', 'BankController@store')
+            ->defaults('_config', ['redirect' => 'admin.bank.index'])->name('admin.bank.store');
+        Route::get('/edit/{id}', 'BankController@edit')
+            ->defaults('_config', ['view' => 'organization::admin.bank.edit'])->name('admin.bank.edit');
+        Route::post('/edit/{id}', 'BankController@update')
+            ->defaults('_config', ['redirect' => 'admin.bank.index'])
+            ->name('admin.bank.update');
+        Route::delete('/delete/{id}', 'BankController@delete'
+        )->defaults('_config', ['redirect' => 'admin.bank.index'])->name('admin.bank.delete');
+    });
+});
