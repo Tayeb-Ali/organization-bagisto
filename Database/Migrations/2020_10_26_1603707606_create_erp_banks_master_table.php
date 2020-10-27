@@ -46,7 +46,9 @@ class CreateErpBanksMasterTable extends Migration
             $table->decimal('curr_bal_debit_fc', 15, 5)->nullable();
             $table->string('analysis_code', 20)->nullable();
             $table->unsignedInteger('company_id')->nullable();
+            $table->unsignedInteger('group_id')->nullable();
             $table->foreign('company_id')->references('company_id')->on('companies');
+            $table->foreign('group_id')->references('group_id')->on('bank_groups');
             $table->timestamps();
 
         });

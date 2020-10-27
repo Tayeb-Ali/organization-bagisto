@@ -235,4 +235,30 @@ return [
         'route' => 'admin.bank.delete',
         'sort' => '3'
     ],
+
+    //bankGroup
+    [
+        'key' => 'organization.bank-group',
+        'name' => 'organization::app.acl.bank-group.index',
+        'route' => 'admin.bank-group.index',
+        'sort' => '5'
+    ],
+    [
+        'key' => 'organization.bank-group.create',
+        'name' => 'organization::app.acl.bank-group.create',
+        'route' => 'admin.bank-group.create',
+        'sort' => '1'
+    ],
+    [
+        'key' => 'organization.bank-group.edit',
+        'name' => 'organization::app.acl.bank-group.edit',
+        'route' => 'admin.bank-group.edit',
+        'sort' => '2'
+    ],
+    [
+        'key' => 'organization.bank-group.delete',
+        'name' => 'organization::app.acl.bank-group.delete',
+        'route' => 'admin.bank-group.delete',
+        'sort' => '3'
+    ],
 ];

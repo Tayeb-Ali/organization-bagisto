@@ -3,10 +3,10 @@
 namespace DOCore\Organization\Database\Seeders;
 
 
-use DOCore\Organization\Models\ClientGroup;
+use DOCore\Organization\Models\BankGroup;
 use Illuminate\Database\Seeder;
 
-class ClientGroupTableSeeder extends Seeder
+class BankGroupTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +15,6 @@ class ClientGroupTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(ClientGroup::class, 20)->create();
+        factory(BankGroup::class, 20)->create();
     }
 }

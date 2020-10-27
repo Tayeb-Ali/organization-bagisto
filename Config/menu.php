@@ -79,6 +79,13 @@ return [
         'icon-class' => ''
     ],
     [
+        'key' => 'organization.bank-group',
+        'name' => 'organization::app.bank-group.index',
+        'route' => 'admin.bank-group.index',
+        'sort' => '9',
+        'icon-class' => ''
+    ],
+    [
         'key' => 'organization.bank',
         'name' => 'organization::app.bank.index',
         'route' => 'admin.bank.index',

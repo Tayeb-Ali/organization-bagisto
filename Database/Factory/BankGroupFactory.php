@@ -2,26 +2,20 @@
 
 /** @var Factory $factory */
 
-use DOCore\Organization\Models\Bank;
+use DOCore\Organization\Models\BankGroup;
 use DOCore\Organization\Models\Company;
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
-use Carbon\Carbon;
 
 
-$factory->define(Bank::class, function (Faker $faker) {
+$factory->define(BankGroup::class, function (Faker $faker) {
     return [
         'company_id' => Company::all()->random()->company_id,
-        'name' => $faker->name,
-        'bank_name' => $faker->companySuffix,
-        'account_no' => $faker->bankAccountNumber,
-        'phone' => $faker->phoneNumber,
-        'fax' => $faker->phoneNumber,
-        'pobox' => $faker->postcode,
-        'email' => $faker->email,
-        'status' => $faker->numberBetween(1, 2),
-        'currency' => $faker->currencyCode,
-        'created_at' => Carbon::now()->getTimestamp(),
+        'group_desc' => $faker->companySuffix,
+        'account_code' => $faker->word,
+        'status' => $faker->randomDigitNotNull,
+        'amend_by' => $faker->name,
+        'amend_date' => $faker->date('Y-m-d H:i:s')
 
     ];
 });
