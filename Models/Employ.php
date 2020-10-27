@@ -22,7 +22,7 @@ class Employ extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'employ_id';
+    protected $primaryKey = 'employee_id';
 
     /**
      * Attributes that should be mass-assignable.

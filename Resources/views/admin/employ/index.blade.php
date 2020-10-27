@@ -86,19 +86,19 @@
                                 @endif
                                 <td class="actions" style="white-space: nowrap; width: 100px;">
                                     <div class="action">
-                                        <a href="{{ route('admin.employ.show', $item->employ_id) }}"
+                                        <a href="{{ route('admin.employ.show', $item->employee_id) }}"
                                            title="View Client">
                                             <button style="border: none; background-color: inherit;"><span
                                                         class="icon eye-icon"></span></button>
                                         </a>
-                                        <a href="{{ route('admin.employ.edit', $item->employ_id) }}"
+                                        <a href="{{ route('admin.employ.edit', $item->employee_id) }}"
                                            title="Edit Client">
                                             <button style="border: none; background-color: inherit;"><span
                                                         class="icon pencil-lg-icon"></span></button>
                                         </a>
 
                                         <form method="POST"
-                                              action="{{ route('admin.employ.delete', $item->employ_id) }}"
+                                              action="{{ route('admin.employ.delete', $item->employee_id) }}"
                                               accept-charset="UTF-8" style="display:inline">
                                             {{ method_field('DELETE') }}
                                             {{ csrf_field() }}

@@ -15,11 +15,11 @@
                 <h1>{{ __('organization::app.employ.title') }}</h1>
             </div>
             <div class="page-action">
-                <a href="{{ route('admin.employ.edit', $employ->employ_id) }}" title="Edit Client">
+                <a href="{{ route('admin.employ.edit', $employ->employee_id) }}" title="Edit Client">
                     <button style="border: none; background-color: inherit;"><span class="icon pencil-lg-icon"></span>
                     </button>
                 </a>
-                <form method="POST" action="{{ route('admin.employ.delete', $employ->employ_id) }}"
+                <form method="POST" action="{{ route('admin.employ.delete', $employ->employee_id) }}"
                       accept-charset="UTF-8" style="display:inline">
                     {{ method_field('DELETE') }}
                     {{ csrf_field() }}
@@ -38,7 +38,7 @@
                     <tbody>
                     <tr>
                         <td>ID</td>
-                        <td>{{ $employ->employ_id }}</td>
+                        <td>{{ $employ->employee_id }}</td>
                     </tr>
                     <tr>
                         <td> {{ trans('organization::app.employ.fields.company_id') }} </td>
