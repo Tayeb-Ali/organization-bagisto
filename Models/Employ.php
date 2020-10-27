@@ -53,9 +53,9 @@ class Employ extends Model
         return $this->belongsTo(Company::class, 'company_id', 'company_id');
     }
 
-    public function dispatch()
+    public function dispatches()
     {
-        return $this->hasMany(Dispatch::class, 'company_id', 'company_id');
+        return $this->hasMany(Dispatch::class, 'employee_id', 'employee_id');
     }
 
 
