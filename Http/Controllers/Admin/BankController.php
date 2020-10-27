@@ -2,12 +2,14 @@
 
 namespace DOCore\Organization\Http\Controllers\Admin;
 
+use DOCore\Organization\Http\Requests\BankRequest;
 use DOCore\Organization\Models\Bank;
 use DOCore\Organization\Models\Company;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\View\View;
+use Webkul\Core\Models\Currency;
 
 class BankController extends Controller
 {
@@ -79,8 +81,9 @@ class BankController extends Controller
         $bank->fill($request->old());
         $company = Company::all('company_id', 'description');
 
+        $currency = Currency::all();
 
-        return view($this->_config['view'], compact('bank', 'company'));
+        return view($this->_config['view'], compact('bank', 'company', 'currency'));
     }
 
     /**
@@ -126,8 +129,9 @@ class BankController extends Controller
     {
         $bank = Bank::findOrFail($id);
         $company = Company::all('company_id', 'description');
+        $currency = Currency::all();
 
-        return view($this->_config['view'], compact('bank', 'company'));
+        return view($this->_config['view'], compact('bank', 'company', 'currency'));
     }
 
     /**

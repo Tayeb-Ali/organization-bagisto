@@ -2,14 +2,6 @@
     <div slot="body">
 
         <div class="row">
-            <div class="control-group {{ $errors->has('name') ? 'has-error' : ''}}">
-                <label for="name" class="required">{{ __('organization::app.bank.fields.name') }}</label>
-
-                <input class="control" name="name" type="text" id="name"
-                       value="{{ isset($bank->name) ? $bank->name : ''}}" required>
-
-                {!! $errors->first('name', '<span class="control-error">:message</span>') !!}
-            </div>
             <div class="control-group col col-6 {{ $errors->has('company_id') ? 'has-error' : ''}}">
                 <label for="company_id" class="required">{{ __('organization::app.bank.fields.company_id') }}</label>
 
@@ -21,6 +13,51 @@
                 </select>
                 {!! $errors->first('company_id', '<span class="control-error">:message</span>') !!}
             </div>
+
+
+            <div class="control-group col-6 {{ $errors->has('status') ? 'has-error' : ''}}">
+                <label for="status" class="">{{ __('organization::app.bank.fields.status') }}</label>
+
+                <input class="control" name="status" type="text" id="status"
+                       value="{{ isset($bank->status) ? $bank->status : ''}}">
+
+                {!! $errors->first('status', '<span class="control-error">:message</span>') !!}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="control-group {{ $errors->has('name') ? 'has-error' : ''}}">
+                <label for="name" class="required">{{ __('organization::app.bank.fields.name') }}</label>
+
+                <input class="control" name="name" type="text" id="name"
+                       value="{{ isset($bank->name) ? $bank->name : ''}}" required>
+
+                {!! $errors->first('name', '<span class="control-error">:message</span>') !!}
+            </div>
+
+            <div class="control-group col col-6 {{ $errors->has('currency') ? 'has-error' : ''}}">
+                <label for="currency" class="required">{{ __('organization::app.bank.fields.currency') }}</label>
+
+                <select id="currency" name="currency" class="form-control control" data-role="control">
+
+                    @foreach($currency as $item)
+                        <option value="{{ $item->id }}" {{$bank->currency == $item->id ? 'selected' : '' }}>{{ $item->name }}</option>
+                    @endforeach
+                </select>
+                {!! $errors->first('company_id', '<span class="control-error">:message</span>') !!}
+            </div>
+
+
+            <div class="control-group {{ $errors->has('account_no') ? 'has-error' : ''}}">
+                <label for="name" class="required">{{ __('organization::app.bank.fields.account_no') }}</label>
+
+                <input class="control" name="account_no" type="text" id="name"
+                       value="{{ isset($bank->account_no) ? $bank->account_no : ''}}" required>
+
+                {!! $errors->first('name', '<span class="control-error">:message</span>') !!}
+            </div>
+
+
         </div>
         <div class="row">
             <div class="control-group col col-6 {{ $errors->has('fax') ? 'has-error' : ''}}">
@@ -51,14 +88,6 @@
                 {!! $errors->first('email', '<span class="control-error">:message</span>') !!}
             </div>
 
-            <div class="control-group col-6 {{ $errors->has('status') ? 'has-error' : ''}}">
-                <label for="status" class="">{{ __('organization::app.bank.fields.status') }}</label>
-
-                <input class="control" name="status" type="text" id="status"
-                       value="{{ isset($bank->status) ? $bank->status : ''}}">
-
-                {!! $errors->first('status', '<span class="control-error">:message</span>') !!}
-            </div>
         </div>
         <div class="row">
 
