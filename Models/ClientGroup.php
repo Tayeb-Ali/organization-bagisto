@@ -11,7 +11,7 @@ class ClientGroup extends Model
      *
      * @var string
      */
-    protected $table = 'client_groups';
+    protected $table = 'org_client_groups';
 
     protected $with = ['company'];
 

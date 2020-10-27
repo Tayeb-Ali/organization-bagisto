@@ -4,6 +4,7 @@ namespace DOCore\Organization\Database\Seeders;
 
 use DOCore\Organization\Models\Bank;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class BanckTableSeeder extends Seeder
 {
@@ -14,6 +15,8 @@ class BanckTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Bank::class, 20)->create();
+        DB::table('org_banks')->truncate();
+
+        factory(Bank::class, 200)->create();
     }
 }

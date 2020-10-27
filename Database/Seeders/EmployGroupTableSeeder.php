@@ -5,7 +5,7 @@ namespace DOCore\Organization\Database\Seeders;
 
 use DOCore\Organization\Models\EmployGroup;
 use Illuminate\Database\Seeder;
-use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class EmployGroupTableSeeder extends Seeder
 {
@@ -16,6 +16,8 @@ class EmployGroupTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(EmployGroup::class, 20)->create();
+        DB::table('org_employee_groups')->truncate();
+
+        factory(EmployGroup::class, 10)->create();
     }
 }

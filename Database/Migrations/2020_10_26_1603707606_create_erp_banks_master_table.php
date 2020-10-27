@@ -13,7 +13,7 @@ class CreateErpBanksMasterTable extends Migration
      */
     public function up()
     {
-        Schema::create('erp_banks_master', function (Blueprint $table) {
+        Schema::create('org_banks', function (Blueprint $table) {
 
             $table->increments('code');
             $table->string('name', 100)->nullable();
@@ -47,10 +47,10 @@ class CreateErpBanksMasterTable extends Migration
             $table->string('analysis_code', 20)->nullable();
             $table->unsignedInteger('company_id')->nullable();
             $table->unsignedInteger('group_id')->nullable();
-            $table->foreign('company_id')->references('company_id')->on('companies');
-            $table->foreign('group_id')->references('group_id')->on('bank_groups');
             $table->timestamps();
 
+            /*$table->foreign('company_id')->references('company_id')->on('companies');
+            $table->foreign('group_id')->references('group_id')->on('bank_groups');*/
         });
     }
 
@@ -61,6 +61,6 @@ class CreateErpBanksMasterTable extends Migration
      */
     public function down()
     {
-        Schema::drop('erp_banks_master');
+        Schema::drop('org_banks');
     }
 }

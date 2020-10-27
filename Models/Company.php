@@ -11,7 +11,7 @@ class Company extends Model
      *
      * @var string
      */
-    protected $table = 'companies';
+    protected $table = 'org_companies';
 
     /**
     * The database primary key value.
@@ -56,5 +56,5 @@ class Company extends Model
        return $this->hasOne(Company::class, 'company_parent_id', 'company_id');
     }
 
-    
+
 }

@@ -11,7 +11,7 @@ class CompanyBranch extends Model
      *
      * @var string
      */
-    protected $table = 'company_branches';
+    protected $table = 'org_company_branches';
     protected $with = ['company'];
 
     /**

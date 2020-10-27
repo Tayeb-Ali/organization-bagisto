@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEmploysTable extends Migration
+class CreateEmployeesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateEmploysTable extends Migration
      */
     public function up()
     {
-        Schema::create('employs', function (Blueprint $table) {
-            $table->increments('employ_id');
+        Schema::create('org_employees', function (Blueprint $table) {
+            $table->increments('employee_id');
             $table->integer('company_id')->unsigned();
             $table->integer('group_id')->unsigned();
             $table->string('cust_type', 10)->nullable();
@@ -56,11 +56,11 @@ class CreateEmploysTable extends Migration
             $table->string('analysis_code', 20)->nullable();
             $table->string('sprice_list', 1)->nullable();
             $table->double('vat_flag')->nullable();
-
-            $table->foreign('company_id')->references('company_id')->on('companies')->onDelete('cascade');
-            $table->foreign('group_id')->references('group_id')->on('employ_groups')->onDelete('cascade');
-
             $table->timestamps();
+
+            /*$table->foreign('company_id')->references('company_id')->on('companies')->onDelete('cascade');
+            $table->foreign('group_id')->references('group_id')->on('employ_groups')->onDelete('cascade');*/
+
         });
     }
 
@@ -71,6 +71,6 @@ class CreateEmploysTable extends Migration
      */
     public function down()
     {
-        Schema::drop('employs');
+        Schema::drop('org_employees');
     }
 }

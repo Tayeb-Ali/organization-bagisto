@@ -12,7 +12,7 @@ class Bank extends Model
      *
      * @var string
      */
-    protected $table = 'erp_banks_master';
+    protected $table = 'org_banks';
 
     protected $with = [];
 

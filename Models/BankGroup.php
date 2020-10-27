@@ -11,7 +11,7 @@ class BankGroup extends Model
      *
      * @var string
      */
-    protected $table = 'bank_groups';
+    protected $table = 'org_bank_groups';
 
     protected $with = ['company'];
 
