@@ -4,6 +4,7 @@ namespace DOCore\Organization\Http\Controllers\Admin;
 
 use DOCore\Organization\Http\Requests\BankRequest;
 use DOCore\Organization\Models\Bank;
+use DOCore\Organization\Models\BankGroup;
 use DOCore\Organization\Models\Company;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -82,8 +83,9 @@ class BankController extends Controller
         $company = Company::all('company_id', 'description');
 
         $currency = Currency::all();
+        $group = BankGroup::all();
 
-        return view($this->_config['view'], compact('bank', 'company', 'currency'));
+        return view($this->_config['view'], compact('bank', 'company', 'currency', 'group'));
     }
 
     /**
@@ -115,7 +117,7 @@ class BankController extends Controller
     {
         $bank = Bank::findOrFail($id);
 
-        return view($this->_config['view'], compact('Bank'));
+        return view($this->_config['view'], compact('bank'));
     }
 
     /**
@@ -130,8 +132,9 @@ class BankController extends Controller
         $bank = Bank::findOrFail($id);
         $company = Company::all('company_id', 'description');
         $currency = Currency::all();
+        $group = BankGroup::all();
 
-        return view($this->_config['view'], compact('bank', 'company', 'currency'));
+        return view($this->_config['view'], compact('bank', 'company', 'currency', 'group'));
     }
 
     /**

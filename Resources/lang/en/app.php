@@ -73,6 +73,7 @@ return [
         'title' => 'Bank',
         'fields' => [
             'company_id' => 'Company name',
+            'group_id' => 'Bank Group name',
             'name' => 'Bank Account Name',
             'phone' => 'Phone',
             'fax' => 'Fax',
