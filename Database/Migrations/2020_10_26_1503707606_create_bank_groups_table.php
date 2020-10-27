@@ -13,7 +13,7 @@ class CreateBankGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('bank_groups', function (Blueprint $table) {
+        Schema::create('org_bank_groups', function (Blueprint $table) {
             $table->increments('group_id');
             $table->integer('company_id')->unsigned();
             $table->string('group_desc', 100)->nullable();
@@ -21,8 +21,9 @@ class CreateBankGroupsTable extends Migration
             $table->string('status', 10)->nullable();
             $table->string('amend_by', 10)->nullable();
             $table->dateTime('amend_date')->nullable();
-            $table->foreign('company_id')->references('company_id')->on('companies')->onDelete('cascade');
             $table->timestamps();
+
+            //$table->foreign('company_id')->references('company_id')->on('companies')->onDelete('cascade');
         });
     }
 
@@ -33,6 +34,6 @@ class CreateBankGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('bank_groups');
+        Schema::drop('org_bank_groups');
     }
 }

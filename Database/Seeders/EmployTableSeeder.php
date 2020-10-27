@@ -4,7 +4,7 @@ namespace DOCore\Organization\Database\Seeders;
 
 use DOCore\Organization\Models\Employ;
 use Illuminate\Database\Seeder;
-use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class EmployTableSeeder extends Seeder
 {
@@ -15,6 +15,8 @@ class EmployTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Employ::class, 20)->create();
+        DB::table('org_employees')->truncate();
+
+        factory(Employ::class, 200)->create();
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEmployGroupsTable extends Migration
+class CreateEmployeeGroupsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateEmployGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('employ_groups', function (Blueprint $table) {
+        Schema::create('org_employee_groups', function (Blueprint $table) {
             $table->increments('group_id');
             $table->integer('company_id')->unsigned();
             $table->string('group_desc', 100)->nullable();
@@ -21,10 +21,9 @@ class CreateEmployGroupsTable extends Migration
             $table->string('status', 10)->nullable();
             $table->string('amend_by', 10)->nullable();
             $table->dateTime('amend_date')->nullable();
-             $table->foreign('company_id')->references('company_id')
-                 ->on('companies')->onDelete('cascade');
-
             $table->timestamps();
+
+            //$table->foreign('company_id')->references('company_id')->on('companies')->onDelete('cascade');
         });
     }
 
@@ -35,6 +34,6 @@ class CreateEmployGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('employ_groups');
+        Schema::drop('org_employee_groups');
     }
 }

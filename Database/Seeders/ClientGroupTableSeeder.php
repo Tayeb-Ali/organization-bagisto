@@ -5,6 +5,7 @@ namespace DOCore\Organization\Database\Seeders;
 
 use DOCore\Organization\Models\ClientGroup;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ClientGroupTableSeeder extends Seeder
 {
@@ -15,6 +16,8 @@ class ClientGroupTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(ClientGroup::class, 20)->create();
+        DB::table('org_client_groups')->truncate();
+
+        factory(ClientGroup::class, 10)->create();
     }
 }

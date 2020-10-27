@@ -4,7 +4,6 @@
 
 use DOCore\Organization\Models\Company;
 use DOCore\Organization\Models\SupplierGroup;
-use DOPackages\AHAmwal\Models\Payment;
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Str;
@@ -18,7 +17,7 @@ $factory->define(SupplierGroup::class,
             'group_desc' => $faker->name,
             'account_code' => $faker->word,
             'status' => $faker->randomDigitNotNull,
-            'amend_by' => $faker->name,
+            'amend_by' => Admin::all()->random()->id,
             'amend_date' => $faker->date('Y-m-d H:i:s')
         ];
     });

@@ -4,7 +4,7 @@ namespace DOCore\Organization\Database\Seeders;
 
 use DOCore\Organization\Models\CompanyBranch;
 use Illuminate\Database\Seeder;
-use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class CompanyBranchTableSeeder extends Seeder
 {
@@ -15,6 +15,8 @@ class CompanyBranchTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(CompanyBranch::class, 20)->create();
+        DB::table('org_company_branches')->truncate();
+
+        factory(CompanyBranch::class, 100)->create();
     }
 }

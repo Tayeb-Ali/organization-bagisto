@@ -13,7 +13,7 @@ class CreateClientGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('client_groups', function (Blueprint $table){
+        Schema::create('org_client_groups', function (Blueprint $table){
             $table->increments('group_id');
             $table->integer('company_id')->unsigned();
             $table->string('group_desc', 100)->nullable();
@@ -21,9 +21,10 @@ class CreateClientGroupsTable extends Migration
             $table->string('status', 10)->nullable();
             $table->string('amend_by', 10)->nullable();
             $table->dateTime('amend_date')->nullable();
-            $table->foreign('company_id')->references('company_id')->on('companies')->onDelete('cascade');
-
             $table->timestamps();
+
+            //$table->foreign('company_id')->references('company_id')->on('companies')->onDelete('cascade');
+
             });
     }
 
@@ -34,6 +35,6 @@ class CreateClientGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('client_groups');
+        Schema::drop('org_client_groups');
     }
 }

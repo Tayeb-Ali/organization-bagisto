@@ -4,6 +4,7 @@ namespace DOCore\Organization\Database\Seeders;
 
 use DOCore\Organization\Models\Client;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ClientTableSeeder extends Seeder
 {
@@ -14,6 +15,8 @@ class ClientTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Client::class, 20)->create();
+        DB::table('org_clients')->truncate();
+
+        factory(Client::class, 1000)->create();
     }
 }

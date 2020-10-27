@@ -11,7 +11,7 @@ class SupplierGroup extends Model
      *
      * @var string
      */
-    protected $table = 'supplier_groups';
+    protected $table = 'org_supplier_groups';
 
     /**
      * The database primary key value.

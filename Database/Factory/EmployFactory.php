@@ -5,7 +5,6 @@
 use DOCore\Organization\Models\Company;
 use DOCore\Organization\Models\Employ;
 use DOCore\Organization\Models\EmployGroup;
-use DOPackages\AHAmwal\Models\Payment;
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Str;
@@ -16,7 +15,7 @@ $factory->define(Employ::class, function (Faker $faker) {
     return [
         'company_id' => Company::all()->random()->company_id,
         'group_id' => EmployGroup::all()->random()->group_id,
-        'cust_type' => $faker->paragraph,
+        'cust_type' => '',
         'name' => $faker->name,
         'contact_person' => $faker->paragraph,
         'phone' => $faker->phoneNumber,
@@ -27,7 +26,7 @@ $factory->define(Employ::class, function (Faker $faker) {
         'city' => $faker->city,
         'address' => $faker->address,
         'have_branch' => $faker->paragraph,
-        'status' => $faker->paragraph,
+        'status' => $faker->numberBetween(1, 2),
         'currency_code' => $faker->currencyCode,
         'created_at' => Carbon::now()->getTimestamp(),
 

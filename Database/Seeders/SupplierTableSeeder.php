@@ -4,7 +4,7 @@ namespace DOCore\Organization\Database\Seeders;
 
 use DOCore\Organization\Models\Supplier;
 use Illuminate\Database\Seeder;
-use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class SupplierTableSeeder extends Seeder
 {
@@ -15,6 +15,8 @@ class SupplierTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Supplier::class, 20)->create();
+        DB::table('org_suppliers')->truncate();
+
+        factory(Supplier::class, 100)->create();
     }
 }

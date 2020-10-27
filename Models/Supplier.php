@@ -11,7 +11,7 @@ class Supplier extends Model
      *
      * @var string
      */
-    protected $table = 'suppliers';
+    protected $table = 'org_suppliers';
     protected $with = ['company', 'group'];
 
     /**

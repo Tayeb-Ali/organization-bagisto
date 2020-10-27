@@ -11,7 +11,7 @@ class EmployGroup extends Model
      *
      * @var string
      */
-    protected $table = 'employ_groups';
+    protected $table = 'org_employee_groups';
 
 
     protected $with = ['company'];

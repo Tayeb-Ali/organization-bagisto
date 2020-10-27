@@ -13,7 +13,7 @@ class CreateCompaniesTable extends Migration
      */
     public function up()
     {
-        Schema::create('companies', function (Blueprint $table) {
+        Schema::create('org_companies', function (Blueprint $table) {
             $table->increments('company_id');
             $table->string('description', 100)->nullable();
             $table->string('currency', 10)->nullable();
@@ -90,6 +90,6 @@ class CreateCompaniesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('companies');
+        Schema::drop('org_companies');
     }
 }
