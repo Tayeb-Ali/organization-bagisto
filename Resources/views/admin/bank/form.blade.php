@@ -1,6 +1,16 @@
 <accordian :title="'{{ __('organization::app.bank.general') }}'" :active="true">
     <div slot="body">
+<div class="row">
+    <div class="control-group col col-6 {{ $errors->has('code') ? 'has-error' : ''}}">
+        <label for="code" class="required">{{ __('organization::app.bank.fields.code') }}</label>
 
+        <input class="control" name="code" type="text" id="code" disabled
+               value="{{ isset($bank->code) ? $bank->code : ''}}" >
+
+        {!! $errors->first('code', '<span class="control-error">:message</span>') !!}
+    </div>
+
+</div>
         <div class="row">
             <div class="control-group col col-6 {{ $errors->has('company_id') ? 'has-error' : ''}}">
                 <label for="company_id" class="required">{{ __('organization::app.bank.fields.company_id') }}</label>

@@ -75,6 +75,7 @@ return [
             'company_id' => 'Company name',
             'group_id' => 'Bank Group name',
             'name' => 'Bank Account Name',
+            'code' => 'Bank Code',
             'phone' => 'Phone',
             'fax' => 'Fax',
             'pobox' => 'po-box',
