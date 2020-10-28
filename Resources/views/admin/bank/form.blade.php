@@ -48,7 +48,6 @@
 
         </div>
         <div class="row">
-
             <div class="control-group col col-6 {{ $errors->has('bank_name') ? 'has-error' : ''}}">
                 <label for="bank_name" class="">{{ __('organization::app.bank.fields.bank_name') }}</label>
 
@@ -57,8 +56,6 @@
 
                 {!! $errors->first('bank_name', '<span class="control-error">:message</span>') !!}
             </div>
-
-
             <div class="control-group col col-6 {{ $errors->has('currency') ? 'has-error' : ''}}">
                 <label for="currency" class="required">{{ __('organization::app.bank.fields.currency') }}</label>
 
@@ -71,9 +68,8 @@
                 {!! $errors->first('currency', '<span class="control-error">:message</span>') !!}
             </div>
         </div>
-
         <div class="row">
-            <div class="control-group {{ $errors->has('account_code') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('account_code') ? 'has-error' : ''}}">
                 <label for="account_code" class="">{{ __('organization::app.bank.fields.account_code') }}</label>
 
                 <input class="control" name="account_code" type="text" id="account_code"
@@ -82,8 +78,7 @@
                 {!! $errors->first('account_code', '<span class="control-error">:message</span>') !!}
 
             </div>
-
-            <div class="control-group {{ $errors->has('account_type') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('account_type') ? 'has-error' : ''}}">
                 <label for="account_type" class="">{{ __('organization::app.bank.fields.account_type') }}</label>
 
                 <input class="control" name="account_type" type="text" id="account_type"
@@ -94,9 +89,8 @@
             </div>
 
         </div>
-
         <div class="row">
-            <div class="control-group {{ $errors->has('analysis_code') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('analysis_code') ? 'has-error' : ''}}">
                 <label for="analysis_code" class="">{{ __('organization::app.bank.fields.analysis_code') }}</label>
 
                 <input class="control" name="analysis_code" type="text" id="analysis_code"
@@ -104,8 +98,7 @@
 
                 {!! $errors->first('analysis_code', '<span class="control-error">:message</span>') !!}
             </div>
-
-            <div class="control-group {{ $errors->has('contact_person') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('contact_person') ? 'has-error' : ''}}">
                 <label for="contact_person" class="">{{ __('organization::app.bank.fields.contact_person') }}</label>
 
                 <input class="control" name="contact_person" type="text" id="contact_person"
@@ -164,7 +157,7 @@
 
                {!! $errors->first('email', '<span class="control-error">:message</span>') !!}
            </div>
-           <div class="control-group {{ $errors->has('credit_limit') ? 'has-error' : ''}}">--}}
+           <div class="control-group col col-6 {{ $errors->has('credit_limit') ? 'has-error' : ''}}">
                                <label for="credit_limit" class="">{{ __('organization::app.bank.fields.credit_limit') }}</label>
 
                                <input class="control" name="credit_limit" type="number" id="credit_limit"
@@ -176,7 +169,7 @@
 {{--        <div class="row">--}}
 
 {{--
-{{--            <div class="control-group {{ $errors->has('begin_bal_credit') ? 'has-error' : ''}}">--}}
+{{--            <div class="control-group col col-6 {{ $errors->has('begin_bal_credit') ? 'has-error' : ''}}">--}}
 {{--                <label for="begin_bal_credit"--}}
 {{--                       class="">{{ __('organization::app.bank.fields.begin_bal_credit') }}</label>--}}
 
@@ -187,7 +180,7 @@
 {{--            </div>--}}
 {{--        </div>--}}
 {{--        <div class="row">--}}
-{{--            <div class="control-group {{ $errors->has('begin_bal_debit') ? 'has-error' : ''}}">--}}
+{{--            <div class="control-group col col-6 {{ $errors->has('begin_bal_debit') ? 'has-error' : ''}}">--}}
 {{--                <label for="begin_bal_debit"--}}
 {{--                       class="">{{ __('organization::app.bank.fields.begin_bal_debit') }}</label>--}}
 
@@ -196,7 +189,7 @@
 
 {{--                {!! $errors->first('begin_bal_debit', '<span class="control-error">:message</span>') !!}--}}
 {{--            </div>--}}
-{{--            <div class="control-group {{ $errors->has('curr_bal_credit') ? 'has-error' : ''}}">--}}
+{{--            <div class="control-group col col-6 {{ $errors->has('curr_bal_credit') ? 'has-error' : ''}}">--}}
 {{--                <label for="curr_bal_credit"--}}
 {{--                       class="">{{ __('organization::app.bank.fields.curr_bal_credit') }}</label>--}}
 
@@ -207,7 +200,7 @@
 {{--            </div>--}}
 {{--        </div>--}}
 {{--        <div class="row">--}}
-{{--            <div class="control-group {{ $errors->has('curr_bal_debit') ? 'has-error' : ''}}">--}}
+{{--            <div class="control-group col col-6 {{ $errors->has('curr_bal_debit') ? 'has-error' : ''}}">--}}
 {{--                <label for="curr_bal_debit"--}}
 {{--                       class="">{{ __('organization::app.bank.fields.curr_bal_debit') }}</label>--}}
 
@@ -216,7 +209,7 @@
 
 {{--                {!! $errors->first('curr_bal_debit', '<span class="control-error">:message</span>') !!}--}}
 {{--            </div>--}}
-{{--            <div class="control-group {{ $errors->has('amend_by') ? 'has-error' : ''}}">--}}
+{{--            <div class="control-group col col-6 {{ $errors->has('amend_by') ? 'has-error' : ''}}">--}}
 {{--                <label for="amend_by" class="">{{ __('organization::app.bank.fields.amend_by') }}</label>--}}
 
 {{--                <input class="control" name="amend_by" type="text" id="amend_by"--}}
@@ -226,7 +219,7 @@
 {{--            </div>--}}
 {{--        </div>--}}
 {{--        <div class="row">--}}
-{{--            <div class="control-group {{ $errors->has('amend_date') ? 'has-error' : ''}}">--}}
+{{--            <div class="control-group col col-6 {{ $errors->has('amend_date') ? 'has-error' : ''}}">--}}
 {{--                <label for="amend_date" class="">{{ __('organization::app.bank.fields.amend_date') }}</label>--}}
 
 {{--                <input class="control" name="amend_date" type="datetime-local" id="amend_date"--}}
@@ -234,7 +227,7 @@
 
 {{--                {!! $errors->first('amend_date', '<span class="control-error">:message</span>') !!}--}}
 {{--            </div>--}}
-{{--            <div class="control-group {{ $errors->has('acc_mgr') ? 'has-error' : ''}}">--}}
+{{--            <div class="control-group col col-6 {{ $errors->has('acc_mgr') ? 'has-error' : ''}}">--}}
 {{--                <label for="acc_mgr" class="">{{ __('organization::app.bank.fields.acc_mgr') }}</label>--}}
 
 {{--                <input class="control" name="acc_mgr" type="text" id="acc_mgr"--}}
@@ -245,7 +238,7 @@
 {{--        </div>--}}
 {{--        <div class="row">--}}
 {{--        </div>--}}
-{{--        <div class="control-group {{ $errors->has('last_trns_date') ? 'has-error' : ''}}">--}}
+{{--        <div class="control-group col col-6 {{ $errors->has('last_trns_date') ? 'has-error' : ''}}">--}}
 {{--            <label for="last_trns_date" class="">{{ __('organization::app.bank.fields.last_trns_date') }}</label>--}}
 
 {{--            <input class="control" name="last_trns_date" type="datetime-local" id="last_trns_date"--}}
@@ -254,7 +247,7 @@
 {{--            {!! $errors->first('last_trns_date', '<span class="control-error">:message</span>') !!}--}}
 {{--        </div>--}}
 {{--    <div class="row">--}}
-{{--        <div class="control-group {{ $errors->has('last_trns_value') ? 'has-error' : ''}}">--}}
+{{--        <div class="control-group col col-6 {{ $errors->has('last_trns_value') ? 'has-error' : ''}}">--}}
 {{--            <label for="last_trns_value"--}}
 {{--                   class="">{{ __('organization::app.bank.fields.last_trns_value') }}</label>--}}
 
@@ -263,7 +256,7 @@
 
 {{--            {!! $errors->first('last_trns_value', '<span class="control-error">:message</span>') !!}--}}
 {{--        </div>--}}
-{{--        <div class="control-group {{ $errors->has('last_trns_type') ? 'has-error' : ''}}">--}}
+{{--        <div class="control-group col col-6 {{ $errors->has('last_trns_type') ? 'has-error' : ''}}">--}}
 {{--            <label for="last_trns_type" class="">{{ __('organization::app.bank.fields.last_trns_type') }}</label>--}}
 
 {{--            <input class="control" name="last_trns_type" type="text" id="last_trns_type"--}}
@@ -273,7 +266,7 @@
 {{--        </div>--}}
 {{--    </div>--}}
 {{--    <div class="row">--}}
-{{--        <div class="control-group {{ $errors->has('begin_bal_credit_fc') ? 'has-error' : ''}}">--}}
+{{--        <div class="control-group col col-6 {{ $errors->has('begin_bal_credit_fc') ? 'has-error' : ''}}">--}}
 {{--            <label for="begin_bal_credit_fc"--}}
 {{--                   class="">{{ __('organization::app.bank.fields.begin_bal_credit_fc') }}</label>--}}
 
@@ -282,7 +275,7 @@
 
 {{--            {!! $errors->first('begin_bal_credit_fc', '<span class="control-error">:message</span>') !!}--}}
 {{--        </div>--}}
-{{--        <div class="control-group {{ $errors->has('begin_bal_debit_fc') ? 'has-error' : ''}}">--}}
+{{--        <div class="control-group col col-6 {{ $errors->has('begin_bal_debit_fc') ? 'has-error' : ''}}">--}}
 {{--            <label for="begin_bal_debit_fc"--}}
 {{--                   class="">{{ __('organization::app.bank.fields.begin_bal_debit_fc') }}</label>--}}
 
@@ -293,7 +286,7 @@
 {{--        </div>--}}
 {{--    </div>--}}
 {{--    <div class="row">--}}
-{{--        <div class="control-group {{ $errors->has('curr_bal_credit_fc') ? 'has-error' : ''}}">--}}
+{{--        <div class="control-group col col-6 {{ $errors->has('curr_bal_credit_fc') ? 'has-error' : ''}}">--}}
 {{--            <label for="curr_bal_credit_fc"--}}
 {{--                   class="">{{ __('organization::app.bank.fields.curr_bal_credit_fc') }}</label>--}}
 
@@ -302,7 +295,7 @@
 
 {{--            {!! $errors->first('curr_bal_credit_fc', '<span class="control-error">:message</span>') !!}--}}
 {{--        </div>--}}
-{{--        <div class="control-group {{ $errors->has('curr_bal_debit_fc') ? 'has-error' : ''}}">--}}
+{{--        <div class="control-group col col-6 {{ $errors->has('curr_bal_debit_fc') ? 'has-error' : ''}}">--}}
 {{--            <label for="curr_bal_debit_fc"--}}
 {{--                   class="">{{ __('organization::app.bank.fields.curr_bal_debit_fc') }}</label>--}}
 
