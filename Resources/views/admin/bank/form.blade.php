@@ -156,14 +156,16 @@
                 {!! $errors->first('fax', '<span class="control-error">:message</span>') !!}
             </div>
         </div>
-        <div class="control-group col col-6{{ $errors->has('email') ? 'has-error' : ''}}">
-            <label for="email" class="">{{ __('organization::app.bank.fields.email') }}</label>
+       <div class="row">
+           <div class="control-group col col-6{{ $errors->has('email') ? 'has-error' : ''}}">
+               <label for="email" class="">{{ __('organization::app.bank.fields.email') }}</label>
 
-            <input class="control" name="email" type="text" id="email"
-                   value="{{ isset($bank->email) ? $bank->email : ''}}">
+               <input class="control" name="email" type="text" id="email"
+                      value="{{ isset($bank->email) ? $bank->email : ''}}">
 
-            {!! $errors->first('email', '<span class="control-error">:message</span>') !!}
-        </div>
+               {!! $errors->first('email', '<span class="control-error">:message</span>') !!}
+           </div>
+       </div>
 {{--        <div class="row">--}}
 
 {{--            <div class="control-group {{ $errors->has('credit_limit') ? 'has-error' : ''}}">--}}
