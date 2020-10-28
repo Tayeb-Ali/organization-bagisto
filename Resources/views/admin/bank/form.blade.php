@@ -15,12 +15,14 @@
             </div>
 
 
-            <div class="control-group col-6 {{ $errors->has('status') ? 'has-error' : ''}}">
-                <label for="status" class="">{{ __('organization::app.bank.fields.status') }}</label>
+            <div class="control-group col col-6 {{ $errors->has('status') ? 'has-error' : ''}}">
+                <label for="status" class="required">{{ __('organization::app.bank.fields.status') }}</label>
 
-                <input class="control" name="status" type="text" id="status"
-                       value="{{ isset($bank->status) ? $bank->status : ''}}">
+                <select id="status" name="status" class="form-control control" data-role="control">
 
+                    <option value="1" {{$bank->status == 1 ? 'selected' : '' }}>Activity</option>
+                    <option value="2" {{$bank->status ==2 ? 'selected' : '' }}>In-activity</option>
+                </select>
                 {!! $errors->first('status', '<span class="control-error">:message</span>') !!}
             </div>
         </div>

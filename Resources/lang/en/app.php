@@ -81,6 +81,7 @@ return [
             'email' => 'E-mail',
             'status' => 'Status',
             'bank_name' => 'Bank Name',
+            'contact_person' => 'Contact person',
             'account_no' => 'Account Number',
             'account_type' => 'Account Type',
             'credit_limit' => 'credit limit',

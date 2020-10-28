@@ -122,6 +122,101 @@
 
                 </div>
             </div>
+
+            <div class="container pt-5">
+                <div class="mb-3 p-3" style="background: #ccc">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            Last Trans : Reciving Voucher
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            In : 12/05/2015 14:16:16
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            With Amount : 605
+                        </div>
+                    </div>
+                </div>
+                <div class=" p-3" style="background: #ccc">
+                    <div class="row">
+                        <div class="col">
+                            <h6>Financials</h6>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4 px-1">
+
+
+                            <table class="float-left w-100"  >
+                                <tr>
+                                    <td></td>
+                                    <td colspan="2" class="text-center bg-primary text-light border ">Begining Balance</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td class="text-center bg-primary text-light border ">Debit</td>
+                                    <td class="text-center bg-primary text-light border ">Creditt</td>
+                                </tr>
+                                <tr>
+                                    <td >Foreign Currancy</td>
+                                    <td class="border border-dark"></td>
+                                    <td class="border border-dark"></td>
+                                </tr>
+                                <tr>
+                                    <td >Foreign Currancy</td>
+                                    <td class="border border-dark"></td>
+                                    <td class="border border-dark"></td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="col-lg-4 px-1">
+                            <table class=" w-100" border>
+                                <tr>
+
+                                    <td colspan="2" class="text-center bg-primary text-light">Trading Volume</td>
+                                </tr>
+                                <tr>
+
+                                    <td class="text-center bg-primary text-light">Debit</td>
+                                    <td class="text-center bg-primary text-light">Creditt</td>
+                                </tr>
+                                <tr>
+                                    <td >600,050.00y</td>
+                                    <td>,00</td>
+                                </tr>
+                                <tr>
+                                    <td >600,050.00y</td>
+                                    <td>,00</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="col-lg-4 px-1">
+                            <table class="w-100" border>
+                                <tr>
+
+                                    <td colspan="2" class="text-center bg-primary text-light">Trading Volume</td>
+                                </tr>
+                                <tr>
+
+                                    <td class="text-center bg-primary text-light">Debit</td>
+                                    <td class="text-center bg-primary text-light">Creditt</td>
+                                </tr>
+                                <tr>
+                                    <td >600,050.00y</td>
+                                    <td>,00</td>
+                                </tr>
+                                <tr>
+                                    <td >600,050.00y</td>
+                                    <td>,00</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

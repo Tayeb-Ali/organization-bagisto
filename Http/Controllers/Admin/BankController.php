@@ -84,7 +84,7 @@ class BankController extends Controller
 
         $currency = Currency::all();
         $group = BankGroup::all();
-
+//        return ['status' => $statusData, 'currency' => $currency];
         return view($this->_config['view'], compact('bank', 'company', 'currency', 'group'));
     }
 
@@ -126,6 +126,7 @@ class BankController extends Controller
      * @param int $id
      *
      * @return View
+     *
      */
     public function edit($id)
     {
@@ -133,6 +134,7 @@ class BankController extends Controller
         $company = Company::all('company_id', 'description');
         $currency = Currency::all();
         $group = BankGroup::all();
+
 
         return view($this->_config['view'], compact('bank', 'company', 'currency', 'group'));
     }
