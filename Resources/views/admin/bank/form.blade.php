@@ -28,7 +28,7 @@
         </div>
 
         <div class="row">
-            <div class="control-group {{ $errors->has('name') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('name') ? 'has-error' : ''}}">
                 <label for="name" class="required">{{ __('organization::app.bank.fields.name') }}</label>
 
                 <input class="control" name="name" type="text" id="name"
@@ -37,7 +37,7 @@
                 {!! $errors->first('name', '<span class="control-error">:message</span>') !!}
             </div>
 
-            <div class="control-group {{ $errors->has('account_no') ? 'has-error' : ''}}">
+            <div class="control-group col col-6{{ $errors->has('account_no') ? 'has-error' : ''}}">
                 <label for="name" class="required">{{ __('organization::app.bank.fields.account_no') }}</label>
 
                 <input class="control" name="account_no" type="text" id="name"
@@ -45,7 +45,6 @@
 
                 {!! $errors->first('name', '<span class="control-error">:message</span>') !!}
             </div>
-
 
         </div>
         <div class="row">
@@ -165,17 +164,18 @@
 
                {!! $errors->first('email', '<span class="control-error">:message</span>') !!}
            </div>
+           <div class="control-group {{ $errors->has('credit_limit') ? 'has-error' : ''}}">--}}
+                               <label for="credit_limit" class="">{{ __('organization::app.bank.fields.credit_limit') }}</label>
+
+                               <input class="control" name="credit_limit" type="number" id="credit_limit"
+                                      value="{{ isset($bank->credit_limit) ? $bank->credit_limit : ''}}">
+
+                               {!! $errors->first('credit_limit', '<span class="control-error">:message</span>') !!}
+                           </div>
        </div>
 {{--        <div class="row">--}}
 
-{{--            <div class="control-group {{ $errors->has('credit_limit') ? 'has-error' : ''}}">--}}
-{{--                <label for="credit_limit" class="">{{ __('organization::app.bank.fields.credit_limit') }}</label>--}}
-
-{{--                <input class="control" name="credit_limit" type="number" id="credit_limit"--}}
-{{--                       value="{{ isset($bank->credit_limit) ? $bank->credit_limit : ''}}">--}}
-
-{{--                {!! $errors->first('credit_limit', '<span class="control-error">:message</span>') !!}--}}
-{{--            </div>--}}
+{{--
 {{--            <div class="control-group {{ $errors->has('begin_bal_credit') ? 'has-error' : ''}}">--}}
 {{--                <label for="begin_bal_credit"--}}
 {{--                       class="">{{ __('organization::app.bank.fields.begin_bal_credit') }}</label>--}}
