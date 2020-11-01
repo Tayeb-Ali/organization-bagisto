@@ -524,7 +524,6 @@ return [
             [
                 'company_id' => 'Company',
                 'group_desc' => 'Group description',
-                'account_code' => 'Account code',
                 'status' => 'status',
                 'amend_by' => 'Amend by',
                 'amend_date' => 'Amend date',
