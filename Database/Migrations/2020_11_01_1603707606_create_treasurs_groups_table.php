@@ -34,6 +34,6 @@ class CreateBankGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('org_bank_groups');
+        Schema::drop('erp_treasurs_groups');
     }
 }
