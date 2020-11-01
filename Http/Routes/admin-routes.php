@@ -130,6 +130,19 @@ Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'midd
 });
 
 
+//bankGroup
+Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'middleware' => ['web', 'admin']], function () {
+    Route::prefix('admin/organization/bank-group')->group(function () {
+        Route::get('/', 'BankGroupController@index')->defaults('_config', ['view' => 'organization::admin.bank-group.index'])->name('admin.bank-group.index');
+        Route::get('/show/{id}', 'BankGroupController@show')->defaults('_config', ['view' => 'organization::admin.bank-group.show'])->name('admin.bank-group.show');
+        Route::get('/create', 'BankGroupController@create')->defaults('_config', ['view' => 'organization::admin.bank-group.create'])->name('admin.bank-group.create');
+        Route::post('/create', 'BankGroupController@store')->defaults('_config', ['redirect' => 'admin.bank-group.index'])->name('admin.bank-group.store');
+        Route::get('/edit/{id}', 'BankGroupController@edit')->defaults('_config', ['view' => 'organization::admin.bank-group.edit'])->name('admin.bank-group.edit');
+        Route::post('/edit/{id}', 'BankGroupController@update')->defaults('_config', ['redirect' => 'admin.bank-group.index'])->name('admin.bank-group.update');
+        Route::delete('/delete/{id}', 'BankGroupController@delete')->defaults('_config', ['redirect' => 'admin.bank-group.index'])->name('admin.bank-group.delete');
+    });
+});
+
 //Bank
 
 Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'middleware' => ['web', 'admin']], function () {
@@ -152,17 +165,38 @@ Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'midd
     });
 });
 
-//bankGroup
-
-
+//storeGroup
 Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'middleware' => ['web', 'admin']], function () {
-    Route::prefix('admin/organization/bank-group')->group(function () {
-        Route::get('/', 'BankGroupController@index')->defaults('_config', ['view' => 'organization::admin.bank-group.index'])->name('admin.bank-group.index');
-        Route::get('/show/{id}', 'BankGroupController@show')->defaults('_config', ['view' => 'organization::admin.bank-group.show'])->name('admin.bank-group.show');
-        Route::get('/create', 'BankGroupController@create')->defaults('_config', ['view' => 'organization::admin.bank-group.create'])->name('admin.bank-group.create');
-        Route::post('/create', 'BankGroupController@store')->defaults('_config', ['redirect' => 'admin.bank-group.index'])->name('admin.bank-group.store');
-        Route::get('/edit/{id}', 'BankGroupController@edit')->defaults('_config', ['view' => 'organization::admin.bank-group.edit'])->name('admin.bank-group.edit');
-        Route::post('/edit/{id}', 'BankGroupController@update')->defaults('_config', ['redirect' => 'admin.bank-group.index'])->name('admin.bank-group.update');
-        Route::delete('/delete/{id}', 'BankGroupController@delete')->defaults('_config', ['redirect' => 'admin.bank-group.index'])->name('admin.bank-group.delete');
+    Route::prefix('admin/organization/store-group')->group(function () {
+        Route::get('/', 'StoreGroupController@index')->defaults('_config', ['view' => 'organization::admin.store-group.index'])->name('admin.store-group.index');
+        Route::get('/show/{id}', 'StoreGroupController@show')->defaults('_config', ['view' => 'organization::admin.store-group.show'])->name('admin.store-group.show');
+        Route::get('/create', 'StoreGroupController@create')->defaults('_config', ['view' => 'organization::admin.store-group.create'])->name('admin.store-group.create');
+        Route::post('/create', 'StoreGroupController@store')->defaults('_config', ['redirect' => 'admin.store-group.index'])->name('admin.store-group.store');
+        Route::get('/edit/{id}', 'StoreGroupController@edit')->defaults('_config', ['view' => 'organization::admin.store-group.edit'])->name('admin.store-group.edit');
+        Route::post('/edit/{id}', 'StoreGroupController@update')->defaults('_config', ['redirect' => 'admin.store-group.index'])->name('admin.store-group.update');
+        Route::delete('/delete/{id}', 'StoreGroupController@delete')->defaults('_config', ['redirect' => 'admin.store-group.index'])->name('admin.store-group.delete');
     });
 });
+
+//Store
+Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'middleware' => ['web', 'admin']], function () {
+    Route::prefix('admin/organization/store')->group(function () {
+        Route::get('/', 'StoreController@index')
+            ->defaults('_config', ['view' => 'organization::admin.store.index'])->name('admin.store.index');
+        Route::get('/show/{id}', 'StoreController@show')
+            ->defaults('_config', ['view' => 'organization::admin.store.show'])->name('admin.store.show');
+        Route::get('/create', 'StoreController@create')
+            ->defaults('_config', ['view' => 'organization::admin.store.create'])->name('admin.store.create');
+        Route::post('/create', 'StoreController@store')
+            ->defaults('_config', ['redirect' => 'admin.store.index'])->name('admin.store.store');
+        Route::get('/edit/{id}', 'StoreController@edit')
+            ->defaults('_config', ['view' => 'organization::admin.store.edit'])->name('admin.store.edit');
+        Route::post('/edit/{id}', 'StoreController@update')
+            ->defaults('_config', ['redirect' => 'admin.store.index'])
+            ->name('admin.bank.update');
+        Route::delete('/delete/{id}', 'StoreController@delete'
+        )->defaults('_config', ['redirect' => 'admin.store.index'])->name('admin.store.delete');
+    });
+});
+
+

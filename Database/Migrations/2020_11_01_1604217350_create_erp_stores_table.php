@@ -32,7 +32,7 @@ class CreateErpStoresTable extends Migration
             $table->string('dept_code', 10)->nullable();
             $table->unsignedInteger('company_id')->nullable();
             $table->unsignedInteger('group_id')->nullable();
-
+            $table->timestamps();
         });
     }
 

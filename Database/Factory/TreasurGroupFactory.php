@@ -17,8 +17,8 @@ $factory->define(TreasurGroup::class, function (Faker $faker) {
         'account_code' => '',
         'status' => '',
         'amend_by' => Admin::all()->random()->id,
-        'created_at' => Carbon::next()->getTimestamp(),
-        'amend_date' => Carbon::next()->getTimestamp()
+        'created_at' => Carbon::now()->getTimestamp(),
+        'amend_date' => Carbon::now()->getTimestamp()
 
     ];
 });

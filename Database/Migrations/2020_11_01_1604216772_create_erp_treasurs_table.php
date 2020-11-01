@@ -36,6 +36,7 @@ class CreateErpTreasursTable extends Migration
 //            $table->primary(['company_code','code']);
             $table->unsignedInteger('company_id')->nullable();
             $table->unsignedInteger('group_id')->nullable();
+            $table->timestamps();
 
         });
     }

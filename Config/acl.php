@@ -261,4 +261,57 @@ return [
         'route' => 'admin.bank-group.delete',
         'sort' => '3'
     ],
+
+    //storeGroup
+    [
+        'key' => 'organization.store-group',
+        'name' => 'organization::app.acl.store-group.index',
+        'route' => 'admin.store-group.index',
+        'sort' => '7'
+    ],
+    [
+        'key' => 'organization.store-group.create',
+        'name' => 'organization::app.acl.store-group.create',
+        'route' => 'admin.store-group.create',
+        'sort' => '1'
+    ],
+    [
+        'key' => 'organization.store-group.edit',
+        'name' => 'organization::app.acl.store-group.edit',
+        'route' => 'admin.store-group.edit',
+        'sort' => '2'
+    ],
+    [
+        'key' => 'organization.store-group.delete',
+        'name' => 'organization::app.acl.store-group.delete',
+        'route' => 'admin.store-group.delete',
+        'sort' => '3'
+    ],
+
+//store
+    [
+        'key' => 'organization.store',
+        'name' => 'organization::app.acl.store.index',
+        'route' => 'admin.store.index',
+        'sort' => '6'
+    ],
+    [
+        'key' => 'organization.store.create',
+        'name' => 'organization::app.acl.store.create',
+        'route' => 'admin.store.create',
+        'sort' => '1'
+    ],
+    [
+        'key' => 'organization.store.edit',
+        'name' => 'organization::app.acl.store.edit',
+        'route' => 'admin.store.edit',
+        'sort' => '2'
+    ],
+    [
+        'key' => 'organization.store.delete',
+        'name' => 'organization::app.acl.store.delete',
+        'route' => 'admin.store.delete',
+        'sort' => '3'
+    ],
+
 ];

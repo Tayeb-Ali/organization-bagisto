@@ -21,6 +21,7 @@ class CreateErpStoresGroupsTable extends Migration
             $table->datetime('amend_date')->nullable();
 //            $table->primary(['company_code','group_code']);
             $table->unsignedInteger('company_id')->nullable();
+            $table->timestamps();
         });
     }
 

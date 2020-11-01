@@ -14,7 +14,6 @@ $factory->define(StoreGroup::class, function (Faker $faker) {
     return [
         'company_id' => Company::all()->random()->company_id,
         'group_desc' => $faker->companySuffix,
-        'account_code' => '',
         'status' => $faker->numberBetween(1, 2),
         'amend_by' => Admin::all()->random()->id,
         'created_at' => Carbon::now()->getTimestamp(),

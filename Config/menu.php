@@ -92,4 +92,19 @@ return [
         'sort' => '10',
         'icon-class' => ''
     ],
+
+    [
+        'key' => 'organization.store-group',
+        'name' => 'organization::app.store-group.index',
+        'route' => 'admin.store-group.index',
+        'sort' => '11',
+        'icon-class' => ''
+    ],
+    [
+        'key' => 'organization.store',
+        'name' => 'organization::app.store.index',
+        'route' => 'admin.store.index',
+        'sort' => '12',
+        'icon-class' => ''
+    ],
 ];
