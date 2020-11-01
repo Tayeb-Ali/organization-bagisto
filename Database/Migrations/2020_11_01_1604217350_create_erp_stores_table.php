@@ -10,7 +10,7 @@ class CreateErpStoresTable extends Migration
     {
         Schema::create('erp_stores', function (Blueprint $table) {
 
-            $table->increments('stores_id', 10);
+            $table->increments('store_id');
             $table->string('company_code', 10);
             $table->string('code', 10);
             $table->string('description', 100)->nullable();
@@ -27,10 +27,9 @@ class CreateErpStoresTable extends Migration
             $table->string('have_sub_stores', 1)->nullable();
             $table->string('store_contacts', 50)->nullable();
             $table->string('store_location', 500)->nullable();
-            $table->tinyinteger('sub_store_mandatory', 4)->nullable();
+            $table->tinyinteger('sub_store_mandatory')->nullable();
             $table->string('account_code', 30)->nullable();
             $table->string('dept_code', 10)->nullable();
-            $table->primary(['company_code', 'code']);
             $table->unsignedInteger('company_id')->nullable();
             $table->unsignedInteger('group_id')->nullable();
 

@@ -10,16 +10,16 @@ class CreateErpStoresGroupsTable extends Migration
     {
         Schema::create('erp_stores_groups', function (Blueprint $table) {
 
-		$table->increments('group_id');
-            $table->string('company_code',10);
-            $table->string('group_code',15);
-            $table->string('group_desc',100)->nullable();
-            $table->string('group_desc_o',100)->nullable();
-            $table->string('cost_center_code',30)->nullable();
-            $table->string('status',10)->nullable();
-            $table->string('amend_by',10)->nullable();
+            $table->increments('group_id');
+            $table->string('company_code', 10);
+            $table->string('group_code', 15);
+            $table->string('group_desc', 100)->nullable();
+            $table->string('group_desc_o', 100)->nullable();
+            $table->string('cost_center_code', 30)->nullable();
+            $table->string('status', 10)->nullable();
+            $table->string('amend_by', 10)->nullable();
             $table->datetime('amend_date')->nullable();
-            $table->primary(['company_code','group_code']);
+//            $table->primary(['company_code','group_code']);
             $table->unsignedInteger('company_id')->nullable();
         });
     }
