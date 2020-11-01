@@ -510,6 +510,36 @@ return [
         'add-success' => 'Store add successfully',
     ],
 
+    'store-group' => [
+        'add-title' => 'Add store group',
+        'create-btn-title' => 'Create',
+        'edit-title' => 'edit employ',
+        'edit-btn-title' => 'save',
+        'index' => 'store group',
+        'delete' => 'delete',
+        'show' => 'show',
+        'title' => 'store group',
+        'general' => 'General',
+        'fields' =>
+            [
+                'company_id' => 'Company',
+                'group_desc' => 'Group description',
+                'account_code' => 'Account code',
+                'status' => 'status',
+                'amend_by' => 'Amend by',
+                'amend_date' => 'Amend date',
+                'group_id' => 'Store group',
+                'group_code' => 'group_code',
+                'company_code' => 'company_code',
+                'group_desc_o' => 'group_desc_o',
+                'cost_center_code' => 'cost_center_code',
+
+            ],
+        'update-success' => 'Employ group update successfully',
+        'delete-success' => 'Employ group delete successfully',
+        'add-success' => 'Employ group add successfully',
+    ],
+
     'admin' => [
         'main' => 'Organization',
         'index' => 'Organization'

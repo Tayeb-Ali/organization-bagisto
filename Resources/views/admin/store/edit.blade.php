@@ -7,7 +7,7 @@
 @section('content')
     <div class="content">
 
-        <form method="POST" action="{{ route('admin.store.edit', $bank->code) }}">
+        <form method="POST" action="{{ route('admin.store.edit', $store->store_id) }}">
 
             <div class="page-header">
                 <div class="page-title">

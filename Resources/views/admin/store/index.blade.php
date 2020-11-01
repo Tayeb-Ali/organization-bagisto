@@ -97,19 +97,19 @@
                                 <td>{{ $item->store_contacts }}</td>
                                 <td class="actions" style="white-space: nowrap; width: 100px;">
                                     <div class="action">
-                                        <a href="{{ route('admin.store.show', $item->code) }}"
+                                        <a href="{{ route('admin.store.show', $item->store_id) }}"
                                            title="View Client">
                                             <button style="border: none; background-color: inherit;"><span
                                                         class="icon eye-icon"></span></button>
                                         </a>
-                                        <a href="{{ route('admin.store.edit', $item->code) }}"
+                                        <a href="{{ route('admin.store.edit', $item->store_id) }}"
                                            title="Edit Client">
                                             <button style="border: none; background-color: inherit;"><span
                                                         class="icon pencil-lg-icon"></span></button>
                                         </a>
 
                                         <form method="POST"
-                                              action="{{ route('admin.store.delete', $item->code) }}"
+                                              action="{{ route('admin.store.delete', $item->store_id) }}"
                                               accept-charset="UTF-8" style="display:inline">
                                             {{ method_field('DELETE') }}
                                             {{ csrf_field() }}
