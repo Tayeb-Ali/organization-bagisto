@@ -68,11 +68,10 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>{{ trans('organization::app.store.fields.name') }}</th>
+                            <th>{{ trans('organization::app.store.fields.description') }}</th>
                             <th>{{ trans('organization::app.store.fields.status') }}</th>
-                            <th>{{ trans('organization::app.store.fields.account_no') }}</th>
-                            <th>{{ trans('organization::app.store.fields.bank_name') }}</th>
-                            <th>{{ trans('organization::app.store.fields.currency') }}</th>
+                            <th>{{ trans('organization::app.store.fields.group_id') }}</th>
+                            <th>{{ trans('organization::app.store.fields.store_contacts') }}</th>
 
                             <th>Actions</th>
                         </tr>
@@ -83,14 +82,19 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->description }}</td>
-                                <td>{{ $item->status }}</td>
+                                <td>
+                                    @if($item->status ==1 )
+                                        <b>Activityy</b>
+                                    @else
+                                        <b>in Activityy</b>
+                                    @endif
+                                </td>
                                 @if($item->group)
                                     <td>{{ $item->group->group_desc }}</td>
                                 @else
                                     <td>{{ $item->group_id }}</td>
                                 @endif
-                                <td>{{ $item->bank_name }}</td>
-                                <td>{{ $item->currency }}</td>
+                                <td>{{ $item->store_contacts }}</td>
                                 <td class="actions" style="white-space: nowrap; width: 100px;">
                                     <div class="action">
                                         <a href="{{ route('admin.store.show', $item->code) }}"

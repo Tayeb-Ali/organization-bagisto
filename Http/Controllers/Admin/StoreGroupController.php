@@ -28,6 +28,7 @@ class StoreGroupController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return View
      */
     public function index(Request $request)
@@ -62,7 +63,7 @@ class StoreGroupController extends Controller
         $storeGroup->fill($request->old());
         $company = Company::all('company_id', 'description');
 
-        return view($this->_config['view'], compact(['bstoreroup', 'company']));
+        return view($this->_config['view'], compact('storeGroup', 'company'));
     }
 
     /**

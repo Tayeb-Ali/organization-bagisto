@@ -60,9 +60,9 @@ class StoreController extends Controller
                 ->orWhere('curr_bal_debit_fc', 'LIKE', "%$keyword%")
                 ->orWhere('currency', 'LIKE', "%$keyword%")
                 ->orWhere('analysis_code', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
+                ->latest()->with('group')->paginate($perPage);
         } else {
-           return $store = Store::latest()->paginate($perPage);
+            $store = Store::latest()->with('group')->paginate($perPage);
         }
 
         return view($this->_config['view'], compact('store'));
