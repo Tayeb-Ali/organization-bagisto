@@ -26,7 +26,11 @@ class OrganizationDatabaseSeeder extends Seeder
             EmployGroupTableSeeder::class,
             EmployTableSeeder::class,
             BankGroupTableSeeder::class,
-            BanckTableSeeder::class
+            BanckTableSeeder::class,
+            StoreGroupTableSeeder::class,
+            StoreTableSeeder::class,
+            TreasurGroupTableSeeder::class,
+            TreasurTableSeeder::class
         ]);
     }
 }
