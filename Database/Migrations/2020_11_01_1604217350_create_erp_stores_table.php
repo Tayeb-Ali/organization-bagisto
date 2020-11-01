@@ -24,7 +24,7 @@ class CreateErpStoresTable extends Migration
             $table->decimal('last_trns_value', 13, 3)->nullable();
             $table->string('last_trns_type', 100)->nullable();
             $table->string('cost_center_code', 30)->nullable();
-            $table->string('have_sub_stores', 1)->nullable();
+            $table->boolean('have_sub_stores')->nullable();
             $table->string('store_contacts', 50)->nullable();
             $table->string('store_location', 500)->nullable();
             $table->tinyinteger('sub_store_mandatory')->nullable();
