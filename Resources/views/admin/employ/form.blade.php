@@ -24,7 +24,7 @@
             <div class="control-group {{ $errors->has('group_id') ? 'has-error' : ''}}">
                 <label for="company_id" class="required">{{ __('organization::app.employ.fields.group_id') }}</label>
 
-                <select id="group_id" name="group_id" class="form-control" data-role="control">
+                <select id="group_id" name="group_id" class="form-control control" data-role="control">
 
                     @foreach($group as $item)
                         <option value="{{ $item->group_id }}" {{$employ->group_id == $item->group_id ? 'selected' : '' }}>{{ $item->group_desc }}</option>

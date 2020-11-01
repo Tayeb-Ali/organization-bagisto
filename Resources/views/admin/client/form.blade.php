@@ -24,7 +24,7 @@
             <div class="control-group col col-6 {{ $errors->has('company_id') ? 'has-error' : ''}}">
                 <label for="company_id" class="required">{{ __('organization::app.client.fields.company_id') }}</label>
 
-                <select id="company_id" name="company_id" class="form-control" data-role="control">
+                <select id="company_id" name="company_id" class="form-control control" data-role="control">
 
                     @foreach($company as $item)
                         <option value="{{ $item->company_id }}" {{$client->company_id == $item->company_id ? 'selected' : '' }}>{{ $item->description }}</option>
@@ -36,7 +36,7 @@
             <div class="control-group col col-6{{ $errors->has('group_id') ? 'has-error' : ''}}">
                 <label for="group_id" class="required">{{ __('organization::app.client.fields.group_id') }}</label>
 
-                <select id="group_id" name="group_id" class="form-control" data-role="control">
+                <select id="group_id" name="group_id" class="form-control control" data-role="control">
 
                     @foreach($group as $item)
                         <option value="{{ $item->group_id }}" {{$client->group_id == $item->group_id ? 'selected' : '' }}>{{ $item->group_desc}}</option>

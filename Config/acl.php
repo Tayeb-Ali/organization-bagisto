@@ -314,4 +314,56 @@ return [
         'sort' => '3'
     ],
 
+
+    //treasur
+    [
+        'key' => 'organization.treasur',
+        'name' => 'organization::app.acl.treasur.index',
+        'route' => 'admin.treasur.index',
+        'sort' => '8'
+    ],
+    [
+        'key' => 'organization.treasur.create',
+        'name' => 'organization::app.acl.treasur.create',
+        'route' => 'admin.treasur.create',
+        'sort' => '1'
+    ],
+    [
+        'key' => 'organization.treasur.edit',
+        'name' => 'organization::app.acl.treasur.edit',
+        'route' => 'admin.treasur.edit',
+        'sort' => '2'
+    ],
+    [
+        'key' => 'organization.treasur.delete',
+        'name' => 'organization::app.acl.treasur.delete',
+        'route' => 'admin.treasur.delete',
+        'sort' => '3'
+    ],
+
+    //treasurGroup
+    [
+        'key' => 'organization.treasur-group',
+        'name' => 'organization::app.acl.treasur-group.index',
+        'route' => 'admin.treasur-group.index',
+        'sort' => '9'
+    ],
+    [
+        'key' => 'organization.treasur-group.create',
+        'name' => 'organization::app.acl.treasur-group.create',
+        'route' => 'admin.treasur-group.create',
+        'sort' => '1'
+    ],
+    [
+        'key' => 'organization.treasur-group.edit',
+        'name' => 'organization::app.acl.treasur-group.edit',
+        'route' => 'admin.treasur-group.edit',
+        'sort' => '2'
+    ],
+    [
+        'key' => 'organization.treasur-group.delete',
+        'name' => 'organization::app.acl.treasur-group.delete',
+        'route' => 'admin.treasur-group.delete',
+        'sort' => '3'
+    ],
 ];

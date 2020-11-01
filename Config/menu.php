@@ -107,4 +107,20 @@ return [
         'sort' => '12',
         'icon-class' => ''
     ],
+
+    //treasur
+    [
+        'key' => 'organization.treasur-group',
+        'name' => 'organization::app.treasur-group.index',
+        'route' => 'admin.treasur-group.index',
+        'sort' => '13',
+        'icon-class' => ''
+    ],
+    [
+        'key' => 'organization.treasur',
+        'name' => 'organization::app.treasur.index',
+        'route' => 'admin.treasur.index',
+        'sort' => '14',
+        'icon-class' => ''
+    ],
 ];

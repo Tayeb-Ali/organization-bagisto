@@ -3,14 +3,14 @@
 namespace DOCore\Organization\Http\Controllers\Admin;
 
 use DOCore\Organization\Models\Bank;
-use DOCore\Organization\Models\BankGroup;
+use DOCore\Organization\Models\TreasurGroup;
 use DOCore\Organization\Models\Company;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\View\View;
 
-class BankGroupController extends Controller
+class TreasurGroupController extends Controller
 {
     /**
      * To hold the request variables from route file
@@ -35,18 +35,18 @@ class BankGroupController extends Controller
         $perPage = $request->get('perPage') ? $request->get('perPage') : 25;
 
         if (!empty($keyword)) {
-            $bankGroup = BankGroup::where('company_id', 'LIKE', "%$keyword%")
+            $treasurGroup = TreasurGroup::where('company_id', 'LIKE', "%$keyword%")
                 ->orWhere('group_desc', 'LIKE', "%$keyword%")
                 ->orWhere('account_code', 'LIKE', "%$keyword%")
                 ->orWhere('status', 'LIKE', "%$keyword%")
                 ->orWhere('amend_by', 'LIKE', "%$keyword%")
                 ->orWhere('amend_date', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
+                ->latest()->with('company')->paginate($perPage);
         } else {
-            $bankGroup = BankGroup::latest()->paginate($perPage);
+             $treasurGroup = TreasurGroup::latest()->with('company')->paginate($perPage);
         }
 
-        return view($this->_config['view'], compact('bankGroup'));
+        return view($this->_config['view'], compact('treasurGroup'));
     }
 
     /**
@@ -56,12 +56,12 @@ class BankGroupController extends Controller
      */
     public function create(Request $request)
     {
-        $bankGroup = new BankGroup;
+        $treasurGroup = new TreasurGroup;
 
-        $bankGroup->fill($request->old());
+        $treasurGroup->fill($request->old());
         $company = Company::all('company_id', 'description');
 
-        return view($this->_config['view'], compact(['bankGroup', 'company']));
+        return view($this->_config['view'], compact(['treasurGroup', 'company']));
     }
 
     /**
@@ -79,9 +79,9 @@ class BankGroupController extends Controller
         ]);
         $requestData = $request->all();
 
-        BankGroup::create($requestData);
+        TreasurGroup::create($requestData);
 
-        session()->flash('success', trans('organization::app.bank-group.add-success', ['name' => 'BankGroup']));
+        session()->flash('success', trans('organization::app.thearsur-group.add-success', ['name' => 'TreasurGroup']));
 
         return redirect()->route($this->_config['redirect']);
     }
@@ -95,9 +95,9 @@ class BankGroupController extends Controller
      */
     public function show($id)
     {
-        $bankGroup = BankGroup::findOrFail($id);
+        $treasurGroup = TreasurGroup::findOrFail($id);
 
-        return view($this->_config['view'], compact('bankGroup'));
+        return view($this->_config['view'], compact('treasurGroup'));
     }
 
     /**
@@ -109,11 +109,11 @@ class BankGroupController extends Controller
      */
     public function edit($id)
     {
-        $bankGroup = BankGroup::findOrFail($id);
+        $treasurGroup = TreasurGroup::findOrFail($id);
         $company = Company::all('company_id', 'description');
 
 
-        return view($this->_config['view'], compact('bankGroup', 'company'));
+        return view($this->_config['view'], compact('treasurGroup', 'company'));
     }
 
     /**
@@ -133,10 +133,10 @@ class BankGroupController extends Controller
         ]);
         $requestData = $request->all();
 
-        $bankGroup = BankGroup::findOrFail($id);
-        $bankGroup->update($requestData);
+        $treasurGroup = TreasurGroup::findOrFail($id);
+        $treasurGroup->update($requestData);
 
-        session()->flash('success', trans('organization::app.bank-group.update-success', ['name' => 'BankGroup']));
+        session()->flash('success', trans('organization::app.thearsur-group.update-success', ['name' => 'TreasurGroup']));
 
         return redirect()->route($this->_config['redirect']);
     }
@@ -150,17 +150,17 @@ class BankGroupController extends Controller
      */
     public function delete($id)
     {
-        $bankGroup = BankGroup::findOrFail($id);
+        $treasurGroup = TreasurGroup::findOrFail($id);
 
         if (Bank::where('group_id', $id)->get()->count()) {
             session()->flash('warning', trans('organization::app.delete-error.message1'));
             return redirect()->back();
-        } elseif ($bankGroup->delete()) {
-            session()->flash('success', trans('organization::app.bank-group.delete-success', ['name' => 'BankGroup']));
+        } elseif ($treasurGroup->delete()) {
+            session()->flash('success', trans('organization::app.thearsur-group.delete-success', ['name' => 'TreasurGroup']));
 
             return redirect()->route($this->_config['redirect']);
         } else {
-            session()->flash('warning', trans('organization::app.bank-group.delete-failure'));
+            session()->flash('warning', trans('organization::app.thearsur-group.delete-failure'));
 
             return redirect()->route($this->_config['redirect']);
         }

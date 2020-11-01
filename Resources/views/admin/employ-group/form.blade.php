@@ -26,7 +26,7 @@
                 <label for="company_id"
                        class="required">{{ __('organization::app.employ-group.fields.company_id') }}</label>
 
-                <select id="company_id" name="company_id" class="form-control" data-role="control">
+                <select id="company_id" name="company_id" class="form-control control" data-role="control">
                     @foreach($company as $item)
                         <option value="{{ $item->company_id }}" {{$employGroup->company_id == $item->company_id ? 'selected' : '' }}>{{ $item->description }}</option>
                     @endforeach

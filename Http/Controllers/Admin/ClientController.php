@@ -80,9 +80,9 @@ class ClientController extends Controller
                 ->orWhere('analysis_code', 'LIKE', "%$keyword%")
                 ->orWhere('sprice_list', 'LIKE', "%$keyword%")
                 ->orWhere('vat_flag', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
+                ->latest()->with(['company', 'group'])->paginate($perPage);
         } else {
-            $client = Client::latest()->paginate($perPage);
+            $client = Client::latest()->with(['company', 'group'])->paginate($perPage);
         }
 
         return view($this->_config['view'], compact('client'));

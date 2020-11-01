@@ -1,7 +1,7 @@
 @extends('admin::layouts.content')
 
 @section('page_title')
-    {{ __('organization::app.client.show') }}
+    {{ __('organization::app.treasur-group.show') }}
 @stop
 
 
@@ -12,18 +12,18 @@
             <div class="page-title">
                 <i class="icon angle-left-icon back-link"
                    onclick="history.length > 1 ? history.go(-1) : window.location = '{{ route('admin.dashboard.index') }}';"></i>
-                <h1>{{ __('organization::app.client.title') }}</h1>
+                <h1>{{ __('organization::app.treasur-group.title') }}</h1>
             </div>
             <div class="page-action">
-                <a href="{{ route('admin.client.edit', $client->client_id) }}" title="Edit Client">
+                <a href="{{ route('admin.treasur-group.edit', $treasurGroup->group_id) }}" title="Edit ClientGroup">
                     <button style="border: none; background-color: inherit;"><span class="icon pencil-lg-icon"></span>
                     </button>
                 </a>
-                <form method="POST" action="{{ route('admin.client.delete', $client->client_id) }}"
+                <form method="POST" action="{{ route('admin.treasur-group.delete', $treasurGroup->group_id) }}"
                       accept-charset="UTF-8" style="display:inline">
                     {{ method_field('DELETE') }}
                     {{ csrf_field() }}
-                    <button type="submit" style="border: none; background-color: inherit;" title="Delete Client"
+                    <button type="submit" style="border: none; background-color: inherit;" title="Delete ClientGroup"
                             onclick="return confirm(&quot;Confirm delete?&quot;)">
                         <span class="icon trash-icon"></span>
                     </button>
@@ -38,23 +38,28 @@
                     <tbody>
                     <tr>
                         <td>ID</td>
-                        <td>{{ $client->client_id }}</td>
-                    </tr>
-                    <tr>
-                        <td> {{ trans('organization::app.client.fields.company_id') }} </td>
-                        <td> {{ $client->company_id }} </td>
+                        <td>{{ $treasurGroup->group_id }}</td>
                     </tr>
                     \n
                     <tr>
-                        <td> {{ trans('organization::app.client.fields.group_id') }} </td>
-                        <td> {{ $client->group_id }} </td>
+                        <td> {{ trans('organization::app.treasur-group.fields.group_desc') }} </td>
+                        <td> {{ $treasurGroup->group_desc }} </td>
                     </tr>
                     \n
                     <tr>
-                        <td> {{ trans('organization::app.client.fields.cust_type') }} </td>
-                        <td> {{ $client->cust_type }} </td>
+                        <td> {{ trans('organization::app.treasur-group.fields.account_code') }} </td>
+                        <td> {{ $treasurGroup->account_code }} </td>
                     </tr>
                     \n
+                    <tr>
+                        <td> {{ trans('organization::app.treasur-group.fields.company_id') }} </td>
+                        @if($treasurGroup->company)
+                            <td> {{ $treasurGroup->company->description }} </td>
+                        @else
+                            <td> {{ $treasurGroup->company_id }} </td>
+
+                        @endif
+                    </tr>
                     </tbody>
                 </table>
 
