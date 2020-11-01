@@ -5,21 +5,21 @@ namespace DOCore\Organization\Models;
 use Illuminate\Database\Eloquent\Model;
 
 
-class Treasur extends Model
+class Store extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'erp_treasurs';
+    protected $table = 'erp_stores';
 
     /**
      * The database primary key value.
      *
      * @var string
      */
-    protected $primaryKey = 'treasur_id';
+    protected $primaryKey = 'store_id';
 
     /**
      * Attributes that should be mass-assignable.
@@ -27,13 +27,11 @@ class Treasur extends Model
      * @var array
      */
     protected $fillable = [
-        'treasur_id',
-        'company_id',
-        'group_id',
-        'code', 'name', 'casher', 'name_o', 'currency_code', 'status', 'begin_bal_debit',
-        'begin_bal_credit', 'curr_bal_credit', 'curr_bal_debit', 'amend_by', 'amend_date',
-        'last_trns_date', 'last_trns_value', 'last_trns_type', 'begin_bal_credit_fc', 'begin_bal_debit_fc',
-        'curr_bal_credit_fc', 'curr_bal_debit_fc', 'analysis_code'];
+
+        'company_id', 'group_id', 'company_code', 'code', 'description', 'name_o', 'store_keeper', 'status', 'amend_by',
+        'amend_date', 'last_trns_date', 'last_trns_value', 'last_trns_type', 'cost_center_code', 'have_sub_stores',
+        'store_contacts', 'store_location', 'sub_store_mandatory', 'account_code', 'dept_code',
+    ];
 
     /**
      * Validation rules
@@ -41,7 +39,8 @@ class Treasur extends Model
      * @var array
      */
     public static $rules = [
-        'name' => 'required',
+        'name_o' => 'required',
+        'description' => 'required',
     ];
 
     public function company()
@@ -51,6 +50,6 @@ class Treasur extends Model
 
     public function group()
     {
-        return $this->hasOne(TreasurGroup::class, 'group_id', 'group_id');
+        return $this->hasOne(StoreGroup::class, 'group_id', 'group_id');
     }
 }
