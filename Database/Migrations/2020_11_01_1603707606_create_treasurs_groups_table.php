@@ -13,7 +13,7 @@ class CreateTreasursGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('erp_treasurs_groups', function (Blueprint $table) {
+        Schema::create('org_treasurs_groups', function (Blueprint $table) {
             $table->increments('group_id');
             $table->integer('company_id')->unsigned();
             $table->string('group_desc', 100)->nullable();
@@ -34,6 +34,6 @@ class CreateTreasursGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('erp_treasurs_groups');
+        Schema::drop('org_treasurs_groups');
     }
 }
