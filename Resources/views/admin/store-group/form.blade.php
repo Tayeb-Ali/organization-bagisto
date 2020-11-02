@@ -12,26 +12,6 @@
 
                 {!! $errors->first('group_desc', '<span class="control-error">:message</span>') !!}
             </div>
-            <div class="control-group col-6 {{ $errors->has('group_code') ? 'has-error' : ''}}">
-                <label for="group_code" class="">{{ __('organization::app.store-group.fields.group_code') }}</label>
-
-                <input class="control" name="group_code" type="text" id="group_code"
-                       value="{{ isset($storeGroup->group_code) ? $storeGroup->group_code : ''}}">
-
-                {!! $errors->first('group_code', '<span class="control-error">:message</span>') !!}
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="control-group col-6{{ $errors->has('company_code') ? 'has-error' : ''}}">
-                <label for="company_code"
-                       class="required">{{ __('organization::app.store-group.fields.company_code') }}</label>
-
-                <input class="control" name="company_code" type="text" id="company_code"
-                       value="{{ isset($storeGroup->company_code) ? $storeGroup->company_code : ''}}" required>
-
-                {!! $errors->first('company_code', '<span class="control-error">:message</span>') !!}
-            </div>
             <div class="control-group col-6 {{ $errors->has('group_desc_o') ? 'has-error' : ''}}">
                 <label for="group_desc_o" class="">{{ __('organization::app.store-group.fields.group_desc_o') }}</label>
 
@@ -41,6 +21,27 @@
                 {!! $errors->first('group_desc_o', '<span class="control-error">:message</span>') !!}
             </div>
         </div>
+{{--            <div class="control-group col-6 {{ $errors->has('group_code') ? 'has-error' : ''}}">--}}
+{{--                <label for="group_code" class="">{{ __('organization::app.store-group.fields.group_code') }}</label>--}}
+
+{{--                <input class="control" name="group_code" type="text" id="group_code"--}}
+{{--                       value="{{ isset($storeGroup->group_code) ? $storeGroup->group_code : ''}}">--}}
+
+{{--                {!! $errors->first('group_code', '<span class="control-error">:message</span>') !!}--}}
+{{--            </div>--}}
+
+{{--        <div class="row">--}}
+{{--            <div class="control-group col-6{{ $errors->has('company_code') ? 'has-error' : ''}}">--}}
+{{--                <label for="company_code"--}}
+{{--                       class="required">{{ __('organization::app.store-group.fields.company_code') }}</label>--}}
+
+{{--                <input class="control" name="company_code" type="text" id="company_code"--}}
+{{--                       value="{{ isset($storeGroup->company_code) ? $storeGroup->company_code : ''}}" required>--}}
+
+{{--                {!! $errors->first('company_code', '<span class="control-error">:message</span>') !!}--}}
+{{--            </div>--}}
+
+{{--        </div>--}}
         <div class="row">
             <div class="control-group col-6 {{ $errors->has('company_id') ? 'has-error' : ''}}">
                 <label for="company_id"
