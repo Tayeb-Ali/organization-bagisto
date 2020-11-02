@@ -8,10 +8,10 @@ class CreateErpTreasursTable extends Migration
 {
     public function up()
     {
-        Schema::create('erp_treasurs', function (Blueprint $table) {
+        Schema::create('org_treasurs', function (Blueprint $table) {
             $table->increments('treasur_id');
-            $table->string('company_code', 10);
-            $table->string('code', 10);
+//            $table->string('company_code', 10);
+//            $table->string('code', 10);
             $table->string('name', 100)->nullable();
             $table->string('casher', 100)->nullable();
 //            $table->string('treasure_group', 10)->nullable();
@@ -30,7 +30,7 @@ class CreateErpTreasursTable extends Migration
             $table->decimal('curr_bal_credit_fc', 15, 5)->nullable();
             $table->decimal('curr_bal_debit_fc', 15, 5)->nullable();
             $table->string('currency_code', 10)->nullable();
-            $table->string('name_o', 100)->nullable();
+//            $table->string('name_o', 100)->nullable();
             $table->string('analysis_code', 20)->nullable();
             $table->string('treasure_dept_code', 100)->nullable();
 //            $table->primary(['company_code','code']);
@@ -43,6 +43,6 @@ class CreateErpTreasursTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('erp_treasurs');
+        Schema::dropIfExists('org_treasurs');
     }
 }

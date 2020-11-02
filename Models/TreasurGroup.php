@@ -11,7 +11,7 @@ class TreasurGroup extends Model
      *
      * @var string
      */
-    protected $table = 'erp_treasurs_groups';
+    protected $table = 'org_treasurs_groups';
 
     /**
      * The database primary key value.

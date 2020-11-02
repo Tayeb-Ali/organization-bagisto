@@ -12,7 +12,7 @@ class Store extends Model
      *
      * @var string
      */
-    protected $table = 'erp_stores';
+    protected $table = 'org_stores';
 
     /**
      * The database primary key value.
@@ -28,7 +28,7 @@ class Store extends Model
      */
     protected $fillable = [
 
-        'company_id', 'group_id', 'company_code', 'code', 'description', 'name_o', 'store_keeper', 'status', 'amend_by',
+        'company_id', 'group_id', 'description', 'store_keeper', 'status', 'amend_by',
         'amend_date', 'last_trns_date', 'last_trns_value', 'last_trns_type', 'cost_center_code', 'have_sub_stores',
         'store_contacts', 'store_location', 'sub_store_mandatory', 'account_code', 'dept_code',
     ];

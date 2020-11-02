@@ -12,7 +12,7 @@ class Treasur extends Model
      *
      * @var string
      */
-    protected $table = 'erp_treasurs';
+    protected $table = 'org_treasurs';
 
     /**
      * The database primary key value.
@@ -27,10 +27,7 @@ class Treasur extends Model
      * @var array
      */
     protected $fillable = [
-        'treasur_id',
-        'company_id',
-        'group_id',
-        'code', 'name', 'casher', 'name_o', 'currency_code', 'status', 'begin_bal_debit',
+        'treasur_id', 'company_id', 'group_id', 'name', 'casher', 'currency_code', 'status', 'begin_bal_debit',
         'begin_bal_credit', 'curr_bal_credit', 'curr_bal_debit', 'amend_by', 'amend_date',
         'last_trns_date', 'last_trns_value', 'last_trns_type', 'begin_bal_credit_fc', 'begin_bal_debit_fc',
         'curr_bal_credit_fc', 'curr_bal_debit_fc', 'analysis_code'];

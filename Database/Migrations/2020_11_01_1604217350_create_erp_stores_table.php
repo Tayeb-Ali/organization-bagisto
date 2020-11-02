@@ -8,13 +8,13 @@ class CreateErpStoresTable extends Migration
 {
     public function up()
     {
-        Schema::create('erp_stores', function (Blueprint $table) {
+        Schema::create('org_stores', function (Blueprint $table) {
 
             $table->increments('store_id');
-            $table->string('company_code', 10);
-            $table->string('code', 10);
+//            $table->string('company_code', 10);
+//            $table->string('code', 10);
             $table->string('description', 100)->nullable();
-            $table->string('name_o', 100)->nullable();
+//            $table->string('name_o', 100)->nullable();
             $table->string('store_keeper', 100)->nullable();
 //            $table->string('store_group', 10)->nullable();
             $table->string('status', 10)->nullable();
@@ -38,6 +38,6 @@ class CreateErpStoresTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('erp_stores');
+        Schema::dropIfExists('org_stores');
     }
 }
