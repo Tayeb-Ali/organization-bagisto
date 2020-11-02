@@ -11,7 +11,7 @@ class StoreGroup extends Model
      *
      * @var string
      */
-    protected $table = 'erp_stores_groups';
+    protected $table = 'org_stores_groups';
 
     /**
      * The database primary key value.
@@ -25,8 +25,7 @@ class StoreGroup extends Model
      *
      * @var array
      */
-    protected $fillable = ['group_id', 'company_id', 'group_code', 'company_code',
-        'group_desc', 'group_desc_o', 'status', 'cost_center_code', 'amend_by', 'amend_date'];
+    protected $fillable = ['group_id', 'company_id', 'group_desc', 'status', 'cost_center_code', 'amend_by', 'amend_date'];
 
     public function stores()
     {
