@@ -26,6 +26,10 @@ class EmployRequest extends FormRequest
      */
     public function rules()
     {
-        return Employ::$rules;
+        return [
+            'name' => 'required',
+            'company_id' => 'required',
+            'group_id' => 'required'
+        ];
     }
 }

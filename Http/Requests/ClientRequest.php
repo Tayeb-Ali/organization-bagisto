@@ -25,6 +25,11 @@ class ClientRequest extends FormRequest
      */
     public function rules()
     {
-        return Client::$rules;
+        return [
+            'name' => 'required',
+            'company_id' => 'required',
+            'group_id' => 'required'
+        ];
     }
+
 }

@@ -123,6 +123,26 @@ class SupplierController extends Controller
     }
 
     /**
+     * Store a newly created resource in storage.
+     *
+     * @param Request $request
+     *
+     * @return RedirectResponse|Redirector
+     */
+    public function storeAjax(Request $request)
+    {
+        $requestData = $request->all();
+
+        $supplier = Supplier::create($requestData);
+
+        if ($supplier) {
+            return response()->json(['supplier' => $supplier, 'status' => true]);
+        } else {
+            return response()->json(['supplier' => $supplier, 'status' => false]);
+        }
+    }
+
+    /**
      * Display the specified resource.
      *
      * @param int $id

@@ -124,6 +124,26 @@ class ClientController extends Controller
     }
 
     /**
+     * Store a newly created resource in storage.
+     *
+     * @param Request $request
+     *
+     * @return RedirectResponse|Redirector
+     */
+    public function storeAjax(Request $request)
+    {
+
+
+        $client = Client::create($request->all());
+        if ($client) {
+            return response()->json(['client' => $client, 'status' => true]);
+        } else {
+            return response()->json(['client' => $client, 'status' => false]);
+        }
+
+    }
+
+    /**
      * Display the specified resource.
      *
      * @param int $id

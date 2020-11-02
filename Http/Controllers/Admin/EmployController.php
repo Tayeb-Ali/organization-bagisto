@@ -124,6 +124,25 @@ class EmployController extends Controller
     }
 
     /**
+     * Store a newly created resource in storage.
+     *
+     * @param Request $request
+     *
+     * @return RedirectResponse|Redirector
+     */
+    public function storeAjax(Request $request)
+    {
+        $requestData = $request->all();
+
+        $employ = Employ::create($requestData);
+        if ($employ) {
+            return response()->json(['employ' => $employ, 'status' => true]);
+        } else {
+            return response()->json(['employ' => $employ, 'status' => false]);
+        }
+    }
+
+    /**
      * Display the specified resource.
      *
      * @param int $id
