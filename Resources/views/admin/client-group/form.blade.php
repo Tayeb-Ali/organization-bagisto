@@ -34,14 +34,15 @@
                 {!! $errors->first('company_id', '<span class="control-error">:message</span>') !!}
             </div>
 
-            <div class="control-group col-6{{ $errors->has('status') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('status') ? 'has-error' : ''}}">
                 <label for="status" class="">{{ __('organization::app.clientgroup.fields.status') }}</label>
-
-                <input class="control" name="status" type="text" id="status"
-                       value="{{ isset($clientgroup->status) ? $clientgroup->status : ''}}">
-
+                <select id="status" name="status" class="form-control control" data-role="control">
+                    <option value="1" {{$clientgroup->status == 1 ? 'selected' : '' }}>{{__('organization::app.status.Inactive')}}</option>
+                    <option value="2" {{$clientgroup->status ==2 ? 'selected' : '' }}>{{__('organization::app.status.Active')}}</option>
+                </select>
                 {!! $errors->first('status', '<span class="control-error">:message</span>') !!}
             </div>
+
         </div>
 
         <div class="row">

@@ -612,6 +612,11 @@ return [
         'add-success' => 'treasur add successfully',
     ],
 
+    'status'=>[
+        'Inactive'=> 'Inactive',
+        'Active'=> 'Active',
+    ],
+
     'admin' => [
         'main' => 'Organization',
         'index' => 'Organization'

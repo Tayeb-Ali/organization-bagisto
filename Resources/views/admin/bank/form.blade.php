@@ -30,8 +30,8 @@
 
                 <select id="status" name="status" class="form-control control" data-role="control">
 
-                    <option value="1" {{$bank->status == 1 ? 'selected' : '' }}>Active</option>
-                    <option value="2" {{$bank->status ==2 ? 'selected' : '' }}>Inactive</option>
+                    <option value="1" {{$bank->status == 1 ? 'selected' : '' }}>{{__('organization::app.status.Active')}}</option>
+                    <option value="2" {{$bank->status ==2 ? 'selected' : '' }}>{{__('organization::app.status.Inactive')}}</option>
                 </select>
                 {!! $errors->first('status', '<span class="control-error">:message</span>') !!}
             </div>

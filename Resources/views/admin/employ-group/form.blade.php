@@ -2,7 +2,7 @@
     <div slot="body">
 
         <div class="row">
-            <div class="control-group {{ $errors->has('group_desc') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('group_desc') ? 'has-error' : ''}}">
                 <label for="group_desc"
                        class="required">{{ __('organization::app.employ-group.fields.group_desc') }}</label>
 
@@ -11,7 +11,7 @@
 
                 {!! $errors->first('group_desc', '<span class="control-error">:message</span>') !!}
             </div>
-            <div class="control-group {{ $errors->has('account_code') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('account_code') ? 'has-error' : ''}}">
                 <label for="account_code"
                        class="">{{ __('organization::app.employ-group.fields.account_code') }}</label>
 
@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="control-group {{ $errors->has('company_id') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('company_id') ? 'has-error' : ''}}">
                 <label for="company_id"
                        class="required">{{ __('organization::app.employ-group.fields.company_id') }}</label>
 
@@ -33,17 +33,17 @@
                 </select>
                 {!! $errors->first('company_id', '<span class="control-error">:message</span>') !!}
             </div>
-            <div class="control-group {{ $errors->has('status') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('status') ? 'has-error' : ''}}">
                 <label for="status" class="">{{ __('organization::app.employ-group.fields.status') }}</label>
-
-                <input class="control" name="status" type="text" id="status"
-                       value="{{ isset($employGroup->status) ? $employGroup->status : ''}}">
-
+                <select id="status" name="status" class="form-control control" data-role="control">
+                    <option value="1" {{$employGroup->status == 1 ? 'selected' : '' }}>{{__('organization::app.status.Inactive')}}</option>
+                    <option value="2" {{$employGroup->status ==2 ? 'selected' : '' }}>{{__('organization::app.status.Active')}}</option>
+                </select>
                 {!! $errors->first('status', '<span class="control-error">:message</span>') !!}
             </div>
         </div>
         <div class="row">
-            <div class="control-group {{ $errors->has('amend_by') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('amend_by') ? 'has-error' : ''}}">
                 <label for="amend_by" class="">{{ __('organization::app.employ-group.fields.amend_by') }}</label>
 
                 <input class="control" name="amend_by" type="text" id="amend_by"
@@ -51,7 +51,7 @@
 
                 {!! $errors->first('amend_by', '<span class="control-error">:message</span>') !!}
             </div>
-            <div class="control-group {{ $errors->has('amend_date') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('amend_date') ? 'has-error' : ''}}">
                 <label for="amend_date" class="">{{ __('organization::app.employ-group.fields.amend_date') }}</label>
 
                 <input class="control" name="amend_date" type="datetime-local" id="amend_date"
