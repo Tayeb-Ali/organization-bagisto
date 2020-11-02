@@ -37,10 +37,7 @@ class StoreController extends Controller
         $perPage = $request->get('perPage') ? $request->get('perPage') : 25;
         if (!empty($keyword)) {
             $store = Store::where('company_id', 'LIKE', "%$keyword%")
-                ->orWhere('name_o', 'LIKE', "%$keyword%")
                 ->orWhere('description', 'LIKE', "%$keyword%")
-                ->orWhere('code', 'LIKE', "%$keyword%")
-                ->orWhere('company_code', 'LIKE', "%$keyword%")
                 ->orWhere('store_keeper', 'LIKE', "%$keyword%")
                 ->orWhere('status', 'LIKE', "%$keyword%")
                 ->orWhere('credit_limit', 'LIKE', "%$keyword%")

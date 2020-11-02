@@ -39,7 +39,6 @@ class Store extends Model
      * @var array
      */
     public static $rules = [
-        'name_o' => 'required',
         'description' => 'required',
     ];
 

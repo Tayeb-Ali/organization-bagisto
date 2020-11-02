@@ -2,7 +2,7 @@
     <div slot="body">
 
         <div class="row">
-            <div class="control-group {{ $errors->has('name') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('name') ? 'has-error' : ''}}">
                 <label for="name" class="required">{{ __('organization::app.treasur.fields.name') }}</label>
 
                 <input class="control" name="name" type="text" id="name"
@@ -47,7 +47,7 @@
         </div>
         <div class="row">
 
-            <div class="control-group {{ $errors->has('code') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('code') ? 'has-error' : ''}}">
                 <label for="code" class="">{{ __('organization::app.treasur.fields.code') }}</label>
 
                 <input class="control" name="code" type="number" id="code"
@@ -56,7 +56,7 @@
                 {!! $errors->first('code', '<span class="control-error">:message</span>') !!}
             </div>
 
-            <div class="control-group {{ $errors->has('casher') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('casher') ? 'has-error' : ''}}">
                 <label for="casher"
                        class="">{{ __('organization::app.treasur.fields.casher') }}</label>
 
@@ -67,7 +67,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="control-group {{ $errors->has('account_code') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('account_code') ? 'has-error' : ''}}">
                 <label for="account_code" class="">{{ __('organization::app.treasur.fields.account_code') }}</label>
 
                 <input class="control" name="account_code" type="text" id="account_code"
@@ -75,7 +75,7 @@
 
                 {!! $errors->first('account_code', '<span class="control-error">:message</span>') !!}
             </div>
-            <div class="control-group {{ $errors->has('analysis_code') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('analysis_code') ? 'has-error' : ''}}">
                 <label for="analysis_code" class="">{{ __('organization::app.treasur.fields.analysis_code') }}</label>
 
                 <input class="control" name="analysis_code" type="text" id="analysis_code"
