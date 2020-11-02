@@ -576,7 +576,7 @@ return [
             'company_id' => 'Company name',
             'group_id' => 'Treasur Group name',
             'name' => 'Treasur name',
-            'code' => 'Store Code',
+            'code' => 'Code',
             'status' => 'Status',
             'store_keeper' => 'store_keeper',
             'cost_center_code' => 'cost_center_code',

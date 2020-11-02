@@ -10,6 +10,14 @@
 
                 {!! $errors->first('name', '<span class="control-error">:message</span>') !!}
             </div>
+            <div class="control-group col-6 {{ $errors->has('status') ? 'has-error' : ''}}">
+                <label for="status" class="">{{ __('organization::app.treasur.fields.status') }}</label>
+                <select id="status" name="status" class="form-control control" data-role="control">
+                    <option value="1" {{$treasur->status == 1 ? 'selected' : '' }}>Inactive</option>
+                    <option value="2" {{$treasur->status ==2 ? 'selected' : '' }}>Active</option>
+                </select>
+                {!! $errors->first('status', '<span class="control-error">:message</span>') !!}
+            </div>
         </div>
 
         <div class="row">
@@ -39,89 +47,23 @@
         </div>
         <div class="row">
 
-            <div class="control-group col-6 {{ $errors->has('status') ? 'has-error' : ''}}">
-                <label for="status" class="">{{ __('organization::app.treasur.fields.status') }}</label>
-                <select id="status" name="status" class="form-control control" data-role="control">
-                    <option value="1" {{$treasur->status == 1 ? 'selected' : '' }}>Inactive</option>
-                    <option value="2" {{$treasur->status ==2 ? 'selected' : '' }}>Active</option>
-                </select>
-                {!! $errors->first('status', '<span class="control-error">:message</span>') !!}
+            <div class="control-group {{ $errors->has('code') ? 'has-error' : ''}}">
+                <label for="code" class="">{{ __('organization::app.treasur.fields.code') }}</label>
+
+                <input class="control" name="code" type="number" id="code"
+                       value="{{ isset($treasur->code) ? $treasur->code : ''}}">
+
+                {!! $errors->first('code', '<span class="control-error">:message</span>') !!}
             </div>
-        </div>
-        <div class="row">
 
-            <div class="control-group {{ $errors->has('credit_limit') ? 'has-error' : ''}}">
-                <label for="credit_limit" class="">{{ __('organization::app.treasur.fields.credit_limit') }}</label>
+            <div class="control-group {{ $errors->has('casher') ? 'has-error' : ''}}">
+                <label for="casher"
+                       class="">{{ __('organization::app.treasur.fields.casher') }}</label>
 
-                <input class="control" name="credit_limit" type="number" id="credit_limit"
-                       value="{{ isset($treasur->credit_limit) ? $treasur->credit_limit : ''}}">
+                <input class="control" name="casher" type="number" id="casher"
+                       value="{{ isset($treasur->casher) ? $treasur->casher : ''}}">
 
-                {!! $errors->first('credit_limit', '<span class="control-error">:message</span>') !!}
-            </div>
-            <div class="control-group {{ $errors->has('begin_bal_credit') ? 'has-error' : ''}}">
-                <label for="begin_bal_credit"
-                       class="">{{ __('organization::app.treasur.fields.begin_bal_credit') }}</label>
-
-                <input class="control" name="begin_bal_credit" type="number" id="begin_bal_credit"
-                       value="{{ isset($treasur->begin_bal_credit) ? $treasur->begin_bal_credit : ''}}">
-
-                {!! $errors->first('begin_bal_credit', '<span class="control-error">:message</span>') !!}
-            </div>
-        </div>
-        <div class="row">
-            <div class="control-group {{ $errors->has('begin_bal_debit') ? 'has-error' : ''}}">
-                <label for="begin_bal_debit"
-                       class="">{{ __('organization::app.treasur.fields.begin_bal_debit') }}</label>
-
-                <input class="control" name="begin_bal_debit" type="number" id="begin_bal_debit"
-                       value="{{ isset($treasur->begin_bal_debit) ? $treasur->begin_bal_debit : ''}}">
-
-                {!! $errors->first('begin_bal_debit', '<span class="control-error">:message</span>') !!}
-            </div>
-            <div class="control-group {{ $errors->has('curr_bal_credit') ? 'has-error' : ''}}">
-                <label for="curr_bal_credit"
-                       class="">{{ __('organization::app.treasur.fields.curr_bal_credit') }}</label>
-
-                <input class="control" name="curr_bal_credit" type="number" id="curr_bal_credit"
-                       value="{{ isset($treasur->curr_bal_credit) ? $treasur->curr_bal_credit : ''}}">
-
-                {!! $errors->first('curr_bal_credit', '<span class="control-error">:message</span>') !!}
-            </div>
-        </div>
-        <div class="row">
-            <div class="control-group {{ $errors->has('curr_bal_debit') ? 'has-error' : ''}}">
-                <label for="curr_bal_debit" class="">{{ __('organization::app.treasur.fields.curr_bal_debit') }}</label>
-
-                <input class="control" name="curr_bal_debit" type="number" id="curr_bal_debit"
-                       value="{{ isset($treasur->curr_bal_debit) ? $treasur->curr_bal_debit : ''}}">
-
-                {!! $errors->first('curr_bal_debit', '<span class="control-error">:message</span>') !!}
-            </div>
-            <div class="control-group {{ $errors->has('amend_by') ? 'has-error' : ''}}">
-                <label for="amend_by" class="">{{ __('organization::app.treasur.fields.amend_by') }}</label>
-
-                <input class="control" name="amend_by" type="text" id="amend_by"
-                       value="{{ isset($treasur->amend_by) ? $treasur->amend_by : ''}}">
-
-                {!! $errors->first('amend_by', '<span class="control-error">:message</span>') !!}
-            </div>
-        </div>
-        <div class="row">
-            <div class="control-group {{ $errors->has('amend_date') ? 'has-error' : ''}}">
-                <label for="amend_date" class="">{{ __('organization::app.treasur.fields.amend_date') }}</label>
-
-                <input class="control" name="amend_date" type="datetime-local" id="amend_date"
-                       value="{{ isset($treasur->amend_date) ? $treasur->amend_date : ''}}">
-
-                {!! $errors->first('amend_date', '<span class="control-error">:message</span>') !!}
-            </div>
-            <div class="control-group {{ $errors->has('acc_mgr') ? 'has-error' : ''}}">
-                <label for="acc_mgr" class="">{{ __('organization::app.treasur.fields.acc_mgr') }}</label>
-
-                <input class="control" name="acc_mgr" type="text" id="acc_mgr"
-                       value="{{ isset($treasur->acc_mgr) ? $treasur->acc_mgr : ''}}">
-
-                {!! $errors->first('acc_mgr', '<span class="control-error">:message</span>') !!}
+                {!! $errors->first('casher', '<span class="control-error">:message</span>') !!}
             </div>
         </div>
         <div class="row">
@@ -133,76 +75,6 @@
 
                 {!! $errors->first('account_code', '<span class="control-error">:message</span>') !!}
             </div>
-            <div class="control-group {{ $errors->has('last_trns_date') ? 'has-error' : ''}}">
-                <label for="last_trns_date" class="">{{ __('organization::app.treasur.fields.last_trns_date') }}</label>
-
-                <input class="control" name="last_trns_date" type="datetime-local" id="last_trns_date"
-                       value="{{ isset($treasur->last_trns_date) ? $treasur->last_trns_date : ''}}">
-
-                {!! $errors->first('last_trns_date', '<span class="control-error">:message</span>') !!}
-            </div>
-        </div>
-        <div class="row">
-            <div class="control-group {{ $errors->has('last_trns_value') ? 'has-error' : ''}}">
-                <label for="last_trns_value"
-                       class="">{{ __('organization::app.treasur.fields.last_trns_value') }}</label>
-
-                <input class="control" name="last_trns_value" type="number" id="last_trns_value"
-                       value="{{ isset($treasur->last_trns_value) ? $treasur->last_trns_value : ''}}">
-
-                {!! $errors->first('last_trns_value', '<span class="control-error">:message</span>') !!}
-            </div>
-            <div class="control-group {{ $errors->has('last_trns_type') ? 'has-error' : ''}}">
-                <label for="last_trns_type" class="">{{ __('organization::app.treasur.fields.last_trns_type') }}</label>
-
-                <input class="control" name="last_trns_type" type="text" id="last_trns_type"
-                       value="{{ isset($treasur->last_trns_type) ? $treasur->last_trns_type : ''}}">
-
-                {!! $errors->first('last_trns_type', '<span class="control-error">:message</span>') !!}
-            </div>
-        </div>
-        <div class="row">
-            <div class="control-group {{ $errors->has('begin_bal_credit_fc') ? 'has-error' : ''}}">
-                <label for="begin_bal_credit_fc"
-                       class="">{{ __('organization::app.treasur.fields.begin_bal_credit_fc') }}</label>
-
-                <input class="control" name="begin_bal_credit_fc" type="number" id="begin_bal_credit_fc"
-                       value="{{ isset($treasur->begin_bal_credit_fc) ? $treasur->begin_bal_credit_fc : ''}}">
-
-                {!! $errors->first('begin_bal_credit_fc', '<span class="control-error">:message</span>') !!}
-            </div>
-            <div class="control-group {{ $errors->has('begin_bal_debit_fc') ? 'has-error' : ''}}">
-                <label for="begin_bal_debit_fc"
-                       class="">{{ __('organization::app.treasur.fields.begin_bal_debit_fc') }}</label>
-
-                <input class="control" name="begin_bal_debit_fc" type="number" id="begin_bal_debit_fc"
-                       value="{{ isset($treasur->begin_bal_debit_fc) ? $treasur->begin_bal_debit_fc : ''}}">
-
-                {!! $errors->first('begin_bal_debit_fc', '<span class="control-error">:message</span>') !!}
-            </div>
-        </div>
-        <div class="row">
-            <div class="control-group {{ $errors->has('curr_bal_credit_fc') ? 'has-error' : ''}}">
-                <label for="curr_bal_credit_fc"
-                       class="">{{ __('organization::app.treasur.fields.curr_bal_credit_fc') }}</label>
-
-                <input class="control" name="curr_bal_credit_fc" type="number" id="curr_bal_credit_fc"
-                       value="{{ isset($treasur->curr_bal_credit_fc) ? $treasur->curr_bal_credit_fc : ''}}">
-
-                {!! $errors->first('curr_bal_credit_fc', '<span class="control-error">:message</span>') !!}
-            </div>
-            <div class="control-group {{ $errors->has('curr_bal_debit_fc') ? 'has-error' : ''}}">
-                <label for="curr_bal_debit_fc"
-                       class="">{{ __('organization::app.treasur.fields.curr_bal_debit_fc') }}</label>
-
-                <input class="control" name="curr_bal_debit_fc" type="number" id="curr_bal_debit_fc"
-                       value="{{ isset($treasur->curr_bal_debit_fc) ? $treasur->curr_bal_debit_fc : ''}}">
-
-                {!! $errors->first('curr_bal_debit_fc', '<span class="control-error">:message</span>') !!}
-            </div>
-        </div>
-
-        <div class="row">
             <div class="control-group {{ $errors->has('analysis_code') ? 'has-error' : ''}}">
                 <label for="analysis_code" class="">{{ __('organization::app.treasur.fields.analysis_code') }}</label>
 
@@ -210,10 +82,13 @@
                        value="{{ isset($treasur->analysis_code) ? $treasur->analysis_code : ''}}">
 
                 {!! $errors->first('analysis_code', '<span class="control-error">:message</span>') !!}
-            </div>
+            </div>        </div>
+
+        <div class="row">
+
             <div class="control-group col col-6 {{ $errors->has('currency_code') ? 'has-error' : ''}}">
                 <label for="currency_code"
-                       class="required">{{ __('organization::app.bank.fields.currency_code') }}</label>
+                       class="required">{{ __('organization::app.treasur.fields.currency_code') }}</label>
 
                 <select id="currency_code" name="currency_code" class="form-control control" data-role="control">
 
@@ -226,5 +101,99 @@
 
         </div>
 
+        <div class="container pt-5">
+            <div class="mb-3 p-3" style="background: #ccc">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        Last Trans : Reciving Voucher
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        In : 12/05/2015 14:16:16
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        With Amount : 605
+                    </div>
+                </div>
+            </div>
+            <div class=" p-3" style="background: #ccc">
+                <div class="row">
+                    <div class="col">
+                        <h6>Financials</h6>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4 px-1">
+
+
+                        <table class="float-left w-100"  >
+                            <tr>
+                                <td></td>
+                                <td colspan="2" class="text-center bg-primary text-light border ">Begining Balance</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td class="text-center bg-primary text-light border ">Debit</td>
+                                <td class="text-center bg-primary text-light border ">Creditt</td>
+                            </tr>
+                            <tr>
+                                <td >Foreign Currancy</td>
+                                <td class="border border-dark"></td>
+                                <td class="border border-dark"></td>
+                            </tr>
+                            <tr>
+                                <td >Foreign Currancy</td>
+                                <td class="border border-dark"></td>
+                                <td class="border border-dark"></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="col-lg-4 px-1">
+                        <table class=" w-100" border>
+                            <tr>
+
+                                <td colspan="2" class="text-center bg-primary text-light">Trading Volume</td>
+                            </tr>
+                            <tr>
+
+                                <td class="text-center bg-primary text-light">Debit</td>
+                                <td class="text-center bg-primary text-light">Creditt</td>
+                            </tr>
+                            <tr>
+                                <td >600,050.00y</td>
+                                <td>,00</td>
+                            </tr>
+                            <tr>
+                                <td >600,050.00y</td>
+                                <td>,00</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="col-lg-4 px-1">
+                        <table class="w-100" border>
+                            <tr>
+
+                                <td colspan="2" class="text-center bg-primary text-light">Trading Volume</td>
+                            </tr>
+                            <tr>
+
+                                <td class="text-center bg-primary text-light">Debit</td>
+                                <td class="text-center bg-primary text-light">Creditt</td>
+                            </tr>
+                            <tr>
+                                <td >600,050.00y</td>
+                                <td>,00</td>
+                            </tr>
+                            <tr>
+                                <td >600,050.00y</td>
+                                <td>,00</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </accordian>
