@@ -16,7 +16,7 @@ class StoreTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('erp_stores')->truncate();
+        DB::table('org_stores')->truncate();
 
         factory(Store::class, 20)->create();
     }

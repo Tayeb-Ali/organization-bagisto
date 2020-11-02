@@ -16,7 +16,7 @@ class TreasurGroupTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('erp_treasurs_groups')->truncate();
+        DB::table('org_treasurs_groups')->truncate();
 
         factory(TreasurGroup::class, 20)->create();
     }

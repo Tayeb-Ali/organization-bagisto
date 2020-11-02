@@ -16,7 +16,7 @@ class StoreGroupTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('erp_stores_groups')->truncate();
+        DB::table('org_stores_groups')->truncate();
 
         factory(StoreGroup::class, 20)->create();
     }

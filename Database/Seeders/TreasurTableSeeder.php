@@ -16,7 +16,7 @@ class TreasurTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('erp_treasurs')->truncate();
+        DB::table('org_treasurs')->truncate();
 
         factory(Treasur::class, 20)->create();
     }
