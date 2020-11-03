@@ -4,14 +4,14 @@ namespace DOCore\Organization\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TreasurGroup extends Model
+class TreasureGroup extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'org_treasurs_groups';
+    protected $table = 'org_treasures_groups';
 
     /**
      * The database primary key value.
@@ -29,7 +29,7 @@ class TreasurGroup extends Model
 
     public function treasurs()
     {
-        return $this->hasMany(Treasur::class, 'group_id', 'group_id');
+        return $this->hasMany(Treasure::class, 'group_id', 'group_id');
     }
 
     public function company()

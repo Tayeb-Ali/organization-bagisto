@@ -5,21 +5,21 @@ namespace DOCore\Organization\Models;
 use Illuminate\Database\Eloquent\Model;
 
 
-class Treasur extends Model
+class Treasure extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'org_treasurs';
+    protected $table = 'org_treasures';
 
     /**
      * The database primary key value.
      *
      * @var string
      */
-    protected $primaryKey = 'treasur_id';
+    protected $primaryKey = 'treasure_id';
 
     /**
      * Attributes that should be mass-assignable.
@@ -48,6 +48,10 @@ class Treasur extends Model
 
     public function group()
     {
-        return $this->hasOne(TreasurGroup::class, 'group_id', 'group_id');
+        return $this->hasOne(TreasureGroup::class, 'group_id', 'group_id');
+    }
+    public function employ()
+    {
+        return $this->hasOne(Employ::class, 'employ_id', 'employ_id');
     }
 }

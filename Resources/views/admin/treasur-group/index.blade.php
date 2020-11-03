@@ -77,7 +77,7 @@
                         </thead>
 
                         <tbody>
-                        @foreach($treasurGroup as $item)
+                        @foreach($treasureGroup as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->group_desc }}</td>
@@ -119,7 +119,7 @@
                         </tbody>
 
                     </table>
-                    <div class="pagination"> {!! $treasurGroup->appends(['search' => Request::get('search')])->render() !!} </div>
+                    <div class="pagination"> {!! $treasureGroup->appends(['search' => Request::get('search')])->render() !!} </div>
 
                 </div>
             </div>

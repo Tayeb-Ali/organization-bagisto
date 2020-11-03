@@ -3,11 +3,11 @@
 namespace DOCore\Organization\Database\Seeders;
 
 
-use DOCore\Organization\Models\TreasurGroup;
+use DOCore\Organization\Models\TreasureGroup;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class TreasurGroupTableSeeder extends Seeder
+class TreasureGroupTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,8 +16,8 @@ class TreasurGroupTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('org_treasurs_groups')->truncate();
+        DB::table('org_treasures_groups')->truncate();
 
-        factory(TreasurGroup::class, 20)->create();
+        factory(TreasureGroup::class, 20)->create();
     }
 }

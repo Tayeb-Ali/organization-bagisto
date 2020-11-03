@@ -1,26 +1,26 @@
 @extends('admin::layouts.content')
 
 @section('page_title')
-    {{ __('organization::app.treasur.edit-title') }}
+    {{ __('organization::app.treasure.edit-title') }}
 @stop
 
 @section('content')
     <div class="content">
 
-        <form method="POST" action="{{ route('admin.treasur.edit', $treasur->treasur_id) }}">
+        <form method="POST" action="{{ route('admin.treasur.edit', $treasure->treasur_id) }}">
 
             <div class="page-header">
                 <div class="page-title">
                     <h1>
                         <i class="icon angle-left-icon back-link" onclick="history.length > 1 ? history.go(-1) : window.location = '{{ route('admin.dashboard.index') }}';"></i>
 
-                        {{ __('organization::app.treasur.edit-title') }}
+                        {{ __('organization::app.treasure.edit-title') }}
                     </h1>
                 </div>
 
                 <div class="page-action">
                     <button type="submit" class="btn btn-lg btn-primary">
-                        {{ __('organization::app.treasur.edit-btn-title') }}
+                        {{ __('organization::app.treasure.edit-btn-title') }}
                     </button>
                 </div>
             </div>

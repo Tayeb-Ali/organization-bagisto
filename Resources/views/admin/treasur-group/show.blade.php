@@ -15,11 +15,11 @@
                 <h1>{{ __('organization::app.treasur-group.title') }}</h1>
             </div>
             <div class="page-action">
-                <a href="{{ route('admin.treasur-group.edit', $treasurGroup->group_id) }}" title="Edit ClientGroup">
+                <a href="{{ route('admin.treasur-group.edit', $treasureGroup->group_id) }}" title="Edit ClientGroup">
                     <button style="border: none; background-color: inherit;"><span class="icon pencil-lg-icon"></span>
                     </button>
                 </a>
-                <form method="POST" action="{{ route('admin.treasur-group.delete', $treasurGroup->group_id) }}"
+                <form method="POST" action="{{ route('admin.treasur-group.delete', $treasureGroup->group_id) }}"
                       accept-charset="UTF-8" style="display:inline">
                     {{ method_field('DELETE') }}
                     {{ csrf_field() }}
@@ -38,25 +38,25 @@
                     <tbody>
                     <tr>
                         <td>ID</td>
-                        <td>{{ $treasurGroup->group_id }}</td>
+                        <td>{{ $treasureGroup->group_id }}</td>
                     </tr>
                     \n
                     <tr>
                         <td> {{ trans('organization::app.treasur-group.fields.group_desc') }} </td>
-                        <td> {{ $treasurGroup->group_desc }} </td>
+                        <td> {{ $treasureGroup->group_desc }} </td>
                     </tr>
                     \n
                     <tr>
                         <td> {{ trans('organization::app.treasur-group.fields.account_code') }} </td>
-                        <td> {{ $treasurGroup->account_code }} </td>
+                        <td> {{ $treasureGroup->account_code }} </td>
                     </tr>
                     \n
                     <tr>
                         <td> {{ trans('organization::app.treasur-group.fields.company_id') }} </td>
-                        @if($treasurGroup->company)
-                            <td> {{ $treasurGroup->company->description }} </td>
+                        @if($treasureGroup->company)
+                            <td> {{ $treasureGroup->company->description }} </td>
                         @else
-                            <td> {{ $treasurGroup->company_id }} </td>
+                            <td> {{ $treasureGroup->company_id }} </td>
 
                         @endif
                     </tr>

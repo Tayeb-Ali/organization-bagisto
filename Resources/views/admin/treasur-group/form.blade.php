@@ -8,7 +8,7 @@
                        class="required">{{ __('organization::app.treasur-group.fields.group_desc') }}</label>
 
                 <input class="control" name="group_desc" type="text" id="group_desc"
-                       value="{{ isset($treasurGroup->group_desc) ? $treasurGroup->group_desc : ''}}" required>
+                       value="{{ isset($treasureGroup->group_desc) ? $treasureGroup->group_desc : ''}}" required>
 
                 {!! $errors->first('group_desc', '<span class="control-error">:message</span>') !!}
             </div>
@@ -16,7 +16,7 @@
                 <label for="account_code" class="">{{ __('organization::app.treasur-group.fields.account_code') }}</label>
 
                 <input class="control" name="account_code" type="text" id="account_code"
-                       value="{{ isset($treasurGroup->account_code) ? $treasurGroup->account_code : ''}}">
+                       value="{{ isset($treasureGroup->account_code) ? $treasureGroup->account_code : ''}}">
 
                 {!! $errors->first('account_code', '<span class="control-error">:message</span>') !!}
             </div>
@@ -28,7 +28,7 @@
 
                 <select id="company_id" name="company_id" class="form-control control" data-role="control">
                     @foreach($company as $item)
-                        <option value="{{ $item->company_id }}" {{$treasurGroup->company_id == $item->company_id ? 'selected' : '' }}>{{ $item->description }}</option>
+                        <option value="{{ $item->company_id }}" {{$treasureGroup->company_id == $item->company_id ? 'selected' : '' }}>{{ $item->description }}</option>
                     @endforeach
                 </select>
                 {!! $errors->first('company_id', '<span class="control-error">:message</span>') !!}
@@ -37,8 +37,8 @@
             <div class="control-group col-6 {{ $errors->has('status') ? 'has-error' : ''}}">
                 <label for="status" class="">{{ __('organization::app.treasur-group.fields.status') }}</label>
                 <select id="status" name="status" class="form-control control" data-role="control">
-                    <option value="1" {{$treasurGroup->status == 1 ? 'selected' : '' }}>{{__('organization::app.status.Inactive')}}</option>
-                    <option value="2" {{$treasurGroup->status ==2 ? 'selected' : '' }}>{{__('organization::app.status.Active')}}</option>
+                    <option value="1" {{$treasureGroup->status == 1 ? 'selected' : '' }}>{{__('organization::app.status.Inactive')}}</option>
+                    <option value="2" {{$treasureGroup->status ==2 ? 'selected' : '' }}>{{__('organization::app.status.Active')}}</option>
                 </select>
                 {!! $errors->first('status', '<span class="control-error">:message</span>') !!}
             </div>
@@ -49,7 +49,7 @@
                 <label for="amend_by" class="">{{ __('organization::app.treasur-group.fields.amend_by') }}</label>
 
                 <input class="control" name="amend_by" type="text" id="amend_by"
-                       value="{{ isset($treasurGroup->amend_by) ? $treasurGroup->amend_by : ''}}">
+                       value="{{ isset($treasureGroup->amend_by) ? $treasureGroup->amend_by : ''}}">
 
                 {!! $errors->first('amend_by', '<span class="control-error">:message</span>') !!}
             </div>
@@ -57,7 +57,7 @@
                 <label for="amend_date" class="">{{ __('organization::app.treasur-group.fields.amend_date') }}</label>
 
                 <input class="control" name="amend_date" type="datetime-local" id="amend_date"
-                       value="{{ isset($treasurGroup->amend_date) ? $treasurGroup->amend_date : ''}}">
+                       value="{{ isset($treasureGroup->amend_date) ? $treasureGroup->amend_date : ''}}">
 
                 {!! $errors->first('amend_date', '<span class="control-error">:message</span>') !!}
             </div>

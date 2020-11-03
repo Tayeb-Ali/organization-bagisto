@@ -2,8 +2,9 @@
 
 namespace DOCore\Organization\Http\Controllers\Admin;
 
-use DOCore\Organization\Models\Treasur;
-use DOCore\Organization\Models\TreasurGroup;
+use DOCore\Organization\Models\Employ;
+use DOCore\Organization\Models\Treasure;
+use DOCore\Organization\Models\TreasureGroup;
 use DOCore\Organization\Models\Company;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -11,7 +12,7 @@ use Illuminate\Routing\Redirector;
 use Illuminate\View\View;
 use Webkul\Core\Models\Currency;
 
-class TreasurController extends Controller
+class TreasureController extends Controller
 {
     /**
      * To hold the request variables from route file
@@ -37,7 +38,7 @@ class TreasurController extends Controller
         $perPage = $request->get('perPage') ? $request->get('perPage') : 25;
 
         if (!empty($keyword)) {
-            $treasur = Treasur::where('company_id', 'LIKE', "%$keyword%")
+            $treasure = Treasure::where('company_id', 'LIKE', "%$keyword%")
                 ->orWhere('name', 'LIKE', "%$keyword%")
                 ->orWhere('casher', 'LIKE', "%$keyword%")
                 ->orWhere('name_o', 'LIKE', "%$keyword%")
@@ -62,10 +63,10 @@ class TreasurController extends Controller
                 ->orWhere('analysis_code', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $treasur = Treasur::latest()->paginate($perPage);
+            $treasure = Treasure::latest()->paginate($perPage);
         }
 
-        return view($this->_config['view'], compact('treasur'));
+        return view($this->_config['view'], compact('treasure'));
     }
 
     /**
@@ -76,14 +77,15 @@ class TreasurController extends Controller
      */
     public function create(Request $request)
     {
-        $treasur = new Treasur;
+        $treasure = new Treasure;
 
-        $treasur->fill($request->old());
+        $treasure->fill($request->old());
         $company = Company::all('company_id', 'description');
+        $employ = Employ::all();
 
         $currency = Currency::all();
-        $group = TreasurGroup::all();
-        return view($this->_config['view'], compact('treasur', 'company', 'currency', 'group'));
+        $group = TreasureGroup::all();
+        return view($this->_config['view'], compact('treasure', 'company', 'currency', 'group', 'employ'));
     }
 
     /**
@@ -97,9 +99,9 @@ class TreasurController extends Controller
     {
         $requestData = $request->all();
 
-        Treasur::create($requestData);
+        Treasure::create($requestData);
 
-        session()->flash('success', trans('organization::app.treasur.add-success', ['name' => 'treasur']));
+        session()->flash('success', trans('organization::app.treasure.add-success', ['name' => 'treasure']));
 
         return redirect()->route($this->_config['redirect']);
     }
@@ -113,9 +115,9 @@ class TreasurController extends Controller
      */
     public function show($id)
     {
-        $treasur = Treasur::findOrFail($id);
+        $treasure = Treasure::findOrFail($id);
 
-        return view($this->_config['view'], compact('treasur'));
+        return view($this->_config['view'], compact('treasure'));
     }
 
     /**
@@ -128,13 +130,13 @@ class TreasurController extends Controller
      */
     public function edit($id)
     {
-        $treasur = Treasur::findOrFail($id);
+        $treasure = Treasure::findOrFail($id);
         $company = Company::all('company_id', 'description');
         $currency = Currency::all();
-        $group = TreasurGroup::all();
+        $group = TreasureGroup::all();
+        $employ = Employ::all();
 
-
-        return view($this->_config['view'], compact('treasur', 'company', 'currency', 'group'));
+        return view($this->_config['view'], compact('treasure', 'company', 'currency', 'group', 'employ'));
     }
 
     /**
@@ -149,10 +151,10 @@ class TreasurController extends Controller
     {
         $requestData = $request->all();
 
-        $treasur = Treasur::findOrFail($id);
-        $treasur->update($requestData);
+        $treasure = Treasure::findOrFail($id);
+        $treasure->update($requestData);
 
-        session()->flash('success', trans('organization::app.treasur.update-success', ['name' => 'treasur']));
+        session()->flash('success', trans('organization::app.treasure.update-success', ['name' => 'treasure']));
 
         return redirect()->route($this->_config['redirect']);
     }
@@ -166,13 +168,13 @@ class TreasurController extends Controller
      */
     public function delete($id)
     {
-        $treasur = Treasur::findOrFail($id);
-        if ($treasur->delete()) {
-            session()->flash('success', trans('organization::app.treasur.delete-success', ['name' => 'treasur']));
+        $treasure = Treasure::findOrFail($id);
+        if ($treasure->delete()) {
+            session()->flash('success', trans('organization::app.treasure.delete-success', ['name' => 'treasure']));
 
             return redirect()->route($this->_config['redirect']);
         } else {
-            session()->flash('warning', trans('organization::app.treasur.delete-failure'));
+            session()->flash('warning', trans('organization::app.treasure.delete-failure'));
 
             return redirect()->route($this->_config['redirect']);
         }

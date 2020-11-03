@@ -1,20 +1,20 @@
-<accordian :title="'{{ __('organization::app.treasur.general') }}'" :active="true">
+<accordian :title="'{{ __('organization::app.treasure.general') }}'" :active="true">
     <div slot="body">
 
         <div class="row">
             <div class="control-group col col-6 {{ $errors->has('name') ? 'has-error' : ''}}">
-                <label for="name" class="required">{{ __('organization::app.treasur.fields.name') }}</label>
+                <label for="name" class="required">{{ __('organization::app.treasure.fields.name') }}</label>
 
                 <input class="control" name="name" type="text" id="name"
-                       value="{{ isset($treasur->name) ? $treasur->name : ''}}" required>
+                       value="{{ isset($treasure->name) ? $treasure->name : ''}}" required>
 
                 {!! $errors->first('name', '<span class="control-error">:message</span>') !!}
             </div>
             <div class="control-group col-6 {{ $errors->has('status') ? 'has-error' : ''}}">
-                <label for="status" class="">{{ __('organization::app.treasur.fields.status') }}</label>
+                <label for="status" class="">{{ __('organization::app.treasure.fields.status') }}</label>
                 <select id="status" name="status" class="form-control control" data-role="control">
-                    <option value="1" {{$treasur->status == 1 ? 'selected' : '' }}>Inactive</option>
-                    <option value="2" {{$treasur->status ==2 ? 'selected' : '' }}>Active</option>
+                    <option value="1" {{$treasure->status == 1 ? 'selected' : '' }}>Inactive</option>
+                    <option value="2" {{$treasure->status ==2 ? 'selected' : '' }}>Active</option>
                 </select>
                 {!! $errors->first('status', '<span class="control-error">:message</span>') !!}
             </div>
@@ -22,24 +22,24 @@
 
         <div class="row">
             <div class="control-group col col-6 {{ $errors->has('company_id') ? 'has-error' : ''}}">
-                <label for="company_id" class="required">{{ __('organization::app.treasur.fields.company_id') }}</label>
+                <label for="company_id" class="required">{{ __('organization::app.treasure.fields.company_id') }}</label>
 
                 <select id="company_id" name="company_id" class="form-control control" data-role="control">
 
                     @foreach($company as $item)
-                        <option value="{{ $item->company_id }}" {{$treasur->company_id == $item->company_id ? 'selected' : '' }}>{{ $item->description }}</option>
+                        <option value="{{ $item->company_id }}" {{$treasure->company_id == $item->company_id ? 'selected' : '' }}>{{ $item->description }}</option>
                     @endforeach
                 </select>
                 {!! $errors->first('company_id', '<span class="control-error">:message</span>') !!}
             </div>
 
             <div class="control-group col col-6{{ $errors->has('group_id') ? 'has-error' : ''}}">
-                <label for="group_id" class="required">{{ __('organization::app.treasur.fields.group_id') }}</label>
+                <label for="group_id" class="required">{{ __('organization::app.treasure.fields.group_id') }}</label>
 
                 <select id="group_id" name="group_id" class="form-control control" data-role="control">
 
                     @foreach($group as $item)
-                        <option value="{{ $item->group_id }}" {{$treasur->group_id == $item->group_id ? 'selected' : '' }}>{{ $item->group_desc}}</option>
+                        <option value="{{ $item->group_id }}" {{$treasure->group_id == $item->group_id ? 'selected' : '' }}>{{ $item->group_desc}}</option>
                     @endforeach
                 </select>
                 {!! $errors->first('group_id', '<span class="control-error">:message</span>') !!}
@@ -48,38 +48,40 @@
         <div class="row">
 
             <div class="control-group col col-6 {{ $errors->has('code') ? 'has-error' : ''}}">
-                <label for="code" class="">{{ __('organization::app.treasur.fields.code') }}</label>
+                <label for="code" class="">{{ __('organization::app.treasure.fields.code') }}</label>
 
                 <input class="control" name="code" type="number" id="code"
-                       value="{{ isset($treasur->code) ? $treasur->code : ''}}">
+                       value="{{ isset($treasure->code) ? $treasure->code : ''}}">
 
                 {!! $errors->first('code', '<span class="control-error">:message</span>') !!}
             </div>
 
-            <div class="control-group col col-6 {{ $errors->has('casher') ? 'has-error' : ''}}">
-                <label for="casher"
-                       class="">{{ __('organization::app.treasur.fields.casher') }}</label>
+            <div class="control-group col col-6{{ $errors->has('group_id') ? 'has-error' : ''}}">
+                <label for="employ_id" class="required">{{ __('organization::app.treasure.fields.employ_id') }}</label>
 
-                <input class="control" name="casher" type="number" id="casher"
-                       value="{{ isset($treasur->casher) ? $treasur->casher : ''}}">
+                <select id="employ_id" name="employ_id" class="form-control control" data-role="control">
 
-                {!! $errors->first('casher', '<span class="control-error">:message</span>') !!}
+                    @foreach($employ as $item)
+                        <option value="{{ $item->employ_id }}" {{$treasure->employ_id == $item->employ_id ? 'selected' : '' }}>{{ $item->name}}</option>
+                    @endforeach
+                </select>
+                {!! $errors->first('group_id', '<span class="control-error">:message</span>') !!}
             </div>
         </div>
         <div class="row">
             <div class="control-group col col-6 {{ $errors->has('account_code') ? 'has-error' : ''}}">
-                <label for="account_code" class="">{{ __('organization::app.treasur.fields.account_code') }}</label>
+                <label for="account_code" class="">{{ __('organization::app.treasure.fields.account_code') }}</label>
 
                 <input class="control" name="account_code" type="text" id="account_code"
-                       value="{{ isset($treasur->account_code) ? $treasur->account_code : ''}}">
+                       value="{{ isset($treasure->account_code) ? $treasure->account_code : ''}}">
 
                 {!! $errors->first('account_code', '<span class="control-error">:message</span>') !!}
             </div>
             <div class="control-group col col-6 {{ $errors->has('analysis_code') ? 'has-error' : ''}}">
-                <label for="analysis_code" class="">{{ __('organization::app.treasur.fields.analysis_code') }}</label>
+                <label for="analysis_code" class="">{{ __('organization::app.treasure.fields.analysis_code') }}</label>
 
                 <input class="control" name="analysis_code" type="text" id="analysis_code"
-                       value="{{ isset($treasur->analysis_code) ? $treasur->analysis_code : ''}}">
+                       value="{{ isset($treasure->analysis_code) ? $treasure->analysis_code : ''}}">
 
                 {!! $errors->first('analysis_code', '<span class="control-error">:message</span>') !!}
             </div>        </div>
@@ -88,12 +90,12 @@
 
             <div class="control-group col col-6 {{ $errors->has('currency_code') ? 'has-error' : ''}}">
                 <label for="currency_code"
-                       class="required">{{ __('organization::app.treasur.fields.currency_code') }}</label>
+                       class="required">{{ __('organization::app.treasure.fields.currency_code') }}</label>
 
                 <select id="currency_code" name="currency_code" class="form-control control" data-role="control">
 
                     @foreach($currency as $item)
-                        <option value="{{ $item->id }}" {{$treasur->currency_code == $item->id ? 'selected' : '' }}>{{ $item->name }}</option>
+                        <option value="{{ $item->id }}" {{$treasure->currency_code == $item->id ? 'selected' : '' }}>{{ $item->name }}</option>
                     @endforeach
                 </select>
                 {!! $errors->first('currency_code', '<span class="control-error">:message</span>') !!}

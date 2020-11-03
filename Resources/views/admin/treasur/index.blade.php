@@ -1,7 +1,7 @@
 @extends('admin::layouts.content')
 
 @section('page_title')
-    {{ __('organization::app.treasur.title') }}
+    {{ __('organization::app.treasure.title') }}
 @stop
 
 
@@ -10,11 +10,11 @@
     <div class="content">
         <div class="page-header">
             <div class="page-title">
-                <h1>{{ __('organization::app.treasur.title') }}</h1>
+                <h1>{{ __('organization::app.treasure.title') }}</h1>
             </div>
             <div class="page-action">
                 <a href="{{ route('admin.treasur.create') }}" class="btn btn-lg btn-primary" title="Add New treasur">
-                    {{ __('organization::app.treasur.add-title') }}
+                    {{ __('organization::app.treasure.add-title') }}
                 </a>
             </div>
         </div>
@@ -68,16 +68,16 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>{{ trans('organization::app.treasur.fields.name') }}</th>
-                            <th>{{ trans('organization::app.treasur.fields.group_id') }}</th>
-                            <th>{{ trans('organization::app.treasur.fields.company_id') }}</th>
+                            <th>{{ trans('organization::app.treasure.fields.name') }}</th>
+                            <th>{{ trans('organization::app.treasure.fields.group_id') }}</th>
+                            <th>{{ trans('organization::app.treasure.fields.company_id') }}</th>
 
                             <th>Actions</th>
                         </tr>
                         </thead>
 
                         <tbody>
-                        @foreach($treasur as $item)
+                        @foreach($treasure as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->name }}</td>
@@ -120,7 +120,7 @@
                         </tbody>
 
                     </table>
-                    <div class="pagination"> {!! $treasur->appends(['search' => Request::get('search')])->render() !!} </div>
+                    <div class="pagination"> {!! $treasure->appends(['search' => Request::get('search')])->render() !!} </div>
 
                 </div>
             </div>

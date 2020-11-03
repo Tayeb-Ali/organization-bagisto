@@ -54,4 +54,5 @@ class Store extends Model
     {
         return $this->hasOne(StoreGroup::class, 'group_id', 'group_id');
     }
+
 }

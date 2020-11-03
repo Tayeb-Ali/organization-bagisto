@@ -203,13 +203,13 @@ Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'midd
 //treasurGroup
 Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'middleware' => ['web', 'admin']], function () {
     Route::prefix('admin/organization/treasur-group')->group(function () {
-        Route::get('/', 'TreasurGroupController@index')->defaults('_config', ['view' => 'organization::admin.treasur-group.index'])->name('admin.treasur-group.index');
-        Route::get('/show/{id}', 'TreasurGroupController@show')->defaults('_config', ['view' => 'organization::admin.treasur-group.show'])->name('admin.treasur-group.show');
-        Route::get('/create', 'TreasurGroupController@create')->defaults('_config', ['view' => 'organization::admin.treasur-group.create'])->name('admin.treasur-group.create');
-        Route::post('/create', 'TreasurGroupController@store')->defaults('_config', ['redirect' => 'admin.treasur-group.index'])->name('admin.treasur-group.store');
-        Route::get('/edit/{id}', 'TreasurGroupController@edit')->defaults('_config', ['view' => 'organization::admin.treasur-group.edit'])->name('admin.treasur-group.edit');
-        Route::post('/edit/{id}', 'TreasurGroupController@update')->defaults('_config', ['redirect' => 'admin.treasur-group.index'])->name('admin.treasur-group.update');
-        Route::delete('/delete/{id}', 'TreasurGroupController@delete')->defaults('_config', ['redirect' => 'admin.treasur-group.index'])->name('admin.treasur-group.delete');
+        Route::get('/', 'TreasureGroupController@index')->defaults('_config', ['view' => 'organization::admin.treasur-group.index'])->name('admin.treasur-group.index');
+        Route::get('/show/{id}', 'TreasureGroupController@show')->defaults('_config', ['view' => 'organization::admin.treasur-group.show'])->name('admin.treasur-group.show');
+        Route::get('/create', 'TreasureGroupController@create')->defaults('_config', ['view' => 'organization::admin.treasur-group.create'])->name('admin.treasur-group.create');
+        Route::post('/create', 'TreasureGroupController@store')->defaults('_config', ['redirect' => 'admin.treasur-group.index'])->name('admin.treasur-group.store');
+        Route::get('/edit/{id}', 'TreasureGroupController@edit')->defaults('_config', ['view' => 'organization::admin.treasur-group.edit'])->name('admin.treasur-group.edit');
+        Route::post('/edit/{id}', 'TreasureGroupController@update')->defaults('_config', ['redirect' => 'admin.treasur-group.index'])->name('admin.treasur-group.update');
+        Route::delete('/delete/{id}', 'TreasureGroupController@delete')->defaults('_config', ['redirect' => 'admin.treasur-group.index'])->name('admin.treasur-group.delete');
     });
 });
 
@@ -217,20 +217,20 @@ Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'midd
 //Theasur
 Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'middleware' => ['web', 'admin']], function () {
     Route::prefix('admin/organization/treasur')->group(function () {
-        Route::get('/', 'TreasurController@index')
+        Route::get('/', 'TreasureController@index')
             ->defaults('_config', ['view' => 'organization::admin.treasur.index'])->name('admin.treasur.index');
-        Route::get('/show/{id}', 'TreasurController@show')
+        Route::get('/show/{id}', 'TreasureController@show')
             ->defaults('_config', ['view' => 'organization::admin.treasur.show'])->name('admin.treasur.show');
-        Route::get('/create', 'TreasurController@create')
+        Route::get('/create', 'TreasureController@create')
             ->defaults('_config', ['view' => 'organization::admin.treasur.create'])->name('admin.treasur.create');
-        Route::post('/create', 'TreasurController@store')
+        Route::post('/create', 'TreasureController@store')
             ->defaults('_config', ['redirect' => 'admin.treasur.index'])->name('admin.treasur.store');
-        Route::get('/edit/{id}', 'TreasurController@edit')
+        Route::get('/edit/{id}', 'TreasureController@edit')
             ->defaults('_config', ['view' => 'organization::admin.treasur.edit'])->name('admin.treasur.edit');
-        Route::post('/edit/{id}', 'TreasurController@update')
+        Route::post('/edit/{id}', 'TreasureController@update')
             ->defaults('_config', ['redirect' => 'admin.treasur.index'])
             ->name('admin.bank.update');
-        Route::delete('/delete/{id}', 'TreasurController@delete'
+        Route::delete('/delete/{id}', 'TreasureController@delete'
         )->defaults('_config', ['redirect' => 'admin.treasur.index'])->name('admin.treasur.delete');
     });
 });

@@ -3,14 +3,14 @@
 namespace DOCore\Organization\Http\Controllers\Admin;
 
 use DOCore\Organization\Models\Bank;
-use DOCore\Organization\Models\TreasurGroup;
+use DOCore\Organization\Models\TreasureGroup;
 use DOCore\Organization\Models\Company;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\View\View;
 
-class TreasurGroupController extends Controller
+class TreasureGroupController extends Controller
 {
     /**
      * To hold the request variables from route file
@@ -35,7 +35,7 @@ class TreasurGroupController extends Controller
         $perPage = $request->get('perPage') ? $request->get('perPage') : 25;
 
         if (!empty($keyword)) {
-            $treasurGroup = TreasurGroup::where('company_id', 'LIKE', "%$keyword%")
+            $treasureGroup = TreasureGroup::where('company_id', 'LIKE', "%$keyword%")
                 ->orWhere('group_desc', 'LIKE', "%$keyword%")
                 ->orWhere('account_code', 'LIKE', "%$keyword%")
                 ->orWhere('status', 'LIKE', "%$keyword%")
@@ -43,10 +43,10 @@ class TreasurGroupController extends Controller
                 ->orWhere('amend_date', 'LIKE', "%$keyword%")
                 ->latest()->with('company')->paginate($perPage);
         } else {
-             $treasurGroup = TreasurGroup::latest()->with('company')->paginate($perPage);
+             $treasureGroup = TreasureGroup::latest()->with('company')->paginate($perPage);
         }
 
-        return view($this->_config['view'], compact('treasurGroup'));
+        return view($this->_config['view'], compact('treasureGroup'));
     }
 
     /**
@@ -56,12 +56,12 @@ class TreasurGroupController extends Controller
      */
     public function create(Request $request)
     {
-        $treasurGroup = new TreasurGroup;
+        $treasureGroup = new TreasureGroup;
 
-        $treasurGroup->fill($request->old());
+        $treasureGroup->fill($request->old());
         $company = Company::all('company_id', 'description');
 
-        return view($this->_config['view'], compact(['treasurGroup', 'company']));
+        return view($this->_config['view'], compact('treasureGroup', 'company'));
     }
 
     /**
@@ -70,6 +70,7 @@ class TreasurGroupController extends Controller
      * @param Request $request
      *
      * @return RedirectResponse|Redirector
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
     {
@@ -79,7 +80,7 @@ class TreasurGroupController extends Controller
         ]);
         $requestData = $request->all();
 
-        TreasurGroup::create($requestData);
+        TreasureGroup::create($requestData);
 
         session()->flash('success', trans('organization::app.thearsur-group.add-success', ['name' => 'TreasurGroup']));
 
@@ -95,9 +96,9 @@ class TreasurGroupController extends Controller
      */
     public function show($id)
     {
-        $treasurGroup = TreasurGroup::findOrFail($id);
+        $treasureGroup = TreasureGroup::findOrFail($id);
 
-        return view($this->_config['view'], compact('treasurGroup'));
+        return view($this->_config['view'], compact('treasureGroup'));
     }
 
     /**
@@ -109,11 +110,11 @@ class TreasurGroupController extends Controller
      */
     public function edit($id)
     {
-        $treasurGroup = TreasurGroup::findOrFail($id);
+        $treasureGroup = TreasureGroup::findOrFail($id);
         $company = Company::all('company_id', 'description');
 
 
-        return view($this->_config['view'], compact('treasurGroup', 'company'));
+        return view($this->_config['view'], compact('treasureGroup', 'company'));
     }
 
     /**
@@ -133,8 +134,8 @@ class TreasurGroupController extends Controller
         ]);
         $requestData = $request->all();
 
-        $treasurGroup = TreasurGroup::findOrFail($id);
-        $treasurGroup->update($requestData);
+        $treasureGroup = TreasureGroup::findOrFail($id);
+        $treasureGroup->update($requestData);
 
         session()->flash('success', trans('organization::app.thearsur-group.update-success', ['name' => 'TreasurGroup']));
 
@@ -150,12 +151,12 @@ class TreasurGroupController extends Controller
      */
     public function delete($id)
     {
-        $treasurGroup = TreasurGroup::findOrFail($id);
+        $treasureGroup = TreasureGroup::findOrFail($id);
 
         if (Bank::where('group_id', $id)->get()->count()) {
             session()->flash('warning', trans('organization::app.delete-error.message1'));
             return redirect()->back();
-        } elseif ($treasurGroup->delete()) {
+        } elseif ($treasureGroup->delete()) {
             session()->flash('success', trans('organization::app.thearsur-group.delete-success', ['name' => 'TreasurGroup']));
 
             return redirect()->route($this->_config['redirect']);

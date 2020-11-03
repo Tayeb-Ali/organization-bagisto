@@ -1,7 +1,7 @@
 @extends('admin::layouts.content')
 
 @section('page_title')
-    {{ __('organization::app.treasur.add-title') }}
+    {{ __('organization::app.treasure.add-title') }}
 @stop
 
 @section('content')
@@ -14,13 +14,13 @@
                     <h1>
                         <i class="icon angle-left-icon back-link" onclick="history.length > 1 ? history.go(-1) : window.location = '{{ route('admin.dashboard.index') }}';"></i>
 
-                        {{ __('organization::app.treasur.add-title') }}
+                        {{ __('organization::app.treasure.add-title') }}
                     </h1>
                 </div>
 
                 <div class="page-action">
                     <button type="submit" class="btn btn-lg btn-primary">
-                        {{ __('organization::app.treasur.create-btn-title') }}
+                        {{ __('organization::app.treasure.create-btn-title') }}
                     </button>
                 </div>
             </div>

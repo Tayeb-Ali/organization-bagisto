@@ -3,6 +3,7 @@
 namespace DOCore\Organization\Http\Controllers\Admin;
 
 use DOCore\Organization\Http\Requests\StoreRequest;
+use DOCore\Organization\Models\Employ;
 use DOCore\Organization\Models\Store;
 use DOCore\Organization\Models\StoreGroup;
 use DOCore\Organization\Models\Company;
@@ -82,7 +83,8 @@ class StoreController extends Controller
 
         $currency = Currency::all();
         $group = StoreGroup::all();
-        return view($this->_config['view'], compact('store', 'company', 'currency', 'group'));
+        $employ = Employ::all();
+        return view($this->_config['view'], compact('store', 'company', 'currency', 'group', 'employ'));
     }
 
     /**
@@ -131,9 +133,8 @@ class StoreController extends Controller
         $company = Company::all('company_id', 'description');
         $currency = Currency::all();
         $group = StoreGroup::all();
-
-
-        return view($this->_config['view'], compact('store', 'company', 'currency', 'group'));
+        $employ = Employ::all();
+        return view($this->_config['view'], compact('store', 'company', 'currency', 'group', 'employ'));
     }
 
     /**

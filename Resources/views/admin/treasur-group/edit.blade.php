@@ -7,7 +7,7 @@
 @section('content')
     <div class="content">
 
-        <form method="POST" action="{{ route('admin.treasur-group.edit', $treasurGroup->group_id) }}">
+        <form method="POST" action="{{ route('admin.treasur-group.edit', $treasureGroup->group_id) }}">
 
             <div class="page-header">
                 <div class="page-title">

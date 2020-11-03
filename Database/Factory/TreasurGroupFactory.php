@@ -3,14 +3,14 @@
 /** @var Factory $factory */
 
 use DOCore\Organization\Models\Company;
-use DOCore\Organization\Models\TreasurGroup;
+use DOCore\Organization\Models\TreasureGroup;
 use Illuminate\Support\Carbon;
 use Webkul\User\Models\Admin;
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
 
 
-$factory->define(TreasurGroup::class, function (Faker $faker) {
+$factory->define(TreasureGroup::class, function (Faker $faker) {
     return [
         'company_id' => Company::all()->random()->company_id,
         'group_desc' => $faker->companySuffix,
