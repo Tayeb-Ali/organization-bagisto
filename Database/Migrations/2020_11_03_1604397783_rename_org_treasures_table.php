@@ -20,7 +20,7 @@ class RenameOrgTreasuresTable extends Migration
     public function down()
     {
         Schema::dropIfExists('org_treasures');
-        Schema::drop('org_treasures_groups');
+        Schema::dropIfExists('org_treasures_groups');
     }
 
 }
