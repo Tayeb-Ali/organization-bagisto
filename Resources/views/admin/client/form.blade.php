@@ -2,7 +2,7 @@
     <div slot="body">
 
         <div class="row">
-            <div class="control-group {{ $errors->has('name') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('name') ? 'has-error' : ''}}">
                 <label for="name" class="required">{{ __('organization::app.client.fields.name') }}</label>
 
                 <input class="control" name="name" type="text" id="name"
@@ -138,7 +138,7 @@
         </div>
         <div class="row">
 
-            <div class="control-group {{ $errors->has('credit_limit') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('credit_limit') ? 'has-error' : ''}}">
                 <label for="credit_limit" class="">{{ __('organization::app.client.fields.credit_limit') }}</label>
 
                 <input class="control" name="credit_limit" type="number" id="credit_limit"
@@ -146,7 +146,7 @@
 
                 {!! $errors->first('credit_limit', '<span class="control-error">:message</span>') !!}
             </div>
-            <div class="control-group {{ $errors->has('begin_bal_credit') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('begin_bal_credit') ? 'has-error' : ''}}">
                 <label for="begin_bal_credit"
                        class="">{{ __('organization::app.client.fields.begin_bal_credit') }}</label>
 
@@ -157,7 +157,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="control-group {{ $errors->has('begin_bal_debit') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('begin_bal_debit') ? 'has-error' : ''}}">
                 <label for="begin_bal_debit"
                        class="">{{ __('organization::app.client.fields.begin_bal_debit') }}</label>
 
@@ -166,7 +166,7 @@
 
                 {!! $errors->first('begin_bal_debit', '<span class="control-error">:message</span>') !!}
             </div>
-            <div class="control-group {{ $errors->has('curr_bal_credit') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('curr_bal_credit') ? 'has-error' : ''}}">
                 <label for="curr_bal_credit"
                        class="">{{ __('organization::app.client.fields.curr_bal_credit') }}</label>
 
@@ -177,7 +177,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="control-group {{ $errors->has('curr_bal_debit') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('curr_bal_debit') ? 'has-error' : ''}}">
                 <label for="curr_bal_debit" class="">{{ __('organization::app.client.fields.curr_bal_debit') }}</label>
 
                 <input class="control" name="curr_bal_debit" type="number" id="curr_bal_debit"
@@ -185,7 +185,7 @@
 
                 {!! $errors->first('curr_bal_debit', '<span class="control-error">:message</span>') !!}
             </div>
-            <div class="control-group {{ $errors->has('amend_by') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('amend_by') ? 'has-error' : ''}}">
                 <label for="amend_by" class="">{{ __('organization::app.client.fields.amend_by') }}</label>
 
                 <input class="control" name="amend_by" type="text" id="amend_by"
@@ -195,7 +195,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="control-group {{ $errors->has('amend_date') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('amend_date') ? 'has-error' : ''}}">
                 <label for="amend_date" class="">{{ __('organization::app.client.fields.amend_date') }}</label>
 
                 <input class="control" name="amend_date" type="datetime-local" id="amend_date"
@@ -203,7 +203,7 @@
 
                 {!! $errors->first('amend_date', '<span class="control-error">:message</span>') !!}
             </div>
-            <div class="control-group {{ $errors->has('acc_mgr') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('acc_mgr') ? 'has-error' : ''}}">
                 <label for="acc_mgr" class="">{{ __('organization::app.client.fields.acc_mgr') }}</label>
 
                 <input class="control" name="acc_mgr" type="text" id="acc_mgr"
@@ -213,7 +213,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="control-group {{ $errors->has('account_code') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('account_code') ? 'has-error' : ''}}">
                 <label for="account_code" class="">{{ __('organization::app.client.fields.account_code') }}</label>
 
                 <input class="control" name="account_code" type="text" id="account_code"
@@ -221,7 +221,7 @@
 
                 {!! $errors->first('account_code', '<span class="control-error">:message</span>') !!}
             </div>
-            <div class="control-group {{ $errors->has('last_trns_date') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('last_trns_date') ? 'has-error' : ''}}">
                 <label for="last_trns_date" class="">{{ __('organization::app.client.fields.last_trns_date') }}</label>
 
                 <input class="control" name="last_trns_date" type="datetime-local" id="last_trns_date"
@@ -231,7 +231,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="control-group {{ $errors->has('last_trns_value') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('last_trns_value') ? 'has-error' : ''}}">
                 <label for="last_trns_value"
                        class="">{{ __('organization::app.client.fields.last_trns_value') }}</label>
 
@@ -240,7 +240,7 @@
 
                 {!! $errors->first('last_trns_value', '<span class="control-error">:message</span>') !!}
             </div>
-            <div class="control-group {{ $errors->has('last_trns_type') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('last_trns_type') ? 'has-error' : ''}}">
                 <label for="last_trns_type" class="">{{ __('organization::app.client.fields.last_trns_type') }}</label>
 
                 <input class="control" name="last_trns_type" type="text" id="last_trns_type"
@@ -250,7 +250,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="control-group {{ $errors->has('begin_bal_credit_fc') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('begin_bal_credit_fc') ? 'has-error' : ''}}">
                 <label for="begin_bal_credit_fc"
                        class="">{{ __('organization::app.client.fields.begin_bal_credit_fc') }}</label>
 
@@ -259,7 +259,7 @@
 
                 {!! $errors->first('begin_bal_credit_fc', '<span class="control-error">:message</span>') !!}
             </div>
-            <div class="control-group {{ $errors->has('begin_bal_debit_fc') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('begin_bal_debit_fc') ? 'has-error' : ''}}">
                 <label for="begin_bal_debit_fc"
                        class="">{{ __('organization::app.client.fields.begin_bal_debit_fc') }}</label>
 
@@ -270,7 +270,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="control-group {{ $errors->has('curr_bal_credit_fc') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('curr_bal_credit_fc') ? 'has-error' : ''}}">
                 <label for="curr_bal_credit_fc"
                        class="">{{ __('organization::app.client.fields.curr_bal_credit_fc') }}</label>
 
@@ -279,7 +279,7 @@
 
                 {!! $errors->first('curr_bal_credit_fc', '<span class="control-error">:message</span>') !!}
             </div>
-            <div class="control-group {{ $errors->has('curr_bal_debit_fc') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('curr_bal_debit_fc') ? 'has-error' : ''}}">
                 <label for="curr_bal_debit_fc"
                        class="">{{ __('organization::app.client.fields.curr_bal_debit_fc') }}</label>
 
@@ -290,7 +290,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="control-group {{ $errors->has('currency_code') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('currency_code') ? 'has-error' : ''}}">
                 <label for="currency_code" class="">{{ __('organization::app.client.fields.currency_code') }}</label>
 
                 <input class="control" name="currency_code" type="text" id="currency_code"
@@ -298,7 +298,7 @@
 
                 {!! $errors->first('currency_code', '<span class="control-error">:message</span>') !!}
             </div>
-            <div class="control-group {{ $errors->has('allowance_days') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('allowance_days') ? 'has-error' : ''}}">
                 <label for="allowance_days" class="">{{ __('organization::app.client.fields.allowance_days') }}</label>
 
                 <input class="control" name="allowance_days" type="number" id="allowance_days"
@@ -308,7 +308,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="control-group {{ $errors->has('mship_to_address') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('mship_to_address') ? 'has-error' : ''}}">
                 <label for="mship_to_address"
                        class="">{{ __('organization::app.client.fields.mship_to_address') }}</label>
 
@@ -317,7 +317,7 @@
 
                 {!! $errors->first('mship_to_address', '<span class="control-error">:message</span>') !!}
             </div>
-            <div class="control-group {{ $errors->has('mship_to_phone') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('mship_to_phone') ? 'has-error' : ''}}">
                 <label for="mship_to_phone" class="">{{ __('organization::app.client.fields.mship_to_phone') }}</label>
 
                 <input class="control" name="mship_to_phone" type="text" id="mship_to_phone"
@@ -327,7 +327,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="control-group {{ $errors->has('mship_to_fax') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('mship_to_fax') ? 'has-error' : ''}}">
                 <label for="mship_to_fax" class="">{{ __('organization::app.client.fields.mship_to_fax') }}</label>
 
                 <input class="control" name="mship_to_fax" type="text" id="mship_to_fax"
@@ -335,7 +335,7 @@
 
                 {!! $errors->first('mship_to_fax', '<span class="control-error">:message</span>') !!}
             </div>
-            <div class="control-group {{ $errors->has('mship_to_city') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('mship_to_city') ? 'has-error' : ''}}">
                 <label for="mship_to_city" class="">{{ __('organization::app.client.fields.mship_to_city') }}</label>
 
                 <input class="control" name="mship_to_city" type="text" id="mship_to_city"
@@ -345,7 +345,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="control-group {{ $errors->has('mship_to_pobox') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('mship_to_pobox') ? 'has-error' : ''}}">
                 <label for="mship_to_pobox" class="">{{ __('organization::app.client.fields.mship_to_pobox') }}</label>
 
                 <input class="control" name="mship_to_pobox" type="text" id="mship_to_pobox"
@@ -353,7 +353,7 @@
 
                 {!! $errors->first('mship_to_pobox', '<span class="control-error">:message</span>') !!}
             </div>
-            <div class="control-group {{ $errors->has('online_cust') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('online_cust') ? 'has-error' : ''}}">
                 <label for="online_cust" class="">{{ __('organization::app.client.fields.online_cust') }}</label>
 
                 <input class="control" name="online_cust" type="text" id="online_cust"
@@ -363,7 +363,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="control-group {{ $errors->has('analysis_code') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('analysis_code') ? 'has-error' : ''}}">
                 <label for="analysis_code" class="">{{ __('organization::app.client.fields.analysis_code') }}</label>
 
                 <input class="control" name="analysis_code" type="text" id="analysis_code"
@@ -371,7 +371,7 @@
 
                 {!! $errors->first('analysis_code', '<span class="control-error">:message</span>') !!}
             </div>
-            <div class="control-group {{ $errors->has('sprice_list') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('sprice_list') ? 'has-error' : ''}}">
                 <label for="sprice_list" class="">{{ __('organization::app.client.fields.sprice_list') }}</label>
 
                 <input class="control" name="sprice_list" type="text" id="sprice_list"
@@ -381,7 +381,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="control-group {{ $errors->has('vat_flag') ? 'has-error' : ''}}">
+            <div class="control-group col col-6 {{ $errors->has('vat_flag') ? 'has-error' : ''}}">
                 <label for="vat_flag" class="">{{ __('organization::app.client.fields.vat_flag') }}</label>
 
                 <input class="control" name="vat_flag" type="number" id="vat_flag"
