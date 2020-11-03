@@ -19,7 +19,7 @@ class Treasure extends Model
      *
      * @var string
      */
-    protected $primaryKey = 'treasure_id';
+    protected $primaryKey = 'treasur_id';
 
     /**
      * Attributes that should be mass-assignable.

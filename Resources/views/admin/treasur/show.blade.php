@@ -41,17 +41,14 @@
                         <td>{{ $treasure->treasur_id }}</td>
                     </tr>
                     <tr>
-                        <td> {{ trans('organization::app.treasur.fields.company_id') }} </td>
+                        <td> {{ trans('organization::app.treasure.fields.company_id') }} </td>
                         <td> {{ $treasure->company_id }} </td>
                     </tr>
                     <tr>
-                        <td> {{ trans('organization::app.treasur.fields.group_id') }} </td>
+                        <td> {{ trans('organization::app.treasure.fields.group_id') }} </td>
                         <td> {{ $treasure->group_id }} </td>
                     </tr>
-                    <tr>
-                        <td> {{ trans('organization::app.treasur.fields.cust_type') }} </td>
-                        <td> {{ $treasure->cust_type }} </td>
-                    </tr>
+
                     </tbody>
                 </table>
 
