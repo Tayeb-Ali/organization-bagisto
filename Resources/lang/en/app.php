@@ -534,9 +534,9 @@ return [
                 'cost_center_code' => 'cost_center_code',
 
             ],
-        'update-success' => 'Employ group update successfully',
-        'delete-success' => 'Employ group delete successfully',
-        'add-success' => 'Employ group add successfully',
+        'update-success' => 'store group update successfully',
+        'delete-success' => 'store group delete successfully',
+        'add-success' => 'store group add successfully',
     ],
 
     'treasur-group' => [
