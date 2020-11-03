@@ -118,7 +118,7 @@ return [
     ],
     [
         'key' => 'organization.treasur',
-        'name' => 'organization::app.treasur.index',
+        'name' => 'organization::app.treasure.index',
         'route' => 'admin.treasur.index',
         'sort' => '14',
         'icon-class' => ''

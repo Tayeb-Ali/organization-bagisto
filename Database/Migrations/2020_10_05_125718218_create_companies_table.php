@@ -17,8 +17,8 @@ class CreateCompaniesTable extends Migration
             $table->increments('company_id');
             $table->string('description', 100)->nullable();
             $table->string('currency', 10)->nullable();
-            $table->string('status', 10)->nullable();
-            $table->tinyInteger('gl_ac_levels')->nullable();
+            $table->string('status', 1)->nullable();
+$table->tinyInteger('gl_ac_levels')->nullable();
             $table->tinyInteger('gl_ac_level_1_len')->nullable();
             $table->tinyInteger('gl_ac_level_2_len')->nullable();
             $table->tinyInteger('gl_ac_level_3_len')->nullable();

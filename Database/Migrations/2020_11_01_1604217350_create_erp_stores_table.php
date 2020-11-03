@@ -17,7 +17,7 @@ class CreateErpStoresTable extends Migration
 //            $table->string('name_o', 100)->nullable();
             $table->string('store_keeper', 100)->nullable();
 //            $table->string('store_group', 10)->nullable();
-            $table->string('status', 10)->nullable();
+            $table->string('status', 1)->nullable();
             $table->string('amend_by', 10)->nullable();
             $table->datetime('amend_date')->nullable();
             $table->datetime('last_trns_date')->nullable();

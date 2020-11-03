@@ -28,8 +28,8 @@ class CreateErpBanksMasterTable extends Migration
             $table->string('pobox', 30)->nullable();
             $table->string('email', 50)->nullable();
             $table->string('bank_group', 10)->nullable();
-            $table->string('status', 10)->nullable();
-            $table->string('credit_limit', 10)->nullable();
+            $table->string('status', 1)->nullable();
+$table->string('credit_limit', 10)->nullable();
             $table->decimal('begin_bal_credit', 15, 4)->nullable();
             $table->decimal('begin_bal_debit', 15, 4)->nullable();
             $table->decimal('curr_bal_credit', 15, 4)->nullable();

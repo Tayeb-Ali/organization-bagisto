@@ -15,7 +15,7 @@ class CreateErpTreasursTable extends Migration
             $table->string('name', 100)->nullable();
             $table->string('casher', 100)->nullable();
 //            $table->string('treasure_group', 10)->nullable();
-            $table->string('status', 10)->nullable();
+            $table->string('status', 1)->nullable();
             $table->decimal('begin_bal_credit', 15, 4)->nullable();
             $table->decimal('begin_bal_debit', 15, 4)->nullable();
             $table->decimal('curr_bal_credit', 15, 4)->nullable();

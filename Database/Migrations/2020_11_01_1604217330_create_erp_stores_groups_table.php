@@ -16,7 +16,7 @@ class CreateErpStoresGroupsTable extends Migration
             $table->string('group_desc', 100)->nullable();
 //            $table->string('group_desc_o', 100)->nullable();
             $table->string('cost_center_code', 30)->nullable();
-            $table->string('status', 10)->nullable();
+            $table->string('status', 1)->nullable();
             $table->string('amend_by', 10)->nullable();
             $table->datetime('amend_date')->nullable();
 //            $table->primary(['company_code','group_code']);

@@ -22,8 +22,8 @@ class CreateCompanyBranchesTable extends Migration
             $table->smallInteger('branch_weight')->nullable();
             $table->string('branch_manager', 100)->nullable();
             $table->string('currency', 10)->nullable();
-            $table->string('status', 10)->nullable();
-            $table->string('amend_by', 10)->nullable();
+            $table->string('status', 1)->nullable();
+$table->string('amend_by', 10)->nullable();
             $table->dateTime('amend_date')->nullable();
             $table->string('phone', 18)->nullable();
             $table->string('fax', 18)->nullable();

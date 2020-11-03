@@ -18,8 +18,8 @@ class CreateClientGroupsTable extends Migration
             $table->integer('company_id')->unsigned();
             $table->string('group_desc', 100)->nullable();
             $table->string('account_code', 30)->nullable();
-            $table->string('status', 10)->nullable();
-            $table->string('amend_by', 10)->nullable();
+            $table->string('status', 1)->nullable();
+$table->string('amend_by', 10)->nullable();
             $table->dateTime('amend_date')->nullable();
             $table->timestamps();
 

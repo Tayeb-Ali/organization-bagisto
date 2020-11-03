@@ -28,8 +28,8 @@ class CreateSuppliersTable extends Migration
             $table->string('city', 50)->nullable();
             $table->string('address', 150)->nullable();
             $table->string('have_branch', 10)->nullable();
-            $table->string('status', 10)->nullable();
-            $table->decimal('credit_limit', 15, 4)->nullable();
+            $table->string('status', 1)->nullable();
+$table->decimal('credit_limit', 15, 4)->nullable();
             $table->decimal('begin_bal_credit', 15, 4)->nullable();
             $table->decimal('begin_bal_debit', 15, 4)->nullable();
             $table->decimal('curr_bal_credit', 15, 4)->nullable();
