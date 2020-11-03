@@ -36,7 +36,7 @@
                 <label for="gl_ac_levels"
                        class="required">{{ __('organization::app.company.fields.gl_ac_levels') }}</label>
 
-                <input class="control" name="gl_ac_levels" type="number" id="gl_ac_levels"
+                <input class="form-control control" name="gl_ac_levels" type="number" id="gl_ac_levels"
                        value="{{ isset($company->gl_ac_levels) ? $company->gl_ac_levels : ''}}" required>
 
                 {!! $errors->first('gl_ac_levels', '<span class="control-error">:message</span>') !!}
@@ -45,10 +45,10 @@
         </div>
         <div class="row">
             <div class="control-group col col-6{{ $errors->has('company_id') ? 'has-error' : ''}}">
-                <label for="company_id"
+                <label for="company_parent_id"
                        class="required">{{ __('organization::app.company.sub-company.company_parent_id') }}</label>
 
-                <select id="company_parent_id" name="company_parent_id" class="form-control" data-role="control">
+                <select id="company_parent_id" name="company_parent_id" class="form-control control" data-role="control">
                     @foreach($subCompany as $item)
                         <option
                                 value="{{ $item->company_id }}" {{$company->company_parent_id == $item->company_id ? 'selected' : '' }}>{{ $item->description }}</option>
@@ -60,10 +60,10 @@
                 {!! $errors->first('company_parent_id', '<span class="control-error">:message</span>') !!}
             </div>
             <div class="form-control col col-6{{ $errors->has('has_sub_company') ? 'has-error' : ''}}">
-                <label for="company_id"
+                <label for="has_sub_company"
                        class="required">{{ __('organization::app.company.fields.has_sub_company') }}</label>
 
-                <select id="has_sub_company" name="has_sub_company" class="form-control" data-role="control">
+                <select id="has_sub_company" name="has_sub_company" class="form-control control" data-role="control">
                     <option value="0" {{$company->has_sub_company == 0? 'selected' : '' }}>
                         {{ __('organization::app.company.sub-company.no') }}</option>
 
