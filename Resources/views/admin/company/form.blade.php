@@ -27,8 +27,8 @@
             <div class="control-group col col-6 {{ $errors->has('status') ? 'has-error' : ''}}">
                 <label for="status" class="">{{ __('organization::app.company.fields.status') }}</label>
                 <select id="status" name="status" class="form-control control" data-role="control">
-                    <option value="1" {{$company->status == 1 ? 'selected' : '' }}>{{__('organization::app.status.Inactive')}}</option>
-                    <option value="2" {{$company->status ==2 ? 'selected' : '' }}>{{__('organization::app.status.Active')}}</option>
+                    <option value="2" {{$company->status == 2 ? 'selected' : '' }}>{{__('organization::app.status.Inactive')}}</option>
+                    <option value="1" {{$company->status ==1 ? 'selected' : '' }}>{{__('organization::app.status.Active')}}</option>
                 </select>
                 {!! $errors->first('status', '<span class="control-error">:message</span>') !!}
             </div>

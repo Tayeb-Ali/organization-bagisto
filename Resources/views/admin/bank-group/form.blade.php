@@ -26,7 +26,7 @@
                 <label for="company_id"
                        class="required">{{ __('organization::app.bank-group.fields.company_id') }}</label>
 
-                <select id="company_id" name="company_id" class="form-control" data-role="control">
+                <select id="company_id" name="company_id" class="form-control control" data-role="control">
                     @foreach($company as $item)
                         <option value="{{ $item->company_id }}" {{$bankGroup->company_id == $item->company_id ? 'selected' : '' }}>{{ $item->description }}</option>
                     @endforeach
@@ -37,8 +37,8 @@
             <div class="control-group col col-6 {{ $errors->has('status') ? 'has-error' : ''}}">
                 <label for="status" class="">{{ __('organization::app.bank-group.fields.status') }}</label>
                 <select id="status" name="status" class="form-control control" data-role="control">
-                    <option value="1" {{$bankGroup->status == 1 ? 'selected' : '' }}>{{__('organization::app.status.Inactive')}}</option>
-                    <option value="2" {{$bankGroup->status ==2 ? 'selected' : '' }}>{{__('organization::app.status.Active')}}</option>
+                    <option value="1" {{$bankGroup->status == 1 ? 'selected' : '' }}>{{__('organization::app.status.Active')}}</option>
+                    <option value="2" {{$bankGroup->status ==2 ? 'selected' : '' }}>{{__('organization::app.status.Inactive')}}</option>
                 </select>
                 {!! $errors->first('status', '<span class="control-error">:message</span>') !!}
             </div>
