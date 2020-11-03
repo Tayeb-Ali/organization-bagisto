@@ -126,11 +126,11 @@ class EmployController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param EmployRequest $request
      *
      * @return RedirectResponse|Redirector
      */
-    public function storeAjax(Request $request)
+    public function storeAjax(EmployRequest $request)
     {
         $requestData = $request->all();
 

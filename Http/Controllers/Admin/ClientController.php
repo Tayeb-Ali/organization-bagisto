@@ -2,7 +2,6 @@
 
 namespace DOCore\Organization\Http\Controllers\Admin;
 
-use DOCore\Organization\Http\Controllers\Admin\Controller;
 use DOCore\Organization\Http\Requests\ClientRequest;
 use DOCore\Organization\Models\Client;
 use DOCore\Organization\Models\ClientGroup;
@@ -10,9 +9,7 @@ use DOCore\Organization\Models\Company;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
-use Webkul\User\Models\Admin;
 
 class ClientController extends Controller
 {
@@ -114,6 +111,10 @@ class ClientController extends Controller
      */
     public function store(ClientRequest $request)
     {
+        $v = $request->validate([
+            'name'=> 'require|max:30|min:10'
+        ]);
+
         $requestData = $request->all();
 
         Client::create($requestData);
@@ -126,20 +127,19 @@ class ClientController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param ClientRequest $request
      *
      * @return RedirectResponse|Redirector
      */
-    public function storeAjax(Request $request)
+    public function storeAjax(ClientRequest $request)
     {
-
-
         $client = Client::create($request->all());
-        if ($client) {
-            return response()->json(['client' => $client, 'status' => true]);
-        } else {
-            return response()->json(['client' => $client, 'status' => false]);
-        }
+            if ($client) {
+                return response()->json(['client' => $client, 'status' => true]);
+            } else {
+                return response()->json(['client' => $client, 'status' => false]);
+            }
+
 
     }
 
