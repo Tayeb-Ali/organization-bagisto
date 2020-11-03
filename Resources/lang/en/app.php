@@ -168,7 +168,7 @@ return [
         'edit-btn-title' => 'Edit',
         'edit' => 'Edit',
         'delete' => 'Delete',
-        'fields' = [
+        'fields' => [
             'description' => 'Description',
             'currency' => 'Currency',
             'status' => 'Status',
