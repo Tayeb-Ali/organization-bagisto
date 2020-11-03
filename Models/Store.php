@@ -40,6 +40,9 @@ class Store extends Model
      */
     public static $rules = [
         'description' => 'required',
+        'group_id' => 'required',
+        'company_id' => 'required',
+        'status' => 'required',
     ];
 
     public function company()

@@ -2,6 +2,7 @@
 
 namespace DOCore\Organization\Http\Controllers\Admin;
 
+use DOCore\Organization\Http\Requests\StoreRequest;
 use DOCore\Organization\Models\Store;
 use DOCore\Organization\Models\StoreGroup;
 use DOCore\Organization\Models\Company;

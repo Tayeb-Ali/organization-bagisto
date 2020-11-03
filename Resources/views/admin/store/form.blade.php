@@ -75,31 +75,33 @@
                 {!! $errors->first('store_contacts', '<span class="control-error">:message</span>') !!}
 
             </div>
-            <div class="control-group col col-6 {{ $errors->has('analysis_code') ? 'has-error' : ''}}">
-                <label for="analysis_code" class="">{{ __('organization::app.store.fields.analysis_code') }}</label>
+                <div class="control-group col col-6 {{ $errors->has('group_id') ? 'has-error' : ''}}">
+                    <label for="group_id" class="required">{{ __('organization::app.store.fields.group_id') }}</label>
 
-                <input class="control" name="analysis_code" type="text" id="analysis_code"
-                       value="{{ isset($store->analysis_code) ? $store->analysis_code : ''}}">
+                    <select id="group_id" name="group_id" class="form-control control" data-role="control">
 
-                {!! $errors->first('analysis_code', '<span class="control-error">:message</span>') !!}
-            </div>
+                        @foreach($group as $item)
+                            <option value="{{ $item->group_id }}" {{$store->group_id == $item->group_id ? 'selected' : '' }}>
+                                {{ $item->group_desc }}</option>
+                        @endforeach
+                    </select>
+                    {!! $errors->first('group_id', '<span class="control-error">:message</span>') !!}
+                </div>
+{{--            <div class="control-group col col-6 {{ $errors->has('analysis_code') ? 'has-error' : ''}}">--}}
+{{--                <label for="analysis_code" class="">{{ __('organization::app.store.fields.analysis_code') }}</label>--}}
+
+{{--                <input class="control" name="analysis_code" type="text" id="analysis_code"--}}
+{{--                       value="{{ isset($store->analysis_code) ? $store->analysis_code : ''}}">--}}
+
+{{--                {!! $errors->first('analysis_code', '<span class="control-error">:message</span>') !!}--}}
+{{--            </div>--}}
         </div>
 
+
+
+
+
         <div class="row">
-            <div class="control-group col col-6 {{ $errors->has('group_id') ? 'has-error' : ''}}">
-                <label for="group_id" class="required">{{ __('organization::app.store.fields.group_id') }}</label>
-
-                <select id="group_id" name="group_id" class="form-control control" data-role="control">
-
-                    @foreach($group as $item)
-                        <option value="{{ $item->group_id }}" {{$store->group_id == $item->group_id ? 'selected' : '' }}>
-                            {{ $item->group_desc }}</option>
-                    @endforeach
-                </select>
-                {!! $errors->first('group_id', '<span class="control-error">:message</span>') !!}
-            </div>
-
-
             <div class="control-group form-check col col-6 {{ $errors->has('have_sub_stores') ? 'has-error' : ''}}">
                 <label class="form-check-label required" for="have_sub_stores">
                     {{ __('organization::app.store.fields.have_sub_stores') }}
@@ -110,9 +112,7 @@
                 {!! $errors->first('have_sub_stores', '<span class="control-error">:message</span>') !!}
 
             </div>
-        </div>
 
-        <div class="row">
             <div class="control-group form-check col col-6 {{ $errors->has('sub_store_mandatory') ? 'has-error' : ''}}">
                 <label class="form-check-label required" for="sub_store_mandatory">
                     {{ __('organization::app.store.fields.sub_store_mandatory') }}
