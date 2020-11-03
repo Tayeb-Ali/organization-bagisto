@@ -487,7 +487,7 @@ return [
             'have_sub_stores' => 'Cost_center_code',
             'dept_code' => 'dept_code',
             'account_code' => 'Account Number',
-            'store_contacts' => 'Store_contacts',
+            'store_contacts' => 'Store contacts',
             'store_location' => 'Store_location',
             'sub_store_mandatory' => 'Sub_store_mandatory',
             'credit_limit' => 'Credit limit',
