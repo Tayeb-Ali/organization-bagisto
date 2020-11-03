@@ -112,11 +112,11 @@ return [
     'clientgroup' => [
         'add-title' => 'Add client group',
         'create-btn-title' => 'Create',
-        'edit-title' => 'edit client',
+        'edit-title' => 'Edit client',
         'edit-btn-title' => 'Add',
         'index' => 'Client group',
-        'delete' => 'delete',
-        'show' => 'show',
+        'delete' => 'Delete',
+        'show' => 'Show',
         'title' => 'Client group',
         'general' => 'General',
         'fields' =>
@@ -135,11 +135,11 @@ return [
     'bank-group' => [
         'add-title' => 'Add Bank group',
         'create-btn-title' => 'Create',
-        'edit-title' => 'edit Bank',
+        'edit-title' => 'Edit Bank',
         'edit-btn-title' => 'Add',
         'index' => 'Bank group',
-        'delete' => 'delete',
-        'show' => 'show',
+        'delete' => 'Delete',
+        'show' => 'Show',
         'title' => 'Bank group',
         'general' => 'General',
         'fields' =>
@@ -163,9 +163,9 @@ return [
         'show' => 'Company',
         'general' => 'Company Form',
         'add-title' => 'Add Company',
-        'create-btn-title' => 'save company',
-        'edit-title' => 'edit Company',
-        'edit-btn-title' => 'edit',
+        'create-btn-title' => 'Save company',
+        'edit-title' => 'Edit Company',
+        'edit-btn-title' => 'Edit',
         'edit' => 'Edit',
         'delete' => 'delete',
         'fields' => [
@@ -258,7 +258,7 @@ return [
 
     'companybranch' => [
         'create' => 'Create Company branch',
-        'general' => 'general',
+        'general' => 'General',
         'title' => 'Company branch',
         'index' => 'Company branch',
         'add-title' => 'Add Company branch',
@@ -300,8 +300,8 @@ return [
     ],
 
     'supplier' => [
-        'create' => 'create',
-        'general' => 'general',
+        'create' => 'Create',
+        'general' => 'General',
         'index' => 'Supplier',
         'title' => 'Supplier',
         'add-title' => 'Add supplier',
@@ -359,7 +359,7 @@ return [
 
     'suppliergroup' => [
         'create' => 'Create supplier group',
-        'general' => 'general',
+        'general' => 'General',
         'title' => 'Supplier group',
         'index' => 'Supplier group',
         'add-title' => 'Add supplier group',
@@ -444,11 +444,11 @@ return [
     'employ-group' => [
         'add-title' => 'Add employ group',
         'create-btn-title' => 'Create',
-        'edit-title' => 'edit employ',
-        'edit-btn-title' => 'save',
+        'edit-title' => 'Edit employ',
+        'edit-btn-title' => 'Save',
         'index' => 'Employ group',
-        'delete' => 'delete',
-        'show' => 'show',
+        'delete' => 'Delete',
+        'show' => 'Show',
         'title' => 'Employ group',
         'general' => 'General',
         'fields' =>
@@ -470,11 +470,11 @@ return [
         'add-title' => 'Add store',
         'create-btn-title' => 'Create',
         'edit-title' => 'Edit store',
-        'edit-btn-title' => 'save edit',
-        'index' => 'store',
+        'edit-btn-title' => 'Save edit',
+        'index' => 'Store',
         'general' => 'General',
-        'delete' => 'delete',
-        'show' => 'show',
+        'delete' => 'Selete',
+        'show' => 'Show',
         'title' => 'store',
         'fields' => [
             'company_id' => 'Company name',
@@ -515,7 +515,7 @@ return [
         'create-btn-title' => 'Create',
         'edit-title' => 'Edit employ',
         'edit-btn-title' => 'Save',
-        'index' => 'store group',
+        'index' => 'Store group',
         'delete' => 'Delete',
         'show' => 'Show',
         'title' => 'Store group',
@@ -567,7 +567,7 @@ return [
         'create-btn-title' => 'Create',
         'edit-title' => 'Edit treasure',
         'edit-btn-title' => 'Save edit',
-        'index' => 'treasure',
+        'index' => 'Treasure',
         'general' => 'General',
         'delete' => 'Delete',
         'show' => 'Show',
