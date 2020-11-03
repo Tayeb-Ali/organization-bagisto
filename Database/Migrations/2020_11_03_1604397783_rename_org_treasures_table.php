@@ -14,5 +14,13 @@ class RenameOrgTreasuresTable extends Migration
             $table->unsignedInteger('employ_id')->nullable();
             $table->dropColumn('casher');
         });
-        }
     }
+
+
+    public function down()
+    {
+        Schema::dropIfExists('org_treasures');
+        Schema::drop('org_treasures_groups');
+    }
+
+}
