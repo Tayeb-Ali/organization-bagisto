@@ -62,7 +62,7 @@
 
 
             <div class="control-group col col-6 {{ $errors->has('has_sub_company') ? 'has-error' : ''}}">
-                <label for="has_sub_company" class="">{{ __('organization::app.company.fields.status') }}</label>
+                <label for="has_sub_company" class="">{{ __('organization::app.company.fields.has_sub_company') }}</label>
                 <select id="has_sub_company" name="has_sub_company" class="form-control control" data-role="control">
                     <option value="0"  {{$company->has_sub_company == 0? 'selected' : '' }}> {{ __('organization::app.company.sub-company.no') }}</option>
                     <option value="1" {{$company->has_sub_company ==1 ? 'selected' : '' }}>{{ __('organization::app.company.sub-company.yes') }}</option>
