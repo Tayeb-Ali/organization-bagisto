@@ -4,7 +4,7 @@
             <div class="control-group col col-6 {{ $errors->has('company_id') ? 'has-error' : ''}}">
                 <label for="company_id" class="required">{{ __('organization::app.store.fields.company_id') }}</label>
 
-                <select id="company_id" name="company_id" class="form-control control" data-role="control">
+                <select id="company_id" name="company_id" class="form-control control ml-2 mr-2" data-role="control">
 
                     @foreach($company as $item)
                         <option value="{{ $item->company_id }}" {{$store->company_id == $item->company_id ? 'selected' : '' }}>{{ $item->description }}</option>
@@ -17,7 +17,7 @@
             <div class="control-group col col-6 {{ $errors->has('status') ? 'has-error' : ''}}">
                 <label for="status" class="required">{{ __('organization::app.store.fields.status') }}</label>
 
-                <select id="status" name="status" class="form-control control" data-role="control">
+                <select id="status" name="status" class="form-control control ml-2 mr-2" data-role="control">
 
                     <option value="1" {{$store->status == 1 ? 'selected' : '' }}>{{__('organization::app.status.Active')}}</option>
                     <option value="2" {{$store->status ==2 ? 'selected' : '' }}>{{__('organization::app.status.Inactive')}}</option>
@@ -30,7 +30,7 @@
             <div class="control-group col col-6 {{ $errors->has('description') ? 'has-error' : ''}}">
                 <label for="description" class="required">{{ __('organization::app.store.fields.description') }}</label>
 
-                <input class="control" name="description" type="text" id="description"
+                <input class="form-control control ml-2 mr-2" name="description" type="text" id="description"
                        value="{{ isset($store->description) ? $store->description : ''}}" required>
 
                 {!! $errors->first('description', '<span class="control-error">:message</span>') !!}
