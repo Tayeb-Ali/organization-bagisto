@@ -7,7 +7,7 @@
             <div class="control-group {{ $errors->has('description') ? 'has-error' : ''}}">
                 <label for="description" class="">{{ __('organization::app.companybranch.fields.description') }}</label>
 
-                <input class="control" name="description" type="text" id="description"
+                <input class="control ml-2 mr-2" name="description" type="text" id="description"
                        value="{{ isset($companybranch->description) ? $companybranch->description : ''}}">
 
                 {!! $errors->first('description', '<span class="control-error">:message</span>') !!}

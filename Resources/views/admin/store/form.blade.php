@@ -103,9 +103,9 @@
 
         <div class="row">
             <div class="control-group form-check col col-6 {{ $errors->has('have_sub_stores') ? 'has-error' : ''}}">
-                <label class="form-check-label required" for="have_sub_stores">
+                <label class="form-check-label" for="have_sub_stores">
                     {{ __('organization::app.store.fields.have_sub_stores') }}
-                    <input class="form-check-input" name="have_sub_stores" type="checkbox"
+                    <input class="form-check-input ml-2 mr-2" name="have_sub_stores" type="checkbox"
                            value="{{ isset($store->have_sub_stores) ? $store->have_sub_stores : ''}}"
                            id="have_sub_stores">
                 </label>
@@ -114,9 +114,9 @@
             </div>
 
             <div class="control-group form-check col col-6 {{ $errors->has('sub_store_mandatory') ? 'has-error' : ''}}">
-                <label class="form-check-label required" for="sub_store_mandatory">
+                <label class="form-check-label" for="sub_store_mandatory">
                     {{ __('organization::app.store.fields.sub_store_mandatory') }}
-                    <input class="form-check-input" name="sub_store_mandatory" type="checkbox"
+                    <input class="form-check-input ml-2 mr-2" name="sub_store_mandatory" type="checkbox"
                            value="{{ isset($store->sub_store_mandatory) ? $store->sub_store_mandatory : ''}}"
                            id="sub_store_mandatory">
                 </label>
