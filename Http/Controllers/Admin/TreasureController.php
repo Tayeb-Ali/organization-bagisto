@@ -84,7 +84,7 @@ class TreasureController extends Controller
         $employ = Employ::all();
 
         $currency = Currency::all();
-        $group = Group::all();
+        $group = Group::where('model_name', 'Treasure')->get(['group_id', 'group_desc']);
         return view($this->_config['view'], compact('treasure', 'company', 'currency', 'group', 'employ'));
     }
 
@@ -133,7 +133,7 @@ class TreasureController extends Controller
         $treasure = Treasure::findOrFail($id);
         $company = Company::all('company_id', 'description');
         $currency = Currency::all();
-        $group = Group::all();
+        $group = Group::where('model_name', 'Treasure')->get(['group_id', 'group_desc']);
         $employ = Employ::all();
 
         return view($this->_config['view'], compact('treasure', 'company', 'currency', 'group', 'employ'));

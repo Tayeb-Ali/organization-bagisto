@@ -82,7 +82,7 @@ class StoreController extends Controller
         $company = Company::all('company_id', 'description');
 
         $currency = Currency::all();
-        $group = Group::all();
+        $group = Group::where('model_name', 'Store')->get(['group_id', 'group_desc']);
         $employ = Employ::all();
         return view($this->_config['view'], compact('store', 'company', 'currency', 'group', 'employ'));
     }
@@ -132,7 +132,7 @@ class StoreController extends Controller
         $store = Store::findOrFail($id);
         $company = Company::all('company_id', 'description');
         $currency = Currency::all();
-        $group = Group::all();
+        $group = Group::where('model_name', 'Store')->get(['group_id', 'group_desc']);
         $employ = Employ::all();
         return view($this->_config['view'], compact('store', 'company', 'currency', 'group', 'employ'));
     }

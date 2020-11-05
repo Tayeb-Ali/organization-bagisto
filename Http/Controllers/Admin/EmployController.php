@@ -97,7 +97,7 @@ class EmployController extends Controller
 
         $employ->fill($request->old());
         $company = Company::all('company_id', 'description');
-        $group = Group::all('group_id', 'group_desc');
+        $group = Group::where('model_name', 'Employ')->get(['group_id', 'group_desc']);
 
 
         return view($this->_config['view'], compact('company', 'employ', 'group'));
@@ -165,7 +165,7 @@ class EmployController extends Controller
     {
         $employ = Employ::findOrFail($id);
         $company = Company::all('company_id', 'description');
-        $group = Group::all('group_id', 'group_desc');
+        $group = Group::where('model_name', 'Employ')->get(['group_id', 'group_desc']);
 
         return view($this->_config['view'], compact('company', 'employ', 'group'));
     }

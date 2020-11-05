@@ -99,8 +99,7 @@ class SupplierController extends Controller
 
         $supplier->fill($request->old());
         $company = Company::all('company_id', 'description');
-        $group = Group::all('group_id', 'group_desc');
-
+        $group = Group::where('model_name', 'Supplier')->get(['group_id', 'group_desc']);
         return view($this->_config['view'], compact('supplier', 'company', 'group'));
     }
 
@@ -167,7 +166,7 @@ class SupplierController extends Controller
     {
         $supplier = Supplier::findOrFail($id);
         $company = Company::all('company_id', 'description');
-        $group = Group::all('group_id', 'group_desc');
+        $group = Group::where('model_name', 'Supplier')->get(['group_id', 'group_desc']);
 
         return view($this->_config['view'], compact('supplier', 'company', 'group'));
     }

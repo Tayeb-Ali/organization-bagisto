@@ -86,7 +86,7 @@ class BankController extends Controller
         $company = Company::all('company_id', 'description');
 
         $currency = Currency::all();
-        $group = Group::where('model_name', '=', 'Bank')->get();
+        $group = Group::where('model_name', '=', 'Bank')->get(['group_id', 'group_desc']);
         return view($this->_config['view'], compact('bank', 'company', 'currency', 'group'));
     }
 
@@ -134,7 +134,7 @@ class BankController extends Controller
         $bank = Bank::findOrFail($id);
         $company = Company::all('company_id', 'description');
         $currency = Currency::all();
-        $group = Group::where('model_name', '=', 'Bank')->get();
+        $group = Group::where('model_name', '=', 'Bank')->get(['group_id', 'group_desc']);
 
 
         return view($this->_config['view'], compact('bank', 'company', 'currency', 'group'));

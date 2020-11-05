@@ -96,10 +96,10 @@ class ClientController extends Controller
 
         $client->fill($request->old());
         $company = Company::all('company_id', 'description');
-        $group = Group::all('group_id', 'group_desc');
+        $group = Group::where('model_name', 'Client')->get(['group_id', 'group_desc']);
 
 
-        return view($this->_config['view'], compact(['client', 'company', 'group']));
+        return view($this->_config['view'], compact('client', 'company', 'group'));
     }
 
     /**
@@ -111,9 +111,7 @@ class ClientController extends Controller
      */
     public function store(ClientRequest $request)
     {
-        $v = $request->validate([
-            'name' => 'require|max:30|min:10'
-        ]);
+        return $request->all();
 
         $requestData = $request->all();
 
@@ -168,7 +166,7 @@ class ClientController extends Controller
     {
         $client = Client::findOrFail($id);
         $company = Company::all('company_id', 'description');
-        $group = Group::all('group_id', 'group_desc');
+        $group = Group::where('model_name', 'Client')->get(['group_id', 'group_desc']);
 
         return view($this->_config['view'], compact('client', 'company', 'group'));
     }
