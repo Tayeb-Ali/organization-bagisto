@@ -108,54 +108,6 @@ return [
         'delete-success' => 'Bank delete successfully',
         'add-success' => 'Bank add successfully',
     ],
-
-    'clientgroup' => [
-        'add-title' => 'Add client group',
-        'create-btn-title' => 'Create',
-        'edit-title' => 'Edit client',
-        'edit-btn-title' => 'Add',
-        'index' => 'Client group',
-        'delete' => 'Delete',
-        'show' => 'Show',
-        'title' => 'Client group',
-        'general' => 'General',
-        'fields' =>
-            [
-                'company_id' => 'Company',
-                'group_desc' => 'Group description',
-                'account_code' => 'Account code',
-                'status' => 'Status',
-                'amend_by' => 'Amend by',
-                'amend_date' => 'Amend date',
-            ],
-        'update-success' => 'Client group update successfully',
-        'delete-success' => 'Client group delete successfully',
-        'add-success' => 'Client group add successfully',
-    ],
-    'bank-group' => [
-        'add-title' => 'Add Bank group',
-        'create-btn-title' => 'Create',
-        'edit-title' => 'Edit Bank',
-        'edit-btn-title' => 'Add',
-        'index' => 'Bank group',
-        'delete' => 'Delete',
-        'show' => 'Show',
-        'title' => 'Bank group',
-        'general' => 'General',
-        'fields' =>
-            [
-                'company_id' => 'Company',
-                'group_desc' => 'Group description',
-                'account_code' => 'Account code',
-                'status' => 'Status',
-                'amend_by' => 'Amend by',
-                'amend_date' => 'Amend date',
-            ],
-        'update-success' => 'Bank group update successfully',
-        'delete-success' => 'Bank group delete successfully',
-        'add-success' => 'Bank group add successfully',
-    ],
-
     'company' => [
         'create' => 'Create Company',
         'title' => 'Company',
@@ -163,6 +115,7 @@ return [
         'show' => 'Company',
         'general' => 'Company Form',
         'add-title' => 'Add Company',
+        'select-title' => 'Select Company',
         'create-btn-title' => 'Save company',
         'edit-title' => 'Edit Company',
         'edit-btn-title' => 'Edit',
@@ -170,6 +123,7 @@ return [
         'delete' => 'Delete',
         'fields' => [
             'description' => 'Description',
+            'company_id' => 'Company Name',
             'currency' => 'Currency',
             'status' => 'Status',
             'has_sub_company' => 'Accept adding sub-companies?',
@@ -255,7 +209,6 @@ return [
             'edit-title' => 'Sub Company',
         ]
     ],
-
     'companybranch' => [
         'create' => 'Create Company branch',
         'general' => 'General',
@@ -298,7 +251,6 @@ return [
         'delete-failure' => 'Failure',
         'add-success' => 'Company branch add successfully',
     ],
-
     'supplier' => [
         'create' => 'Create',
         'general' => 'General',
@@ -356,33 +308,6 @@ return [
         'delete-success' => 'Supplier delete successfully',
         'add-success' => 'Supplier add successfully',
     ],
-
-    'suppliergroup' => [
-        'create' => 'Create supplier group',
-        'general' => 'General',
-        'title' => 'Supplier group',
-        'index' => 'Supplier group',
-        'add-title' => 'Add supplier group',
-        'create-btn-title' => 'Create',
-        'edit-title' => 'Edit supplier group',
-        'edit-btn-title' => 'Edit',
-        'edit' => 'Edit',
-        'delete' => 'Delete',
-        'fields' => [
-            'company_id' => 'Company',
-            'group_desc' => 'Group description',
-            'account_code' => 'Account_code',
-            'status' => 'Status',
-            'amend_by' => 'Amend by',
-            'amend_date' => 'Amend date'
-        ],
-
-        'update-success' => 'Supplier group update successfully',
-        'delete-success' => 'Supplier group delete successfully',
-        'add-success' => 'Supplier group add successfully',
-
-    ],
-
     'employ' => [
         'add-title' => 'Add employ',
         'create-btn-title' => 'Create',
@@ -440,32 +365,6 @@ return [
         'delete-success' => 'Employ delete successfully',
         'add-success' => 'Employ add successfully',
     ],
-
-    'employ-group' => [
-        'add-title' => 'Add employ group',
-        'create-btn-title' => 'Create',
-        'edit-title' => 'Edit employ',
-        'edit-btn-title' => 'Save',
-        'index' => 'Employ group',
-        'delete' => 'Delete',
-        'show' => 'Show',
-        'title' => 'Employ group',
-        'general' => 'General',
-        'fields' =>
-            [
-                'company_id' => 'Company',
-                'group_desc' => 'Group description',
-                'account_code' => 'Account code',
-                'status' => 'Status',
-                'amend_by' => 'Amend by',
-                'amend_date' => 'Amend date',
-            ],
-        'update-success' => 'Employ group update successfully',
-        'delete-success' => 'Employ group delete successfully',
-        'add-success' => 'Employ group add successfully',
-    ],
-
-
     'store' => [
         'add-title' => 'Add store',
         'create-btn-title' => 'Create',
@@ -509,58 +408,41 @@ return [
         'delete-success' => 'Store delete successfully',
         'add-success' => 'Store add successfully',
     ],
-
-    'store-group' => [
-        'add-title' => 'Add store group',
+    'group' => [
+        'add-title' => 'Add group',
         'create-btn-title' => 'Create',
-        'edit-title' => 'Edit employ',
+        'edit-title' => 'Edit Group',
         'edit-btn-title' => 'Save',
-        'index' => 'Store group',
+        'index' => 'Group',
         'delete' => 'Delete',
         'show' => 'Show',
-        'title' => 'Store group',
+        'title' => 'Group',
         'general' => 'General',
         'fields' =>
             [
-                'company_id' => 'Company',
+                'company_id' => 'Company Name',
                 'group_desc' => 'Group description',
                 'status' => 'Status',
-                'amend_by' => 'Amend by',
-                'amend_date' => 'Amend date',
-                'group_id' => 'Store group',
-                'group_code' => 'Group_code',
-                'company_code' => 'Company_code',
-                'group_desc_o' => 'Croup_desc_o',
-                'cost_center_code' => 'Cost_center_code',
-
-            ],
-        'update-success' => 'Store group update successfully',
-        'delete-success' => 'Store group delete successfully',
-        'add-success' => 'Store group add successfully',
-    ],
-
-    'treasur-group' => [
-        'add-title' => 'Add Treasure group',
-        'create-btn-title' => 'Create',
-        'edit-title' => 'Edit treasure',
-        'edit-btn-title' => 'Add',
-        'index' => 'Treasure group',
-        'delete' => 'Delete',
-        'show' => 'Show',
-        'title' => 'Treasure group',
-        'general' => 'General',
-        'fields' =>
-            [
-                'company_id' => 'Company',
-                'group_desc' => 'Group description',
                 'account_code' => 'Account code',
-                'status' => 'Status',
                 'amend_by' => 'Amend by',
                 'amend_date' => 'Amend date',
+                'group_id' => 'Group Name',
+                'group_code' => 'Group code',
+                'company_code' => 'Company code',
+                'group_desc_o' => 'Croup desc o',
+                'cost_center_code' => 'Cost center code',
+                'model_name' => 'Select Group Type',
+
             ],
-        'update-success' => 'Treasure group update successfully',
-        'delete-success' => 'Treasure group delete successfully',
-        'add-success' => 'Treasure group add successfully',
+        'supplier' => 'Supplier',
+        'client' => 'Client',
+        'employ' => 'Employ',
+        'bank' => 'Bank',
+        'store' => 'Store',
+        'treasure' => 'Treasure',
+        'update-success' => 'Group update successfully',
+        'delete-success' => 'Group delete successfully',
+        'add-success' => 'Group add successfully',
     ],
     'treasure' => [
         'add-title' => 'Add treasure',

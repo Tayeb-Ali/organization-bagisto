@@ -48,8 +48,9 @@ class Treasure extends Model
 
     public function group()
     {
-        return $this->hasOne(TreasureGroup::class, 'group_id', 'group_id');
+        return $this->hasOne(Group::class, 'group_id', 'group_id');
     }
+
     public function employ()
     {
         return $this->hasOne(Employ::class, 'employ_id', 'employ_id');

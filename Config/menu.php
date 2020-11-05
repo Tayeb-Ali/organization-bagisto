@@ -37,19 +37,20 @@ return [
         'icon-class' => ''
     ],
     [
-        'key' => 'organization.client',
-        'name' => 'organization::app.client.index',
-        'route' => 'admin.client.index',
+        'key' => 'organization.group',
+        'name' => 'organization::app.group.index',
+        'route' => 'admin.group.index',
         'sort' => '4',
         'icon-class' => ''
     ],
     [
-        'key' => 'organization.client-group',
-        'name' => 'organization::app.clientgroup.index',
-        'route' => 'admin.client-group.index',
+        'key' => 'organization.client',
+        'name' => 'organization::app.client.index',
+        'route' => 'admin.client.index',
         'sort' => '5',
         'icon-class' => ''
     ],
+
     [
         'key' => 'organization.supplier',
         'name' => 'organization::app.supplier.index',
@@ -58,31 +59,10 @@ return [
         'icon-class' => ''
     ],
     [
-        'key' => 'organization.supplier-group',
-        'name' => 'organization::app.suppliergroup.index',
-        'route' => 'admin.supplier-group.index',
-        'sort' => '7',
-        'icon-class' => '',
-    ],
-    [
         'key' => 'organization.employ',
         'name' => 'organization::app.employ.index',
         'route' => 'admin.employ.index',
         'sort' => '8',
-        'icon-class' => ''
-    ],
-    [
-        'key' => 'organization.employ-group',
-        'name' => 'organization::app.employ-group.index',
-        'route' => 'admin.employ-group.index',
-        'sort' => '9',
-        'icon-class' => ''
-    ],
-    [
-        'key' => 'organization.bank-group',
-        'name' => 'organization::app.bank-group.index',
-        'route' => 'admin.bank-group.index',
-        'sort' => '9',
         'icon-class' => ''
     ],
     [
@@ -94,13 +74,6 @@ return [
     ],
 
     [
-        'key' => 'organization.store-group',
-        'name' => 'organization::app.store-group.index',
-        'route' => 'admin.store-group.index',
-        'sort' => '11',
-        'icon-class' => ''
-    ],
-    [
         'key' => 'organization.store',
         'name' => 'organization::app.store.index',
         'route' => 'admin.store.index',
@@ -108,14 +81,7 @@ return [
         'icon-class' => ''
     ],
 
-    //treasur
-    [
-        'key' => 'organization.treasur-group',
-        'name' => 'organization::app.treasur-group.index',
-        'route' => 'admin.treasur-group.index',
-        'sort' => '13',
-        'icon-class' => ''
-    ],
+
     [
         'key' => 'organization.treasur',
         'name' => 'organization::app.treasure.index',

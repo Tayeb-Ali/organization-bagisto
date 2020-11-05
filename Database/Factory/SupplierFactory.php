@@ -3,19 +3,17 @@
 /** @var Factory $factory */
 
 use DOCore\Organization\Models\Company;
+use DOCore\Organization\Models\Group;
 use DOCore\Organization\Models\Supplier;
-use DOCore\Organization\Models\SupplierGroup;
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
-use Illuminate\Support\Str;
 use Webkul\User\Models\Admin;
-use Carbon\Carbon;
 
 $factory->define(Supplier::class,
     function (Faker $faker) {
         return [
             'company_id' => Company::all()->random()->company_id,
-            'group_id' => SupplierGroup::all()->random()->group_id,
+            'group_id' => Group::where('model_name', '=', 'Supplier')->get()->random()->group_id,
             'supp_type' => '',
             'name' => $faker->name,
             'contact_person' => $faker->name,

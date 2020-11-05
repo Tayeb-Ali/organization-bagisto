@@ -5,7 +5,7 @@ namespace DOCore\Organization\Http\Controllers\Admin;
 use DOCore\Organization\Http\Requests\StoreRequest;
 use DOCore\Organization\Models\Employ;
 use DOCore\Organization\Models\Store;
-use DOCore\Organization\Models\StoreGroup;
+use DOCore\Organization\Models\Group;
 use DOCore\Organization\Models\Company;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -82,7 +82,7 @@ class StoreController extends Controller
         $company = Company::all('company_id', 'description');
 
         $currency = Currency::all();
-        $group = StoreGroup::all();
+        $group = Group::all();
         $employ = Employ::all();
         return view($this->_config['view'], compact('store', 'company', 'currency', 'group', 'employ'));
     }
@@ -132,7 +132,7 @@ class StoreController extends Controller
         $store = Store::findOrFail($id);
         $company = Company::all('company_id', 'description');
         $currency = Currency::all();
-        $group = StoreGroup::all();
+        $group = Group::all();
         $employ = Employ::all();
         return view($this->_config['view'], compact('store', 'company', 'currency', 'group', 'employ'));
     }

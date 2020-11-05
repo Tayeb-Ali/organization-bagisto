@@ -1,26 +1,26 @@
 @extends('admin::layouts.content')
 
 @section('page_title')
-    {{ __('organization::app.bank-group.edit-title') }}
+    {{ __('organization::app.group.edit-title') }}
 @stop
 
 @section('content')
     <div class="content">
 
-        <form method="POST" action="{{ route('admin.bank-group.edit', $bankGroup->group_id) }}">
+        <form method="POST" action="{{ route('admin.group.edit', $group->group_id) }}">
 
             <div class="page-header">
                 <div class="page-title">
                     <h1>
                         <i class="icon angle-left-icon back-link" onclick="history.length > 1 ? history.go(-1) : window.location = '{{ route('admin.dashboard.index') }}';"></i>
 
-                        {{ __('organization::app.bank-group.edit-title') }}
+                        {{ __('organization::app.group.edit-title') }}
                     </h1>
                 </div>
 
                 <div class="page-action">
                     <button type="submit" class="btn btn-lg btn-primary">
-                        {{ __('organization::app.bank-group.edit-btn-title') }}
+                        {{ __('organization::app.group.edit-btn-title') }}
                     </button>
                 </div>
             </div>
@@ -37,7 +37,7 @@
 
                 <div class="form-container">
                     @csrf()
-                    @include ('organization::admin.bank-group.form', ['formMode' => 'edit'])
+                    @include ('organization::admin.group.form', ['formMode' => 'edit'])
                 </div>
             </div>
         </form>

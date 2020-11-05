@@ -2,18 +2,15 @@
 
 namespace DOCore\Organization\Http\Controllers\Admin;
 
-use DOCore\Organization\Http\Controllers\Admin\Controller;
-use DOCore\Organization\Models\Client;
-use DOCore\Organization\Models\ClientGroup;
 use DOCore\Organization\Models\Company;
+use DOCore\Organization\Models\Group;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
-use Webkul\User\Models\Admin;
 
-class ClientGroupController extends Controller
+class GroupController extends Controller
 {
     /**
      * To hold the request variables from route file
@@ -30,6 +27,7 @@ class ClientGroupController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return View
      */
     public function index(Request $request)
@@ -38,7 +36,7 @@ class ClientGroupController extends Controller
         $perPage = $request->get('perPage') ? $request->get('perPage') : 25;
 
         if (!empty($keyword)) {
-            $clientgroup = ClientGroup::where('company_id', 'LIKE', "%$keyword%")
+            $group = Group::where('company_id', 'LIKE', "%$keyword%")
                 ->orWhere('group_desc', 'LIKE', "%$keyword%")
                 ->orWhere('account_code', 'LIKE', "%$keyword%")
                 ->orWhere('status', 'LIKE', "%$keyword%")
@@ -46,10 +44,10 @@ class ClientGroupController extends Controller
                 ->orWhere('amend_date', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $clientgroup = ClientGroup::latest()->paginate($perPage);
+            $group = Group::latest()->paginate($perPage);
         }
 
-        return view($this->_config['view'], compact('clientgroup'));
+        return view($this->_config['view'], compact('group'));
     }
 
     /**
@@ -59,12 +57,12 @@ class ClientGroupController extends Controller
      */
     public function create(Request $request)
     {
-        $clientgroup = new ClientGroup;
+        $group = new Group;
 
-        $clientgroup->fill($request->old());
+        $group->fill($request->old());
         $company = Company::all('company_id', 'description');
 
-        return view($this->_config['view'], compact(['clientgroup', 'company']));
+        return view($this->_config['view'], compact('group', 'company'));
     }
 
     /**
@@ -73,6 +71,7 @@ class ClientGroupController extends Controller
      * @param Request $request
      *
      * @return RedirectResponse|Redirector
+     * @throws ValidationException
      */
     public function store(Request $request)
     {
@@ -82,9 +81,9 @@ class ClientGroupController extends Controller
         ]);
         $requestData = $request->all();
 
-        ClientGroup::create($requestData);
+        Group::create($requestData);
 
-        session()->flash('success', trans('organization::app.client-group.add-success', ['name' => 'ClientGroup']));
+        session()->flash('success', trans('organization::app.group.add-success', ['name' => 'Group']));
 
         return redirect()->route($this->_config['redirect']);
     }
@@ -98,9 +97,9 @@ class ClientGroupController extends Controller
      */
     public function show($id)
     {
-        $clientgroup = ClientGroup::findOrFail($id);
+        $group = Group::findOrFail($id);
 
-        return view($this->_config['view'], compact('clientgroup'));
+        return view($this->_config['view'], compact('group'));
     }
 
     /**
@@ -112,11 +111,11 @@ class ClientGroupController extends Controller
      */
     public function edit($id)
     {
-        $clientgroup = ClientGroup::findOrFail($id);
+        $group = Group::findOrFail($id);
         $company = Company::all('company_id', 'description');
 
 
-        return view($this->_config['view'], compact('clientgroup', 'company'));
+        return view($this->_config['view'], compact('group', 'company'));
     }
 
     /**
@@ -126,6 +125,7 @@ class ClientGroupController extends Controller
      * @param int $id
      *
      * @return RedirectResponse|Redirector
+     * @throws ValidationException
      */
     public function update(Request $request, $id)
     {
@@ -135,10 +135,10 @@ class ClientGroupController extends Controller
         ]);
         $requestData = $request->all();
 
-        $clientgroup = ClientGroup::findOrFail($id);
-        $clientgroup->update($requestData);
+        $group = Group::findOrFail($id);
+        $group->update($requestData);
 
-        session()->flash('success', trans('organization::app.client-group.update-success', ['name' => 'ClientGroup']));
+        session()->flash('success', trans('organization::app.group.update-success', ['name' => 'Group']));
 
         return redirect()->route($this->_config['redirect']);
     }
@@ -152,19 +152,19 @@ class ClientGroupController extends Controller
      */
     public function delete($id)
     {
-        $clientgroup = ClientGroup::findOrFail($id);
+//        $group = Group::findOrFail($id);
 
-        if (Client::where('group_id', $id)->get()->count()) {
-            session()->flash('warning', trans('organization::app.delete-error.message1'));
-            return redirect()->back();
-        } elseif ($clientgroup->delete()) {
-            session()->flash('success', trans('organization::app.client-group.delete-success', ['name' => 'ClientGroup']));
-
-            return redirect()->route($this->_config['redirect']);
-        } else {
-            session()->flash('warning', trans('organization::app.client-group.delete-failure'));
-
-            return redirect()->route($this->_config['redirect']);
-        }
+//        if (Store::where('group_id', $id)->get()->count()) {
+//            session()->flash('warning', trans('organization::app.delete-error.message1'));
+//            return redirect()->back();
+//        } elseif ($group->delete()) {
+//            session()->flash('success', trans('organization::app.group.delete-success', ['name' => 'Group']));
+//
+//            return redirect()->route($this->_config['redirect']);
+//        } else {
+//            session()->flash('warning', trans('organization::app.group.delete-failure'));
+//
+//            return redirect()->route($this->_config['redirect']);
+//        }
     }
 }

@@ -1,26 +1,26 @@
 @extends('admin::layouts.content')
 
 @section('page_title')
-    {{ __('organization::app.store-group.add-title') }}
+    {{ __('organization::app.group.add-title') }}
 @stop
 
 @section('content')
     <div class="content">
 
-        <form method="POST" action="{{ route('admin.store-group.create') }}">
+        <form method="POST" action="{{ route('admin.group.create') }}">
 
             <div class="page-header">
                 <div class="page-title">
                     <h1>
                         <i class="icon angle-left-icon back-link" onclick="history.length > 1 ? history.go(-1) : window.location = '{{ route('admin.dashboard.index') }}';"></i>
 
-                        {{ __('organization::app.store-group.add-title') }}
+                        {{ __('organization::app.group.add-title') }}
                     </h1>
                 </div>
 
                 <div class="page-action">
                     <button type="submit" class="btn btn-lg btn-primary">
-                        {{ __('organization::app.store-group.create-btn-title') }}
+                        {{ __('organization::app.group.create-btn-title') }}
                     </button>
                 </div>
             </div>
@@ -37,7 +37,7 @@
 
                 <div class="form-container">
                     @csrf()
-                    @include ('organization::admin.store-group.form', ['formMode' => 'create'])
+                    @include ('organization::admin.group.form', ['formMode' => 'create'])
                 </div>
             </div>
         </form>

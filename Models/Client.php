@@ -43,7 +43,7 @@ class Client extends Model
 
     public function group()
     {
-        return $this->belongsTo(ClientGroup::class, 'group_id', 'group_id');
+        return $this->belongsTo(Group::class, 'group_id', 'group_id');
     }
 
     public function company()

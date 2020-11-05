@@ -19,17 +19,12 @@ class OrganizationDatabaseSeeder extends Seeder
         $this->call([
             CompanyTableSeeder::class,
             CompanyBranchTableSeeder::class,
-            ClientGroupTableSeeder::class,
+            GroupTableSeeder::class,
             ClientTableSeeder::class,
-            SupplierGroupTableSeeder::class,
             SupplierTableSeeder::class,
-            EmployGroupTableSeeder::class,
             EmployTableSeeder::class,
-            BankGroupTableSeeder::class,
             BanckTableSeeder::class,
-            StoreGroupTableSeeder::class,
             StoreTableSeeder::class,
-            TreasureGroupTableSeeder::class,
             TreasureTableSeeder::class
         ]);
     }

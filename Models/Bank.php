@@ -55,6 +55,6 @@ class Bank extends Model
 
     public function group()
     {
-        return $this->hasOne(BankGroup::class, 'group_id', 'group_id');
+        return $this->hasOne(Group::class, 'group_id', 'group_id');
     }
 }

@@ -6,7 +6,7 @@ use DOCore\Organization\Http\Controllers\Admin\Controller;
 use DOCore\Organization\Http\Requests\SupplierRequest;
 use DOCore\Organization\Models\Company;
 use DOCore\Organization\Models\Supplier;
-use DOCore\Organization\Models\SupplierGroup;
+use DOCore\Organization\Models\Group;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
@@ -99,7 +99,7 @@ class SupplierController extends Controller
 
         $supplier->fill($request->old());
         $company = Company::all('company_id', 'description');
-        $group = SupplierGroup::all('group_id', 'group_desc');
+        $group = Group::all('group_id', 'group_desc');
 
         return view($this->_config['view'], compact('supplier', 'company', 'group'));
     }
@@ -167,9 +167,9 @@ class SupplierController extends Controller
     {
         $supplier = Supplier::findOrFail($id);
         $company = Company::all('company_id', 'description');
-        $group = SupplierGroup::all('group_id', 'group_desc');
+        $group = Group::all('group_id', 'group_desc');
 
-        return view($this->_config['view'], compact(['supplier', 'company', 'group']));
+        return view($this->_config['view'], compact('supplier', 'company', 'group'));
     }
 
     /**

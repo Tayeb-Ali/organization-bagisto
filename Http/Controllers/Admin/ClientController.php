@@ -4,8 +4,8 @@ namespace DOCore\Organization\Http\Controllers\Admin;
 
 use DOCore\Organization\Http\Requests\ClientRequest;
 use DOCore\Organization\Models\Client;
-use DOCore\Organization\Models\ClientGroup;
 use DOCore\Organization\Models\Company;
+use DOCore\Organization\Models\Group;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
@@ -96,7 +96,7 @@ class ClientController extends Controller
 
         $client->fill($request->old());
         $company = Company::all('company_id', 'description');
-        $group = ClientGroup::all('group_id', 'group_desc');
+        $group = Group::all('group_id', 'group_desc');
 
 
         return view($this->_config['view'], compact(['client', 'company', 'group']));
@@ -112,7 +112,7 @@ class ClientController extends Controller
     public function store(ClientRequest $request)
     {
         $v = $request->validate([
-            'name'=> 'require|max:30|min:10'
+            'name' => 'require|max:30|min:10'
         ]);
 
         $requestData = $request->all();
@@ -134,11 +134,11 @@ class ClientController extends Controller
     public function storeAjax(ClientRequest $request)
     {
         $client = Client::create($request->all());
-            if ($client) {
-                return response()->json(['client' => $client, 'status' => true]);
-            } else {
-                return response()->json(['client' => $client, 'status' => false]);
-            }
+        if ($client) {
+            return response()->json(['client' => $client, 'status' => true]);
+        } else {
+            return response()->json(['client' => $client, 'status' => false]);
+        }
 
 
     }
@@ -168,9 +168,9 @@ class ClientController extends Controller
     {
         $client = Client::findOrFail($id);
         $company = Company::all('company_id', 'description');
-        $group = ClientGroup::all('group_id', 'group_desc');
+        $group = Group::all('group_id', 'group_desc');
 
-        return view($this->_config['view'], compact(['client', 'company', 'group']));
+        return view($this->_config['view'], compact('client', 'company', 'group'));
     }
 
     /**

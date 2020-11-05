@@ -2,7 +2,9 @@
 
 namespace DOCore\Organization\Providers;
 
+use DOCore\Organization\Http\Middleware\CheckSelectCompany;
 use DOCore\Organization\Http\View\Composers\CompanyComposer;
+use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Widget;
@@ -10,13 +12,15 @@ use Widget;
 class OrganizationServiceProvider extends ServiceProvider
 {
     /**
-     *
+     * @param Route $route
      */
-    public function boot()
+    public function boot(Router $router)
     {
         $this->loadRoutesFrom(__DIR__ . '/../Http/Routes/admin-routes.php');
         $this->loadRoutesFrom(__DIR__ . '/../Http/Routes/front-routes.php');
         $this->loadRoutesFrom(__DIR__ . '/../Http/Routes/api-routes.php');
+
+        $router->aliasMiddleware('selectCompany', CheckSelectCompany::class);
 
         $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'organization');
 
@@ -29,7 +33,8 @@ class OrganizationServiceProvider extends ServiceProvider
 //        Widget::group('dashboard')->position(0)->addWidget('organization::MainWidget');
         $this->loadFactoriesFrom(__DIR__ . '/../Database/Factory');
 
-        View::composer(['organization::admin.helper.company-dropdown'], CompanyComposer::class);
+        //de route
+        View::composer(['organization::admin.index'], CompanyComposer::class);
     }
 
     public function register()

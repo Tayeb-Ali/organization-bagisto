@@ -11,7 +11,6 @@ use DOCore\Organization\Models\Company;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
-use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
 class CompanyController extends Controller
@@ -144,7 +143,7 @@ class CompanyController extends Controller
 ////            return redirect()->back();
 ////        }
 //        if ($request->has_sub_company && $companyHaveSub && $request->company_parent_id && $companyHasMain){
-        if ($request->has_sub_company &&  $request->company_parent_id ){
+        if ($request->has_sub_company && $request->company_parent_id) {
             session()->flash('warning', trans('organization::app.company.delete-error1', ['name' => 'Company']));
             return redirect()->back();
         }
@@ -191,5 +190,13 @@ class CompanyController extends Controller
             session()->flash('warning', trans('organization::app.company.delete-failure'));
             return redirect()->route($this->_config['redirect']);
         }
+    }
+
+    public function selectMainCompany(Request $request)
+    {
+        $request->session()->put('company_id', $request->company_id);
+        return $value = session('company_id');
+
+
     }
 }

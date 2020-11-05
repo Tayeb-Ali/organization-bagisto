@@ -3,7 +3,6 @@
 namespace DOCore\Organization\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use DOCore\DOQuot\Models\Dispatch;
 
 
 class Employ extends Model
@@ -45,17 +44,12 @@ class Employ extends Model
 
     public function group()
     {
-        return $this->belongsTo(EmployGroup::class, 'group_id', 'group_id');
+        return $this->belongsTo(Group::class, 'group_id', 'group_id');
     }
 
     public function company()
     {
         return $this->belongsTo(Company::class, 'company_id', 'company_id');
-    }
-
-    public function dispatches()
-    {
-        return $this->hasMany(Dispatch::class, 'employee_id', 'employee_id');
     }
 
 

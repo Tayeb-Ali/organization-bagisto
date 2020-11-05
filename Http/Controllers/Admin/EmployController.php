@@ -5,13 +5,11 @@ namespace DOCore\Organization\Http\Controllers\Admin;
 use DOCore\Organization\Http\Requests\EmployRequest;
 use DOCore\Organization\Models\Employ;
 use DOCore\Organization\Models\Company;
-use DOCore\Organization\Models\EmployGroup;
+use DOCore\Organization\Models\Group;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
-use Webkul\User\Models\Admin;
 
 class EmployController extends Controller
 {
@@ -99,7 +97,7 @@ class EmployController extends Controller
 
         $employ->fill($request->old());
         $company = Company::all('company_id', 'description');
-        $group = EmployGroup::all('group_id', 'group_desc');
+        $group = Group::all('group_id', 'group_desc');
 
 
         return view($this->_config['view'], compact('company', 'employ', 'group'));
@@ -167,7 +165,7 @@ class EmployController extends Controller
     {
         $employ = Employ::findOrFail($id);
         $company = Company::all('company_id', 'description');
-        $group = EmployGroup::all('group_id', 'group_desc');
+        $group = Group::all('group_id', 'group_desc');
 
         return view($this->_config['view'], compact('company', 'employ', 'group'));
     }

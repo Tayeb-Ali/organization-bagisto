@@ -86,30 +86,6 @@ return [
         'sort' => '3'
     ],
     [
-        'key' => 'organization.client-group',
-        'name' => 'organization::app.acl.client-group.index',
-        'route' => 'admin.clientgroup.index',
-        'sort' => '5'
-    ],
-    [
-        'key' => 'organization.client-group.create',
-        'name' => 'organization::app.acl.client-group.create',
-        'route' => 'admin.clientgroup.create',
-        'sort' => '1'
-    ],
-    [
-        'key' => 'organization.client-group.edit',
-        'name' => 'organization::app.acl.client-group.edit',
-        'route' => 'admin.clientgroup.edit',
-        'sort' => '2'
-    ],
-    [
-        'key' => 'organization.client-group.delete',
-        'name' => 'organization::app.acl.client-group.delete',
-        'route' => 'admin.clientgroup.delete',
-        'sort' => '3'
-    ],
-    [
         'key' => 'organization.supplier',
         'name' => 'organization::app.acl.supplier.index',
         'route' => 'admin.supplier.index',
@@ -134,31 +110,6 @@ return [
         'sort' => '3'
     ],
     [
-        'key' => 'organization.supplier-group',
-        'name' => 'organization::app.acl.supplier-group.index',
-        'route' => 'admin.suppliergroup.index',
-        'sort' => '7'
-    ],
-    [
-        'key' => 'organization.supplier-group.create',
-        'name' => 'organization::app.acl.supplier-group.create',
-        'route' => 'admin.suppliergroup.create',
-        'sort' => '1'
-    ],
-    [
-        'key' => 'organization.supplier-group.edit',
-        'name' => 'organization::app.acl.supplier-group.edit',
-        'route' => 'admin.suppliergroup.edit',
-        'sort' => '2'
-    ],
-    [
-        'key' => 'organization.supplier-group.delete',
-        'name' => 'organization::app.acl.supplier-group.delete',
-        'route' => 'admin.suppliergroup.delete',
-        'sort' => '3'
-    ],
-
-    [
         'key' => 'organization.employ',
         'name' => 'organization::app.acl.employ.index',
         'route' => 'admin.employ.index',
@@ -182,35 +133,6 @@ return [
         'route' => 'admin.employ.delete',
         'sort' => '3'
     ],
-
-
-    [
-        'key' => 'organization.employ-group',
-        'name' => 'organization::app.acl.employ-group.index',
-        'route' => 'admin.employ-group.index',
-        'sort' => '5'
-    ],
-    [
-        'key' => 'organization.employ-group.create',
-        'name' => 'organization::app.acl.employ-group.create',
-        'route' => 'admin.employ-group.create',
-        'sort' => '1'
-    ],
-    [
-        'key' => 'organization.employ-group.edit',
-        'name' => 'organization::app.acl.employ-group.edit',
-        'route' => 'admin.employ-group.edit',
-        'sort' => '2'
-    ],
-    [
-        'key' => 'organization.employ-group.delete',
-        'name' => 'organization::app.acl.employ-group.delete',
-        'route' => 'admin.employ-group.delete',
-        'sort' => '3'
-    ],
-
-    //bank
-
     [
         'key' => 'organization.bank',
         'name' => 'organization::app.acl.bank.index',
@@ -235,60 +157,6 @@ return [
         'route' => 'admin.bank.delete',
         'sort' => '3'
     ],
-
-    //bankGroup
-    [
-        'key' => 'organization.bank-group',
-        'name' => 'organization::app.acl.bank-group.index',
-        'route' => 'admin.bank-group.index',
-        'sort' => '5'
-    ],
-    [
-        'key' => 'organization.bank-group.create',
-        'name' => 'organization::app.acl.bank-group.create',
-        'route' => 'admin.bank-group.create',
-        'sort' => '1'
-    ],
-    [
-        'key' => 'organization.bank-group.edit',
-        'name' => 'organization::app.acl.bank-group.edit',
-        'route' => 'admin.bank-group.edit',
-        'sort' => '2'
-    ],
-    [
-        'key' => 'organization.bank-group.delete',
-        'name' => 'organization::app.acl.bank-group.delete',
-        'route' => 'admin.bank-group.delete',
-        'sort' => '3'
-    ],
-
-    //storeGroup
-    [
-        'key' => 'organization.store-group',
-        'name' => 'organization::app.acl.store-group.index',
-        'route' => 'admin.store-group.index',
-        'sort' => '7'
-    ],
-    [
-        'key' => 'organization.store-group.create',
-        'name' => 'organization::app.acl.store-group.create',
-        'route' => 'admin.store-group.create',
-        'sort' => '1'
-    ],
-    [
-        'key' => 'organization.store-group.edit',
-        'name' => 'organization::app.acl.store-group.edit',
-        'route' => 'admin.store-group.edit',
-        'sort' => '2'
-    ],
-    [
-        'key' => 'organization.store-group.delete',
-        'name' => 'organization::app.acl.store-group.delete',
-        'route' => 'admin.store-group.delete',
-        'sort' => '3'
-    ],
-
-//store
     [
         'key' => 'organization.store',
         'name' => 'organization::app.acl.store.index',
@@ -338,32 +206,6 @@ return [
         'key' => 'organization.treasur.delete',
         'name' => 'organization::app.acl.treasur.delete',
         'route' => 'admin.treasur.delete',
-        'sort' => '3'
-    ],
-
-    //treasurGroup
-    [
-        'key' => 'organization.treasur-group',
-        'name' => 'organization::app.acl.treasur-group.index',
-        'route' => 'admin.treasur-group.index',
-        'sort' => '9'
-    ],
-    [
-        'key' => 'organization.treasur-group.create',
-        'name' => 'organization::app.acl.treasur-group.create',
-        'route' => 'admin.treasur-group.create',
-        'sort' => '1'
-    ],
-    [
-        'key' => 'organization.treasur-group.edit',
-        'name' => 'organization::app.acl.treasur-group.edit',
-        'route' => 'admin.treasur-group.edit',
-        'sort' => '2'
-    ],
-    [
-        'key' => 'organization.treasur-group.delete',
-        'name' => 'organization::app.acl.treasur-group.delete',
-        'route' => 'admin.treasur-group.delete',
         'sort' => '3'
     ],
 ];

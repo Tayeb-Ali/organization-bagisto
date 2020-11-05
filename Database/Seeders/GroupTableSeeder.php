@@ -3,11 +3,11 @@
 namespace DOCore\Organization\Database\Seeders;
 
 
-use DOCore\Organization\Models\EmployGroup;
+use DOCore\Organization\Models\Group;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class EmployGroupTableSeeder extends Seeder
+class GroupTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,8 +16,8 @@ class EmployGroupTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('org_employee_groups')->truncate();
+        DB::table('org_groups')->truncate();
 
-        factory(EmployGroup::class, 10)->create();
+        factory(Group::class, 200)->create();
     }
 }

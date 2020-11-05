@@ -4,18 +4,16 @@
 
 use DOCore\Organization\Models\Company;
 use DOCore\Organization\Models\Employ;
-use DOCore\Organization\Models\EmployGroup;
+use DOCore\Organization\Models\Group;
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
-use Illuminate\Support\Str;
-use Webkul\User\Models\Admin;
 use Carbon\Carbon;
 
 $factory->define(Employ::class, function (Faker $faker) {
     return [
         'company_id' => Company::all()->random()->company_id,
-        'group_id' => EmployGroup::all()->random()->group_id,
-        'cust_type' => '',
+        'group_id' => Group::where('model_name', '=', 'Employ')->get()->random()->group_id,
+//        'cust_type' => '',
         'name' => $faker->name,
         'contact_person' => $faker->paragraph,
         'phone' => $faker->phoneNumber,

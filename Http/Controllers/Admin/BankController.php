@@ -4,8 +4,8 @@ namespace DOCore\Organization\Http\Controllers\Admin;
 
 use DOCore\Organization\Http\Requests\BankRequest;
 use DOCore\Organization\Models\Bank;
-use DOCore\Organization\Models\BankGroup;
 use DOCore\Organization\Models\Company;
+use DOCore\Organization\Models\Group;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
@@ -21,8 +21,11 @@ class BankController extends Controller
      */
     protected $_config;
 
-    public function __construct()
+    private $modelPath;
+
+    public function __construct(Group $group)
     {
+        $this->modelPath = $group;
         $this->_config = request('_config');
     }
 
@@ -83,8 +86,7 @@ class BankController extends Controller
         $company = Company::all('company_id', 'description');
 
         $currency = Currency::all();
-        $group = BankGroup::all();
-//        return ['status' => $statusData, 'currency' => $currency];
+        $group = Group::where('model_name', '=', 'Bank')->get();
         return view($this->_config['view'], compact('bank', 'company', 'currency', 'group'));
     }
 
@@ -115,8 +117,7 @@ class BankController extends Controller
      */
     public function show($id)
     {
-        $bank = Bank::findOrFail($id);
-
+        $bank = Bank::with('group')->findOrFail($id);
         return view($this->_config['view'], compact('bank'));
     }
 
@@ -133,7 +134,7 @@ class BankController extends Controller
         $bank = Bank::findOrFail($id);
         $company = Company::all('company_id', 'description');
         $currency = Currency::all();
-        $group = BankGroup::all();
+        $group = Group::where('model_name', '=', 'Bank')->get();
 
 
         return view($this->_config['view'], compact('bank', 'company', 'currency', 'group'));

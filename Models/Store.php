@@ -52,7 +52,7 @@ class Store extends Model
 
     public function group()
     {
-        return $this->hasOne(StoreGroup::class, 'group_id', 'group_id');
+        return $this->hasOne(Group::class, 'group_id', 'group_id');
     }
 
 }

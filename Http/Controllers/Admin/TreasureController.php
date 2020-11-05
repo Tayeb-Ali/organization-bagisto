@@ -4,7 +4,7 @@ namespace DOCore\Organization\Http\Controllers\Admin;
 
 use DOCore\Organization\Models\Employ;
 use DOCore\Organization\Models\Treasure;
-use DOCore\Organization\Models\TreasureGroup;
+use DOCore\Organization\Models\Group;
 use DOCore\Organization\Models\Company;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -84,7 +84,7 @@ class TreasureController extends Controller
         $employ = Employ::all();
 
         $currency = Currency::all();
-        $group = TreasureGroup::all();
+        $group = Group::all();
         return view($this->_config['view'], compact('treasure', 'company', 'currency', 'group', 'employ'));
     }
 
@@ -133,7 +133,7 @@ class TreasureController extends Controller
         $treasure = Treasure::findOrFail($id);
         $company = Company::all('company_id', 'description');
         $currency = Currency::all();
-        $group = TreasureGroup::all();
+        $group = Group::all();
         $employ = Employ::all();
 
         return view($this->_config['view'], compact('treasure', 'company', 'currency', 'group', 'employ'));

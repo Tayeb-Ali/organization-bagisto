@@ -17,6 +17,6 @@ class EmployTableSeeder extends Seeder
     {
         DB::table('org_employees')->truncate();
 
-        factory(Employ::class, 200)->create();
+        factory(Employ::class, 80)->create();
     }
 }
