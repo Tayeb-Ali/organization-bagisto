@@ -3,6 +3,7 @@
 /** @var Factory $factory */
 
 use DOCore\Organization\Models\Company;
+use DOCore\Organization\Models\CompanyBranch;
 use DOCore\Organization\Models\Employ;
 use DOCore\Organization\Models\Group;
 use Faker\Generator as Faker;
@@ -13,6 +14,7 @@ $factory->define(Employ::class, function (Faker $faker) {
     return [
         'company_id' => Company::all()->random()->company_id,
         'group_id' => Group::where('model_name', '=', 'Employ')->get()->random()->group_id,
+        'company_branch_id' => CompanyBranch::all()->random()->company_id,
 //        'cust_type' => '',
         'name' => $faker->name,
         'contact_person' => $faker->paragraph,

@@ -100,6 +100,7 @@ class BankController extends Controller
     public function store(BankRequest $request)
     {
         $requestData = $request->all();
+        $requestData['company_id'] = session('company_id');
 
         Bank::create($requestData);
 
@@ -151,6 +152,7 @@ class BankController extends Controller
     public function update(BankRequest $request, $id)
     {
         $requestData = $request->all();
+        $requestData['company_id'] = session('company_id');
 
         $bank = Bank::findOrFail($id);
         $bank->update($requestData);

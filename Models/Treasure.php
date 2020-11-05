@@ -27,7 +27,7 @@ class Treasure extends Model
      * @var array
      */
     protected $fillable = [
-        'treasur_id', 'company_id', 'group_id', 'name', 'casher', 'currency_code', 'status', 'begin_bal_debit',
+        'treasur_id', 'company_id', 'company_branch_id', 'group_id', 'name', 'casher', 'currency_code', 'status', 'begin_bal_debit',
         'begin_bal_credit', 'curr_bal_credit', 'curr_bal_debit', 'amend_by', 'amend_date',
         'last_trns_date', 'last_trns_value', 'last_trns_type', 'begin_bal_credit_fc', 'begin_bal_debit_fc',
         'curr_bal_credit_fc', 'curr_bal_debit_fc', 'analysis_code'];
@@ -44,6 +44,11 @@ class Treasure extends Model
     public function company()
     {
         return $this->hasOne(Company::class, 'company_id', 'company_id');
+    }
+
+    public function branch()
+    {
+        return $this->hasOne(Company::class, 'company_id', 'company_branch_id');
     }
 
     public function group()

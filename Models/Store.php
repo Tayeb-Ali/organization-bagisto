@@ -28,7 +28,7 @@ class Store extends Model
      */
     protected $fillable = [
 
-        'company_id', 'group_id', 'description', 'store_keeper', 'status', 'amend_by',
+        'company_id', 'company_branch_id', 'group_id', 'description', 'store_keeper', 'status', 'amend_by',
         'amend_date', 'last_trns_date', 'last_trns_value', 'last_trns_type', 'cost_center_code', 'have_sub_stores',
         'store_contacts', 'store_location', 'sub_store_mandatory', 'account_code', 'dept_code',
     ];
@@ -44,6 +44,11 @@ class Store extends Model
         'company_id' => 'required',
         'status' => 'required',
     ];
+
+    public function branch()
+    {
+        return $this->hasOne(Company::class, 'company_id', 'company_branch_id');
+    }
 
     public function company()
     {

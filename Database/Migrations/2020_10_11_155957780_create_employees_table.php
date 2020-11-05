@@ -17,6 +17,7 @@ class CreateEmployeesTable extends Migration
             $table->increments('employee_id');
             $table->integer('company_id')->unsigned();
             $table->integer('group_id')->unsigned();
+            $table->integer('company_branch_id')->unsigned();
             $table->string('cust_type', 10)->nullable();
             $table->string('name', 100)->nullable();
             $table->string('contact_person', 100)->nullable();

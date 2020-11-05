@@ -113,7 +113,7 @@ class EmployController extends Controller
     public function store(EmployRequest $request)
     {
         $requestData = $request->all();
-
+        $requestData['company_id'] = session('company_id');
         Employ::create($requestData);
 
         session()->flash('success', trans('organization::app.employ.add-success', ['name' => 'Employ']));
@@ -181,6 +181,7 @@ class EmployController extends Controller
     public function update(EmployRequest $request, $id)
     {
         $requestData = $request->all();
+        $requestData['company_id'] = session('company_id');
 
         $employ = Employ::findOrFail($id);
         $employ->update($requestData);

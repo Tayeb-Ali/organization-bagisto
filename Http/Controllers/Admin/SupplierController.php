@@ -110,7 +110,7 @@ class SupplierController extends Controller
     public function store(SupplierRequest $request)
     {
         $requestData = $request->all();
-
+        $requestData['company_id'] = session('company_id');
         Supplier::create($requestData);
 
         session()->flash('success', trans('organization::app.supplier.add-success', ['name' => 'Supplier']));
@@ -179,6 +179,7 @@ class SupplierController extends Controller
     public function update(SupplierRequest $request, $id)
     {
         $requestData = $request->all();
+        $requestData['company_id'] = session('company_id');
 
         $supplier = Supplier::findOrFail($id);
         $supplier->update($requestData);

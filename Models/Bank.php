@@ -31,6 +31,7 @@ class Bank extends Model
     protected $fillable = [
         'company_id',
         'group_id',
+        'company_branch_id',
         'code', 'name', 'name_o', 'bank_name', 'currency',
         'account_type', 'account_no', 'contact_person', 'phone', 'fax', 'pobox',
         'email', 'bank_group', 'status', 'begin_bal_debit', 'credit_limit',
@@ -51,6 +52,11 @@ class Bank extends Model
     public function company()
     {
         return $this->hasOne(Company::class, 'company_id', 'company_id');
+    }
+
+    public function branch()
+    {
+        return $this->hasOne(Company::class, 'company_id', 'company_branch_id');
     }
 
     public function group()

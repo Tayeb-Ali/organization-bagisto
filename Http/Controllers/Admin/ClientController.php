@@ -114,6 +114,7 @@ class ClientController extends Controller
          $request->all();
 
         $requestData = $request->all();
+        $requestData['company_id'] = session('company_id');
 
         Client::create($requestData);
 
@@ -182,6 +183,7 @@ class ClientController extends Controller
     public function update(ClientRequest $request, $id)
     {
         $requestData = $request->all();
+        $requestData['company_id'] = session('company_id');
 
         $client = Client::findOrFail($id);
         $client->update($requestData);

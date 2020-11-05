@@ -20,28 +20,17 @@
             </div>
         </div>
         <div class="row">
-{{--            <div class="control-group col col-6 {{ $errors->has('company_id') ? 'has-error' : ''}}">--}}
-{{--                <label for="company_id"--}}
-{{--                       class="required">{{ __('organization::app.employ.fields.company_id') }}</label>--}}
+            <div class="control-group col col-6{{ $errors->has('group_id') ? 'has-error' : ''}}">
+                <label for="company_branch_id" class="required">{{ __('organization::app.companybranch.title') }}</label>
 
-{{--                <select id="company_id" name="company_id" class="form-control control" data-role="control">--}}
-{{--                    @foreach($company as $item)--}}
-{{--                        <option value="{{ $item->company_id }}" {{$employ->company_id == $item->company_id ? 'selected' : '' }}>{{ $item->description }}</option>--}}
-{{--                    @endforeach--}}
-{{--                </select>--}}
+                <select id="company_branch_id" name="company_branch_id" class="form-control control" data-role="control">
 
-{{--                {!! $errors->first('company_id', '<span class="control-error">:message</span>') !!}--}}
-{{--            </div>--}}
-            <div class="control-group col col-6 {{ $errors->has('company_id') ? 'has-error' : ''}}">
-                <label for="company_id" class="required">{{ __('organization::app.client.fields.company_id') }}</label>
-                <select id="company_id" name="company_id" class="form-control control" data-role="control"
-                        readonly="true">
-
-                    <option value="{{session('company_id')}}">{{session('company_name')}}</option>
+                    @foreach($company as $item)
+                        <option value="{{ $item->company_id }}" {{$employ->company_branch_id == $item->company_id ? 'selected' : '' }}>{{ $item->description}}</option>
+                    @endforeach
                 </select>
-                {!! $errors->first('company_id', '<span class="control-error">:message</span>') !!}
+                {!! $errors->first('company_branch_id', '<span class="control-error">:message</span>') !!}
             </div>
-
             <div class="control-group col col-6 {{ $errors->has('group_id') ? 'has-error' : ''}}">
                 <label for="company_id" class="required">{{ __('organization::app.employ.fields.group_id') }}</label>
 

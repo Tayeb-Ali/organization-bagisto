@@ -16,6 +16,7 @@ class CreateClientsTable extends Migration
         Schema::create('org_clients', function (Blueprint $table) {
             $table->increments('client_id');
             $table->integer('company_id')->unsigned();
+            $table->integer('company_branch_id')->unsigned();
             $table->integer('group_id')->unsigned();
             $table->string('cust_type', 10)->nullable();
             $table->string('name', 100)->nullable();
