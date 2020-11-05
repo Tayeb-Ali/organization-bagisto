@@ -4,7 +4,7 @@ namespace DOCore\Organization\Http\Controllers\Admin;
 
 use DOCore\Organization\Http\Requests\BankRequest;
 use DOCore\Organization\Models\Bank;
-use DOCore\Organization\Models\Company;
+use DOCore\Organization\Models\CompanyBranch;
 use DOCore\Organization\Models\Group;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -83,7 +83,7 @@ class BankController extends Controller
         $bank = new Bank;
 
         $bank->fill($request->old());
-        $company = Company::all('company_id', 'description');
+        $company = CompanyBranch::all('company_id', 'description');
 
         $currency = Currency::all();
         $group = Group::where('model_name', '=', 'Bank')->get(['group_id', 'group_desc']);
@@ -132,7 +132,7 @@ class BankController extends Controller
     public function edit($id)
     {
         $bank = Bank::findOrFail($id);
-        $company = Company::all('company_id', 'description');
+        $company = CompanyBranch::all('company_id', 'description');
         $currency = Currency::all();
         $group = Group::where('model_name', '=', 'Bank')->get(['group_id', 'group_desc']);
 

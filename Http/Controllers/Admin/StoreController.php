@@ -3,10 +3,10 @@
 namespace DOCore\Organization\Http\Controllers\Admin;
 
 use DOCore\Organization\Http\Requests\StoreRequest;
+use DOCore\Organization\Models\CompanyBranch;
 use DOCore\Organization\Models\Employ;
 use DOCore\Organization\Models\Store;
 use DOCore\Organization\Models\Group;
-use DOCore\Organization\Models\Company;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
@@ -79,7 +79,7 @@ class StoreController extends Controller
         $store = new Store;
 
         $store->fill($request->old());
-        $company = Company::all('company_id', 'description');
+        $company = CompanyBranch::all('company_id', 'description');
 
         $currency = Currency::all();
         $group = Group::where('model_name', 'Store')->get(['group_id', 'group_desc']);
@@ -130,7 +130,7 @@ class StoreController extends Controller
     public function edit($id)
     {
         $store = Store::findOrFail($id);
-        $company = Company::all('company_id', 'description');
+        $company = CompanyBranch::all('company_id', 'description');
         $currency = Currency::all();
         $group = Group::where('model_name', 'Store')->get(['group_id', 'group_desc']);
         $employ = Employ::all();

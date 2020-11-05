@@ -12,7 +12,6 @@ class CompanyBranch extends Model
      * @var string
      */
     protected $table = 'org_company_branches';
-    protected $with = ['company'];
 
     /**
      * The database primary key value.

@@ -3,8 +3,8 @@
 namespace DOCore\Organization\Http\Controllers\Admin;
 
 use DOCore\Organization\Http\Requests\EmployRequest;
+use DOCore\Organization\Models\CompanyBranch;
 use DOCore\Organization\Models\Employ;
-use DOCore\Organization\Models\Company;
 use DOCore\Organization\Models\Group;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -96,7 +96,7 @@ class EmployController extends Controller
         $employ = new Employ;
 
         $employ->fill($request->old());
-        $company = Company::all('company_id', 'description');
+        $company = CompanyBranch::all('company_id', 'description');
         $group = Group::where('model_name', 'Employ')->get(['group_id', 'group_desc']);
 
 
@@ -164,7 +164,7 @@ class EmployController extends Controller
     public function edit($id)
     {
         $employ = Employ::findOrFail($id);
-        $company = Company::all('company_id', 'description');
+        $company = CompanyBranch::all('company_id', 'description');
         $group = Group::where('model_name', 'Employ')->get(['group_id', 'group_desc']);
 
         return view($this->_config['view'], compact('company', 'employ', 'group'));

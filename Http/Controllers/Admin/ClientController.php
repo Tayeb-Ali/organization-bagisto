@@ -4,7 +4,7 @@ namespace DOCore\Organization\Http\Controllers\Admin;
 
 use DOCore\Organization\Http\Requests\ClientRequest;
 use DOCore\Organization\Models\Client;
-use DOCore\Organization\Models\Company;
+use DOCore\Organization\Models\CompanyBranch;
 use DOCore\Organization\Models\Group;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -95,7 +95,7 @@ class ClientController extends Controller
         $client = new Client;
 
         $client->fill($request->old());
-        $company = Company::all('company_id', 'description');
+        $company = CompanyBranch::all('company_id', 'description');
         $group = Group::where('model_name', 'Client')->get(['group_id', 'group_desc']);
 
 
@@ -111,7 +111,7 @@ class ClientController extends Controller
      */
     public function store(ClientRequest $request)
     {
-        return $request->all();
+         $request->all();
 
         $requestData = $request->all();
 
@@ -165,7 +165,7 @@ class ClientController extends Controller
     public function edit($id)
     {
         $client = Client::findOrFail($id);
-        $company = Company::all('company_id', 'description');
+        $company = CompanyBranch::all('company_id', 'description');
         $group = Group::where('model_name', 'Client')->get(['group_id', 'group_desc']);
 
         return view($this->_config['view'], compact('client', 'company', 'group'));

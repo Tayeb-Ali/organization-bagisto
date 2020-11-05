@@ -2,10 +2,10 @@
 
 namespace DOCore\Organization\Http\Controllers\Admin;
 
+use DOCore\Organization\Models\CompanyBranch;
 use DOCore\Organization\Models\Employ;
 use DOCore\Organization\Models\Treasure;
 use DOCore\Organization\Models\Group;
-use DOCore\Organization\Models\Company;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
@@ -80,7 +80,7 @@ class TreasureController extends Controller
         $treasure = new Treasure;
 
         $treasure->fill($request->old());
-        $company = Company::all('company_id', 'description');
+        $company = CompanyBranch::all('company_id', 'description');
         $employ = Employ::all();
 
         $currency = Currency::all();
@@ -131,7 +131,7 @@ class TreasureController extends Controller
     public function edit($id)
     {
         $treasure = Treasure::findOrFail($id);
-        $company = Company::all('company_id', 'description');
+        $company = CompanyBranch::all('company_id', 'description');
         $currency = Currency::all();
         $group = Group::where('model_name', 'Treasure')->get(['group_id', 'group_desc']);
         $employ = Employ::all();

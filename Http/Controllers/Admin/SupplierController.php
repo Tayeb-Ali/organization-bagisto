@@ -2,17 +2,14 @@
 
 namespace DOCore\Organization\Http\Controllers\Admin;
 
-use DOCore\Organization\Http\Controllers\Admin\Controller;
 use DOCore\Organization\Http\Requests\SupplierRequest;
-use DOCore\Organization\Models\Company;
+use DOCore\Organization\Models\CompanyBranch;
 use DOCore\Organization\Models\Supplier;
 use DOCore\Organization\Models\Group;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
-use Webkul\User\Models\Admin;
 
 class SupplierController extends Controller
 {
@@ -98,7 +95,7 @@ class SupplierController extends Controller
         $supplier = new Supplier;
 
         $supplier->fill($request->old());
-        $company = Company::all('company_id', 'description');
+        $company = CompanyBranch::all('company_id', 'description');
         $group = Group::where('model_name', 'Supplier')->get(['group_id', 'group_desc']);
         return view($this->_config['view'], compact('supplier', 'company', 'group'));
     }
@@ -165,7 +162,7 @@ class SupplierController extends Controller
     public function edit($id)
     {
         $supplier = Supplier::findOrFail($id);
-        $company = Company::all('company_id', 'description');
+        $company = CompanyBranch::all('company_id', 'description');
         $group = Group::where('model_name', 'Supplier')->get(['group_id', 'group_desc']);
 
         return view($this->_config['view'], compact('supplier', 'company', 'group'));
