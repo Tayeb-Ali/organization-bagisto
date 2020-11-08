@@ -6,7 +6,7 @@ namespace DOCore\Organization\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class CheckSelectCompany
+class Company
 {
     /**
      * Handle an incoming request.

@@ -82,6 +82,7 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
+        return $request->all();
         $this->validate($request, [
             'company_id' => 'required',
             'group_desc' => 'required'

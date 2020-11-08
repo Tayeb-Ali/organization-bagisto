@@ -2,7 +2,7 @@
 
 namespace DOCore\Organization\Providers;
 
-use DOCore\Organization\Http\Middleware\CheckSelectCompany;
+use DOCore\Organization\Http\Middleware\Company;
 use DOCore\Organization\Http\View\Composers\CompanyComposer;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\View;
@@ -20,7 +20,7 @@ class OrganizationServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__ . '/../Http/Routes/front-routes.php');
         $this->loadRoutesFrom(__DIR__ . '/../Http/Routes/api-routes.php');
 
-        $router->aliasMiddleware('company', CheckSelectCompany::class);
+        $router->aliasMiddleware('company', Company::class);
 
         $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'organization');
 

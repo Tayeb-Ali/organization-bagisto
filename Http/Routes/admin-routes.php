@@ -16,7 +16,7 @@ Route::group(['middleware' => ['web', 'admin']], function () {
     });
 });
 //Company
-Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'middleware' => ['web', 'admin', 'company']], function () {
+Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'middleware' => ['web', 'admin']], function () {
     Route::prefix('admin/organization/company')->group(function () {
         Route::get('/', 'CompanyController@index')->defaults('_config', ['view' => 'organization::admin.company.index'])->name('admin.company.index');
         Route::get('/show/{id}', 'CompanyController@show')->defaults('_config', ['view' => 'organization::admin.company.show'])->name('admin.company.show');
