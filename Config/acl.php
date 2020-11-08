@@ -208,4 +208,30 @@ return [
         'route' => 'admin.treasur.delete',
         'sort' => '3'
     ],
+
+    //Group
+    [
+        'key' => 'organization.group',
+        'name' => 'organization::app.acl.group.index',
+        'route' => 'admin.group.index',
+        'sort' => '9'
+    ],
+    [
+        'key' => 'organization.group.create',
+        'name' => 'organization::app.acl.group.create',
+        'route' => 'admin.group.create',
+        'sort' => '1'
+    ],
+    [
+        'key' => 'organization.group.edit',
+        'name' => 'organization::app.acl.group.edit',
+        'route' => 'admin.group.edit',
+        'sort' => '2'
+    ],
+    [
+        'key' => 'organization.group.delete',
+        'name' => 'organization::app.acl.group.delete',
+        'route' => 'admin.group.delete',
+        'sort' => '3'
+    ],
 ];
