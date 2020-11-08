@@ -7,7 +7,11 @@
 @section('content')
     Welcome back!
     مرحب بعودتك!
-
+    <p>
+        Company Select:
+        {{ session('company_id') }}
+        {{ session('company_name') }}
+    </p>
     <form method="POST" action="{{ route('admin.company.select-company') }}">
         @csrf()
 
@@ -22,6 +26,7 @@
 
 
         </div>
+
 
         @if ($errors->any())
             <ul class="alert alert-danger">

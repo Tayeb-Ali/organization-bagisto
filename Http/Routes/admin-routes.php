@@ -16,7 +16,7 @@ Route::group(['middleware' => ['web', 'admin']], function () {
     });
 });
 //Company
-Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'middleware' => ['web', 'admin', 'selectCompany']], function () {
+Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'middleware' => ['web', 'admin', 'company']], function () {
     Route::prefix('admin/organization/company')->group(function () {
         Route::get('/', 'CompanyController@index')->defaults('_config', ['view' => 'organization::admin.company.index'])->name('admin.company.index');
         Route::get('/show/{id}', 'CompanyController@show')->defaults('_config', ['view' => 'organization::admin.company.show'])->name('admin.company.show');
@@ -25,7 +25,6 @@ Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'midd
         Route::get('/edit/{id}', 'CompanyController@edit')->defaults('_config', ['view' => 'organization::admin.company.edit'])->name('admin.company.edit');
         Route::post('/edit/{id}', 'CompanyController@update')->defaults('_config', ['redirect' => 'admin.company.index'])->name('admin.company.update');
         Route::delete('/delete/{id}', 'CompanyController@delete')->defaults('_config', ['redirect' => 'admin.company.index'])->name('admin.company.delete');
-        Route::post('/select-company', 'CompanyController@selectMainCompany')->defaults('_config', ['redirect' => 'admin.company.index'])->name('admin.company.select-company');
     });
 //sup-Company
     Route::prefix('admin/organization/company')->group(function () {
@@ -37,8 +36,14 @@ Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'midd
         Route::delete('sub/delete/{id}', 'SubCompanyController@delete')->defaults('_config', ['redirect' => 'admin.sub_company.index'])->name('admin.sub_company.delete');
     });
 });
+Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'middleware' => ['web', 'admin']], function () {
+    Route::prefix('admin/organization/company')->group(function () {
+        Route::post('/select-company', 'CompanyController@selectMainCompany')->defaults('_config', ['redirect' => 'admin.company.index'])->name('admin.company.select-company');
+
+    });
+});
 //CompanyBranch
-Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'middleware' => ['web', 'admin', 'selectCompany']], function () {
+Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'middleware' => ['web', 'admin', 'company']], function () {
     Route::prefix('admin/organization/company-branch')->group(function () {
         Route::get('/', 'CompanyBranchController@index')->defaults('_config', ['view' => 'organization::admin.company-branch.index'])->name('admin.company-branch.index');
         Route::get('/show/{id}', 'CompanyBranchController@show')->defaults('_config', ['view' => 'organization::admin.company-branch.show'])->name('admin.company-branch.show');
@@ -50,7 +55,7 @@ Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'midd
     });
 });
 //client
-Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'middleware' => ['web', 'admin', 'selectCompany']], function () {
+Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'middleware' => ['web', 'admin', 'company']], function () {
     Route::prefix('admin/organization/client')->group(function () {
         Route::get('/', 'ClientController@index')->defaults('_config', ['view' => 'organization::admin.client.index'])->name('admin.client.index');
         Route::get('/show/{id}', 'ClientController@show')->defaults('_config', ['view' => 'organization::admin.client.show'])->name('admin.client.show');
@@ -62,7 +67,7 @@ Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'midd
     });
 });
 //group
-Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'middleware' => ['web', 'admin', 'selectCompany']], function () {
+Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'middleware' => ['web', 'admin', 'company']], function () {
     Route::prefix('admin/organization/group')->group(function () {
         Route::get('/', 'GroupController@index')->defaults('_config', ['view' => 'organization::admin.group.index'])->name('admin.group.index');
         Route::get('/show/{id}', 'GroupController@show')->defaults('_config', ['view' => 'organization::admin.group.show'])->name('admin.group.show');
@@ -74,7 +79,7 @@ Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'midd
     });
 });
 //supplier
-Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'middleware' => ['web', 'admin', 'selectCompany']], function () {
+Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'middleware' => ['web', 'admin', 'company']], function () {
     Route::prefix('admin/organization/supplier')->group(function () {
         Route::get('/', 'SupplierController@index')->defaults('_config', ['view' => 'organization::admin.supplier.index'])->name('admin.supplier.index');
         Route::get('/show/{id}', 'SupplierController@show')->defaults('_config', ['view' => 'organization::admin.supplier.show'])->name('admin.supplier.show');
@@ -86,7 +91,7 @@ Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'midd
     });
 });
 //Employ
-Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'middleware' => ['web', 'admin', 'selectCompany']], function () {
+Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'middleware' => ['web', 'admin', 'company']], function () {
     Route::prefix('admin/organization/employ')->group(function () {
         Route::get('/', 'EmployController@index')->defaults('_config', ['view' => 'organization::admin.employ.index'])->name('admin.employ.index');
         Route::get('/show/{id}', 'EmployController@show')->defaults('_config', ['view' => 'organization::admin.employ.show'])->name('admin.employ.show');
@@ -98,7 +103,7 @@ Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'midd
     });
 });
 //Bank
-Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'middleware' => ['web', 'admin', 'selectCompany']], function () {
+Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'middleware' => ['web', 'admin', 'company']], function () {
     Route::prefix('admin/organization/bank')->group(function () {
         Route::get('/', 'BankController@index')
             ->defaults('_config', ['view' => 'organization::admin.bank.index'])->name('admin.bank.index');
@@ -118,7 +123,7 @@ Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'midd
     });
 });
 //Store
-Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'middleware' => ['web', 'admin', 'selectCompany']], function () {
+Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'middleware' => ['web', 'admin', 'company']], function () {
     Route::prefix('admin/organization/store')->group(function () {
         Route::get('/', 'StoreController@index')
             ->defaults('_config', ['view' => 'organization::admin.store.index'])->name('admin.store.index');
@@ -138,7 +143,7 @@ Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'midd
     });
 });
 //Theasur
-Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'middleware' => ['web', 'admin', 'selectCompany']], function () {
+Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'middleware' => ['web', 'admin', 'company']], function () {
     Route::prefix('admin/organization/treasur')->group(function () {
         Route::get('/', 'TreasureController@index')
             ->defaults('_config', ['view' => 'organization::admin.treasur.index'])->name('admin.treasur.index');

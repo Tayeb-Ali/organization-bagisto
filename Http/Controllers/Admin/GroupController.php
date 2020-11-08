@@ -2,8 +2,15 @@
 
 namespace DOCore\Organization\Http\Controllers\Admin;
 
+use DB;
+use DOCore\Organization\Models\Bank;
+use DOCore\Organization\Models\Client;
 use DOCore\Organization\Models\Company;
+use DOCore\Organization\Models\Employ;
 use DOCore\Organization\Models\Group;
+use DOCore\Organization\Models\Store;
+use DOCore\Organization\Models\Supplier;
+use DOCore\Organization\Models\Treasure;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
@@ -153,20 +160,31 @@ class GroupController extends Controller
     public function delete($id)
     {
         $group = Group::findOrFail($id);
-
-        return Group::where('have_child', false)->get();
-        if (Group::where('have_child', true)->get()->count()
-        ) {
+        $check = self::groupRelateChild($id);
+        if ($check) {
             session()->flash('warning', trans('organization::app.delete-error.message1'));
             return redirect()->back();
         } elseif ($group->delete()) {
             session()->flash('success', trans('organization::app.group.delete-success', ['name' => 'Group']));
-
             return redirect()->route($this->_config['redirect']);
         } else {
             session()->flash('warning', trans('organization::app.group.delete-failure'));
-
             return redirect()->route($this->_config['redirect']);
         }
+    }
+
+    public function groupRelateChild($id)
+    {
+        $store = Store::where('group_id', $id)->get('group_id')->count();
+        $supplier = Supplier::where('group_id', $id)->get('group_id')->count();
+        $employ = Employ::where('group_id', $id)->get('group_id')->count();
+        $client = Client::where('group_id', $id)->get('group_id')->count();
+        $bank = Bank::where('group_id', $id)->get('group_id')->count();
+        $treasure = Treasure::where('group_id', $id)->get('group_id')->count();
+        if ($store || $supplier || $employ || $client || $bank || $treasure) {
+            return true;
+        }
+        return false;
+
     }
 }

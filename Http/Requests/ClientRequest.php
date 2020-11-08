@@ -27,7 +27,6 @@ class ClientRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'company_id' => 'required',
             'group_id' => 'required'
         ];
     }

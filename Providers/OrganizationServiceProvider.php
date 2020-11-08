@@ -20,7 +20,7 @@ class OrganizationServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__ . '/../Http/Routes/front-routes.php');
         $this->loadRoutesFrom(__DIR__ . '/../Http/Routes/api-routes.php');
 
-        $router->aliasMiddleware('selectCompany', CheckSelectCompany::class);
+        $router->aliasMiddleware('company', CheckSelectCompany::class);
 
         $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'organization');
 
