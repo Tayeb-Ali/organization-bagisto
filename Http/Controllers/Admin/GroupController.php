@@ -152,19 +152,21 @@ class GroupController extends Controller
      */
     public function delete($id)
     {
-//        $group = Group::findOrFail($id);
+        $group = Group::findOrFail($id);
 
-//        if (Store::where('group_id', $id)->get()->count()) {
-//            session()->flash('warning', trans('organization::app.delete-error.message1'));
-//            return redirect()->back();
-//        } elseif ($group->delete()) {
-//            session()->flash('success', trans('organization::app.group.delete-success', ['name' => 'Group']));
-//
-//            return redirect()->route($this->_config['redirect']);
-//        } else {
-//            session()->flash('warning', trans('organization::app.group.delete-failure'));
-//
-//            return redirect()->route($this->_config['redirect']);
-//        }
+        return Group::where('have_child', false)->get();
+        if (Group::where('have_child', true)->get()->count()
+        ) {
+            session()->flash('warning', trans('organization::app.delete-error.message1'));
+            return redirect()->back();
+        } elseif ($group->delete()) {
+            session()->flash('success', trans('organization::app.group.delete-success', ['name' => 'Group']));
+
+            return redirect()->route($this->_config['redirect']);
+        } else {
+            session()->flash('warning', trans('organization::app.group.delete-failure'));
+
+            return redirect()->route($this->_config['redirect']);
+        }
     }
 }

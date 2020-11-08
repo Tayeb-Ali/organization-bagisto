@@ -22,12 +22,18 @@ class Group extends Model
      */
     protected $primaryKey = 'group_id';
 
+    protected $casts = [
+        'have_child'=> 'boolean'
+    ];
     /**
      * Attributes that should be mass-assignable.
      *
      * @var array
      */
-    protected $fillable = ['group_id', 'company_id', 'model_name', 'account_code', 'cost_center_code', 'group_desc', 'status', 'cost_center_code', 'amend_by', 'amend_date'];
+    protected $fillable = [
+        'group_id', 'company_id', 'model_name', 'account_code', 'cost_center_code', 'group_desc',
+        'status', 'cost_center_code', 'amend_by', 'amend_date', 'have_child'
+    ];
 
     public function employ()
     {

@@ -111,16 +111,24 @@ class ClientController extends Controller
      */
     public function store(ClientRequest $request)
     {
-         $request->all();
+        $request->all();
 
         $requestData = $request->all();
         $requestData['company_id'] = session('company_id');
 
         Client::create($requestData);
+        $group = Group::find('group_id')->update([
+            'have_child' => true
+        ]);
+        if ($group) {
+            session()->flash('success', trans('organization::app.client.add-success', ['name' => 'Client']));
 
-        session()->flash('success', trans('organization::app.client.add-success', ['name' => 'Client']));
+            return redirect()->route($this->_config['redirect']);
+        } else {
+            session()->flash('warning', trans('organization::app.group.update_child_error', ['name' => 'Client']));
 
-        return redirect()->route($this->_config['redirect']);
+            return redirect()->route($this->_config['redirect']);
+        }
     }
 
     /**

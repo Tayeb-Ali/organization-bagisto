@@ -443,6 +443,7 @@ return [
         'update-success' => 'Group update successfully',
         'delete-success' => 'Group delete successfully',
         'add-success' => 'Group add successfully',
+        'update-child-error' => "Group have_child can't update",
     ],
     'treasure' => [
         'add-title' => 'Add treasure',

@@ -15,7 +15,7 @@ $factory->define(Group::class, function (Faker $faker) {
     return [
         'company_id' => Company::all()->random()->company_id,
         'group_desc' => $faker->name,
-//        'model_path' => "DOCore\Organization\Models\.$modelsName",
+        'have_child' => true,
         'model_name' => $modelsName,
         'account_code' => $faker->numberBetween(32, 200),
         'status' => random_int(0, 1),
