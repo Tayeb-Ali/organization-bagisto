@@ -13,7 +13,6 @@
 
 
 /* Customer Routes */
-Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function () {
-        Route::get('/organization/{id}','DOCore\Organization\Http\Controllers\Front\OrganizationController@index')
-        ->name('front.organization.index');
+Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function () {        
+        
 });
