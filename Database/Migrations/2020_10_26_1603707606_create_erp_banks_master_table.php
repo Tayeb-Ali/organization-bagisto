@@ -47,7 +47,6 @@ class CreateErpBanksMasterTable extends Migration
             $table->string('analysis_code', 20)->nullable();
             $table->unsignedInteger('company_id')->nullable();
             $table->unsignedInteger('group_id')->nullable();
-            $table->integer('company_branch_id')->unsigned();
             $table->timestamps();
 
             /*$table->foreign('company_id')->references('company_id')->on('companies');
