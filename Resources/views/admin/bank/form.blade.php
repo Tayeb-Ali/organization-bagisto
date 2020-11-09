@@ -206,24 +206,7 @@
 
         {{--                {!! $errors->first('curr_bal_debit', '<span class="control-error">:message</span>') !!}--}}
         {{--            </div>--}}
-        {{--            <div class="control-group col col-6 {{ $errors->has('amend_by') ? 'has-error' : ''}}">--}}
-        {{--                <label for="amend_by" class="">{{ __('organization::app.bank.fields.amend_by') }}</label>--}}
-
-        {{--                <input class="control" name="amend_by" type="text" id="amend_by"--}}
-        {{--                       value="{{ isset($bank->amend_by) ? $bank->amend_by : ''}}">--}}
-
-        {{--                {!! $errors->first('amend_by', '<span class="control-error">:message</span>') !!}--}}
-        {{--            </div>--}}
-        {{--        </div>--}}
-        {{--        <div class="row">--}}
-        {{--            <div class="control-group col col-6 {{ $errors->has('amend_date') ? 'has-error' : ''}}">--}}
-        {{--                <label for="amend_date" class="">{{ __('organization::app.bank.fields.amend_date') }}</label>--}}
-
-        {{--                <input class="control" name="amend_date" type="datetime-local" id="amend_date"--}}
-        {{--                       value="{{ isset($bank->amend_date) ? $bank->amend_date : ''}}">--}}
-
-        {{--                {!! $errors->first('amend_date', '<span class="control-error">:message</span>') !!}--}}
-        {{--            </div>--}}
+        {{--
         {{--            <div class="control-group col col-6 {{ $errors->has('acc_mgr') ? 'has-error' : ''}}">--}}
         {{--                <label for="acc_mgr" class="">{{ __('organization::app.bank.fields.acc_mgr') }}</label>--}}
 

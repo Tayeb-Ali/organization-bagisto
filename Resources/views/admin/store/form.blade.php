@@ -176,14 +176,7 @@
 
         {{--                {!! $errors->first('curr_bal_debit', '<span class="control-error">:message</span>') !!}--}}
         {{--            </div>--}}
-        {{--            <div class="control-group col col-6 {{ $errors->has('amend_by') ? 'has-error' : ''}}">--}}
-        {{--                <label for="amend_by" class="">{{ __('organization::app.store.fields.amend_by') }}</label>--}}
-
-        {{--                <input class="control" name="amend_by" type="text" id="amend_by"--}}
-        {{--                       value="{{ isset($store->amend_by) ? $store->amend_by : ''}}">--}}
-
-        {{--                {!! $errors->first('amend_by', '<span class="control-error">:message</span>') !!}--}}
-        {{--            </div>--}}
+        {{--
         {{--        </div>--}}
         {{--        <div class="row">--}}
         {{--            <div class="control-group col col-6 {{ $errors->has('amend_date') ? 'has-error' : ''}}">--}}

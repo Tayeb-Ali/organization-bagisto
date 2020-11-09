@@ -48,7 +48,8 @@
                 <label for="company_parent_id"
                        class="required">{{ __('organization::app.company.sub-company.company_parent_id') }}</label>
 
-                <select id="company_parent_id" name="company_parent_id" class="form-control control" data-role="control">
+                <select id="company_parent_id" name="company_parent_id" class="form-control control"
+                        data-role="control">
                     @foreach($subCompany as $item)
                         <option
                                 value="{{ $item->company_id }}" {{$company->company_parent_id == $item->company_id ? 'selected' : '' }}>{{ $item->description }}</option>
@@ -62,9 +63,10 @@
 
 
             <div class="control-group col col-6 {{ $errors->has('has_sub_company') ? 'has-error' : ''}}">
-                <label for="has_sub_company" class="">{{ __('organization::app.company.fields.has_sub_company') }}</label>
+                <label for="has_sub_company"
+                       class="">{{ __('organization::app.company.fields.has_sub_company') }}</label>
                 <select id="has_sub_company" name="has_sub_company" class="form-control control" data-role="control">
-                    <option value="0"  {{$company->has_sub_company == 0? 'selected' : '' }}> {{ __('organization::app.company.sub-company.no') }}</option>
+                    <option value="0" {{$company->has_sub_company == 0? 'selected' : '' }}> {{ __('organization::app.company.sub-company.no') }}</option>
                     <option value="1" {{$company->has_sub_company ==1 ? 'selected' : '' }}>{{ __('organization::app.company.sub-company.yes') }}</option>
                 </select>
                 {!! $errors->first('has_sub_company', '<span class="control-error">:message</span>') !!}
@@ -350,24 +352,7 @@
 
                 {!! $errors->first('expe_code_len', '<span class="control-error">:message</span>') !!}
             </div>
-            <div class="control-group col col-6 {{ $errors->has('amend_by') ? 'has-error' : ''}}">
-                <label for="amend_by" class="">{{ __('organization::app.company.fields.amend_by') }}</label>
 
-                <input class="control" name="amend_by" type="text" id="amend_by"
-                       value="{{ isset($company->amend_by) ? $company->amend_by : ''}}">
-
-                {!! $errors->first('amend_by', '<span class="control-error">:message</span>') !!}
-            </div>
-        </div>
-        <div class="row">
-            <div class="control-group col col-6 {{ $errors->has('amend_date') ? 'has-error' : ''}}">
-                <label for="amend_date" class="">{{ __('organization::app.company.fields.amend_date') }}</label>
-
-                <input class="control" name="amend_date" type="datetime-local" id="amend_date"
-                       value="{{ isset($company->amend_date) ? $company->amend_date : ''}}">
-
-                {!! $errors->first('amend_date', '<span class="control-error">:message</span>') !!}
-            </div>
             <div class="control-group col col-6 {{ $errors->has('web') ? 'has-error' : ''}}">
                 <label for="web" class="">{{ __('organization::app.company.fields.web') }}</label>
 
