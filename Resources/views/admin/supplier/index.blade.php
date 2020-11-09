@@ -84,9 +84,13 @@
                                 <td>{{ $item->supp_type }}</td>
                                 @if($item->group)
                                     <td>{{ $item->group->group_desc }}</td>
+                                @else
+                                    <td>Non</td>
                                 @endif
                                 @if($item->company)
                                     <td>{{ $item->company->description }}</td>
+                                @else
+                                    <td>Non</td>
                                 @endif
 
                                 <td class="actions" style="white-space: nowrap; width: 100px;">

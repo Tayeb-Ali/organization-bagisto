@@ -14,7 +14,7 @@ use Carbon\Carbon;
 $factory->define(Bank::class, function (Faker $faker) {
     return [
         'company_id' => Company::all()->random()->company_id,
-        'company_branch_id' => CompanyBranch::all()->random()->company_id,
+        'company_branch_id' => CompanyBranch::all()->random()->branch_id,
         'group_id' => Group::where('model_name', '=', 'Bank')->get()->random()->group_id,
         'name' => $faker->name,
         'bank_name' => $faker->companySuffix,

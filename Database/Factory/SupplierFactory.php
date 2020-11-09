@@ -15,7 +15,7 @@ $factory->define(Supplier::class,
         return [
             'company_id' => Company::all()->random()->company_id,
             'group_id' => Group::where('model_name', '=', 'Supplier')->get()->random()->group_id,
-            'company_branch_id' => CompanyBranch::all()->random()->company_id,
+            'company_branch_id' => CompanyBranch::all()->random()->branch_id,
             'supp_type' => '',
             'name' => $faker->name,
             'contact_person' => $faker->name,

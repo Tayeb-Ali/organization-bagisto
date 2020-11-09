@@ -16,7 +16,7 @@ $factory->define(Treasure::class, function (Faker $faker) {
     return [
         'company_id' => Company::all()->random()->company_id,
         'group_id' => Group::where('model_name', '=', 'Treasure')->get()->random()->group_id,
-        'company_branch_id' => CompanyBranch::all()->random()->company_id,
+        'company_branch_id' => CompanyBranch::all()->random()->branch_id,
         'employ_id' => Employ::all()->random()->employ_id,
         'name' => $faker->name,
         'status' => $faker->numberBetween(1, 2),
