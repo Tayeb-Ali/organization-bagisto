@@ -90,6 +90,8 @@
                                 <td>{{ $item->cust_type }}</td>
                                 @if($item->company)
                                     <td>{{ $item->company->description }}</td>
+                                @else
+                                    <td>Non</td>
                                 @endif
                                 <td class="actions" style="white-space: nowrap; width: 100px;">
                                     <div class="action">
