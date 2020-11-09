@@ -124,7 +124,10 @@ class CompanyController extends Controller
      */
     public function edit($id)
     {
-        $subCompany = Company::where('has_sub_company', 1)->get(['company_id', 'description']);
+//        $subCompany = Company::where('has_sub_company', 1)->get(['company_id', 'description']);
+        $companySelect = session('company_id');
+        $subCompany = Company::where('company_id', $companySelect)
+            ->where('has_sub_company', 1)->get();
         $company = Company::findOrFail($id);
 
         return view($this->_config['view'], compact('company', 'subCompany'));
