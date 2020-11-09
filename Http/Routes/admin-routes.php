@@ -26,6 +26,7 @@ Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'midd
         Route::post('/edit/{id}', 'CompanyController@update')->defaults('_config', ['redirect' => 'admin.company.index'])->name('admin.company.update');
         Route::delete('/delete/{id}', 'CompanyController@delete')->defaults('_config', ['redirect' => 'admin.company.index'])->name('admin.company.delete');
     });
+    
 //sup-Company
     Route::prefix('admin/organization/company')->group(function () {
         Route::get('/sub/', 'SubCompanyController@index')->defaults('_config',
