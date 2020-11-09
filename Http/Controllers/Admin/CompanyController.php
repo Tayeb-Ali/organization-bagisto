@@ -194,13 +194,5 @@ class CompanyController extends Controller
         }
     }
 
-    public function selectMainCompany(Request $request)
-    {
-        $company = Company::where('company_id', $request->company_id)->first(['description', 'company_id']);
-        $request->session()->put('company_name', $company->description);
-        $request->session()->put('company_id', $request->company_id);
-        return back();
 
-
-    }
 }
