@@ -24,8 +24,6 @@ $factory->define(CompanyBranch::class, function (Faker $faker) {
             'currency' => Currency::all()->random()->code,
             'status' => '',
             'amend_by' => Admin::all()->random()->id,
-//            'amend_by' => User::all()->random()->user_id,
-            'amend_date' => $faker->date('Y-m-d H:i:s'),
             'phone' => $faker->phoneNumber,
             'fax' => $faker->phoneNumber,
             'email' => $faker->email,

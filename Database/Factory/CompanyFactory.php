@@ -55,7 +55,6 @@ $factory->define(Company::class, function (Faker $faker) {
         'sub_cust_code_len' => $faker->numberBetween(5, 9),
         'sub_store_code_len' => $faker->numberBetween(5, 9),
         'amend_by' => Admin::all()->random()->id,
-        'amend_date' => $faker->date('Y-m-d H:i:s'),
         'web' => 'web',
         'curr_fin_year' => $faker->randomDigitNotNull,
         'local_partner_percent' => $faker->word,

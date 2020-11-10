@@ -2,6 +2,7 @@
 
 namespace DOCore\Organization\Http\Controllers\Admin;
 
+use Auth;
 use DOCore\Organization\Http\Requests\EmployRequest;
 use DOCore\Organization\Models\CompanyBranch;
 use DOCore\Organization\Models\Employ;
@@ -55,8 +56,6 @@ class EmployController extends Controller
                 ->orWhere('begin_bal_debit', 'LIKE', "%$keyword%")
                 ->orWhere('curr_bal_credit', 'LIKE', "%$keyword%")
                 ->orWhere('curr_bal_debit', 'LIKE', "%$keyword%")
-                ->orWhere('amend_by', 'LIKE', "%$keyword%")
-                ->orWhere('amend_date', 'LIKE', "%$keyword%")
                 ->orWhere('acc_mgr', 'LIKE', "%$keyword%")
                 ->orWhere('account_code', 'LIKE', "%$keyword%")
                 ->orWhere('last_trns_date', 'LIKE', "%$keyword%")
@@ -114,6 +113,8 @@ class EmployController extends Controller
     {
         $requestData = $request->all();
         $requestData['company_id'] = session('company_id');
+        $requestData['amend_by'] = Auth::user()->id;
+
         Employ::create($requestData);
 
         session()->flash('success', trans('organization::app.employ.add-success', ['name' => 'Employ']));
@@ -182,6 +183,7 @@ class EmployController extends Controller
     {
         $requestData = $request->all();
         $requestData['company_id'] = session('company_id');
+        $requestData['amend_by'] = Auth::user()->id;
 
         $employ = Employ::findOrFail($id);
         $employ->update($requestData);

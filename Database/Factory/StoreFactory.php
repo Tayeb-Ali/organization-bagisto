@@ -16,11 +16,9 @@ $factory->define(Store::class, function (Faker $faker) {
         'company_id' => Company::all()->random()->company_id,
         'group_id' => Group::where('model_name', 'Store')->get()->random()->group_id,
         'company_branch_id' => CompanyBranch::all()->random()->branch_id,
-
         'description' => $faker->name,
         'store_contacts' => $faker->phoneNumber,
         'status' => $faker->numberBetween(1, 2),
-        'amend_date' => Carbon::now()->getTimestamp(),
         'created_at' => Carbon::now()->getTimestamp(),
 
     ];

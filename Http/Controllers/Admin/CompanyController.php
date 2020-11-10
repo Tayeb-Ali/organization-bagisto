@@ -2,6 +2,7 @@
 
 namespace DOCore\Organization\Http\Controllers\Admin;
 
+use Auth;
 use DOCore\Organization\Models\Client;
 use DOCore\Organization\Models\Employ;
 use DOCore\Organization\Models\Supplier;
@@ -60,10 +61,6 @@ class CompanyController extends Controller
         $companySelect = session('company_id');
         $subCompany = Company::where('company_id', $companySelect)
             ->where('has_sub_company', 1)->get();
-//        if ($subCompany->count()){
-//            $subCompany->get();
-//        }
-//        $subCompany = Company::where('has_sub_company', 1)->get(['company_id', 'description']);
         $company = new Company;
 
         $company->fill($request->old());
@@ -81,6 +78,8 @@ class CompanyController extends Controller
     public function store(CompanyRequest $request)
     {
         $requestData = $request->all();
+        $requestData['amend_by'] = Auth::user()->id;
+
         if ($request->has_sub_company) {
             if ($request->company_parent_id) {
                 session()->flash('warning', trans('organization::app.company.delete-error1', ['name' => 'Company']));
@@ -144,6 +143,7 @@ class CompanyController extends Controller
     public function update(CompanyRequest $request, $id)
     {
         $requestData = $request->all();
+        $requestData['amend_by'] = Auth::user()->id;
 
         if ($request->has_sub_company && $request->company_parent_id) {
             session()->flash('warning', trans('organization::app.company.delete-error1', ['name' => 'Company']));

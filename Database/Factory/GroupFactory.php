@@ -20,6 +20,5 @@ $factory->define(Group::class, function (Faker $faker) {
         'account_code' => $faker->numberBetween(32, 200),
         'status' => random_int(0, 1),
         'amend_by' => Admin::all()->random()->id,
-        'amend_date' => Carbon::now()->getTimestamp()
     ];
 });

@@ -21,7 +21,6 @@ $factory->define(Treasure::class, function (Faker $faker) {
         'name' => $faker->name,
         'status' => $faker->numberBetween(1, 2),
         'currency_code' => $faker->currencyCode,
-        'amend_date' => Carbon::now()->getTimestamp(),
         'created_at' => Carbon::now()->getTimestamp(),
 
     ];

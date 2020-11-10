@@ -2,12 +2,9 @@
 
 namespace DOCore\Organization\Http\Controllers\Admin;
 
-use DOCore\Organization\Http\Controllers\Admin\Controller;
 use DOCore\Organization\Models\Company;
 use DOCore\Organization\Models\CompanyBranch;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Webkul\User\Models\Admin;
 
 class CompanyBranchController extends Controller
 {
@@ -42,8 +39,6 @@ class CompanyBranchController extends Controller
                 ->orWhere('branch_manager', 'LIKE', "%$keyword%")
                 ->orWhere('currency', 'LIKE', "%$keyword%")
                 ->orWhere('status', 'LIKE', "%$keyword%")
-                ->orWhere('amend_by', 'LIKE', "%$keyword%")
-                ->orWhere('amend_date', 'LIKE', "%$keyword%")
                 ->orWhere('phone', 'LIKE', "%$keyword%")
                 ->orWhere('fax', 'LIKE', "%$keyword%")
                 ->orWhere('email', 'LIKE', "%$keyword%")
@@ -87,14 +82,16 @@ class CompanyBranchController extends Controller
      * @param \Illuminate\Http\Request $request
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
     {
         $this->validate($request, [
-			'short_desc' => 'required'
-		]);
+            'short_desc' => 'required'
+        ]);
         $requestData = $request->all();
-        
+        $requestData['amend_by'] = Auth::user()->id;
+
         CompanyBranch::create($requestData);
 
         session()->flash('success', trans('organization::app.company-branch.add-success', ['name' => 'CompanyBranch']));
@@ -105,7 +102,7 @@ class CompanyBranchController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      *
      * @return \Illuminate\View\View
      */
@@ -119,7 +116,7 @@ class CompanyBranchController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      *
      * @return \Illuminate\View\View
      */
@@ -128,24 +125,27 @@ class CompanyBranchController extends Controller
         $companybranch = CompanyBranch::findOrFail($id);
         $company = Company::all('company_id', 'description');
 
-        return view($this->_config['view'], compact(['companybranch', 'company']));
+        return view($this->_config['view'], compact('companybranch', 'company'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param  int  $id
+     * @param int $id
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-			'short_desc' => 'required'
-		]);
+            'short_desc' => 'required'
+        ]);
         $requestData = $request->all();
-        
+        $requestData['amend_by'] = Auth::user()->id;
+
+
         $companybranch = CompanyBranch::findOrFail($id);
         $companybranch->update($requestData);
 
@@ -157,7 +157,7 @@ class CompanyBranchController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
@@ -165,14 +165,11 @@ class CompanyBranchController extends Controller
     {
         $companybranch = CompanyBranch::findOrFail($id);
 
-        if ($companybranch->delete())
-        {
+        if ($companybranch->delete()) {
             session()->flash('success', trans('organization::app.company-branch.delete-success', ['name' => 'CompanyBranch']));
 
             return redirect()->route($this->_config['redirect']);
-        }
-        else
-        {
+        } else {
             session()->flash('warning', trans('organization::app.company-branch.delete-failure'));
 
             return redirect()->route($this->_config['redirect']);
