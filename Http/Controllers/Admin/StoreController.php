@@ -47,8 +47,6 @@ class StoreController extends Controller
                 ->orWhere('begin_bal_debit', 'LIKE', "%$keyword%")
                 ->orWhere('curr_bal_credit', 'LIKE', "%$keyword%")
                 ->orWhere('curr_bal_debit', 'LIKE', "%$keyword%")
-                ->orWhere('amend_by', 'LIKE', "%$keyword%")
-                ->orWhere('amend_date', 'LIKE', "%$keyword%")
                 ->orWhere('last_trns_date', 'LIKE', "%$keyword%")
                 ->orWhere('dept_code', 'LIKE', "%$keyword%")
                 ->orWhere('sub_store_mandatory', 'LIKE', "%$keyword%")
@@ -97,6 +95,7 @@ class StoreController extends Controller
     public function store(StoreRequest $request)
     {
         $requestData = $request->all();
+        $requestData['amend_by'] = auth('admin')->user()->id;
 
         Store::create($requestData);
 
@@ -148,6 +147,7 @@ class StoreController extends Controller
     public function update(Request $request, $id)
     {
         $requestData = $request->all();
+        $requestData['amend_by'] = auth('admin')->user()->id;
 
         $store = Store::findOrFail($id);
         $store->update($requestData);

@@ -47,8 +47,6 @@ class GroupController extends Controller
                 ->orWhere('group_desc', 'LIKE', "%$keyword%")
                 ->orWhere('account_code', 'LIKE', "%$keyword%")
                 ->orWhere('status', 'LIKE', "%$keyword%")
-                ->orWhere('amend_by', 'LIKE', "%$keyword%")
-                ->orWhere('amend_date', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
             $group = Group::latest()->paginate($perPage);
@@ -88,6 +86,7 @@ class GroupController extends Controller
             'group_desc' => 'required'
         ]);
         $requestData = $request->all();
+        $requestData['amend_by'] = auth('admin')->user()->id;
 
         Group::create($requestData);
 
@@ -142,6 +141,7 @@ class GroupController extends Controller
             'group_desc' => 'required'
         ]);
         $requestData = $request->all();
+        $requestData['amend_by'] = auth('admin')->user()->id;
 
         $group = Group::findOrFail($id);
         $group->update($requestData);

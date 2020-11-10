@@ -69,8 +69,6 @@ class SubCompanyController extends Controller
                 ->orWhere('stor_code_len', 'LIKE', "%$keyword%")
                 ->orWhere('srep_code_len', 'LIKE', "%$keyword%")
                 ->orWhere('expe_code_len', 'LIKE', "%$keyword%")
-                ->orWhere('amend_by', 'LIKE', "%$keyword%")
-                ->orWhere('amend_date', 'LIKE', "%$keyword%")
                 ->orWhere('web', 'LIKE', "%$keyword%")
                 ->orWhere('asset_code_len', 'LIKE', "%$keyword%")
                 ->orWhere('locat_code_len', 'LIKE', "%$keyword%")
@@ -121,7 +119,7 @@ class SubCompanyController extends Controller
             ->where('status', 1)
             ->get(['company_id', 'description']);
 
-        return view($this->_config['view'], compact(['company', 'companys']));
+        return view($this->_config['view'], compact('company', 'companys'));
     }
 
     /**
@@ -135,8 +133,9 @@ class SubCompanyController extends Controller
     public function update(Request $request, $id)
     {
         $input = $request->all();
+        $input['amend_by'] = auth('admin')->user()->id;
+
         $input['status'] = 2;
-//return $input;
         $company = Company::findOrFail($id);
         $company->update($input);
 

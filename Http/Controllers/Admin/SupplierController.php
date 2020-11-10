@@ -55,8 +55,6 @@ class SupplierController extends Controller
                 ->orWhere('begin_bal_debit', 'LIKE', "%$keyword%")
                 ->orWhere('curr_bal_credit', 'LIKE', "%$keyword%")
                 ->orWhere('curr_bal_debit', 'LIKE', "%$keyword%")
-                ->orWhere('amend_by', 'LIKE', "%$keyword%")
-                ->orWhere('amend_date', 'LIKE', "%$keyword%")
                 ->orWhere('account_code', 'LIKE', "%$keyword%")
                 ->orWhere('last_trns_date', 'LIKE', "%$keyword%")
                 ->orWhere('last_trns_value', 'LIKE', "%$keyword%")
@@ -111,6 +109,8 @@ class SupplierController extends Controller
     {
         $requestData = $request->all();
         $requestData['company_id'] = session('company_id');
+        $requestData['amend_by'] = auth('admin')->user()->id;
+
         Supplier::create($requestData);
 
         session()->flash('success', trans('organization::app.supplier.add-success', ['name' => 'Supplier']));
@@ -182,6 +182,7 @@ class SupplierController extends Controller
         $requestData['company_id'] = session('company_id');
 
         $supplier = Supplier::findOrFail($id);
+        $requestData['amend_by'] = auth('admin')->user()->id;
         $supplier->update($requestData);
 
         session()->flash('success', trans('organization::app.supplier.update-success', ['name' => 'Supplier']));

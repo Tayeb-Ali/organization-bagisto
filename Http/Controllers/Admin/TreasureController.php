@@ -50,8 +50,6 @@ class TreasureController extends Controller
                 ->orWhere('begin_bal_debit', 'LIKE', "%$keyword%")
                 ->orWhere('curr_bal_credit', 'LIKE', "%$keyword%")
                 ->orWhere('curr_bal_debit', 'LIKE', "%$keyword%")
-                ->orWhere('amend_by', 'LIKE', "%$keyword%")
-                ->orWhere('amend_date', 'LIKE', "%$keyword%")
                 ->orWhere('last_trns_date', 'LIKE', "%$keyword%")
                 ->orWhere('last_trns_value', 'LIKE', "%$keyword%")
                 ->orWhere('last_trns_type', 'LIKE', "%$keyword%")
@@ -98,6 +96,7 @@ class TreasureController extends Controller
     public function store(Request $request)
     {
         $requestData = $request->all();
+        $requestData['amend_by'] = auth('admin')->user()->id;
 
         Treasure::create($requestData);
 
@@ -150,6 +149,7 @@ class TreasureController extends Controller
     public function update(Request $request, $id)
     {
         $requestData = $request->all();
+        $requestData['amend_by'] = auth('admin')->user()->id;
 
         $treasure = Treasure::findOrFail($id);
         $treasure->update($requestData);
