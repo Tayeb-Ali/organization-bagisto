@@ -12,21 +12,8 @@
         {{ session('company_id') }}
         {{ session('company_name') }}
     </p>
-    <form method="POST" action="{{ route('admin.company.select-company') }}">
+    <form method="POST" action="{{ route('admin.organization.select-company') }}">
         @csrf()
-
-        <div class="page-header">
-            {{--            <div class="page-title">--}}
-            {{--                <h1>--}}
-            {{--                    <i class="icon angle-left-icon back-link" onclick="history.length > 1 ? history.go(-1) : window.location = '{{ route('admin.dashboard.index') }}';"></i>--}}
-
-            {{--                    {{ __('organization::app.company.select-title') }}--}}
-            {{--                </h1>--}}
-            {{--            </div>--}}
-
-
-        </div>
-
 
         @if ($errors->any())
             <ul class="alert alert-danger">

@@ -3,8 +3,7 @@
 namespace DOCore\Organization\Http\Controllers\Admin;
 
 use DOCore\Organization\Models\Company;
-use Webkul\User\Models\Admin;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class OrganizationController extends Controller
 {
