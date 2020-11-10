@@ -90,7 +90,7 @@ class CompanyBranchController extends Controller
             'short_desc' => 'required'
         ]);
         $requestData = $request->all();
-        $requestData['amend_by'] = Auth::user()->id;
+        $requestData['amend_by'] = auth('admin')->user()->id;
 
         CompanyBranch::create($requestData);
 
@@ -143,7 +143,7 @@ class CompanyBranchController extends Controller
             'short_desc' => 'required'
         ]);
         $requestData = $request->all();
-        $requestData['amend_by'] = Auth::user()->id;
+        $requestData['amend_by'] = auth('admin')->user()->id;
 
 
         $companybranch = CompanyBranch::findOrFail($id);

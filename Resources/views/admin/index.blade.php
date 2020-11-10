@@ -12,6 +12,9 @@
         {{ session('company_id') }}
         {{ session('company_name') }}
     </p>
+    <p> authId:
+        {{auth('admin')->user()->name}}
+    </p>
     <form method="POST" action="{{ route('admin.organization.select-company') }}">
         @csrf()
 

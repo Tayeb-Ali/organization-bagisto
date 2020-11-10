@@ -21,12 +21,6 @@ Route::group(['middleware' => ['web', 'admin']], function () {
     });
 });
 
-//
-//Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'middleware' => ['web', 'admin']], function () {
-//    Route::prefix('admin/organization/company')->group(function () {
-//
-//    });
-//});
 //Company
 Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'middleware' => ['web', 'admin']], function () {
     Route::prefix('admin/organization/company')->group(function () {

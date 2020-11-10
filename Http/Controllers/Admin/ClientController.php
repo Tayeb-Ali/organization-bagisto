@@ -112,7 +112,7 @@ class ClientController extends Controller
     {
         $requestData = $request->all();
         $requestData['company_id'] = session('company_id');
-        $requestData['amend_by'] = Auth::user()->id;
+        $requestData['amend_by'] = auth('admin')->user()->id;
 
         Client::create($requestData);
 
@@ -182,7 +182,7 @@ class ClientController extends Controller
     {
         $requestData = $request->all();
         $requestData['company_id'] = session('company_id');
-        $requestData['amend_by'] = Auth::user()->id;
+        $requestData['amend_by'] = auth('admin')->user()->id;
 
         $client = Client::findOrFail($id);
         $client->update($requestData);

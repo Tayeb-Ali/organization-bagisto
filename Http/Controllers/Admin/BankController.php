@@ -100,7 +100,7 @@ class BankController extends Controller
     {
         $requestData = $request->all();
         $requestData['company_id'] = session('company_id');
-        $requestData['amend_by'] = Auth::user()->id;
+        $requestData['amend_by'] = auth('admin')->user()->id;
         Bank::create($requestData);
 
         session()->flash('success', trans('organization::app.bank.add-success', ['name' => 'Bank']));
@@ -152,7 +152,7 @@ class BankController extends Controller
     {
         $requestData = $request->all();
         $requestData['company_id'] = session('company_id');
-        $requestData['amend_by'] = Auth::user()->id;
+        $requestData['amend_by'] = auth('admin')->user()->id;
 
         $bank = Bank::findOrFail($id);
         $bank->update($requestData);

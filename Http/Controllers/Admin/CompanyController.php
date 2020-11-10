@@ -78,7 +78,7 @@ class CompanyController extends Controller
     public function store(CompanyRequest $request)
     {
         $requestData = $request->all();
-        $requestData['amend_by'] = Auth::user()->id;
+        $requestData['amend_by'] = auth('admin')->user()->id;
 
         if ($request->has_sub_company) {
             if ($request->company_parent_id) {
@@ -143,7 +143,7 @@ class CompanyController extends Controller
     public function update(CompanyRequest $request, $id)
     {
         $requestData = $request->all();
-        $requestData['amend_by'] = Auth::user()->id;
+        $requestData['amend_by'] = auth('admin')->user()->id;
 
         if ($request->has_sub_company && $request->company_parent_id) {
             session()->flash('warning', trans('organization::app.company.delete-error1', ['name' => 'Company']));
