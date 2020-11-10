@@ -44,23 +44,37 @@
 
         </div>
         <div class="row">
-            <div class="control-group col col-6 {{ $errors->has('company_id') ? 'has-error' : ''}}">
-                <label for="company_parent_id"
-                       class="required">{{ __('organization::app.company.sub-company.company_parent_id') }}</label>
+            @if(session('company_id'))
+                <div class="control-group col col-6 {{ $errors->has('company_id') ? 'has-error' : ''}}">
+                    <label for="company_parent_id"
+                           class="required">{{ __('organization::app.company.sub-company.company_parent_id') }}</label>
 
-                <select id="company_parent_id" name="company_parent_id" class="form-control control"
-                        data-role="control">
-                    @foreach($subCompany as $item)
+                    <select id="company_parent_id" name="company_parent_id" class="form-control control"
+                            data-role="control">
                         <option
-                                value="{{ $item->company_id }}" {{$company->company_parent_id == $item->company_id ? 'selected' : '' }}>{{ $item->description }}</option>
-                    @endforeach
-                    <option value="{{null}}" {{$company->company_parent_id == null ? 'selected' : '' }}>
-                        Non
-                    </option>
-                </select>
-                {!! $errors->first('company_parent_id', '<span class="control-error">:message</span>') !!}
-            </div>
+                                value="{{ session('company_id')}}">{{ session('description') }}</option>
+                    </select>
+                    {!! $errors->first('company_parent_id', '<span class="control-error">:message</span>') !!}
+                </div>
 
+            @else
+                <div class="control-group col col-6 {{ $errors->has('company_id') ? 'has-error' : ''}}">
+                    <label for="company_parent_id"
+                           class="required">{{ __('organization::app.company.sub-company.company_parent_id') }}</label>
+
+                    <select id="company_parent_id" name="company_parent_id" class="form-control control"
+                            data-role="control">
+                        @foreach($subCompany as $item)
+                            <option
+                                    value="{{ $item->company_id }}" {{$company->company_parent_id == $item->company_id ? 'selected' : '' }}>{{ $item->description }}</option>
+                        @endforeach
+                        <option value="{{null}}" {{$company->company_parent_id == null ? 'selected' : '' }}>
+                            Non
+                        </option>
+                    </select>
+                    {!! $errors->first('company_parent_id', '<span class="control-error">:message</span>') !!}
+                </div>
+            @endif
 
             <div class="control-group col col-6 {{ $errors->has('has_sub_company') ? 'has-error' : ''}}">
                 <label for="has_sub_company"

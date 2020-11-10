@@ -31,17 +31,33 @@ Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'midd
         Route::get('/edit/{id}', 'CompanyController@edit')->defaults('_config', ['view' => 'organization::admin.company.edit'])->name('admin.company.edit');
         Route::post('/edit/{id}', 'CompanyController@update')->defaults('_config', ['redirect' => 'admin.company.index'])->name('admin.company.update');
         Route::delete('/delete/{id}', 'CompanyController@delete')->defaults('_config', ['redirect' => 'admin.company.index'])->name('admin.company.delete');
+        Route::post('/sub', 'CompanyController@createSub')->defaults('_config', ['redirect' => 'admin.company.index'])->name('admin.company.sub');
     });
 
-//sup-Company
-    Route::prefix('admin/organization/company')->group(function () {
-        Route::get('/sub/', 'SubCompanyController@index')->defaults('_config',
-            ['view' => 'organization::admin.sub-company.inde`x'])->name('admin.sub_company.index');
-        Route::get('/sub/edit/{id}', 'SubCompanyController@edit')->defaults('_config',
-            ['view' => 'organization::admin.sub-company.add'])->name('admin.sub_company.edit');
-        Route::post('sub/edit/{id}', 'SubCompanyController@update')->defaults('_config', ['redirect' => 'admin.sub_company.index'])->name('admin.sub_company.update');
-        Route::delete('sub/delete/{id}', 'SubCompanyController@delete')->defaults('_config', ['redirect' => 'admin.sub_company.index'])->name('admin.sub_company.delete');
+////sup-Company
+//    Route::prefix('admin/organization/company')->group(function () {
+//        Route::get('/sub/', 'SubCompanyController@index')->defaults('_config',
+//            ['view' => 'organization::admin.sub-company.index'])->name('admin.sub_company.index');
+//        Route::get('/sub/edit/{id}', 'SubCompanyController@edit')->defaults('_config',
+//            ['view' => 'organization::admin.sub-company.add'])->name('admin.sub_company.edit');
+//        Route::post('sub/edit/{id}', 'SubCompanyController@update')->defaults('_config', ['redirect' => 'admin.sub_company.index'])->name('admin.sub_company.update');
+//        Route::delete('sub/delete/{id}', 'SubCompanyController@delete')->defaults('_config', ['redirect' => 'admin.sub_company.index'])->name('admin.sub_company.delete');
+//    });
+});
+
+Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'middleware' => ['web', 'admin']], function () {
+    Route::prefix('admin/organization/sub-company')->group(function () {
+        Route::get('/', 'SubCompanyController@index')->defaults('_config', ['view' => 'organization::admin.sub-company.index'])->name('admin.sub-company.index');
+        Route::get('/show/{id}', 'SubCompanyController@show')->defaults('_config', ['view' => 'organization::admin.sub-company.show'])->name('admin.sub-company.show');
+        Route::get('/create', 'SubCompanyController@create')->defaults('_config', ['view' => 'organization::admin.sub-company.create'])->name('admin.sub-company.create');
+        Route::post('/create', 'SubCompanyController@store')->defaults('_config', ['redirect' => 'admin.sub-company.index'])->name('admin.sub-company.store');
+        Route::get('/edit/{id}', 'SubCompanyController@edit')->defaults('_config', ['view' => 'organization::admin.sub-company.edit'])->name('admin.sub-company.edit');
+        Route::post('/edit/{id}', 'SubCompanyController@update')->defaults('_config', ['redirect' => 'admin.sub-company.index'])->name('admin.sub-company.update');
+        Route::delete('/delete/{id}', 'SubCompanyController@delete')->defaults('_config', ['redirect' => 'admin.sub-company.index'])->name('admin.sub-company.delete');
+        Route::get('/sub/{id}', 'SubCompanyController@createSub')
+            ->defaults('_config', ['redirect' => 'admin.sub-company.index'])->name('admin.sub-company.sub');
     });
+
 });
 //CompanyBranch
 Route::group(['namespace' => 'DOCore\Organization\Http\Controllers\Admin', 'middleware' => ['web', 'admin', 'company']], function () {

@@ -194,5 +194,13 @@ class CompanyController extends Controller
         }
     }
 
+    public function createSub(Request $request, $id)
+    {
+        session()->flash('company_id', $request->company_id);
+        session()->flash('description', $request->description);
+        return redirect()->route('admin.company.create');
+
+    }
+
 
 }

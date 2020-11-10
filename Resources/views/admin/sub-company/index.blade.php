@@ -13,7 +13,7 @@
                 <h1>{{ __('organization::app.company.title') }}</h1>
             </div>
             <div class="page-action">
-                <a href="{{ route('admin.company.create') }}" class="btn btn-lg btn-primary" title="Add New Company">
+                <a href="{{ route('admin.sub-company.create') }}" class="btn btn-lg btn-primary" title="Add New Company">
                     {{ __('organization::app.company.add-title') }}
                 </a>
             </div>
@@ -26,7 +26,7 @@
                     <div class="filter-row-one" id="datagrid-filters">
 
                         <div class="search-filter">
-                            <form method="GET" action="{{ route('admin.company.index') }}" accept-charset="UTF-8"
+                            <form method="GET" action="{{ route('admin.sub-company.index') }}" accept-charset="UTF-8"
                                   class="" style="display: contents;" role="search">
                                 <input type="search" id="search-field" name="search" class="control"
                                        placeholder="{{ __('ui::app.datagrid.search') }}"/>

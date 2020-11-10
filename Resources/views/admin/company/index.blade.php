@@ -84,6 +84,19 @@
                                 <td>{{ $item->status }}</td>
                                 <td class="actions" style="white-space: nowrap; width: 100px;">
                                     <div class="action">
+
+                                        <form method="POST"
+                                              action="{{ route('admin.company.sub') }}"
+                                              accept-charset="UTF-8" style="display:inline">
+                                            {{ csrf_field() }}
+                                            <input name="description" value="{{$item->description}}" hidden>
+                                            <input name="company_id" value="{{$item->company_id}}" hidden>
+                                            <button type="submit" style="border: none; background-color: inherit;"
+                                                    title="Delete Company">
+                                                <span class="icon account-icon"></span>
+                                            </button>
+                                        </form>
+
                                         <a href="{{ route('admin.company.show', $item->company_id) }}"
                                            title="View Company">
                                             <button style="border: none; background-color: inherit;"><span

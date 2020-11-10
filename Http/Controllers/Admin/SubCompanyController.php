@@ -105,6 +105,21 @@ class SubCompanyController extends Controller
         return view($this->_config['view'], compact('company'));
     }
 
+
+    public function create(Request $request)
+    {
+        $companys = Company::where('has_sub_company', 0)
+            ->where('status', 1)
+            ->get(['company_id', 'description']);
+
+        return view($this->_config['view'], compact('companys'));
+    }
+
+    public function store(Request $request)
+    {
+
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
